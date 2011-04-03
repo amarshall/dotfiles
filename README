@@ -5,4 +5,5 @@ Inspired by Ryan Bates <https://github.com/ryanb/dotfiles>
 INSTALLATION:
 - Symlink `~/.bashrc` and `~/.bash_profle` to the `bashrc` file
   contained in this directory.
-- Symlink `~/bash` to the bash directory within this directory
+- Symlink all other root level contents to an identically named symlink
+  in your home directory.
