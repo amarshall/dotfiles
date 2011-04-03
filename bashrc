@@ -1,5 +1,3 @@
-# Inspired by <https://github.com/ryanb/dotfiles>
-
 source ~/.bash/aliases
 source ~/.bash/completions
 source ~/.bash/paths
