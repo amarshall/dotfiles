@@ -1,0 +1,8 @@
+Created by Andrew Marshall <http://johnandrewmarshall.com/>
+Resides on GitHub <https://github.com/amarshall/dotfiles>
+Inspired by Ryan Bates <https://github.com/ryanb/dotfiles>
+
+INSTALLATION:
+- Symlink `~/.bashrc` and `~/.bash_profle` to the `bashrc` file
+  contained in this directory.
+- Symlink `~/bash` to the bash directory within this directory

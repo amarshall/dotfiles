@@ -1,0 +1,72 @@
+export EDITOR=vim
+
+export HISTCONTROL=erasedups  # Removes duplicate entires
+shopt -s histappend  # Ensures all history is saved
+
+# Gets the current directory's git branch
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1]/"
+}
+
+# Shortens the current path intelligently
+# Adapted from <http://hbfs.wordpress.com/2009/09/01/short-pwd-in-bash-prompts/>
+# @param The path to shorten
+# @param The maximum length
+function shorten_path {
+  x=${1}
+  len=${#x}
+  max_len=$2
+
+  if [ $len -gt $max_len ]; then
+    # Finds all the '/' in the path and stores their positions
+    pos=()
+    for ((i = 0; i < len; i++)); do
+      if [ "${x:i:1}" == "/" ]; then
+        pos=(${pos[@]} $i)
+      fi
+    done
+    pos=(${pos[@]} $len)
+
+    # We have the '/'s, let's find the left-most that doesn't break the
+    # length limit
+    i=0
+    while [ $((len - pos[i])) -gt $((max_len - 3)) ]; do
+      i=$((i + 1))
+    done
+
+    # Let us check if it's OK to print the whole thing
+    if [ ${pos[i]} == 0 ]; then
+      # The path is shorter than the maximum allowed length, so no need
+      # for ellipsis
+      echo ${x}
+    elif [ ${pos[i]} == $len ]; then
+      # Constraints are broken: the maximum allowed size is smaller
+      # than the last part of the path, plus an ellipsis
+      if [ "${x:0:1}" == "~" ]; then
+        echo "~"/…${x:((len-max_len+3))}
+      else
+        echo /…${x:((len-max_len+3))}
+      fi
+    else
+      # Constraints are satisfied: at least some parts of the path,
+      # plus an ellipsis, are shorter than the maximum allowed size
+      if [ "${x:0:1}" == "~" ]; then
+        echo "~"/…${x:pos[i]}
+      else
+        echo /…${x:pos[i]}
+      fi
+    fi
+  else
+    echo ${x}
+  fi
+}
+
+# Colors
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# Prompt
+export PS1='\[\e[01;36m\]\u@\h\[\e[00m\]:\[\e[01;34m\]$(shorten_path "\w" 40)\[\e[0;33m\]$(parse_git_branch)\[\e[00m\]\$ '
+
+# For RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
