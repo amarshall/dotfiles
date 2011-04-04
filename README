@@ -3,7 +3,5 @@ Resides on GitHub <https://github.com/amarshall/dotfiles>
 Inspired by Ryan Bates <https://github.com/ryanb/dotfiles>
 
 INSTALLATION:
-- Symlink `~/.bashrc` and `~/.bash_profle` to the `bashrc` file
-  contained in this directory.
-- Symlink all other root level contents to an identically named symlink
-  in your home directory.
+- Symlink all root level contents to an identically-named symlink,
+  preceded with a dot (`.`), in your home directory.
