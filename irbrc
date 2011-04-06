@@ -7,7 +7,7 @@ IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:PROMPT_MODE] = :SIMPLE  # Simplifies prompt to ">>"
 
 # Print RVM's current Ruby & Gemset
-puts "RVM using " << `rvm current`.chomp unless `which rvm` == ""
+puts "\e[35mRVM using #{`rvm current`.chomp}\e[0m" unless `which rvm` == ""
 
 # Load Rubygems
 begin
@@ -83,7 +83,10 @@ rescue LoadError => err
   irbrc_unavailable << "Looksee"
 end
 
-warn "#{irbrc_unavailable.join(', ')} unavailable" if irbrc_unavailable.length > 0
+if irbrc_unavailable.length > 0
+  # Warn about gems that couldn't be loaded
+  warn "\e[33m#{irbrc_unavailable.join(', ')} unavailable\e[0m"
+end
 
 class Object
   # List methods which aren't in superclass
