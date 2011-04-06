@@ -1,5 +1,6 @@
 require 'irb/completion'
 require 'irb/ext/save-history' unless IRB.version.include? "DietRB"
+                               # Don't load if using MacRuby
 
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 IRB.conf[:SAVE_HISTORY] = 1000
@@ -14,11 +15,46 @@ begin
 rescue LoadError => err
 end
 
+# Loads the specified gem from RVM's current @global gemset if using
+# Bundler and not included in the current Gemfile. Falls back
+# accordingly if not using Bundler or RVM.
+#
+# @note Doesn't load gems not loaded by Bundler if using Bundler and
+#   not using RVM, or if gem is located somewhere other than the
+#   @global gemset.
+# @param [String] The gem to require
+# @raise [LoadError] If the gem couldn't be loaded
+# Adapted from <https://gist.github.com/794915>
+# Forked at <https://gist.github.com/906427>
+def require_global_gem_without_bundler(gem)
+  if defined? ::Bundler
+    # Check if the gem has already been loaded by Bundler
+    unless Bundler.require.map { |i| i.name }.include? gem
+      if global_gem_dir = $LOAD_PATH.grep(/@global.*?lib/).first
+        global_gem_dir = global_gem_dir.gsub %r{@global/gems/.*$}, '@global/gems'
+        Dir["#{global_gem_dir}/*"].to_a.each do |gem_path|
+          if File.basename(gem_path).gsub(/-(\d\.?)+$/, '') == gem
+            $LOAD_PATH << "#{gem_path}/lib"
+            require gem
+            return
+          end
+        end
+      end
+      # Either RVM's @global gemset isn't available, or the gem isn't
+      #   installed in it, either way, gem wasn't be loaded.
+      raise LoadError
+    end
+  else
+    # Bundler isn't being used, load gem normally
+    require gem
+  end
+end
+
 irbrc_unavailable = []
 
 # Load Wirble
 begin
-  require 'wirble'
+  require_global_gem_without_bundler 'wirble'
   Wirble.init
   Wirble.colorize
 rescue LoadError => err
@@ -27,7 +63,7 @@ end
 
 # Load Hirb
 begin
-  require 'hirb'
+  require_global_gem_without_bundler 'hirb'
   Hirb.enable
 rescue LoadError => err
   irbrc_unavailable << "Hirb"
@@ -35,14 +71,14 @@ end
 
 # Load Awesome Print
 begin
-  require 'ap'
+  require_global_gem_without_bundler 'awesome_print'
 rescue LoadError => err
   irbrc_unavailable << "Awesome Print"
 end
 
 # Load Looksee
 begin
-  require 'looksee'
+  require_global_gem_without_bundler 'looksee'
 rescue LoadError => err
   irbrc_unavailable << "Looksee"
 end
