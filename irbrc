@@ -3,7 +3,7 @@ require 'irb/ext/save-history' unless IRB.version.include? "DietRB"
 
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:PROMPT_MODE] = :SIMPLE
+IRB.conf[:PROMPT_MODE] = :SIMPLE  # Simplifies prompt to ">>"
 
 # Print RVM's current Ruby & Gemset
 puts "RVM using " << `rvm current`.chomp unless `which rvm` == ""
@@ -31,6 +31,13 @@ begin
   Hirb.enable
 rescue LoadError => err
   irbrc_unavailable << "Hirb"
+end
+
+# Load Awesome Print
+begin
+  require 'ap'
+rescue LoadError => err
+  irbrc_unavailable << "Awesome Print"
 end
 
 # Load Looksee
