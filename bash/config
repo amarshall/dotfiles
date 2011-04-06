@@ -2,6 +2,7 @@ export EDITOR=vim
 
 export HISTCONTROL=erasedups  # Removes duplicate entires
 shopt -s histappend  # Ensures all history is saved
+shopt -s checkwinsize  # Ensures the terminal knows about window size changes
 
 # Gets the current directory's git branch
 function parse_git_branch {
@@ -64,6 +65,9 @@ function shorten_path {
 # Colors
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+# If output gets paged, repaint the screen. This solves color codes
+#   being displayed in the rails console
+export LESS="-R"
 
 # Prompt
 export PS1='\[\e[01;36m\]\u@\h\[\e[00m\]:\[\e[01;34m\]$(shorten_path "\w" 40)\[\e[0;33m\]$(parse_git_branch)\[\e[00m\]\$ '
