@@ -1,7 +1,35 @@
-Created by Andrew Marshall <http://johnandrewmarshall.com/>  
-Resides on GitHub <https://github.com/amarshall/dotfiles>  
-Inspired by Ryan Bates <https://github.com/ryanb/dotfiles>  
+# Dot Files
+Collection of terminal configuration files that (attempt to) make daily
+use of the terminal easier and faster.
 
-## INSTALLATION ##
-- Symlink all root level contents to an identically-named symlink,
-  preceded with a dot (`.`), in your home directory.
+## Installation ##
+Symlink all root level contents to an identically-named symlink,
+preceded with a dot (`.`), in your home directory.
+
+## Environment ##
+Currently targets Mac OS X only, specifically bash, with Homebrew &
+RVM. Linux compatibility (also using bash) is in progress, as that's
+what my servers run.
+
+## Notable features ##
+### Bash ###
+- Intelligent shortening of the current working directory in the prompt
+  to prevent the prompt from becoming awkwardly long.
+- `extract` command to uncompress most common formats
+- `play` command as a quick shortcut for Emacs games
+- `pman` & `tman` commands to open a man page in Preview or Textmate,
+  respectively.
+
+### IRB & Rails ###
+- Loads IRB gems (e.g. [Wirble](http://pablotron.org/software/wirble/),
+  [Hirb](http://tagaholic.me/2009/03/13/hirb-irb-on-the-good-stuff.html),
+  etc.) in the Rails console if they are included in RVM's "global"
+  gemset, even if they aren't listed in the current app's Gemfile.
+
+## Credits ##
+Original inspiration from [Ryan Bates](https://github.com/ryanb/dotfiles).
+
+Various parts inspired by or adapted from
+[Brian Racer](https://github.com/anveo/dotfiles) &
+[Todd Werth](https://github.com/twerth/dotfiles).
+Other credits not listed here may be noted in comments.
