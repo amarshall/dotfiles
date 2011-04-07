@@ -1,6 +1,7 @@
 export EDITOR=vim
 
 export HISTCONTROL=erasedups  # Removes duplicate entires
+export HISTSIZE=10000  # Increase command history
 shopt -s histappend  # Ensures all history is saved
 shopt -s checkwinsize  # Ensures the terminal knows about window size changes
 
