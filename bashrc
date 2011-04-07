@@ -1,8 +1,10 @@
 source ~/.bash/constants
 source ~/.bash/paths
 source ~/.bash/aliases
-source ~/.bash/config
-source ~/.bash/completions
+if $IS_INTERACTIVE ; then
+  source ~/.bash/config
+  source ~/.bash/completions
+fi
 
 # use .bashrc_local for settings specific to one system
 if [ -f ~/.bashrc_local ]; then
