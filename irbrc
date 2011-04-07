@@ -12,7 +12,7 @@ puts "\e[35mRVM using #{`rvm current`.chomp}\e[0m" unless `which rvm` == ""
 # Load Rubygems
 begin
   require 'rubygems'
-rescue LoadError => err
+rescue LoadError
 end
 
 # Loads the specified gem from RVM's current @global gemset if using
@@ -58,7 +58,7 @@ begin
   Wirble.init
   Wirble.colorize
 rescue LoadError => err
-  irbrc_unavailable << "Wirble"
+  irbrc_unavailable << "wirble"
 end
 
 # Load Hirb
@@ -66,25 +66,20 @@ begin
   require_global_gem_without_bundler 'hirb'
   Hirb.enable
 rescue LoadError => err
-  irbrc_unavailable << "Hirb"
+  irbrc_unavailable << "hirb"
 end
 
-# Load Awesome Print
-begin
-  require_global_gem_without_bundler 'awesome_print'
-rescue LoadError => err
-  irbrc_unavailable << "Awesome Print"
+# Load gems that don't require initialization
+%w{awesome_print looksee}.each do |gem|
+  begin
+    require_global_gem_without_bundler gem
+  rescue LoadError => err
+    irbrc_unavailable << gem
+  end
 end
 
-# Load Looksee
-begin
-  require_global_gem_without_bundler 'looksee'
-rescue LoadError => err
-  irbrc_unavailable << "Looksee"
-end
-
+# Warn about gems that couldn't be loaded
 if irbrc_unavailable.length > 0
-  # Warn about gems that couldn't be loaded
   warn "\e[33m#{irbrc_unavailable.join(', ')} unavailable\e[0m"
 end
 
@@ -118,4 +113,5 @@ def paste
   `pbpaste`
 end
 
+# Load railsrc if in Rails console
 load File.dirname(__FILE__) + '/.railsrc' if ($0 == 'irb' && ENV['RAILS_ENV']) || ($0 == 'script/rails' && Rails.env)
