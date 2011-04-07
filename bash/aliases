@@ -28,3 +28,16 @@ function extract {
     echo "'$1' is not a valid file."
   fi
 }
+
+# Opens a man page in Preview.app
+# @param The name of the command to open the man page for
+function pman {
+  # Convert to PDF first so Preview doesn't prompt to save on quit
+  man -t $@ | ps2pdf - - | open -g -f -a /Applications/Preview.app
+}
+
+# Opens a man page in Textmate.app
+# @param The name of the command to open the man page for
+function tman {
+  MANWIDTH=160 MANPAGER='col -bx' man $@ | mate
+}
