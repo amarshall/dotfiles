@@ -82,3 +82,6 @@ if [ PLATFORM_IS_LINUX ]; then
     alias egrep='egrep --color=auto'
   fi
 fi
+
+# Load RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

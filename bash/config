@@ -72,6 +72,3 @@ export LESS="-R"
 
 # Prompt
 export PS1='\[\e[01;36m\]\u@\h\[\e[00m\]:\[\e[01;34m\]$(shorten_path "\w" 40)\[\e[0;33m\]$(parse_git_branch)\[\e[00m\]\$ '
-
-# For RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
