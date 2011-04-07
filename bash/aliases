@@ -2,6 +2,8 @@ alias gzdir='tar czf ../$(basename $(pwd)).tar.gz .'
 alias gzdirs='find . -mindepth 1 -maxdepth 1 -type d -exec tar czf {}.tar.gz {} \;'
 alias h='history | grep'
 alias netstat='lsof -i -P'
+alias ql='quicklook'
+alias quicklook='qlmanage -p &>/dev/null'
 alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 
 # Easy archive extraction
