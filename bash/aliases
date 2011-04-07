@@ -1,9 +1,6 @@
 alias gzdir='tar czf ../$(basename $(pwd)).tar.gz .'
 alias gzdirs='find . -mindepth 1 -maxdepth 1 -type d -exec tar czf {}.tar.gz {} \;'
 alias h='history | grep'
-alias netstat='lsof -i -P'
-alias ql='quicklook'
-alias quicklook='qlmanage -p &>/dev/null'
 alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 
 # Easy archive extraction
@@ -45,21 +42,43 @@ function play {
   fi
 }
 
-# Opens a man page in Preview.app
-# @param The name of the command to open the man page for
-function pman {
-  # Convert to PDF first so Preview doesn't prompt to save on quit
-  man -t $@ | ps2pdf - - | open -g -f -a /Applications/Preview.app
-}
-
-# Opens a man page in Textmate.app
-# @param The name of the command to open the man page for
-function tman {
-  MANWIDTH=160 MANPAGER='col -bx' man $@ | mate
-}
-
 # Starts a basic HTTP server in the current directory
 # @param The port to listen on. Defaults to 8080.
 function webserver {
   python -m SimpleHTTPServer ${1:-8080}
 }
+
+# Specific to "Darwin" aka Mac OS X
+if [ PLATFORM_IS_DARWIN ]; then
+  alias netstat='lsof -i -P'
+  alias ql='quicklook'
+  alias quicklook='qlmanage -p &>/dev/null'
+  
+  # Opens a man page in Preview.app
+  # @param The name of the command to open the man page for
+  function pman {
+    # Convert to PDF first so Preview doesn't prompt to save on quit
+    man -t $@ | ps2pdf - - | open -g -f -a /Applications/Preview.app
+  }
+
+  # Opens a man page in Textmate.app
+  # @param The name of the command to open the man page for
+  function tman {
+    MANWIDTH=160 MANPAGER='col -bx' man $@ | mate
+  }
+fi
+
+# Specific to Linux, specifically Ubuntu
+if [ PLATFORM_IS_LINUX ]; then
+  alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
+  # Turn on colors for various commands
+  if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+  fi
+fi
