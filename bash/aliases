@@ -29,6 +29,19 @@ function extract {
   fi
 }
 
+function play {
+  if [ "$1" == "list" ]; then
+    # TODO: Remove magic number for column padding
+    find /usr/share/emacs/22.1/lisp/play -maxdepth 1 -type f -print | xargs basename | awk -F. '/(el|elc)$/ { printf "%-10s\n", $1 }' | column
+  elif [ -f /usr/share/emacs/22.1/lisp/play/$1.elc -o -f /usr/share/emacs/22.1/lisp/play/$1.el ]; then
+    echo "Press CTRL+X then CTRL+C to quit, okay?"
+    read -s -n 1
+    emacs -q --no-splash -f $1
+  else
+    echo "Unknown game. Run \"play list\" to see a list of games."
+  fi
+}
+
 # Opens a man page in Preview.app
 # @param The name of the command to open the man page for
 function pman {
