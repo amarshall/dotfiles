@@ -11,16 +11,19 @@ named symlink, preceded with a dot (`.`), in your home directory.
 ## Environment ##
 Currently targeting primarily Mac OS X with
 [Homebrew](http://mxcl.github.com/homebrew). Running with no known
-problems on Ubuntu 10.04 Server as well. Bash-only. Likes RVM.
+problems on Ubuntu 10.04 Server as well. Bash-only. Likes
+[RVM](https://rvm.beginrescueend.com/).
 
 ## Notable features ##
 ### Bash ###
 - Intelligent shortening of the current working directory in the prompt
   to prevent the prompt from becoming awkwardly long.
-- `extract` command to uncompress most common formats
-- `play` command as a quick shortcut for Emacs games
+- `extract` command to uncompress most common formats.
+- `play` command as a quick shortcut for Emacs games (Tetris, Pong,
+  Snake, etc.).
 - `pman` & `tman` commands to open a man page in Preview or Textmate,
   respectively.
+- Prompt color changes depending on if connection is via SSH or not.
 
 ### IRB & Rails ###
 - Loads IRB gems (e.g. [Wirble](http://pablotron.org/software/wirble/),

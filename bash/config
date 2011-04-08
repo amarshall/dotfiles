@@ -2,8 +2,10 @@ export EDITOR=vim
 
 export HISTCONTROL=erasedups  # Removes duplicate entires
 export HISTSIZE=10000  # Increase command history
-shopt -s histappend  # Ensures all history is saved
 shopt -s checkwinsize  # Ensures the terminal knows about window size changes
+shopt -s cmdhist  # Stores multi-line commands in a single entry
+shopt -s histappend  # Ensures all history is saved
+shopt -s no_empty_cmd_completion  # Don't suggest commands on empty entry
 
 # Gets the current directory's git branch
 function parse_git_branch {
