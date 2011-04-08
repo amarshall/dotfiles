@@ -1,3 +1,4 @@
+alias reloadbash='source ~/.bashrc'
 alias colors='set | egrep '"'"'COLOR_\w*'"'"' | awk -F= '"'"'{ gsub("\047", ""); gsub(/\\033/, ""); print "\033" $2 $1 }'"'"'; echo -en $COLOR_NC'
 alias gzdir='tar czf ../$(basename $(pwd)).tar.gz .'
 alias gzdirs='find . -mindepth 1 -maxdepth 1 -type d -exec tar czf {}.tar.gz {} \;'
