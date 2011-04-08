@@ -35,7 +35,7 @@ function play {
   if [ "$1" == "list" ]; then
     if [ -d /usr/share/emacs/*/lisp/play ]; then
       # TODO: Remove magic number for column padding
-      find /usr/share/emacs/*/lisp/play -maxdepth 1 -type f -print | xargs basename | awk -F. '/(el|elc)$/ { printf "%-10s\n", $1 }' | column
+      find /usr/share/emacs/*/lisp/play -maxdepth 1 -type f -print0 | xargs -0 -I {} basename "{}" | sort | awk -F. '/(el|elc)$/ { printf "%-10s\n", $1 }' | column
     else
       echo "No games found :("
     fi
