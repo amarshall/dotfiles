@@ -6,6 +6,7 @@ set backspace=indent,eol,start  " Backspace over everything
 set laststatus=2  " Always display the status line
 set nowrap   " Don't wrap lines by default
 set ruler    " Show the cursor position all the time
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P  " Git branch in status line
 set showcmd  " display incomplete commands
 
 " Soft tabs, 2 spaces
