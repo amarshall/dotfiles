@@ -1,10 +1,10 @@
 # For Homebrew
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export GEM_HOME='$(brew --prefix)/Cellar/gems/1.8'
+if type -P brew &> /dev/null ; then
+  export PATH=$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH
+  export GEM_HOME='$(brew --prefix)/Cellar/gems/1.8'
+fi
 
-# For NPM
-export PATH=/usr/local/share/npm/bin:$PATH
-export NODE_PATH=/usr/local/lib/node:$NODE_PATH
-
-# For Python
-export PATH=/usr/local/Cellar/python/2.7.1/bin:$PATH
+# For "home" bin
+if [ -d ~/bin ]; then
+  export PATH=~/bin:$PATH
+fi

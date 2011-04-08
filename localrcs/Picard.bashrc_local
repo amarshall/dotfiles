@@ -1,0 +1,6 @@
+# For NPM
+export PATH=/usr/local/share/npm/bin:$PATH
+export NODE_PATH=/usr/local/lib/node:$NODE_PATH
+
+# For Python
+export PATH=/usr/local/Cellar/python/2.7.1/bin:$PATH
