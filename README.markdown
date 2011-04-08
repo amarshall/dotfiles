@@ -1,15 +1,17 @@
 # Dot Files
-Collection of terminal configuration files that (attempt to) make daily
-use of the terminal easier and faster.
+I have a love affair with my terminal. This is my collection of
+terminal configuration files that (attempt to) make daily use of the
+terminal easier, faster, and perhaps even more enjoyable. It's all
+about strengthening the bond `;)`.
 
 ## Installation ##
-Symlink all root level contents to an identically-named symlink,
-preceded with a dot (`.`), in your home directory.
+Symlink all root level contents (except `localrcs/`) to an identically-
+named symlink, preceded with a dot (`.`), in your home directory.
 
 ## Environment ##
-Currently targets Mac OS X only, specifically bash, with Homebrew &
-RVM. Linux compatibility (also using bash) is in progress, as that's
-what my servers run.
+Currently targeting primarily Mac OS X with
+[Homebrew](http://mxcl.github.com/homebrew). Running with no known
+problems on Ubuntu 10.04 Server as well. Bash-only. Likes RVM.
 
 ## Notable features ##
 ### Bash ###
