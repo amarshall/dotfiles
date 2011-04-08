@@ -7,6 +7,9 @@ alias reloadbash='source ~/.bashrc'
 alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 alias cmdstatistics="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
 
+# Alias git to hub if available
+type -P hub &> /dev/null && alias git=hub
+
 # Easy archive extraction
 # @param The filename to extract
 function extract {
