@@ -80,7 +80,7 @@ if [ PLATFORM_IS_LINUX ]; then
   alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
   # Turn on colors for various commands
   if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
+    eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'

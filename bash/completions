@@ -1,5 +1,5 @@
-if type -P brew &>/dev/null && test -f `brew --prefix`/etc/bash_completion ; then
-  . `brew --prefix`/etc/bash_completion
+if type -P brew &>/dev/null && test -f $(brew --prefix)/etc/bash_completion ; then
+  . $(brew --prefix)/etc/bash_completion
 elif [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
