@@ -1,0 +1,47 @@
+fpath=(~/.zsh/functions $fpath)
+
+autoload -U ~/.zsh/functions/*(:t)
+
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+REPORTTIME=10 # Print elapsed time when more than 10 seconds
+
+CLICOLOR=1
+LSCOLORS=ExFxCxDxBxegedabagacad
+
+setopt AUTO_CD
+setopt COMPLETE_IN_WORD
+setopt CORRECT
+setopt EXTENDED_HISTORY # Add timestamps to history
+setopt EXTENDEDGLOB
+setopt HASH_LIST_ALL
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt IGNORE_EOF
+setopt INC_APPEND_HISTORY # Adds history incrementally
+setopt LOCAL_OPTIONS # Allow functions to have local options
+setopt LOCAL_TRAPS # Allow functions to have local traps
+setopt NO_BG_NICE # Don't nice background tasks
+#setopt NO_MATCH
+setopt NOTIFY
+setopt PRINT_EXIT_VALUE
+setopt PROMPT_SUBST
+#setopt SHARE_HISTORY # Share history between sessions
+
+zle -N newtab
+
+bindkey '^[^[[D' backward-word
+bindkey '^[^[[C' forward-word
+bindkey '^[[5D' beginning-of-line
+bindkey '^[[5C' end-of-line
+bindkey '^[[3~' delete-char
+bindkey '^[^N' newtab
+bindkey '^?' backward-delete-char
+
+path_display() {
+  [[ $HOME != $(pwd) ]] && printf "%s" "%6~"
+}
+
+PROMPT='$(prompt_prefix)%{%F{cyan}%}$(path_display)%{%b%F{yellow}%}$(git_info_for_prompt)%{%F{red}%}%#%{%b%f%} '

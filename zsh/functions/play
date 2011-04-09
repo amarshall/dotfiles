@@ -1,0 +1,19 @@
+# Shortcut for playing Emacs games
+# @param The game to play, or "list" for a list of available games
+local g
+g=$1
+if [[ "$g" == "list" ]]; then
+  if [ -d /usr/share/emacs/*/lisp/play ]; then
+    # TODO: Remove magic number for column padding
+    find /usr/share/emacs/*/lisp/play -maxdepth 1 -type f -print0 | xargs -0 -I {} basename "{}" | sort | awk -F. '/(el|elc)$/ { printf "%-10s\n", $1 }' | column
+  else
+    echo "No games found :(. Try installing Emacs!"
+  fi
+elif [ -f /usr/share/emacs/*/lisp/play/$g.elc ] || [ -f /usr/share/emacs/*/lisp/play/$g.el ] ; then
+  echo -n "Press CTRL+X then CTRL+C to quit, okay?"
+  read -s -n 1
+  echo -en "\r                                       "
+  emacs -q --no-splash -f $g
+else
+  echo "Unknown game. Run \"play list\" to see a list of games."
+fi

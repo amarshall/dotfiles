@@ -12,8 +12,13 @@ directory.
 ## Environment ##
 Currently targeting primarily Mac OS X with
 [Homebrew](http://mxcl.github.com/homebrew). Running with no known
-problems on Ubuntu 10.04 Server as well. Bash-only. Likes
+problems on Ubuntu 10.04 Server as well. Likes
 [RVM](https://rvm.beginrescueend.com/).
+
+Originally Bash-only, but since have added ZSH support. Most of the
+Bash features and configuration have been ported over, though the ZSH
+prompt intentionally stands in stark contrast to the Bash prompt. That
+may be backported to the Bash configuration, though.
 
 ## Notable features ##
 ### Bash ###

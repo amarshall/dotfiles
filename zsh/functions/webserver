@@ -1,0 +1,3 @@
+# Starts a basic HTTP server in the current directory
+# @param The port to listen on. Defaults to 8080.
+python -m SimpleHTTPServer ${1:-8080}
