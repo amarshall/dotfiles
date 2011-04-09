@@ -45,8 +45,4 @@ bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
 
-path_display() {
-  [[ $HOME != $(pwd) ]] && printf "%s" "%6~"
-}
-
-PROMPT='$(prompt_prefix)%{%F{cyan}%}$(path_display)%{%b%F{yellow}%}$(git_info_for_prompt)%{%F{red}%}%#%{%b%f%} '
+promptinit

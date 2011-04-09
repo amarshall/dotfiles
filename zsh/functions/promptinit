@@ -1,0 +1,15 @@
+local c  # colon
+local h  # hostname
+local p  # path
+local u  # username
+local cdc='%{%F{cyan}%}'  # current-directory color
+local gic='%{%b%F{yellow}%}'  # git-info color
+local eac='%{%b%f%}'  # erase-all color
+local pcc='%{%F{red}%}' # prompt-character color
+local uhc='%{%F{magenta}%}'  # user-host color
+
+[[ $USERNAME != 'amarshall' ]] && u='%n'
+$IS_REMOTE && h=$h'@%m'
+([ -n "$u" ] || [ -n "$h" ]) && c=':'
+
+PROMPT=$uhc$u$h$eac$c$cdc'$(prompt_path)'$gic'$(git_info_for_prompt)'$pcc'%#'$eac' '
