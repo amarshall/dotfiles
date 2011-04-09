@@ -25,6 +25,7 @@ setopt LOCAL_OPTIONS # Allow functions to have local options
 setopt LOCAL_TRAPS # Allow functions to have local traps
 setopt NO_BG_NICE # Don't nice background tasks
 #setopt NO_MATCH
+setopt NO_HUP
 setopt NOTIFY
 setopt PRINT_EXIT_VALUE
 setopt PROMPT_SUBST
