@@ -11,6 +11,7 @@ CLICOLOR=1
 LSCOLORS=ExFxCxDxBxegedabagacad
 
 setopt AUTO_CD
+setopt AUTO_PUSHD
 setopt COMPLETE_IN_WORD
 setopt CORRECT
 setopt EXTENDED_HISTORY # Add timestamps to history
@@ -29,6 +30,9 @@ setopt NO_HUP
 setopt NOTIFY
 setopt PRINT_EXIT_VALUE
 setopt PROMPT_SUBST
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
+setopt RM_STAR_WAIT
 #setopt SHARE_HISTORY # Share history between sessions
 
 zle -N newtab
