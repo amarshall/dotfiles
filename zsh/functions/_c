@@ -1,2 +1,3 @@
 #compdef c
-_files -W ~/code -/
+dirs=(~/Code/Projects ~/Code/Classwork ~/Code/Tiny)
+_files -W dirs -/
