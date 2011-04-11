@@ -23,6 +23,9 @@ end
 # @note Doesn't load gems not loaded by Bundler if using Bundler and
 #   not using RVM, or if gem is located somewhere other than the
 #   @global gemset.
+# @note This **REQUIRES** that something Bundler is already requiring
+#   be from the @global gemset *only*, or else it won't be able to find
+#   where the @global gemset is actually located.
 # @param [String] The gem to require
 # @raise [LoadError] If the gem couldn't be loaded
 # Adapted from <https://gist.github.com/794915>
