@@ -1,4 +1,4 @@
-# Dot Files
+# Dot Files #
 I have a love affair with my terminal. This is my collection of
 terminal configuration files that (attempt to) make daily use of the
 terminal easier, faster, and perhaps even more enjoyable. It's all
@@ -21,15 +21,27 @@ prompt intentionally stands in stark contrast to the Bash prompt. That
 may be backported to the Bash configuration, though.
 
 ## Notable features ##
+There's a lot more than what is listed here, as there are too many
+small features to list. Explore the code to find everything.
+
 ### Bash ###
 - Intelligent shortening of the current working directory in the prompt
   to prevent the prompt from becoming awkwardly long.
+- Prompt color changes depending on if connection is via SSH or not.
+
+### ZSH ###
+- Minimalist prompt. Doesn't display directory if home, doesn't display
+  username if it's your own, doesn't display machine name if local
+  (since hopefully you know what machine you're on then).
+- `c` command for quick switching to code projects (in multiple
+  directories), with tab-completion.
+
+### Bash & ZSH ###
 - `extract` command to uncompress most common formats.
 - `play` command as a quick shortcut for Emacs games (Tetris, Pong,
   Snake, etc.).
 - `pman` & `tman` commands to open a man page in Preview or Textmate,
-  respectively.
-- Prompt color changes depending on if connection is via SSH or not.
+  respectively (Mac-only).
 
 ### IRB & Rails ###
 - Loads IRB gems (e.g. [Wirble](http://pablotron.org/software/wirble/),
