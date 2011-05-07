@@ -12,7 +12,7 @@ alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 #type hub &> /dev/null && alias git=hub
 
 # Specific to "Darwin" aka Mac OS X
-if [ PLATFORM_IS_DARWIN ]; then
+if $PLATFORM_IS_DARWIN; then
   alias ls='ls -G'
   alias netstat='lsof -i -P'
   alias ql='quicklook'
@@ -32,7 +32,7 @@ if [ PLATFORM_IS_DARWIN ]; then
   }
 fi
 
-if [ PLATFORM_IS_LINUX ]; then
+if $PLATFORM_IS_LINUX; then
   alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
   # Turn on colors for various commands
   if [ -x /usr/bin/dircolors ]; then

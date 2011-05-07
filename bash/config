@@ -83,7 +83,7 @@ xxc='\]'   # Color code close
 export PS1=$cxx$prompt_color$xxc'\u@\h'$cxx$COLOR_NC$xxc':'$cxx$COLOR_LIGHT_BLUE$xxc'$(shorten_path "\w" 40)'$cxx$COLOR_BROWN$xxc'$(parse_git_branch)'$cxx$COLOR_NC$xxc'\$ '
 unset cxx xxc prompt_color
 
-if [ PLATFORM_IS_LINUX ]; then
+if $PLATFORM_IS_LINUX; then
   # Make less more friendly for non-text input files, see lesspipe(1)
   [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 fi

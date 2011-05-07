@@ -61,7 +61,7 @@ function webserver {
 }
 
 # Specific to "Darwin" aka Mac OS X
-if [ PLATFORM_IS_DARWIN ]; then
+if $PLATFORM_IS_DARWIN; then
   alias netstat='lsof -i -P'
   alias ql='quicklook'
   alias quicklook='qlmanage -p &>/dev/null'
@@ -81,7 +81,7 @@ if [ PLATFORM_IS_DARWIN ]; then
 fi
 
 # Specific to Linux, specifically Ubuntu
-if [ PLATFORM_IS_LINUX ]; then
+if $PLATFORM_IS_LINUX; then
   alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
   # Turn on colors for various commands
   if [ -x /usr/bin/dircolors ]; then
