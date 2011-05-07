@@ -4,7 +4,8 @@ if type -P brew &> /dev/null ; then
   export GEM_HOME='$(brew --prefix)/Cellar/gems/1.8'
 fi
 
+# For Node/NPM
+[[ -d /usr/local/lib/node ]] && export NODE_PATH=/usr/local/lib/node
+
 # For "home" bin
-if [ -d ~/bin ]; then
-  export PATH=~/bin:$PATH
-fi
+[[ -d ~/bin ]] && export PATH=~/bin:$PATH
