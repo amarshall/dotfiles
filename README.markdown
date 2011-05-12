@@ -1,7 +1,7 @@
 # Dot Files #
 I have a love affair with my terminal. This is my collection of
 terminal configuration files that (attempt to) make daily use of the
-terminal easier, faster, and perhaps even more enjoyable. It's all
+terminal easier, faster, and perhaps even more enjoyable. It’s all
 about strengthening the bond `;)`.
 
 ## Installation ##
@@ -21,7 +21,7 @@ prompt intentionally stands in stark contrast to the Bash prompt. That
 may be backported to the Bash configuration, though.
 
 ## Notable features ##
-There's a lot more than what is listed here, as there are too many
+There’s a lot more than what is listed here, as there are too many
 small features to list. Explore the code to find everything.
 
 ### Bash ###
@@ -30,9 +30,9 @@ small features to list. Explore the code to find everything.
 - Prompt color changes depending on if connection is via SSH or not.
 
 ### ZSH ###
-- Minimalist prompt. Doesn't display directory if home, doesn't display
-  username if it's your own, doesn't display machine name if local
-  (since hopefully you know what machine you're on then).
+- Minimalist prompt. Doesn’t display directory if home, doesn’t display
+  username if it’s your own, doesn’t display machine name if local
+  (since hopefully you know what machine you’re on then).
 - `c` command for quick switching to code projects (in multiple
   directories), with tab-completion.
 
@@ -41,13 +41,13 @@ small features to list. Explore the code to find everything.
 - `play` command as a quick shortcut for Emacs games (Tetris, Pong,
   Snake, etc.).
 - `pman` & `tman` commands to open a man page in Preview or Textmate,
-  respectively (Mac-only).
+  respectively (Mac only).
 
 ### IRB & Rails ###
 - Loads IRB gems (e.g. [Wirble](http://pablotron.org/software/wirble/),
   [Hirb](http://tagaholic.me/2009/03/13/hirb-irb-on-the-good-stuff.html),
-  etc.) in the Rails console if they are included in RVM's "global"
-  gemset, even if they aren't listed in the current app's Gemfile.
+  etc.) in the Rails console if they are included in RVM’s “global”
+  gemset, even if they aren’t listed in the current app’s Gemfile.
 
 ## Credits ##
 Original inspiration from [Ryan Bates](https://github.com/ryanb/dotfiles).
