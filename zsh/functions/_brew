@@ -19,6 +19,7 @@ _1st_arguments=(
   'create:create a new formula'
   'cleanup:remove older versions of a formula'
   'deps:show dependant formulas'
+  'doctor:audits your installation for common issues'
   'edit:edit a formula'
   'home:visit the homepage of a formula or the brew project'
   'info:information about a formula'
@@ -33,6 +34,7 @@ _1st_arguments=(
   'uninstall:uninstall a formula'
   'unlink:unlink a formula'
   'update:update homebrew from github'
+  'upgrade:upgrade outdated formulae'
   'uses:show fomulae that depend on a formula'
 )
 
@@ -61,10 +63,10 @@ case "$words[1]" in
         _brew_installed_formulae
         _requested installed_formulae expl 'installed formulae' compadd -a installed_formulae
       fi ;;
-  install|home|log|info)
+  install|home|log|info|uses|cat|deps)
     _brew_all_formulae
     _wanted formulae expl 'all formulae' compadd -a formulae ;;
-  remove|edit|xo)
+  uninstall|remove|edit|xo|link|unlink)
     _brew_installed_formulae
     _wanted installed_formulae expl 'installed formulae' compadd -a installed_formulae ;;
 esac
