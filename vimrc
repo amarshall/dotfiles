@@ -2,20 +2,33 @@
 " This must be first, because it changes other options as a side effect
 set nocompatible
 
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 set backspace=indent,eol,start  " Backspace over everything
 set laststatus=2  " Always display the status line
 set nowrap   " Don't wrap lines by default
 set ruler    " Show the cursor position all the time
+set scrolloff=3  " Start scrolling when 3 lines remain
+set showcmd  " Display incomplete commands
+set showmatch  " Highlight matching brackets
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P  " Git branch in status line
-set showcmd  " display incomplete commands
 
 " Soft tabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
 set expandtab
+set shiftwidth=2
+set smarttab
+set tabstop=2
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
+
+" GUI settings
+set guifont=Monaco:h10
+set guioptions-=T  " No toolbar
+if has("gui")
+  colorscheme railscasts
+endif
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -24,6 +37,46 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set hlsearch
 endif
 
+let mapleader = ","
+
+" Prev/next in quickfix file listing (e.g. search results)
+map <M-D-Down> :cn<CR>
+map <M-D-Up> :cp<CR>
+
+" Opt-cmd-arrows [next & previous open files]
+map <M-D-Left> :bp<CR>
+map <M-D-Right> :bn<CR>
+
+" Split screen vertically and move between screens.
+map <leader>v :vsp<CR>
+map <leader>w ^Ww
+map <leader>= ^W=
+
+" Move between horizontally split screens.
+map <leader>j ^Wj
+map <leader>k ^Wk
+
+" Indent/unindent visual mode selection with tab/shift+tab
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+" In insert mode, use Cmd-<CR> to jump to a new line in insert mode
+imap <D-CR> <ESC>o
+
+" File tree browser - backslash
+map \ :NERDTreeToggle<CR>
+
+" File tree browser showing current file - pipe (shift-backslash)
+map \| :NERDTreeFind<CR>
+
+" FuzzyFinder and switchback commands
+map <leader>e :e#<CR>
+map <leader>b :FufBuffer<CR>
+map <leader>f <Plug>PeepOpen
+map <leader><C-N> :FufFile **/<CR>
+map <D-e> :FufBuffer<CR>
+map <D-N> :FufFile **/<CR>
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
   " Enable file type detection.
@@ -31,9 +84,31 @@ if has("autocmd")
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
+  
+  " Strip trailing whitespace on save for code files
+  autocmd BufWritePre *.m,*.h,*.c,*.mm,*.cpp,*.hpp :%s/\s\+$//e
+  autocmd BufWritePre *.rb,*.yml,*.js,*.json,*.css,*.less,*.sass,*.html,*.xml,*.erb,*.haml :%s/\s\+$//e
+  autocmd BufWritePre *.java,*.php,*.feature :%s/\s\+$//e
 
   " Set File type to 'text' for files ending in .txt
-  autocmd BufNewFile,BufRead *.txt setfiletype text
+  autocmd BufNewFile,BufRead *.txt set filetype=text
+  
+  " Highlight JSON files as javascript
+  autocmd BufRead,BufNewFile *.json set filetype=javascript
+  
+  " Highlight jasmine_fixture files as HTML
+  autocmd BufRead,BufNewFile *.jasmine_fixture set filetype=html
+
+  " Highlight some other filetypes as Ruby
+  au BufRead,BufNewFile *.thor set filetype=ruby
+  au BufRead,BufNewFile *.god set filetype=ruby
+  au BufRead,BufNewFile Gemfile* set filetype=ruby
+  au BufRead,BufNewFile Vagrantfile set filetype=ruby
+  au BufRead,BufNewFile soloistrc set filetype=ruby
+  
+  " Set question mark to be part of a VIM word in Ruby
+  autocmd FileType ruby set iskeyword=@,48-57,_,?,!,192-255
+  autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
 
   " Enable soft-wrapping for text files
   autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
