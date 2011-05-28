@@ -28,6 +28,9 @@ set guifont=Monaco:h10
 set guioptions-=T  " No toolbar
 if has("gui")
   colorscheme railscasts
+  " Write all writeable buffers when changing buffers or losing focus.
+  autocmd FocusLost * silent! wall
+  set autowriteall
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
