@@ -32,6 +32,7 @@ if has("gui")
   autocmd FocusLost * silent! wall
   set autowriteall
 endif
+set splitbelow splitright  " Add new windows towards the right and bottom.
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
