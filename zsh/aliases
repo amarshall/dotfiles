@@ -17,7 +17,11 @@ if $PLATFORM_IS_DARWIN; then
   alias netstat='lsof -i -P'
   alias ql='quicklook'
   alias quicklook='qlmanage -p &>/dev/null'
-  [[ -e /Applications/Tower.app ]] && alias tower='open /Applications/Tower.app/'
+  if type gittower &> /dev/null; then
+    alias tower='gittower .'
+  elif [ -e /Applications/Tower.app ]; then
+    alias tower='open /Applications/Tower.app/'
+  fi
 
   # Opens a man page in Preview.app
   # @param The name of the command to open the man page for
