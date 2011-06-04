@@ -31,3 +31,9 @@
 [submodule "vim/bundle/vim-peepopen"]
 	path = vim/bundle/vim-peepopen
 	url = https://github.com/shemerey/vim-peepopen
+[submodule "vim/bundle/vim-colors-solarized"]
+	path = vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git

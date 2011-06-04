@@ -6,8 +6,10 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 set backspace=indent,eol,start  " Backspace over everything
+set cursorline  " Highlight current row
 set laststatus=2  " Always display the status line
 set nowrap   " Don't wrap lines by default
+set number   " Display line numbers
 set ruler    " Show the cursor position all the time
 set scrolloff=3  " Start scrolling when 3 lines remain
 set showcmd  " Display incomplete commands
@@ -27,7 +29,8 @@ set list listchars=tab:»·,trail:·
 set guifont=Monaco:h10
 set guioptions-=T  " No toolbar
 if has("gui")
-  colorscheme railscasts
+  set background=dark
+  colorscheme solarized
   " Write all writeable buffers when changing buffers or losing focus.
   autocmd FocusLost * silent! wall
   set autowriteall
@@ -88,7 +91,7 @@ if has("autocmd")
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
   filetype plugin indent on
-  
+
   " Strip trailing whitespace on save for code files
   autocmd BufWritePre *.m,*.h,*.c,*.mm,*.cpp,*.hpp :%s/\s\+$//e
   autocmd BufWritePre *.rb,*.yml,*.js,*.json,*.css,*.less,*.sass,*.html,*.xml,*.erb,*.haml :%s/\s\+$//e
@@ -96,10 +99,10 @@ if has("autocmd")
 
   " Set File type to 'text' for files ending in .txt
   autocmd BufNewFile,BufRead *.txt set filetype=text
-  
+
   " Highlight JSON files as javascript
   autocmd BufRead,BufNewFile *.json set filetype=javascript
-  
+
   " Highlight jasmine_fixture files as HTML
   autocmd BufRead,BufNewFile *.jasmine_fixture set filetype=html
 
@@ -109,7 +112,7 @@ if has("autocmd")
   au BufRead,BufNewFile Gemfile* set filetype=ruby
   au BufRead,BufNewFile Vagrantfile set filetype=ruby
   au BufRead,BufNewFile soloistrc set filetype=ruby
-  
+
   " Set question mark to be part of a VIM word in Ruby
   autocmd FileType ruby set iskeyword=@,48-57,_,?,!,192-255
   autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
