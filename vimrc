@@ -76,6 +76,11 @@ map \ :NERDTreeToggle<CR>
 " File tree browser showing current file - pipe (shift-backslash)
 map \| :NERDTreeFind<CR>
 
+" Comment/uncomment lines.
+map <leader>/ <plug>NERDCommenterToggle
+map <D-/> <plug>NERDCommenterToggle
+imap <D-/> <ESC><plug>NERDCommenterToggle i
+
 " FuzzyFinder and switchback commands
 map <leader>e :e#<CR>
 map <leader>b :FufBuffer<CR>
