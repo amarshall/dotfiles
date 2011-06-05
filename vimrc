@@ -6,7 +6,6 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 set backspace=indent,eol,start  " Backspace over everything
-set cursorline  " Highlight current row
 set laststatus=2  " Always display the status line
 set nowrap   " Don't wrap lines by default
 set number   " Display line numbers
@@ -14,6 +13,7 @@ set ruler    " Show the cursor position all the time
 set scrolloff=3  " Start scrolling when 3 lines remain
 set showcmd  " Display incomplete commands
 set showmatch  " Highlight matching brackets
+set splitbelow splitright  " Add new windows towards the right and bottom.
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P  " Git branch in status line
 
 " Soft tabs, 2 spaces
@@ -26,16 +26,17 @@ set tabstop=2
 set list listchars=tab:»·,trail:·
 
 " GUI settings
-set guifont=Monaco:h10
-set guioptions-=T  " No toolbar
 if has("gui")
   set background=dark
   colorscheme solarized
+  set cursorline  " Highlight current row
+  set guifont=Monaco:h10
+  set guioptions-=T  " No toolbar
+
   " Write all writeable buffers when changing buffers or losing focus.
   autocmd FocusLost * silent! wall
   set autowriteall
 endif
-set splitbelow splitright  " Add new windows towards the right and bottom.
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
