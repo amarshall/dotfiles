@@ -77,6 +77,9 @@ map \ :NERDTreeToggle<CR>
 " File tree browser showing current file - pipe (shift-backslash)
 map \| :NERDTreeFind<CR>
 
+" Copy current file path to system pasteboard.
+map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
+
 " Comment/uncomment lines.
 map <leader>/ <plug>NERDCommenterToggle
 map <D-/> <plug>NERDCommenterToggle
