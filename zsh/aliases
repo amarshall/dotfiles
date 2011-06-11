@@ -8,7 +8,7 @@ alias pwdreal='pwd -P'  # Follows symlinks
 alias reloadbash='source ~/.bashrc'
 alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 
-# Alias git to hub if available
+type bundle &> /dev/null && alias be='bundle exec'
 #type hub &> /dev/null && alias git=hub
 
 # Specific to "Darwin" aka Mac OS X
