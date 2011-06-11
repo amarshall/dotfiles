@@ -85,13 +85,11 @@ map <leader>/ <plug>NERDCommenterToggle
 map <D-/> <plug>NERDCommenterToggle
 imap <D-/> <ESC><plug>NERDCommenterToggle i
 
-" FuzzyFinder and switchback commands
-map <leader>e :e#<CR>
-map <leader>b :FufBuffer<CR>
-map <leader>f <Plug>PeepOpen
-map <leader><C-N> :FufFile **/<CR>
-map <D-e> :FufBuffer<CR>
-map <D-N> :FufFile **/<CR>
+" Command-T
+let g:CommandTMaxHeight=20
+map <D-N> :CommandTFlush<CR>:CommandT<CR>
+imap <D-N> <ESC>:CommandTFlush<CR>:CommandT<CR>
+map <leader>t :CommandT<CR>
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
