@@ -53,6 +53,7 @@ small features to list. Explore the code to find everything.
 Original inspiration from [Ryan Bates](https://github.com/ryanb/dotfiles).
 
 Various parts inspired by or adapted from
-[Brian Racer](https://github.com/anveo/dotfiles) &
-[Todd Werth](https://github.com/twerth/dotfiles).
+[Brian Racer](https://github.com/anveo/dotfiles),
+[Todd Werth](https://github.com/twerth/dotfiles), &
+[Pivotal Labs](https://github.com/pivotal/vim-config)/[Case Commons](https://github.com/Casecommons/vim-config).
 Other credits not listed here may be noted in comments.
