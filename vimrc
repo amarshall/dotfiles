@@ -90,6 +90,7 @@ let g:CommandTMaxHeight=20
 map <D-N> :CommandTFlush<CR>:CommandT<CR>
 imap <D-N> <ESC>:CommandTFlush<CR>:CommandT<CR>
 map <leader>t :CommandT<CR>
+map <leader>B :CommandTBuffer<CR>
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
