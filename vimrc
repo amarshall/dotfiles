@@ -30,7 +30,8 @@ if has("gui")
   set background=dark
   colorscheme solarized
   set cursorline  " Highlight current row
-  set guifont=Monaco:h10
+  set guifont=Menlo:h10
+  set linespace=2
   set guioptions-=T  " No toolbar
 
   " Write all writeable buffers when changing buffers or losing focus.
