@@ -1,0 +1,13 @@
+[user]
+	name = Andrew Marshall
+	email = andrew@johnandrewmarshall.com
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore
+[color]
+	ui = true
+[alias]
+	co = checkout
+	st = status
+[push]
+	default = current
