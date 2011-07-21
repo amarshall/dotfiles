@@ -6,6 +6,7 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 set backspace=indent,eol,start  " Backspace over everything
+set incsearch
 set laststatus=2  " Always display the status line
 set nowrap   " Don't wrap lines by default
 set number   " Display line numbers
@@ -13,6 +14,7 @@ set ruler    " Show the cursor position all the time
 set scrolloff=3  " Start scrolling when 3 lines remain
 set showcmd  " Display incomplete commands
 set showmatch  " Highlight matching brackets
+set smartcase
 set splitbelow splitright  " Add new windows towards the right and bottom.
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P  " Git branch in status line
 
