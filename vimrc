@@ -87,6 +87,7 @@ map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 map <leader>/ <plug>NERDCommenterToggle
 map <D-/> <plug>NERDCommenterToggle
 imap <D-/> <ESC><plug>NERDCommenterToggle i
+let NERDSpaceDelims = 1
 
 " Command-T
 let g:CommandTMaxHeight=20
