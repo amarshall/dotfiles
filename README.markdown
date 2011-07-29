@@ -5,9 +5,7 @@ terminal easier, faster, and perhaps even more enjoyable. It’s all
 about strengthening the bond `;)`.
 
 ## Installation ##
-Symlink all root level contents (except `localrcs/`) to an
-identically-named symlink, preceded with a dot (`.`), in your home
-directory.
+Clone the repository, `cd` into its directory, then run `./install.sh`.
 
 ## Environment ##
 Currently targeting primarily Mac OS X with
