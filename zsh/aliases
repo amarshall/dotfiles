@@ -30,11 +30,6 @@ if $PLATFORM_IS_DARWIN; then
     man -t $@ | ps2pdf - - | open -g -f -a /Applications/Preview.app
   }
 
-  # Opens a man page in Textmate.app
-  # @param The name of the command to open the man page for
-  function tman {
-    MANWIDTH=160 MANPAGER='col -bx' man $@ | mate
-  }
 fi
 
 if $PLATFORM_IS_LINUX; then

@@ -38,7 +38,7 @@ small features to list. Explore the code to find everything.
 - `extract` command to uncompress most common formats.
 - `play` command as a quick shortcut for Emacs games (Tetris, Pong,
   Snake, etc.).
-- `pman` & `tman` commands to open a man page in Preview or Textmate,
+- `pman` command to open a man page in Preview,
   respectively (Mac only).
 
 ### IRB & Rails ###
