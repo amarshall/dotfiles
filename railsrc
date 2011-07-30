@@ -1,6 +1,8 @@
 def change_log(stream)
-  ActiveRecord::Base.logger = Logger.new stream
-  ActiveRecord::Base.clear_active_connections!
+  if defined? ActiveRecord::Base
+    ActiveRecord::Base.logger = Logger.new stream
+    ActiveRecord::Base.clear_active_connections!
+  end
 end
 
 def show_log
