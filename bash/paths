@@ -12,3 +12,6 @@ fi
 
 # For "home" bin
 [[ -d ~/bin ]] && export PATH=~/bin:$PATH
+
+# Load RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

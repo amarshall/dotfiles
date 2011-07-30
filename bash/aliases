@@ -1,12 +1,7 @@
-alias cmdstatistics="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
+. ~/.sh_common/aliases
+
 alias colors='set | egrep '"'"'COLOR_\w*'"'"' | awk -F= '"'"'{ gsub("\047", ""); gsub(/\\033/, ""); print "\033" $2 $1 }'"'"'; echo -en $COLOR_NC'
-alias gzdir='tar czf ../$(basename $(pwd)).tar.gz .'
-alias gzdirs='find . -mindepth 1 -maxdepth 1 -type d -exec tar czf {}.tar.gz {} \;'
-alias h='history | grep'
-alias httpheaders='curl -I'
-alias pwdreal='pwd -P'  # Follows symlinks
 alias reloadbash='source ~/.bashrc'
-alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 
 # Alias git to hub if available
 type -P hub &> /dev/null && alias git=hub
@@ -62,10 +57,6 @@ function webserver {
 
 # Specific to "Darwin" aka Mac OS X
 if $PLATFORM_IS_DARWIN; then
-  alias netstat='lsof -i -P'
-  alias ql='quicklook'
-  alias quicklook='qlmanage -p &>/dev/null'
-
   # Opens a man page in Preview.app
   # @param The name of the command to open the man page for
   function pman {
@@ -73,21 +64,3 @@ if $PLATFORM_IS_DARWIN; then
     man -t $@ | ps2pdf - - | open -g -f -a /Applications/Preview.app
   }
 fi
-
-# Specific to Linux, specifically Ubuntu
-if $PLATFORM_IS_LINUX; then
-  alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
-  # Turn on colors for various commands
-  if [ -x /usr/bin/dircolors ]; then
-    eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-  fi
-fi
-
-# Load RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
