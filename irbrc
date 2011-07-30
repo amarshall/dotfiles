@@ -8,7 +8,7 @@ IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:PROMPT_MODE] = :SIMPLE  # Simplifies prompt to ">>"
 
 # Print RVM's current Ruby & Gemset
-puts "\e[1;4;30mRVM using #{`rvm current`.chomp}\e[0m" if system "type -P rvm &> /dev/null"
+puts "\e[1;4;30mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "type -P rvm &> /dev/null"
 
 # Load Rubygems
 begin
