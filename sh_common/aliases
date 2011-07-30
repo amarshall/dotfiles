@@ -3,7 +3,7 @@ alias gzdir='tar czf ../$(basename $(pwd)).tar.gz .'
 alias gzdirs='find . -mindepth 1 -maxdepth 1 -type d -exec tar czf {}.tar.gz {} \;'
 alias h='history | grep'
 alias httpheaders='curl -I'
-alias pwdreal='pwd -P'  # Follows symlinks
+alias prd='pwd -P'  # "print real directory" (follows symlinks)
 alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 
 type bundle &> /dev/null && alias be='bundle exec'
