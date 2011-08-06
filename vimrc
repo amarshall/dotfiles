@@ -50,6 +50,9 @@ endif
 
 let mapleader = ","
 
+" Make Y consistent with D and C.
+map Y y$
+
 " Prev/next in quickfix file listing (e.g. search results)
 map <M-D-Down> :cn<CR>
 map <M-D-Up> :cp<CR>
