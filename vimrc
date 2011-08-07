@@ -41,14 +41,15 @@ if has("gui")
   set autowriteall
 endif
 
+let mapleader = ","
+
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
   set hlsearch
+  nnoremap <silent> <leader>h :nohlsearch<CR>
 endif
-
-let mapleader = ","
 
 " Make Y consistent with D and C.
 map Y y$
