@@ -122,6 +122,9 @@ if has("autocmd")
   " Highlight jasmine_fixture files as HTML
   autocmd BufRead,BufNewFile *.jasmine_fixture set filetype=html
 
+  " Highlighting for AppleScript
+  autocmd BufRead,BufNewFile *.applescript set filetype=applescript
+
   " Highlight some other filetypes as Ruby
   au BufRead,BufNewFile *.thor set filetype=ruby
   au BufRead,BufNewFile *.god set filetype=ruby
