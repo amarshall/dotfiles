@@ -18,8 +18,16 @@ done
 for filename in $(ls "$HOME/.localrcs"); do
   original="$HOME/.localrcs/$filename"
   symbolic="$HOME/.$(echo $filename | cut -d'.' -f 2)"
-  target_host=$(echo $filename | cut -d'.' -f 1)
-  if [[ "$target_host" == $(echo $(hostname) | cut -d'.' -f 1) ]]; then
-    ln -s "$original" "$symbolic"
+  current_host="$(echo $(hostname) | cut -d'.' -f 1 | awk '{print tolower($0)}')"
+  target_host="$(echo $filename | cut -d'.' -f 1 | awk '{print tolower($0)}')"
+
+  if [[ $target_host == $current_host ]]; then
+    if [ -e "$symbolic" ]; then
+      if [[ $(readlink "$symbolic") != "$original" ]]; then
+        echo "\".$filename\" already exists, skipping."
+      fi
+    else
+      ln -s "$original" "$symbolic"
+    fi
   fi
 done
