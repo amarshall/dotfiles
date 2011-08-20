@@ -9,6 +9,7 @@ alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 type bundle &> /dev/null && alias be='bundle exec'
 
 if $PLATFORM_IS_DARWIN; then
+  alias ls='ls -aFh'
   alias netstat='lsof -i -P'
   alias ql='quicklook'
   alias quicklook='qlmanage -p &> /dev/null'
