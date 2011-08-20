@@ -6,6 +6,7 @@ $PLATFORM_IS_DARWIN && export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:
 
 # For Node/NPM
 [[ -d /usr/local/lib/node ]] && export NODE_PATH=/usr/local/lib/node
+[[ -d /usr/local/share/npm/bin ]] && export PATH=/usr/local/share/npm/bin:$PATH
 
 # For "home" bin
 [[ -d ~/bin ]] && export PATH=$HOME/bin:$PATH
