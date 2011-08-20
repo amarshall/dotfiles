@@ -2,7 +2,7 @@
 
 EXCLUDE=(install.sh README.markdown)
 
-for filename in $(ls); do
+for filename in $(ls "$(dirname $0)"); do
   [[ ${EXCLUDE[@]} =~ $filename ]] && continue
   original="$(cd "$(dirname $0)" && pwd)/$filename"
   symbolic="$HOME/.$filename"
