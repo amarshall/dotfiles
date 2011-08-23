@@ -6,6 +6,15 @@ COLOR_YELLOW='\033[0;33m'
 
 EXCLUDE=(install.sh README.markdown)
 
+echo -n "Initializing and updating git submodules..."
+if (cd $(dirname $0) && exec git submodule update --init &> /dev/null); then
+  echo -ne "\r$COLOR_GREEN"
+  echo "Submodules successfully initialized & updated."
+else
+  echo -ne "\r$COLOR_YELLOW"
+  echo "Submodules could not be initialized/updated."
+fi
+
 for filename in $(ls "$(dirname $0)"); do
   [[ ${EXCLUDE[@]} =~ $filename ]] && continue
   original="$(cd "$(dirname $0)" && pwd)/$filename"
