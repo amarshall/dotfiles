@@ -4,5 +4,5 @@
 . ~/.zsh/aliases
 . ~/.zsh/completions
 
-# Use .zshrc_local for settings specific to one system
+[[ -f ~/.sh_common_local ]] && . ~/.sh_common_local
 [[ -f ~/.zshrc_local ]] && . ~/.zshrc_local

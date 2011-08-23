@@ -7,5 +7,5 @@ if $IS_INTERACTIVE ; then
   . ~/.bash/completions
 fi
 
-# Use .bashrc_local for settings specific to one system
+[ -f ~/.sh_common_local ] && . ~/.sh_common_local
 [ -f ~/.bashrc_local ] && . ~/.bashrc_local
