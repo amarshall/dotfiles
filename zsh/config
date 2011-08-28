@@ -39,8 +39,8 @@ setopt RM_STAR_WAIT
 
 zle -N newtab
 
-bindkey '^f' backward-word
-bindkey '^b' forward-word
+bindkey '^b' backward-word
+bindkey '^f' forward-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey "^r" history-incremental-search-backward
