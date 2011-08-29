@@ -1,15 +1,45 @@
 [submodule "vim/bundle/ack.vim"]
 	path = vim/bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/applescript"]
+	path = vim/bundle/applescript
+	url = git://github.com/vim-scripts/applescript.vim.git
+[submodule "vim/bundle/autoclose"]
+	path = vim/bundle/autoclose
+	url = git://github.com/vim-scripts/AutoClose.git
+[submodule "vim/bundle/camelcasemotion"]
+	path = vim/bundle/camelcasemotion
+	url = git://github.com/vim-scripts/camelcasemotion.git
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "vim/bundle/fuzzyfinder"]
+	path = vim/bundle/fuzzyfinder
+	url = git://github.com/vim-scripts/FuzzyFinder.git
+[submodule "vim/bundle/l9"]
+	path = vim/bundle/l9
+	url = git://github.com/vim-scripts/L9.git
+[submodule "vim/bundle/matchit"]
+	path = vim/bundle/matchit
+	url = git://github.com/vim-scripts/matchit.zip.git
 [submodule "vim/bundle/nerdcommenter"]
 	path = vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/bundle/regreplop"]
+	path = vim/bundle/regreplop
+	url = git://github.com/vim-scripts/regreplop.vim.git
+[submodule "vim/bundle/snipMate"]
+	path = vim/bundle/snipMate
+	url = git://github.com/vim-scripts/snipMate.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git://github.com/vim-scripts/SuperTab.git
+[submodule "vim/bundle/taglist"]
+	path = vim/bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
 [submodule "vim/bundle/textobj-rubyblock"]
 	path = vim/bundle/textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock
