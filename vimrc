@@ -100,6 +100,9 @@ imap <D-N> <ESC>:CommandTFlush<CR>:CommandT<CR>
 map <leader>t :CommandT<CR>
 map <leader>B :CommandTBuffer<CR>
 
+" Tag List
+map <leader>l :TlistToggle<CR>
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
   " Enable file type detection.
