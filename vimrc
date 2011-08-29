@@ -164,3 +164,7 @@ else
   set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
+
+if filereadable($HOME . "/.vimrc_local")
+  source ~/.vimrc_local
+endif
