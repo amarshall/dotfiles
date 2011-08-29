@@ -74,13 +74,13 @@ export LESS="-R"
 
 # Prompt
 if $IS_REMOTE; then
-  prompt_color=$COLOR_LIGHT_GREEN
+  prompt_color=$COLOR_MAGENTA
 else
-  prompt_color=$COLOR_LIGHT_CYAN
+  prompt_color=$COLOR_BLUE
 fi
 cxx='\[' # Color code open
 xxc='\]'   # Color code close
-export PS1=$cxx$prompt_color$xxc'\u@\h'$cxx$COLOR_NC$xxc':'$cxx$COLOR_LIGHT_BLUE$xxc'$(shorten_path "\w" 40)'$cxx$COLOR_BROWN$xxc'$(parse_git_branch)'$cxx$COLOR_NC$xxc'\$ '
+export PS1=$cxx$prompt_color$xxc'\u@\h'$cxx$COLOR_NC$xxc':'$cxx$COLOR_CYAN$xxc'$(shorten_path "\w" 40)'$cxx$COLOR_BROWN$xxc'$(parse_git_branch)'$cxx$COLOR_NC$xxc'\$ '
 unset cxx xxc prompt_color
 
 if $PLATFORM_IS_LINUX; then
