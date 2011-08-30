@@ -74,7 +74,7 @@ export LESS="-R"
 
 # Prompt
 if $IS_REMOTE; then
-  prompt_color=$COLOR_MAGENTA
+  prompt_color=$COLOR_PURPLE
 else
   prompt_color=$COLOR_BLUE
 fi
