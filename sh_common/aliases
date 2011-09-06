@@ -26,7 +26,13 @@ if $PLATFORM_IS_LINUX; then
   # Turn on colors for various commands
   if [ -x /usr/bin/dircolors ]; then
     eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    if alias ls; then
+      ls=$(alias ls | awk -F"'" '{print $(NF-1)}')
+      alias ls="$ls --color=auto"
+      unset ls
+    else
+      alias ls='ls --color=auto'
+    fi
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
     alias grep='grep --color=auto'
