@@ -32,7 +32,7 @@ if has("gui")
   set background=dark
   colorscheme solarized
   set cursorline  " Highlight current row
-  set guifont=Menlo:h10
+  set guifont=Menlo:h10,"Deja Vu Sans":h10,Consolas:h10
   set linespace=2
   set guioptions-=T  " No toolbar
 
