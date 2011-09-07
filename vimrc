@@ -52,7 +52,7 @@ let mapleader = ","
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
   set hlsearch
-  nnoremap <silent> <leader>h :nohlsearch<CR>
+  nnoremap <silent> <leader>h :set hlsearch!<CR>
 endif
 
 " Make Y consistent with D and C.
