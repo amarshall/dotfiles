@@ -1,0 +1,3 @@
+--type-add=css=.scss,.sass
+--type-add=js=.coffee
+--type-add=ruby=.haml,.rake
