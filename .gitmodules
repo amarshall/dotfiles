@@ -61,9 +61,6 @@
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown
-[submodule "vim/bundle/vim-peepopen"]
-	path = vim/bundle/vim-peepopen
-	url = https://github.com/shemerey/vim-peepopen
 [submodule "vim/bundle/vim-rails"]
 	path = vim/bundle/vim-rails
 	url = https://github.com/samjohn/vim-rails
