@@ -13,7 +13,6 @@ set number   " Display line numbers
 set ruler    " Show the cursor position all the time
 set scrolloff=3  " Start scrolling when 3 lines remain
 set showcmd  " Display incomplete commands
-set showmatch  " Highlight matching brackets
 set smartcase
 set splitbelow splitright  " Add new windows towards the right and bottom.
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P  " Git branch in status line
