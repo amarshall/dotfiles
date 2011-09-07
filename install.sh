@@ -35,6 +35,8 @@ for filename in $(ls "$(dirname $0)"); do
   fi
 done
 
+mkdir -p ~/.vim/undo
+
 for filename in $(ls "$HOME/.localrcs"); do
   original="$HOME/.localrcs/$filename"
   symbolic="$HOME/.$(echo $filename | cut -d'.' -f 2)"

@@ -18,6 +18,11 @@ set smartcase
 set splitbelow splitright  " Add new windows towards the right and bottom.
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P  " Git branch in status line
 
+" Persistent undo
+set undodir=~/.vim/undo
+set undofile
+set undolevels=1000
+
 " Soft tabs, 2 spaces
 set expandtab
 set shiftwidth=2
