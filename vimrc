@@ -103,6 +103,8 @@ map <D-N> :CommandTFlush<CR>:CommandT<CR>
 imap <D-N> <ESC>:CommandTFlush<CR>:CommandT<CR>
 map <leader>t :CommandT<CR>
 map <leader>B :CommandTBuffer<CR>
+" Syntastic
+let g:syntastic_enable_signs=1
 
 " Tag List
 map <leader>l :TlistToggle<CR>
