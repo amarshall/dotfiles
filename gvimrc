@@ -6,10 +6,6 @@ set linespace=2
 set cursorline
 set guioptions-=T  " No toolbar
 
-" Write all writeable buffers when changing buffers or losing focus.
-autocmd FocusLost * silent! wall
-set autowriteall
-
 if(has("macunix"))
   " Prev/next in quickfix file listing (e.g. search results)
   map <M-D-Down> :cn<CR>

@@ -27,6 +27,10 @@ filetype plugin indent on
 set backupdir=~/.vim/tmp,/tmp
 set directory=~/.vim/tmp,/tmp
 
+" Write all writeable buffers when changing buffers or losing focus.
+autocmd FocusLost * silent! wall
+set autowriteall
+
 " Soft tabs, 2 spaces
 set expandtab
 set shiftwidth=2
