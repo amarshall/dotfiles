@@ -6,6 +6,7 @@ call pathogen#runtime_append_all_bundles()
 let mapleader = ","
 
 set backspace=indent,eol,start
+set hidden
 set ignorecase
 set incsearch
 set laststatus=2
