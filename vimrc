@@ -23,6 +23,10 @@ set autoindent
 set smartindent
 filetype plugin indent on
 
+" Store backup & swap files elsewhere to avoid directory pollution
+set backupdir=~/.vim/tmp,/tmp
+set directory=~/.vim/tmp,/tmp
+
 " Soft tabs, 2 spaces
 set expandtab
 set shiftwidth=2

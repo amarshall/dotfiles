@@ -35,7 +35,7 @@ for filename in $(ls "$(dirname $0)"); do
   fi
 done
 
-mkdir -p ~/.vim/undo
+mkdir -p ~/.vim/tmp ~/.vim/undo
 
 for filename in $(ls "$HOME/.localrcs"); do
   original="$HOME/.localrcs/$filename"
