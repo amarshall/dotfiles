@@ -44,3 +44,7 @@ if(has("unix") || has("win32"))
     imap <C-N> <ESC>:CommandTFlush<CR>:CommandT<CR>
   endif
 endif
+
+if filereadable($HOME . "/.gvimrc_local")
+  source ~/.gvimrc_local
+endif
