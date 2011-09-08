@@ -1,160 +1,121 @@
-" Use Vim settings, rather then Vi settings
-" This must be first, because it changes other options as a side effect
 set nocompatible
 
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-set backspace=indent,eol,start  " Backspace over everything
-set incsearch
-set laststatus=2  " Always display the status line
-set nowrap   " Don't wrap lines by default
-set number   " Display line numbers
-set ruler    " Show the cursor position all the time
-set scrolloff=3  " Start scrolling when 3 lines remain
-set showcmd  " Display incomplete commands
-set smartcase
-set splitbelow splitright  " Add new windows towards the right and bottom.
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P  " Git branch in status line
+let mapleader = ","
 
-" Persistent undo
-set undodir=~/.vim/undo
-set undofile
-set undolevels=1000
+set backspace=indent,eol,start
+set ignorecase
+set incsearch
+set laststatus=2
+set nowrap
+set number
+set ruler
+set scrolloff=3
+set showcmd
+set smartcase
+set splitbelow splitright
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P  " Git branch in status line
+set wildignore+=*.class,*.o,.git
+
+set autoindent
+set smartindent
+filetype plugin indent on
 
 " Soft tabs, 2 spaces
 set expandtab
 set shiftwidth=2
 set smarttab
 set tabstop=2
-
-" Display extra whitespace
 set list listchars=tab:»·,trail:·
 
-" GUI settings
-if has("gui")
-  set background=dark
-  colorscheme solarized
-  set cursorline  " Highlight current row
-  set guifont=Menlo:h10,"Deja Vu Sans":h10,Consolas:h10
-  set linespace=2
-  set guioptions-=T  " No toolbar
-
-  " Write all writeable buffers when changing buffers or losing focus.
-  autocmd FocusLost * silent! wall
-  set autowriteall
+" Persistent undo
+if(has("persistent_undo"))
+  set undodir=~/.vim/undo
+  set undofile
+  set undolevels=1000
 endif
 
-let mapleader = ","
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+" Highlight if there is color
+if(&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
   set hlsearch
   nnoremap <silent> <leader>h :set hlsearch!<CR>
 endif
 
+" Copy current file path to system pasteboard.
+if(has("macunix"))
+  map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
+elseif(has("unix") || has("win32"))
+  map <silent> <C-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
+endif
+
+" Paste yanked text in command mode
+if(has("macunix"))
+  cnoremap <D-C> <C-R>"
+endif
+
+" Toggle spell check
+map <leader>ss :setlocal spell!<cr>
+
 " Make Y consistent with D and C.
 map Y y$
-
-" Prev/next in quickfix file listing (e.g. search results)
-map <M-D-Down> :cn<CR>
-map <M-D-Up> :cp<CR>
-
-" Opt-cmd-arrows [next & previous open files]
-map <M-D-Left> :bp<CR>
-map <M-D-Right> :bn<CR>
-
-" Split screen vertically and move between screens.
-map <leader>v :vsp<CR>
-map <leader>w ^Ww
-map <leader>= ^W=
-
-" Move between horizontally split screens.
-map <leader>j ^Wj
-map <leader>k ^Wk
 
 " Indent/unindent visual mode selection with tab/shift+tab
 vmap <tab> >gv
 vmap <s-tab> <gv
 
-" In insert mode, use Cmd-<CR> to jump to a new line in insert mode
-imap <D-CR> <ESC>o
+" Command-T
+if(has("ruby"))
+  let g:CommandTMaxHeight=20
+  map <leader>t :CommandT<CR>
+  map <leader>B :CommandTBuffer<CR>
+endif
 
-" File tree browser - backslash
+" NERDCommenter
+let NERDSpaceDelims = 1
+map <leader>/ <plug>NERDCommenterToggle
+
+" NERDTree
 map \ :NERDTreeToggle<CR>
-
-" File tree browser showing current file - pipe (shift-backslash)
 map \| :NERDTreeFind<CR>
 
-" Copy current file path to system pasteboard.
-map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
-
-" Comment/uncomment lines.
-map <leader>/ <plug>NERDCommenterToggle
-map <D-/> <plug>NERDCommenterToggle
-imap <D-/> <ESC><plug>NERDCommenterToggle i
-let NERDSpaceDelims = 1
-
-" Command-T
-let g:CommandTMaxHeight=20
-map <D-N> :CommandTFlush<CR>:CommandT<CR>
-imap <D-N> <ESC>:CommandTFlush<CR>:CommandT<CR>
-map <leader>t :CommandT<CR>
-map <leader>B :CommandTBuffer<CR>
 " Syntastic
 let g:syntastic_enable_signs=1
 
-" Tag List
+" Tlist
 map <leader>l :TlistToggle<CR>
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+" ZoomWin
+map <leader>z :ZoomWin<CR>
 
-  " Strip trailing whitespace on save for code files
-  autocmd BufWritePre *.m,*.h,*.c,*.mm,*.cpp,*.hpp :%s/\s\+$//e
-  autocmd BufWritePre *.rb,*.yml,*.js,*.json,*.css,*.less,*.sass,*.html,*.xml,*.erb,*.haml :%s/\s\+$//e
-  autocmd BufWritePre *.java,*.php,*.feature :%s/\s\+$//e
+" Delete trailing whitespace
+func! DeleteTrailingWhitespace()
+  exec "normal mZ"
+  %s/\s\+$//e
+  exec "normal `Z"
+endfunc
+autocmd BufWritePre *.{c,cpp,h,hpp,m,mm} :call DeleteTrailingWhitespace()
+autocmd BufWritePre *.{erb,feature,haml,rb,yml} :call DeleteTrailingWhitespace()
+autocmd BufWritePre *.{css,html,js,json,less,sass,xml} :call DeleteTrailingWhitespace()
+autocmd BufWritePre *.{java,php} :call DeleteTrailingWhitespace()
 
-  " Set File type to 'text' for files ending in .txt
-  autocmd BufNewFile,BufRead *.txt set filetype=text
+" Associate some filetypes with their proper syntax
+autocmd BufRead,BufNewFile *.applescript set filetype=applescript
+autocmd BufRead,BufNewFile *.json set filetype=javascript
+autocmd BufRead,BufNewFile *.txt set filetype=text
 
-  " Highlight JSON files as javascript
-  autocmd BufRead,BufNewFile *.json set filetype=javascript
+" Set question mark to be part of a VIM word in Ruby
+autocmd FileType ruby set iskeyword=@,48-57,_,?,!,192-255
+autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
 
-  " Highlight jasmine_fixture files as HTML
-  autocmd BufRead,BufNewFile *.jasmine_fixture set filetype=html
+" Enable soft-wrapping for text files
+autocmd FileType eruby,html,markdown,text,xhtml setlocal wrap linebreak nolist
 
-  " Highlighting for AppleScript
-  autocmd BufRead,BufNewFile *.applescript set filetype=applescript
-
-  " Highlight some other filetypes as Ruby
-  au BufRead,BufNewFile *.thor set filetype=ruby
-  au BufRead,BufNewFile *.god set filetype=ruby
-  au BufRead,BufNewFile Gemfile* set filetype=ruby
-  au BufRead,BufNewFile Vagrantfile set filetype=ruby
-  au BufRead,BufNewFile soloistrc set filetype=ruby
-
-  " Set question mark to be part of a VIM word in Ruby
-  autocmd FileType ruby set iskeyword=@,48-57,_,?,!,192-255
-  autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
-
-  " Enable soft-wrapping for text files
-  autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
+" Put these in an autocmd group, so that we can delete them easily.
+augroup vimrcEx
   au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  " autocmd FileType text setlocal textwidth=78
-
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -165,14 +126,7 @@ if has("autocmd")
 
   " Automatically load .vimrc source when saved
   autocmd BufWritePost .vimrc source $MYVIMRC
-
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
+augroup END
 
 if filereadable($HOME . "/.vimrc_local")
   source ~/.vimrc_local
