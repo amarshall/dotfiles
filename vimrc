@@ -82,6 +82,9 @@ if(has("ruby"))
   map <leader>B :CommandTBuffer<CR>
 endif
 
+" Gundo
+nnoremap <leader>u :GundoToggle<CR>
+
 " NERDCommenter
 let NERDSpaceDelims = 1
 map <leader>/ <plug>NERDCommenterToggle
