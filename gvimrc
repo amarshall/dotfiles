@@ -27,9 +27,7 @@ if(has("macunix"))
     map <D-N> :CommandTFlush<CR>:CommandT<CR>
     imap <D-N> <ESC>:CommandTFlush<CR>:CommandT<CR>
   endif
-endif
-
-if(has("unix") || has("win32"))
+else "if(has("gui_gtk") || has("win32"))
   " NERDCommenter
   map <C-/> <plug>NERDCommenterToggle
   imap <C-/> <ESC><plug>NERDCommenterToggle i
