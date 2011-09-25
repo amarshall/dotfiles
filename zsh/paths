@@ -12,4 +12,5 @@ $PLATFORM_IS_DARWIN && export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:
 [[ -d ~/bin ]] && export PATH=$HOME/bin:$PATH
 
 # Load RVM
+type rbenv &> /dev/null && eval "$(rbenv init -)"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
