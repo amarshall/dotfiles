@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 COLOR_NC='\033[0m'
 COLOR_GREEN='\033[0;32m'
@@ -6,13 +6,13 @@ COLOR_YELLOW='\033[0;33m'
 
 EXCLUDE=(install.sh README.markdown)
 
-echo -n "Initializing and updating git submodules..."
+printf "Initializing and updating git submodules..."
 if (cd $(dirname $0) && exec git submodule sync &> /dev/null && exec git submodule update --init &> /dev/null); then
-  echo -ne "\r$COLOR_GREEN"
-  echo "Submodules successfully initialized & updated."
+  printf "\r$COLOR_GREEN"
+  printf "Submodules successfully initialized & updated.\n"
 else
-  echo -ne "\r$COLOR_YELLOW"
-  echo "Submodules could not be initialized/updated."
+  printf "\r$COLOR_YELLOW"
+  printf "Submodules could not be initialized/updated.\n"
 fi
 
 for filename in $(ls "$(dirname $0)"); do
@@ -22,15 +22,15 @@ for filename in $(ls "$(dirname $0)"); do
 
   if [ -e "$symbolic" ]; then
     if [[ $(readlink "$symbolic") != "$original" ]]; then
-      echo -ne $COLOR_YELLOW
-      echo "\".$filename\" already exists, skipping."
+      printf $COLOR_YELLOW
+      printf "\".%s\" already exists, skipping.\n" $filename
     else
-      echo -ne $COLOR_GREEN
-      echo "\".$filename\" is already linked"
+      printf $COLOR_GREEN
+      printf "\".%s\" is already linked.\n" $filename
     fi
   else
-    echo -ne $COLOR_GREEN
-    echo "\".$filename\" linked"
+    printf $COLOR_GREEN
+    printf "\".%s\" linked.\n" $filename
     ln -s "$original" "$symbolic"
   fi
 done
@@ -39,25 +39,25 @@ mkdir -p ~/.vim/tmp ~/.vim/undo
 
 for filename in $(ls "$HOME/.localrcs"); do
   original="$HOME/.localrcs/$filename"
-  symbolic="$HOME/.$(echo $filename | cut -d'.' -f 2)"
-  current_host="$(echo $(hostname) | cut -d'.' -f 1 | awk '{print tolower($0)}')"
-  target_host="$(echo $filename | cut -d'.' -f 1 | awk '{print tolower($0)}')"
+  symbolic="$HOME/.$(printf $filename | cut -d'.' -f 2)"
+  current_host="$(printf $(hostname) | cut -d'.' -f 1 | awk '{print tolower($0)}')"
+  target_host="$(printf $filename | cut -d'.' -f 1 | awk '{print tolower($0)}')"
 
   if [[ $target_host == $current_host ]]; then
     if [ -e "$symbolic" ]; then
       if [[ $(readlink "$symbolic") != "$original" ]]; then
-        echo -ne $COLOR_YELLOW
-        echo "\".$filename\" already exists, skipping."
+        printf $COLOR_YELLOW
+        printf "\".%s\" already exists, skipping.\n" $filename
       else
-        echo -ne $COLOR_GREEN
-        echo "\".$filename\" is already linked"
+        printf $COLOR_GREEN
+        printf "\".%s\" is already linked.\n" $filename
       fi
     else
-      echo -ne $COLOR_GREEN
-      echo "\".$filename\" linked"
+      printf $COLOR_GREEN
+      printf "\".%s\" linked.\n" $filename
       ln -s "$original" "$symbolic"
     fi
   fi
 done
 
-echo -ne $COLOR_NC
+printf $COLOR_NC
