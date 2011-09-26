@@ -9,7 +9,7 @@ local eac='%{%b%f%}'  # erase-all color
 local pcc='%{%F{red}%}' # prompt-character color
 local uhc='%{%F{magenta}%}'  # user-host color
 
-[[ $USERNAME != 'amarshall' ]] && u='%n'  # Don't display user if it's my own
+[[ $USERNAME != $SH_USERNAME ]] && u='%n'  # Don't display user if it's my own
 $IS_REMOTE && h=$h'@%m'  # If running locally, we probably know what machine it is
                          #   always display "@" so host is not mistaken for username
 ([ -n "$u" ] || [ -n "$h" ]) && c=':'  # Don't separate if nothing to separate

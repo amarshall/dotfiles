@@ -1,3 +1,4 @@
+. ~/.sh_common/pre_config
 . ~/.zsh/constants
 . ~/.zsh/paths
 . ~/.zsh/config

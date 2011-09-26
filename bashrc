@@ -1,3 +1,4 @@
+. ~/.sh_common/pre_config
 . ~/.bash/constants
 . ~/.bash/paths
 . ~/.bash/aliases
