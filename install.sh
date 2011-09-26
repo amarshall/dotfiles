@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 COLOR_NC='\033[0m'
 COLOR_GREEN='\033[0;32m'
