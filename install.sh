@@ -4,7 +4,7 @@ COLOR_NC='\033[0m'
 COLOR_GREEN='\033[0;32m'
 COLOR_YELLOW='\033[0;33m'
 
-EXCLUDE=(install.sh README.markdown)
+EXCLUDE=(install.sh LICENSE README.markdown)
 
 linkfile() {
   symbolic=$1;
