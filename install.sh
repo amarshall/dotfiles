@@ -7,7 +7,7 @@ COLOR_YELLOW='\033[0;33m'
 EXCLUDE=(install.sh README.markdown)
 
 echo -n "Initializing and updating git submodules..."
-if (cd $(dirname $0) && exec git submodule update --init &> /dev/null); then
+if (cd $(dirname $0) && exec git submodule sync &> /dev/null && exec git submodule update --init &> /dev/null); then
   echo -ne "\r$COLOR_GREEN"
   echo "Submodules successfully initialized & updated."
 else
