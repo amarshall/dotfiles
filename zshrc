@@ -6,3 +6,5 @@
 
 [[ -f ~/.sh_common_local ]] && . ~/.sh_common_local
 [[ -f ~/.zshrc_local ]] && . ~/.zshrc_local
+
+true
