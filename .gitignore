@@ -2,3 +2,5 @@
 .netrwhist
 .swp
 vim/bundle/*/doc/tags*
+vim/tmp/
+vim/undo/
