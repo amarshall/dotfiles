@@ -1,0 +1,28 @@
+# Determine if current shell is interactive
+if [[ $- == *i* ]] ; then
+  export IS_INTERACTIVE=true
+else
+  export IS_INTERACTIVE=false
+fi
+
+# Determine if current shell is open over SSH
+if [[ -z $SSH_CONNECTION ]]; then
+  export IS_REMOTE=false
+else
+  export IS_REMOTE=true
+fi
+
+# Determine OS platform
+if [[ "$(uname)" == "Darwin" ]]; then
+  export PLATFORM_IS_DARWIN=true
+  export PLATFORM_IS_LINUX=false
+  export PLATFORM_IS_UNSUPPORTED=false
+elif [[ "$(uname)" == "Linux" ]]; then
+  export PLATFORM_IS_DARWIN=false
+  export PLATFORM_IS_LINUX=true
+  export PLATFORM_IS_UNSUPPORTED=false
+else
+  export PLATFORM_IS_DARWIN=false
+  export PLATFORM_IS_LINUX=false
+  export PLATFORM_IS_UNSUPPORTED=true
+fi
