@@ -6,7 +6,7 @@
 	url = git://github.com/vim-scripts/applescript.vim.git
 [submodule "vim/bundle/autoclose"]
 	path = vim/bundle/autoclose
-	url = git://github.com/vim-scripts/AutoClose.git
+	url = git://github.com/vim-scripts/AutoClose--Alves.git
 [submodule "vim/bundle/camelcasemotion"]
 	path = vim/bundle/camelcasemotion
 	url = git://github.com/vim-scripts/camelcasemotion.git
