@@ -12,3 +12,5 @@
 	st = status
 [push]
 	default = current
+[format]
+	pretty = format:%Cred%h %Cblue%an %C(yellow)(%ar)%Creset - %Cgreen%s
