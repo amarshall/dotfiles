@@ -1,3 +1,4 @@
 . ~/.sh_common/aliases
 
+alias git="noglob git"
 alias reloadzsh="source ~/.zshrc"
