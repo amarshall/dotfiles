@@ -1,6 +1,6 @@
 ---
-install: --no-ri --no-rdoc
-update: --no-ri --no-rdoc
+install: --no-rdoc
+update: --no-rdoc
 :benchmark: false
 :update_sources: true
 :verbose: true
