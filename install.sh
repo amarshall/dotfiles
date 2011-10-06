@@ -26,7 +26,7 @@ linkfile() {
 }
 
 printf "Initializing and updating git submodules..."
-if (cd $(dirname $0) && exec git submodule sync &> /dev/null && exec git submodule update --init &> /dev/null); then
+if (cd $(dirname $0) && git submodule sync &> /dev/null && git submodule update --init &> /dev/null); then
   printf "\r$COLOR_GREEN"
   printf "Submodules successfully initialized & updated.\n"
 else
