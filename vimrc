@@ -82,6 +82,13 @@ if(has("ruby"))
   map <leader>B :CommandTBuffer<CR>
 endif
 
+" FuzzyFinder
+if(has("macunix"))
+  map <D-e> :FufBuffer<CR>
+elseif(has("unix") || has("win32"))
+  map <C-e> :FufBuffer<CR>
+endif
+
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>
 
