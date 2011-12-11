@@ -1,0 +1,15 @@
+# Here lies some useful commands that are awesome but are usually too
+# rarely used to remember. They are useful for...
+
+# ...validating a binary's code signature
+codesign
+
+# ...determining DNS info
+dig
+
+# ...determining the architectures within a universal binary
+file
+
+# ...finding C/C++ standard libraries
+`gcc -print-prog-name=cc1` -v
+`gcc -print-prog-name=cc1plus` -v
