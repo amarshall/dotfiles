@@ -49,7 +49,6 @@ endif
 " Highlight if there is color
 if(&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
-  set hlsearch
   nnoremap <silent> <leader>h :set hlsearch!<CR>
 endif
 
