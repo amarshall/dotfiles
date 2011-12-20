@@ -7,22 +7,15 @@ let mapleader = ","
 
 set backspace=indent,eol,start
 set hidden
-set ignorecase
-set incsearch
 set laststatus=2
 set nowrap
 set number
 set ruler
 set scrolloff=3
 set showcmd
-set smartcase
 set splitbelow splitright
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P  " Git branch in status line
 set wildignore+=*.class,*.o,.git
-
-set autoindent
-set smartindent
-filetype plugin indent on
 
 " Store backup & swap files elsewhere to avoid directory pollution
 set backupdir=~/.vim/tmp,/tmp
@@ -32,12 +25,20 @@ set directory=~/.vim/tmp,/tmp
 autocmd FocusLost * silent! wall
 set autowriteall
 
-" Soft tabs, 2 spaces
+" Search settings
+set ignorecase
+set incsearch
+set smartcase
+
+" Indentation settings (soft tabs, two spaces)
+set autoindent
 set expandtab
 set shiftwidth=2
+set smartindent
 set smarttab
 set tabstop=2
 set list listchars=tab:»·,trail:·
+filetype plugin indent on
 
 " Persistent undo
 if(has("persistent_undo"))
