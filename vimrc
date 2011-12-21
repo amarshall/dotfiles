@@ -25,6 +25,9 @@ set directory=~/.vim/tmp,/tmp
 autocmd FocusLost * silent! wall
 set autowriteall
 
+" ...but not for fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 " Search settings
 set ignorecase
 set incsearch
