@@ -11,79 +11,36 @@ IRB.conf[:PROMPT_MODE] = :SIMPLE  # Simplifies prompt to ">>"
 puts "\e[1;4;30mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "type -P rvm &> /dev/null"
 puts "\e[1;4;30mrbenv using #{`rbenv version`.split("\n").last}\e[0m" if system "type -P rbenv &> /dev/null"
 
-# Load Rubygems
 begin
   require 'rubygems'
 rescue LoadError
 end
 
-# Loads the specified gem from RVM's current @global gemset if using
-# Bundler and not included in the current Gemfile. Falls back
-# accordingly if not using Bundler or RVM.
-#
-# @note Doesn't load gems not loaded by Bundler if using Bundler and
-#   not using RVM, or if gem is located somewhere other than the
-#   @global gemset.
-# @note This **REQUIRES** that something Bundler is already requiring
-#   be from the @global gemset *only*, or else it won't be able to find
-#   where the @global gemset is actually located.
-# @param [String] The gem to require
-# @raise [LoadError] If the gem couldn't be loaded
-# Adapted from <https://gist.github.com/794915>
-# Forked at <https://gist.github.com/906427>
-def require_global_gem_without_bundler(gem)
-  if defined? ::Bundler
-    # Check if the gem has already been loaded by Bundler
-    unless Bundler.require.map { |i| i.name }.include? gem
-      if global_gem_dir = $LOAD_PATH.grep(/@global.*?lib/).first
-        global_gem_dir = global_gem_dir.gsub %r{@global/gems/.*$}, '@global/gems'
-        Dir["#{global_gem_dir}/*"].to_a.each do |gem_path|
-          if File.basename(gem_path).gsub(/-(\d\.?)+$/, '') == gem
-            $LOAD_PATH << "#{gem_path}/lib"
-            require gem
-            return
-          end
-        end
-      end
-      # Either RVM's @global gemset isn't available, or the gem isn't
-      #   installed in it, either way, gem wasn't be loaded.
-      raise LoadError
-    end
-  else
-    # Bundler isn't being used, load gem normally
-    require gem
-  end
-end
-
 irbrc_unavailable = []
 
-# Load Wirble
 begin
-  require_global_gem_without_bundler 'wirble'
+  require 'wirble'
   Wirble.init
   Wirble.colorize
 rescue LoadError => err
   irbrc_unavailable << "wirble"
 end
 
-# Load Hirb
 begin
-  require_global_gem_without_bundler 'hirb'
+  require 'hirb'
   Hirb.enable
 rescue LoadError => err
   irbrc_unavailable << "hirb"
 end
 
-# Load gems that don't require initialization
 %w{awesome_print looksee}.each do |gem|
   begin
-    require_global_gem_without_bundler gem
+    require gem
   rescue LoadError => err
     irbrc_unavailable << gem
   end
 end
 
-# Warn about gems that couldn't be loaded
 if irbrc_unavailable.length > 0
   warn "\e[33m#{irbrc_unavailable.join(', ')} unavailable\e[0m"
 end
