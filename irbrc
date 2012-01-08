@@ -7,8 +7,9 @@ IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:PROMPT_MODE] = :SIMPLE  # Simplifies prompt to ">>"
 
-# Print RVM's current Ruby & Gemset
+# Print RVM/rbenv environment
 puts "\e[1;4;30mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "type -P rvm &> /dev/null"
+puts "\e[1;4;30mrbenv using #{`rbenv version`.split("\n").last}\e[0m" if system "type -P rbenv &> /dev/null"
 
 # Load Rubygems
 begin
