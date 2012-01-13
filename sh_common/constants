@@ -1,5 +1,6 @@
 export EDITOR=vim
 export PAGER=$(which less)
+export VISUAL=vim
 
 # Determine if current shell is interactive
 if [[ $- == *i* ]] ; then
