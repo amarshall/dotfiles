@@ -1,2 +1,2 @@
 # Convert Ruby hashrocket (:foo => "bar") to Ruby 1.9 style (foo: "bar")
-%s@:\(\a\+\) => @\=submatch(1) . ": "@gc
+s@:\([a-zA-Z_]\+\) => @\=submatch(1) . ": "@gc
