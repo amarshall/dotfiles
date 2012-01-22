@@ -5,8 +5,10 @@ alias gzdirs='find . -mindepth 1 -maxdepth 1 -type d -exec tar czf {}.tar.gz {} 
 alias httpheaders='curl -I'
 alias ll='ls -l'
 alias ls='ls -aFh'
+alias mvimload='mvim -c "so %"'
 alias prd='pwd -P'  # "print real directory" (follows symlinks)
 alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
+alias vimload='vim -c "so %"'
 
 if $PLATFORM_IS_DARWIN; then
   alias netstat='lsof -i -P'
