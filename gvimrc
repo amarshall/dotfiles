@@ -4,6 +4,7 @@ set guifont=Menlo:h12,"Deja Vu Sans":h12,Consolas:h12
 set linespace=2
 
 set cursorline
+set guioptions-=rL " No scrollbars
 set guioptions-=T  " No toolbar
 
 if(has("macunix"))
