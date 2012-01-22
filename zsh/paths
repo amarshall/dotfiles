@@ -1,16 +1,1 @@
-# TODO: don't override the entire path
-$PLATFORM_IS_DARWIN && export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/usr/X11/bin
-
-# For Python packages
-[[ -d /usr/local/share/python ]] && export PATH=/usr/local/share/python:$PATH
-
-# For Node/NPM
-[[ -d /usr/local/lib/node ]] && export NODE_PATH=/usr/local/lib/node
-[[ -d /usr/local/share/npm/bin ]] && export PATH=/usr/local/share/npm/bin:$PATH
-
-# For "home" bin
-[[ -d ~/bin ]] && export PATH=$HOME/bin:$PATH
-
-# Load RVM
-type rbenv &> /dev/null && eval "$(rbenv init -)"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+. ~/.sh_common/paths
