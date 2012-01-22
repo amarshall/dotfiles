@@ -13,9 +13,4 @@ def hide_log
   change_log nil
 end
 
-# Tell Rails to log to STDOUT if in Rails console
 change_log STDOUT
-
-#if Object.const_defined? "RAILS_DEFAULT_LOGGER"
-#  ActiveRecord::Base.logger = Logger.new STDOUT
-#end
