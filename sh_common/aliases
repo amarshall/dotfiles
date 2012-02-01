@@ -10,6 +10,10 @@ alias prd='pwd -P'  # "print real directory" (follows symlinks)
 alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 alias vimload='vim -c "so %"'
 
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
 if $PLATFORM_IS_DARWIN; then
   alias netstat='lsof -i -P'
   alias o='open'
@@ -37,8 +41,5 @@ if $PLATFORM_IS_LINUX; then
     fi
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
   fi
 fi
