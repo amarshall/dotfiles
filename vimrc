@@ -78,19 +78,13 @@ map Y y$
 vmap <tab> >gv
 vmap <s-tab> <gv
 
-" Command-T
-if(has("ruby"))
-  let g:CommandTMaxHeight=20
-  map <leader>t :CommandT<CR>
-  map <leader>B :CommandTBuffer<CR>
-endif
-
-" FuzzyFinder
-if(has("macunix"))
-  map <D-e> :FufBuffer<CR>
-elseif(has("unix") || has("win32"))
-  map <C-e> :FufBuffer<CR>
-endif
+" CtrlP
+let g:ctrlp_max_height=20
+let g:ctrlp_match_window_reversed=0
+map <D-N>     :CtrlP<CR>
+map <leader>b :CtrlPBuffer<CR>
+map <D-e>     :CtrlPBuffer<CR>
+map <leader>e :e#<CR>
 
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>

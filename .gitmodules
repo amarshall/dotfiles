@@ -13,12 +13,9 @@
 [submodule "vim/bundle/camelcasemotion"]
 	path = vim/bundle/camelcasemotion
 	url = git://github.com/vim-scripts/camelcasemotion.git
-[submodule "vim/bundle/command-t"]
-	path = vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
-[submodule "vim/bundle/fuzzyfinder"]
-	path = vim/bundle/fuzzyfinder
-	url = git://github.com/vim-scripts/FuzzyFinder.git
+[submodule "vim/bundle/ctrlp"]
+	path = vim/bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/gundo"]
 	path = vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
