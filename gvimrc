@@ -22,22 +22,10 @@ if(has("macunix"))
   " NERDCommenter
   map <D-/> <plug>NERDCommenterToggle
   imap <D-/> <ESC><plug>NERDCommenterToggle i
-
-  " Command-T
-  if(has("ruby"))
-    map <D-N> :CommandTFlush<CR>:CommandT<CR>
-    imap <D-N> <ESC>:CommandTFlush<CR>:CommandT<CR>
-  endif
 else "if(has("gui_gtk") || has("win32"))
   " NERDCommenter
   map <C-/> <plug>NERDCommenterToggle
   imap <C-/> <ESC><plug>NERDCommenterToggle i
-
-  " Command-T
-  if(has("ruby"))
-    map <C-N> :CommandTFlush<CR>:CommandT<CR>
-    imap <C-N> <ESC>:CommandTFlush<CR>:CommandT<CR>
-  endif
 endif
 
 if filereadable($HOME . "/.gvimrc_local")
