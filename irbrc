@@ -8,8 +8,8 @@ IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:PROMPT_MODE] = :SIMPLE  # Simplifies prompt to ">>"
 
 # Print RVM/rbenv environment
-puts "\e[1;4;30mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "type -P rvm &> /dev/null"
-puts "\e[1;4;30mrbenv using #{`rbenv version`.split("\n").last}\e[0m" if system "type -P rbenv &> /dev/null"
+puts "\e[1;4;37mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "type -P rvm &> /dev/null"
+puts "\e[1;4;37mrbenv using #{`rbenv version`.split("\n").last}\e[0m" if system "type -P rbenv &> /dev/null"
 
 begin
   require 'rubygems'
