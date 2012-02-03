@@ -13,3 +13,6 @@ file
 # ...finding C/C++ standard libraries
 `gcc -print-prog-name=cc1` -v
 `gcc -print-prog-name=cc1plus` -v
+
+# ...updating all git submodules
+git submodule foreach git pull origin master
