@@ -2,6 +2,7 @@
 . ~/.bash/constants
 . ~/.bash/paths
 . ~/.bash/aliases
+for f in ~/.sh_common/functions/*; do . $f; done
 
 if $IS_INTERACTIVE ; then
   . ~/.bash/config

@@ -6,55 +6,6 @@ alias reloadbash='source ~/.bashrc'
 # Alias git to hub if available
 type -P hub &> /dev/null && alias git=hub
 
-# Easy archive extraction
-# @param The filename to extract
-function extract {
-  if [ -f $1 ]; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1   ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "Don't know how to extract '$1'.";;
-    esac
-  else
-    echo "'$1' is not a valid file."
-  fi
-}
-
-# Shortcut for playing Emacs games
-# @param The game to play, or "list" for a list of available games
-function play {
-  if [ "$1" == "list" ]; then
-    if [ -d /usr/share/emacs/*/lisp/play ]; then
-      # TODO: Remove magic number for column padding
-      find /usr/share/emacs/*/lisp/play -maxdepth 1 -type f -print0 | xargs -0 -I {} basename "{}" | sort | awk -F. '/(el|elc)$/ { printf "%-10s\n", $1 }' | column
-    else
-      echo "No games found :(. Try installing Emacs!"
-    fi
-  elif [ -f /usr/share/emacs/*/lisp/play/$1.elc -o -f /usr/share/emacs/*/lisp/play/$1.el ]; then
-    echo -n "Press CTRL+X then CTRL+C to quit, okay?"
-    read -s -n 1
-    echo -en "\r                                       "
-    emacs -q --no-splash -f $1
-  else
-    echo "Unknown game. Run \"play list\" to see a list of games."
-  fi
-}
-
-# Starts a basic HTTP server in the current directory
-# @param The port to listen on. Defaults to 8080.
-function webserver {
-  python -m SimpleHTTPServer ${1:-8080}
-}
-
 # Specific to "Darwin" aka Mac OS X
 if $PLATFORM_IS_DARWIN; then
   # Opens a man page in Preview.app
