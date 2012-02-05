@@ -40,10 +40,11 @@ setopt RM_STAR_WAIT
 
 zle -N newtab
 
+bindkey -e
 bindkey '^b' backward-word
 bindkey '^f' forward-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
-bindkey "^r" history-incremental-search-backward
+bindkey '^r' history-incremental-search-backward
 
 PROMPT='$(promptinit)'
