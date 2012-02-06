@@ -16,7 +16,7 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-if $PLATFORM_IS_DARWIN; then
+if [[ "$(uname)" == "Darwin" ]]; then
   alias netstat='lsof -i -P'
   alias o='open'
   alias ql='quicklook'
@@ -29,7 +29,7 @@ if $PLATFORM_IS_DARWIN; then
   fi
 fi
 
-if $PLATFORM_IS_LINUX; then
+if [[ "$(uname)" == "Linux" ]]; then
   alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
   # Turn on colors for various commands
   if [ -x /usr/bin/dircolors ]; then

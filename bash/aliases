@@ -7,7 +7,7 @@ alias reloadbash='source ~/.bashrc'
 type -P hub &> /dev/null && alias git=hub
 
 # Specific to "Darwin" aka Mac OS X
-if $PLATFORM_IS_DARWIN; then
+if [[ "$(uname)" == "Darwin" ]]; then
   # Opens a man page in Preview.app
   # @param The name of the command to open the man page for
   function pman {

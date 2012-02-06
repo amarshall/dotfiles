@@ -10,7 +10,7 @@ local pcc='%{%F{red}%}' # prompt-character color
 local uhc='%{%F{magenta}%}'  # user-host color
 
 [[ $USERNAME != $SH_USERNAME ]] && u='%n'  # Don't display user if it's my own
-$IS_REMOTE && h=$h'@%m'  # If running locally, we probably know what machine it is
+[[ -n $SSH_CONNECTION ]] && h=$h'@%m'  # If running locally, we probably know what machine it is
                          #   always display "@" so host is not mistaken for username
 ([ -n "$u" ] || [ -n "$h" ]) && c=':'  # Don't separate if nothing to separate
 [[ $HOME != $(pwd) ]] && p='%6~'  # Don't display the path if we're home

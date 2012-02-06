@@ -1,5 +1,5 @@
 # TODO: don't override the entire path
-$PLATFORM_IS_DARWIN && export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/usr/X11/bin
+[[ "$(uname)" == "Darwin" ]] && export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/usr/X11/bin
 
 # For Python packages
 [[ -d /usr/local/share/python ]] && export PATH=/usr/local/share/python:$PATH
