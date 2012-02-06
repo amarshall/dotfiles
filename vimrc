@@ -1,3 +1,6 @@
+" NOTICE! The vimpagerrc file is a subset of this, please check that
+"         what is being changed here is updated there if it exists.
+
 set nocompatible
 
 call pathogen#helptags()
