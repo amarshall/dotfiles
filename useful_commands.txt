@@ -16,3 +16,6 @@ file
 
 # ...updating all git submodules
 git submodule foreach git pull origin master
+
+# ...find what package installed a binary (Ubuntu/Debian)
+dpkg -S `which examplebinary`
