@@ -1,3 +1,4 @@
 export EDITOR=vim
-export PAGER=$(which less)
+export LESS="-R -i"
+export PAGER="$(which less) -R -i"
 export VISUAL=vim
