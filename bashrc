@@ -1,6 +1,6 @@
 . ~/.sh_common/pre_config
-. ~/.bash/constants
 . ~/.bash/paths
+. ~/.bash/constants
 . ~/.bash/aliases
 for f in ~/.sh_common/functions/*; do . $f; done
 

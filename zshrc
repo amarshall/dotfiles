@@ -1,6 +1,6 @@
 . ~/.sh_common/pre_config
-. ~/.zsh/constants
 . ~/.zsh/paths
+. ~/.zsh/constants
 . ~/.zsh/config
 . ~/.zsh/aliases
 . ~/.zsh/completions
