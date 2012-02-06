@@ -65,13 +65,6 @@ function shorten_path {
   fi
 }
 
-# Colors
-export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
-# If output gets paged, repaint the screen. This solves color codes
-#   being displayed in the rails console
-export LESS="-R"
-
 # Prompt
 if [[ -z $SSH_CONNECTION ]]; then
   prompt_color=$COLOR_PURPLE

@@ -1,3 +1,5 @@
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
 export LESS="-R -i"
 export PAGER="$(which less) -R -i"

@@ -8,11 +8,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 REPORTTIME=10 # Print elapsed time when more than 10 seconds
 
-export CLICOLOR=1
-export EDITOR=vim
-export LESS="-R"
-export LSCOLORS=ExFxCxDxBxegedabagacad
-
 setopt AUTO_CD
 setopt AUTO_PUSHD
 setopt COMPLETE_IN_WORD
