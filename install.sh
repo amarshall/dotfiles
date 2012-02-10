@@ -15,7 +15,7 @@ linkfile() {
       printf $COLOR_YELLOW
       printf "\".%s\" already exists, skipping.\n" $filename
     else
-      printf $COLOR_GREEN
+      printf $COLOR_NC
       printf "\".%s\" is already linked.\n" $filename
     fi
   else
