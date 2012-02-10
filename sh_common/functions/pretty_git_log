@@ -16,10 +16,10 @@ pretty_git_log() {
     gsed 's| *∆ *\(\x1b[^ ]*m\) *|∆\1|g' |
     sed -Ee 's/([^∆]*) ago)/\1)/' |
     sed 's/^* *\([^ ]\)/* \1/' |
-    sed 's/hours/hrs/' |
-    sed 's/weeks/wks/' |
-    sed 's/months/mos/' |
-    sed 's/years/yrs/' |
+    sed 's/hour/hr/' |
+    sed 's/week/wk/' |
+    sed 's/month/mo/' |
+    sed 's/year/yr/' |
     column -s '∆' -t |
     sed 's/\([^ ]\)  /\1 /g' |
     less -S
