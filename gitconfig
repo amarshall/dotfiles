@@ -17,3 +17,5 @@
 	default = current
 [format]
 	pretty = format:"%h%Cred%d %C(yellow)%cr%Creset %Cgreen%an%Creset | %s"
+[log]
+	date = relative
