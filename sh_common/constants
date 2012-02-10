@@ -3,5 +3,5 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
 which lesspipe.sh &> /dev/null && export LESSOPEN="| lesspipe.sh %s"
 export LESS="-S -R -i"
-export PAGER="$(which less) -R -i"
+export PAGER="$(which less)"
 export VISUAL=vim
