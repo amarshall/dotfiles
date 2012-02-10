@@ -6,15 +6,15 @@
 # <https://github.com/garybernhardt/dotfiles/blob/7f8ea1d/.githelpers>
 pretty_git_log() {
   HASH="%C(yellow)%h%Creset"
-  RELATIVE_TIME="%Cgreen(%ar)%Creset"
+  TIME="%Cgreen%ad%Creset"
   AUTHOR="%C(cyan)%an%Creset"
   REFS="%C(red)%d%Creset"
   SUBJECT="%s"
-  FORMAT="$HASH ∆ $RELATIVE_TIME ∆ $AUTHOR ∆ $REFS $SUBJECT"
+  FORMAT="$HASH ∆ $TIME ∆ $AUTHOR ∆ $REFS $SUBJECT"
 
-  git log --graph --pretty="tformat:${FORMAT}" $* |
+  git log --date=relative --pretty="tformat:${FORMAT}" $* |
     gsed 's| *∆ *\(\x1b[^ ]*m\) *|∆\1|g' |
-    sed -Ee 's/([^∆]*) ago)/\1)/' |
+    gsed 's/∆\([^∆]*\) ago\(\x1b\[m∆\)/∆\1\2/' |
     sed 's/^* *\([^ ]\)/* \1/' |
     sed 's/hour/hr/' |
     sed 's/week/wk/' |
