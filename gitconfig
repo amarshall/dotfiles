@@ -16,6 +16,6 @@
 [push]
 	default = current
 [format]
-	pretty = format:"%h%Cred%d %C(yellow)%cr%Creset %Cgreen%an%Creset | %s"
+	pretty = format:"%C(yellow)%h%Creset %Cgreen%ad%Creset %C(cyan)%an%Creset%C(red)%d%Creset %s"
 [log]
 	date = relative
