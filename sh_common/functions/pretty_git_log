@@ -16,6 +16,7 @@ pretty_git_log() {
     gsed 's| *∆ *\(\x1b[^ ]*m\) *|∆\1|g' |
     gsed 's/∆\([^∆]*\) ago\(\x1b\[m∆\)/∆\1\2/' |
     sed 's/^* *\([^ ]\)/* \1/' |
+    sed 's/minute/min/' |
     sed 's/hour/hr/' |
     sed 's/week/wk/' |
     sed 's/month/mo/' |
