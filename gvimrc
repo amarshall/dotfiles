@@ -1,10 +1,9 @@
-colorscheme solarized
-set background=dark
 set guifont=Menlo:h12,"Deja Vu Sans":h12,Consolas:h12
 set linespace=2
 
 set cursorline
-set guioptions-=rL " No scrollbars
+set guioptions-=rL " No scrollbar GUI (use text)
+set guioptions-=e  " No tab bar GUI (use text)
 set guioptions-=T  " No toolbar
 
 if(has("macunix"))
