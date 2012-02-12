@@ -17,7 +17,7 @@ set ruler
 set scrolloff=3
 set showcmd
 set splitbelow splitright
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P  " Git branch in status line
+set statusline=%<%f\ %h%w%q%m%r%=%-14.(%l,%c%V%)\ %P
 set wildignore+=*.class,*.o,.git
 
 " Store backup & swap files elsewhere to avoid directory pollution
