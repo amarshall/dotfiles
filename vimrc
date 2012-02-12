@@ -18,7 +18,7 @@ set scrolloff=3
 set showcmd
 set splitbelow splitright
 set statusline=%<%f\ %h%w%q%m%r%=%-14.(%l,%c%V%)\ %P
-set wildignore+=*.class,*.o,.git
+set wildignore+=*.class,*.o,.git,tmp/**
 
 " Store backup & swap files elsewhere to avoid directory pollution
 set backupdir=~/.vim/tmp,/tmp
