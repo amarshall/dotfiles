@@ -84,6 +84,7 @@ vmap <s-tab> <gv
 " CtrlP
 let g:ctrlp_max_height=20
 let g:ctrlp_match_window_reversed=0
+let g:ctrlp_use_caching=0
 map <D-N>     :CtrlP<CR>
 map <leader>b :CtrlPBuffer<CR>
 map <D-e>     :CtrlPBuffer<CR>
