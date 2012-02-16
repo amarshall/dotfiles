@@ -15,6 +15,20 @@ problems on Ubuntu 10.04 Server as well. Likes
 [RVM](https://rvm.beginrescueend.com/). Designed to not load/set items
 that are irrelevant on the current platform.
 
+## Customizing ##
+Bash, Zsh, & Vim all support "localrc" files in the home directory which are
+loaded after all other configuration:
+
+- Bash: `.bashrc_local`
+- Zsh: `.zshrc_local`
+- Bash & Zsh: `.sh_common_local`
+- Vim: `.vimrc_local`
+
+The preferred method of achieving this is by placing the files in the `localrcs`
+directory, prefixed with your machine's name (as displayed by `hostname`). When
+running the install script these will automatically be linked accordingly. This
+allows machine-specific configuration.
+
 ## Notable features ##
 There’s a lot more than what is listed here, as there are too many
 small features to list. Explore the code to find everything.
