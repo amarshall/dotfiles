@@ -53,6 +53,11 @@ if(has("persistent_undo"))
   set undolevels=1000
 endif
 
+if has('gui_running') || $TERM_PROGRAM != 'Apple_Terminal'
+  set background=dark
+  colorscheme solarized
+endif
+
 " Highlight if there is color
 if(&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
