@@ -1,5 +1,4 @@
 *~
 *.swp
 .DS_Store
-doc/tags
-doc/tags-ja
+tags*
