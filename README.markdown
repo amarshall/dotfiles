@@ -45,6 +45,7 @@ Original inspiration from [Ryan Bates](https://github.com/ryanb/dotfiles).
 
 Various parts inspired by or adapted from
 [Brian Racer](https://github.com/anveo/dotfiles),
-[Todd Werth](https://github.com/twerth/dotfiles), &
+[Todd Werth](https://github.com/twerth/dotfiles),
+[Gary Bernhardt](https://github.com/garybernhardt/dotfiles), &
 [Pivotal Labs](https://github.com/pivotal/vim-config)/[Case Commons](https://github.com/Casecommons/vim-config).
 Other credits not listed here may be noted in comments.
