@@ -1,6 +1,9 @@
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
+if [ -z $JAVA_HOME ] && which /usr/libexec/java_home &> /dev/null; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 which lesspipe.sh &> /dev/null && export LESSOPEN="| lesspipe.sh %s"
 export LESS="-S -R -i"
 export PAGER="$(which less)"
