@@ -38,6 +38,7 @@ zle -N edit-command-line
 zle -N newtab
 
 bindkey -e
+bindkey '\e[3~' delete-char
 bindkey '^b' backward-word
 bindkey '^f' forward-word
 bindkey '^a' beginning-of-line
