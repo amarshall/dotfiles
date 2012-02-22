@@ -1,5 +1,4 @@
 . ~/.sh_common/aliases
 
-alias git="noglob git"
 alias importhistory="fc -RI"
 alias reloadzsh="source ~/.zshrc"
