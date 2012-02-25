@@ -78,7 +78,7 @@
 	url = https://github.com/plasticboy/vim-markdown
 [submodule "vim/bundle/vim-rails"]
 	path = vim/bundle/vim-rails
-	url = https://github.com/samjohn/vim-rails
+	url = https://github.com/tpope/vim-rails.git
 [submodule "vim/bundle/vim-rake"]
 	path = vim/bundle/vim-rake
 	url = https://github.com/tpope/vim-rake.git
