@@ -9,6 +9,7 @@
 [alias]
 	amend = commit --amend -C HEAD
 	co = checkout
+	dc = diff --cached
 	l = !". ~/.sh_common/functions/pretty_git_log && pretty_git_log"
 	st = status
 	unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
