@@ -5,7 +5,14 @@ require 'irb/ext/save-history' unless IRB.version.include? "DietRB"
 IRB.conf[:AUTO_INDENT] = true
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:PROMPT_MODE] = :SIMPLE  # Simplifies prompt to ">>"
+IRB.conf[:PROMPT][:CUSTOM] = {
+  :PROMPT_I => "%02n >> ",
+  :PROMPT_N => "%02n >> ",
+  :PROMPT_S => nil,
+  :PROMPT_C => "%02n ?> ",
+  :RETURN   => "=> %s\n"
+}
+IRB.conf[:PROMPT_MODE] = :CUSTOM
 
 # Print RVM/rbenv environment
 puts "\e[1;4;37mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "type -P rvm &> /dev/null"
