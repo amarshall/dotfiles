@@ -65,6 +65,14 @@ class Object
   end
 end
 
+def quickbm(repetitions = 100, &block)
+  require 'benchmark'
+
+  Benchmark.bm do |bm|
+    bm.report { repetitions.time &block }
+  end
+end
+
 if RUBY_PLATFORM.include? "darwin"
   # Copy to OS X clipboard
   def copy(str)
