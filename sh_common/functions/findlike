@@ -1,0 +1,3 @@
+findlike() {
+  find $(pwd) -iname "*$1*"
+}
