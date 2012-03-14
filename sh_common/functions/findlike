@@ -1,3 +1,7 @@
 findlike() {
-  find $(pwd) -iname "*$1*"
+  if [ $# -eq 1 ]; then
+    find $(pwd) -iname "*$1*"
+  else
+    echo "Need one thing to search for!"
+  fi
 }
