@@ -19,7 +19,7 @@ puts "\e[1;4;37mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "typ
 puts "\e[1;4;37mrbenv using #{`rbenv version`.split("\n").last}\e[0m" if system "type -P rbenv &> /dev/null"
 
 begin
-  require 'rubygems'
+  require 'rubygems' if RUBY_VERSION < '1.9'
 rescue LoadError
 end
 
