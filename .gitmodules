@@ -49,6 +49,9 @@
 [submodule "vim/bundle/textobj-rubyblock"]
 	path = vim/bundle/textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock
+[submodule "vim/bundle/tslime.vim"]
+	path = vim/bundle/tslime.vim
+	url = https://github.com/kikijump/tslime.vim
 [submodule "vim/bundle/vim-abolish"]
 	path = vim/bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
