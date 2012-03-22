@@ -130,8 +130,6 @@ autocmd BufRead,BufNewFile *.applescript set filetype=applescript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
 autocmd BufRead,BufNewFile *.txt set filetype=text
 
-" Set question mark to be part of a VIM word in Ruby
-autocmd FileType ruby set iskeyword=@,48-57,_,?,!,192-255
 autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
 
 " Enable soft-wrapping for text files
