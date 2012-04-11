@@ -128,6 +128,7 @@ autocmd BufWritePre *.{java,php} :call DeleteTrailingWhitespace()
 " Associate some filetypes with their proper syntax
 autocmd BufRead,BufNewFile *.applescript set filetype=applescript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
+autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 autocmd BufRead,BufNewFile *.txt set filetype=text
 
 autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
