@@ -1,10 +1,17 @@
-set guifont=Menlo:h12,"Deja Vu Sans":h12,Consolas:h12
 set linespace=2
 
 set cursorline
 set guioptions-=rL " No scrollbar GUI (use text)
 set guioptions-=e  " No tab bar GUI (use text)
 set guioptions-=T  " No toolbar
+
+if(has("macunix"))
+  set guifont=Menlo:h12,Monaco:h12
+elseif(has("unix"))
+  set guifont=Deja\ Vu\ Sans\ 12
+elseif(has("win32"))
+  set guifont=Consolas:h12,Courier\ New:h12
+endif
 
 if(has("macunix"))
   " Prev/next in quickfix file listing (e.g. search results)
