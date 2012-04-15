@@ -31,6 +31,9 @@
 [submodule "vim/bundle/prolog.vim"]
 	path = vim/bundle/prolog.vim
 	url = https://github.com/adimit/prolog.vim.git
+[submodule "vim/bundle/rainbow_parentheses"]
+	path = vim/bundle/rainbow_parentheses
+	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "vim/bundle/regreplop"]
 	path = vim/bundle/regreplop
 	url = https://github.com/vim-scripts/regreplop.vim.git
