@@ -1,6 +1,5 @@
 set linespace=2
 
-set cursorline
 set guioptions-=rL " No scrollbar GUI (use text)
 set guioptions-=e  " No tab bar GUI (use text)
 set guioptions-=T  " No toolbar

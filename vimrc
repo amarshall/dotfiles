@@ -9,6 +9,7 @@ call pathogen#runtime_append_all_bundles()
 let mapleader = ","
 
 set backspace=indent,eol,start
+set cursorline
 set hidden
 set laststatus=2
 set nojoinspaces
@@ -58,6 +59,10 @@ if has('gui_running') || $TERM_PROGRAM != 'Apple_Terminal'
   set background=dark
   colorscheme solarized
 endif
+
+if $TERM_PROGRAM == 'Apple_Terminal'
+  set nocursorline
+end
 
 " Highlight if there is color
 if(&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
