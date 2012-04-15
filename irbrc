@@ -18,6 +18,26 @@ IRB.conf[:PROMPT_MODE] = :CUSTOM
 puts "\e[1;4;37mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "type -P rvm &> /dev/null"
 puts "\e[1;4;37mrbenv using #{`rbenv version`.split("\n").last}\e[0m" if system "type -P rbenv &> /dev/null"
 
+module Unbundler
+  def self.require_external_gem gem
+    if defined? Bundler
+      unless Bundler.require.map(&:name).include? gem
+        gems_dir = $LOAD_PATH.grep(%r{lib/ruby/gems/}).first.gsub(%r{(lib/ruby/gems/[^/]+)/.*$}, '\\1/gems')
+        Dir["#{gems_dir}/*"].to_a.each do |gem_path|
+          if File.basename(gem_path).gsub(/-(\d\.?)+$/, '') == gem
+            $LOAD_PATH << "#{gem_path}/lib"
+            require gem
+            return
+          end
+        end
+        raise LoadError
+      end
+    else
+      require gem
+    end
+  end
+end
+
 begin
   require 'rubygems' if RUBY_VERSION < '1.9'
 rescue LoadError
@@ -26,7 +46,7 @@ end
 irbrc_unavailable = []
 
 begin
-  require 'wirble'
+  Unbundler.require_external_gem 'wirble'
   Wirble.init
   Wirble.colorize
 rescue LoadError => err
@@ -34,7 +54,7 @@ rescue LoadError => err
 end
 
 begin
-  require 'hirb'
+  Unbundler.require_external_gem 'hirb'
   Hirb.enable
 rescue LoadError => err
   irbrc_unavailable << "hirb"
@@ -42,7 +62,7 @@ end
 
 %w{awesome_print looksee}.each do |gem|
   begin
-    require gem
+    Unbundler.require_external_gem gem
   rescue LoadError => err
     irbrc_unavailable << gem
   end
