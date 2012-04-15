@@ -82,6 +82,14 @@ class Object
     end.sort
   end
 
+  def pure_local_methods
+    if [Class, Module].include? self.class
+      self.methods - (self.ancestors - [self]).map(&:methods).flatten
+    else
+      self.methods - (self.class.ancestors - [self.class]).map(&:instance_methods).flatten
+    end.sort
+  end
+
   # print documentation
   #   ri 'Array#pop'
   #   Array.ri
