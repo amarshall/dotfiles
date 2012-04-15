@@ -20,6 +20,7 @@ set scrolloff=3
 set sidescrolloff=3
 set showcmd
 set splitbelow splitright
+set title
 set wildignore+=*.class,*.o,.git,*/tmp/**
 
 " Store backup & swap files elsewhere to avoid directory pollution
