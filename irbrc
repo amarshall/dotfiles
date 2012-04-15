@@ -74,8 +74,12 @@ end
 
 class Object
   # List methods which aren't in superclass
-  def local_methods(obj = self)
-    (obj.methods - obj.class.superclass.instance_methods).sort
+  def local_methods
+    if [Class, Module].include? self.class
+      self.methods - self.superclass.methods
+    else
+      self.methods - self.class.superclass.instance_methods
+    end.sort
   end
 
   # print documentation
