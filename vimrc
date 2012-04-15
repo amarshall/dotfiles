@@ -60,7 +60,9 @@ endif
 " Highlight if there is color
 if(&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
-  nnoremap <silent> <leader>h :set hlsearch!<CR>
+  set hlsearch
+  nnoremap <silent> <leader><leader>h :set hlsearch!<CR>
+  nnoremap <silent> <leader>h :nohlsearch<CR>
 endif
 
 " Copy current file path to system pasteboard.
