@@ -23,6 +23,7 @@ set splitbelow splitright
 set title
 set wildignore+=*.class,*.o,.DS_Store
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/tmp/**,*/build/*,*/*.dSYM/*
+set wildmenu
 
 " Store backup & swap files elsewhere to avoid directory pollution
 set backupdir=~/.vim/tmp,/tmp
