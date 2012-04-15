@@ -16,6 +16,7 @@ set nowrap
 set number
 set ruler
 set scrolloff=3
+set sidescrolloff=3
 set showcmd
 set splitbelow splitright
 set wildignore+=*.class,*.o,.git,*/tmp/**
