@@ -37,6 +37,9 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 set ignorecase
 set incsearch
 set smartcase
+set hlsearch
+nnoremap <silent> <leader><leader>h :set hlsearch!<CR>
+nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " Indentation settings (soft tabs, two spaces)
 set autoindent
@@ -67,9 +70,6 @@ end
 " Highlight if there is color
 if(&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
-  set hlsearch
-  nnoremap <silent> <leader><leader>h :set hlsearch!<CR>
-  nnoremap <silent> <leader>h :nohlsearch<CR>
 endif
 
 " Copy current file path to system pasteboard.
