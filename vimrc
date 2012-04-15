@@ -11,6 +11,7 @@ let mapleader = ","
 set backspace=indent,eol,start
 set hidden
 set laststatus=2
+set nojoinspaces
 set nowrap
 set number
 set ruler
