@@ -1,6 +1,6 @@
 alias be='bundle exec'
 alias cmdstatistics="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -n | tail -n 20 | sort -nr"
-alias git-root='cd $(git rev-parse --show-toplevel)'
+alias git-root='cd $(git root)'
 alias gzdir='tar czf ../$(basename "$(pwd)").tar.gz .'
 alias gzdirs='find . -mindepth 1 -maxdepth 1 -type d -exec tar czf {}.tar.gz {} \;'
 alias httpheaders='curl -I'
