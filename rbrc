@@ -1,6 +1,6 @@
 # Print RVM/rbenv environment
-puts "\e[1;4;37mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "type -P rvm &> /dev/null"
-puts "\e[1;4;37mrbenv using #{`rbenv version`.split("\n").last}\e[0m" if system "type -P rbenv &> /dev/null"
+puts "\e[1;4;37mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "type -P rvm > /dev/null 2> /dev/null"
+puts "\e[1;4;37mrbenv using #{`rbenv version`.split("\n").last}\e[0m" if system "type -P rbenv > /dev/null 2> /dev/null"
 
 module Unbundler
   def self.require_external_gem gem
