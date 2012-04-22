@@ -16,4 +16,8 @@ local uhc='%{%F{magenta}%}'  # user-host color
 [[ $HOME != $(pwd) ]] && p='%6~'  # Don't display the path if we're home
 g=$(git_info_for_prompt)  # Display information about current git repo
 
-printf "%s" $uhc$u$h $eac$c $cdc$p $gic$g $pcc'%#'$eac' '
+if [ -z "$1" ]; then
+  printf "%s" $uhc$u$h $eac$c $cdc$p $gic$g $pcc'%#'$eac' '
+else
+  print -Pn "\e]0;" $u$h$c "%~\a"
+fi
