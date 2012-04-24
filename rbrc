@@ -1,6 +1,29 @@
-# Print RVM/rbenv environment
-puts "\e[1;4;37mRVM using #{`rvm current`.split("\n").last}\e[0m" if system "which rvm > /dev/null 2> /dev/null"
-puts "\e[1;4;37mrbenv using #{`rbenv version`.split("\n").last}\e[0m" if system "which rbenv > /dev/null 2> /dev/null"
+# Print current Ruby version, detecting RVM/rbenv
+lambda do
+  real_version = "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
+
+  manager, version = if system "which rvm > /dev/null 2> /dev/null"
+    ["RVM", `rvm current`.split("\n").last]
+  elsif system "which rbenv > /dev/null 2> /dev/null"
+    ["rbenv", `rbenv version`.strip]
+  else
+    [nil, real_version]
+  end
+
+  if version =~ /system/
+    system_raw_version = `$(whereis ruby) --version`
+    system_major = system_raw_version.scan(/ruby \d\.\d\.\d/).first.split.last
+    system_patch = system_raw_version.scan(/patchlevel \d+/).first.split.last
+    version = version.sub(/system/, "system (#{system_major}-p#{system_patch})")
+  end
+
+  if version.scan(/\d\.\d\.\d-p\d+/).first != real_version
+    manager = "(#{manager} bypassed)"
+    version = real_version
+  end
+
+  puts "\e[1;4;36m" << [manager, "using", version].join(" ") << "\e[0m"
+end[]
 
 module Unbundler
   def self.require_external_gem gem
