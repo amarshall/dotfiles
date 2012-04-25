@@ -12,8 +12,8 @@ lambda do
 
   if version =~ /system/
     system_raw_version = `$(whereis ruby) --version`
-    system_major = system_raw_version.scan(/ruby \d\.\d\.\d/).first.split.last
-    system_patch = system_raw_version.scan(/patchlevel \d+/).first.split.last
+    system_major = system_raw_version[/ruby \d\.\d\.\d/].split.last
+    system_patch = system_raw_version[/patchlevel \d+/].split.last
     version = version.sub(/system/, "system (#{system_major}-p#{system_patch})")
   end
 
