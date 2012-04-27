@@ -40,6 +40,9 @@
 [submodule "vim/bundle/snipMate"]
 	path = vim/bundle/snipMate
 	url = https://github.com/vim-scripts/snipMate.git
+[submodule "vim/bundle/splitjoin.vim"]
+	path = vim/bundle/splitjoin.vim
+	url = https://github.com/AndrewRadev/splitjoin.vim.git
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/vim-scripts/SuperTab.git
