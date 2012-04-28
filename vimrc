@@ -106,6 +106,11 @@ map <leader>b :CtrlPBuffer<CR>
 map <D-e>     :CtrlPBuffer<CR>
 map <leader>e :e#<CR>
 
+" Indent Guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi link IndentGuidesOdd Normal
+autocmd VimEnter,Colorscheme * :hi link IndentGuidesEven CursorLine
+
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>
 
