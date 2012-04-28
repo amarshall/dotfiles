@@ -25,7 +25,7 @@ module CodeRay
         :char => {
           :self => '36', :delimiter => '34'
         },
-        :class => '1;35',
+        :class => '33',
         :class_variable => '34',
         :color => '32',
         :comment => '92',
