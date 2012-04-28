@@ -110,6 +110,7 @@ map <leader>e :e#<CR>
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi link IndentGuidesOdd Normal
 autocmd VimEnter,Colorscheme * :hi link IndentGuidesEven CursorLine
+autocmd FileType coffee,haml,python :IndentGuidesEnable
 
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>
