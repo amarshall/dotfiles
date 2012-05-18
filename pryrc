@@ -15,6 +15,13 @@ Pry.config.prompt = [
   end
 ]
 
+Pry.config.exception_handler = proc do |output, exception, _|
+  output.puts "#{exception}"
+  exception.backtrace.each do |line|
+    output.puts "    #{line}"
+  end
+end
+
 module CodeRay
   module Encoders
     class Terminal < Encoder
