@@ -92,6 +92,9 @@ endif
 " Toggle spell check
 map <leader>ss :setlocal spell!<cr>
 
+" Map :W to :w to make holding shift too long work
+cmap W w
+
 " Make Y consistent with D and C.
 map Y y$
 
