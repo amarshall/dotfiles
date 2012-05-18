@@ -5,6 +5,7 @@ if [ -z $JAVA_HOME ] && which /usr/libexec/java_home &> /dev/null; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 which lesspipe.sh &> /dev/null && export LESSOPEN="| lesspipe.sh %s"
+[[ -z "$LANG" ]] && export LANG=en_US.UTF-8
 export LESS="-S -R -i"
 export PAGER="$(which less)"
 export VISUAL=vim
