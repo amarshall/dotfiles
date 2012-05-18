@@ -1,7 +1,7 @@
 --ignore-dir=log
 --ignore-dir=tmp
 --smart-case
---type-add=bison=.y
+--type-set=bison=.y
 --type-add=css=.scss,.sass
 --type-add=js=.coffee
 --type-add=ruby=.haml,.rake
