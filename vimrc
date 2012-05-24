@@ -129,6 +129,10 @@ map <leader>/ <plug>NERDCommenterToggle
 map \ :NERDTreeToggle<CR>
 map \| :NERDTreeFind<CR>
 
+" Splitjoin
+nmap <leader>j :SplitjoinJoin<CR>
+nmap <leader>s :SplitjoinSplit<CR>
+
 " Syntastic
 let g:syntastic_enable_signs=1
 
