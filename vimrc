@@ -73,7 +73,7 @@ if $TERM_PROGRAM == 'Apple_Terminal'
 end
 
 " Highlight if there is color
-if(&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+if(&t_Co > 2 || has("gui_running"))
   syntax on
 endif
 
