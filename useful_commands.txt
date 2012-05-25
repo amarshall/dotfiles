@@ -29,3 +29,6 @@ brew install gdbm libyaml readline
 brew link readline
 $VERSION="version" ./configure --without-gcc --prefix="/Users/$(whoami)/.rbenv/versions/$VERSION" --with-opt-dir=/usr/local/ --enable-shared && make && make test && make install
 brew unlink readline
+
+# ...getting a key's fingerprint
+ssh-keygen -lf /path/to/keyfile
