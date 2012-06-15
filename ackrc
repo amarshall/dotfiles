@@ -2,6 +2,7 @@
 --ignore-dir=tmp
 --smart-case
 --type-set=bison=.y
+--type-set=puppet=.pp
 --type-add=css=.scss,.sass
 --type-add=js=.coffee
 --type-add=ruby=.haml,.rake
