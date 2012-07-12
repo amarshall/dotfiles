@@ -14,8 +14,8 @@
 	pop = reset --soft head~1
 	root = rev-parse --show-toplevel
 	st = status
-	unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
-	unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
+	unpulled = !"git fetch && git log HEAD..@{u}"
+	unpushed = log @{u}..HEAD
 [push]
 	default = current
 [format]
