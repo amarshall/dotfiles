@@ -78,16 +78,7 @@ if(&t_Co > 2 || has("gui_running"))
 endif
 
 " Copy current file path to system pasteboard.
-if(has("macunix"))
-  map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
-elseif(has("unix") || has("win32"))
-  map <silent> <C-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
-endif
-
-" Paste yanked text in command mode
-if(has("macunix"))
-  cnoremap <D-C> <C-R>"
-endif
+map <silent> <C-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 
 " Toggle spell check
 map <leader>ss :setlocal spell!<cr>
@@ -106,9 +97,8 @@ vmap <s-tab> <gv
 let g:ctrlp_max_height=20
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_use_caching=0
-map <D-N>     :CtrlP<CR>
+map <C-P>     :CtrlPMRU<CR>
 map <leader>b :CtrlPBuffer<CR>
-map <D-e>     :CtrlPBuffer<CR>
 map <leader>e :e#<CR>
 
 " Indent Guides

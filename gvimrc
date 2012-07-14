@@ -13,6 +13,12 @@ elseif(has("win32"))
 endif
 
 if(has("macunix"))
+  " Paste yanked text in command mode
+  cnoremap <D-C> <C-R>"
+
+  " Copy current file path to system pasteboard.
+  map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
+
   " Prev/next in quickfix file listing (e.g. search results)
   map <M-D-Down> :cn<CR>
   map <M-D-Up> :cp<CR>
@@ -23,6 +29,10 @@ if(has("macunix"))
 
   " In insert mode, use Cmd-<CR> to jump to a new line in insert mode
   imap <D-CR> <ESC>o
+
+  " CtrlP
+  map <D-N> :CtrlP<CR>
+  map <D-e> :CtrlPMRU<CR>
 
   " NERDCommenter
   map <D-/> <plug>NERDCommenterToggle
