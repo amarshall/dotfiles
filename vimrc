@@ -43,7 +43,7 @@ set ignorecase
 set incsearch
 set smartcase
 set hlsearch
-nnoremap <silent> <leader><leader>h :set hlsearch!<CR>
+nnoremap <silent> <leader>H :set hlsearch!<CR>
 nnoremap <silent> <leader>h :nohlsearch<CR>
 
 " Indentation settings (soft tabs, two spaces)
