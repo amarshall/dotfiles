@@ -8,12 +8,13 @@ local gic='%{%b%F{yellow}%}'  # git-info color
 local eac='%{%b%f%}'  # erase-all color
 local pcc='%{%F{red}%}' # prompt-character color
 local uhc='%{%F{magenta}%}'  # user-host color
+local maxpathlen=40  # max length of path (in characters)
 
 [[ $USERNAME != $SH_USERNAME ]] && u='%n'  # Don't display user if it's my own
 [[ -n $SSH_CONNECTION ]] && h=$h'@%m'  # If running locally, we probably know what machine it is
                          #   always display "@" so host is not mistaken for username
 ([ -n "$u" ] || [ -n "$h" ]) && c=':'  # Don't separate if nothing to separate
-[[ $HOME != $(pwd) ]] && p='%6~'  # Don't display the path if we're home
+[[ $HOME != $(pwd) ]] && p=$(shorten_path "$(pwd)" $maxpathlen)  # Don't display the path if we're home
 g=$(git_info_for_prompt)  # Display information about current git repo
 
 if [ -z "$1" ]; then

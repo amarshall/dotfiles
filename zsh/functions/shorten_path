@@ -1,0 +1,26 @@
+local fullpath=${1}
+local maxlen=$2  # Note that maxlen will not be strictly adhered to since the
+                 # last dir in the path will never be shortened.
+
+local len=${#fullpath}
+local parts
+local result
+
+fullpath=$(echo $fullpath | sed "s@^$HOME@~@")
+
+if [ $len -gt $maxlen ]; then
+  parts=("${(s@/@)fullpath}")
+
+  for i in {1..$(((${#parts[@]} - 1)))}; do
+    if [ $len -le $maxlen ]; then break; fi
+    local part=$parts[$i]
+    len=$((($len - ${#part})))
+    parts[$i]=${part:0:1}
+  done
+
+  IFS='/' result=${parts[*]}
+else
+  result=$fullpath
+fi
+
+echo $result
