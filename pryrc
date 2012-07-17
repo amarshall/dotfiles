@@ -16,7 +16,7 @@ Pry.config.prompt = [
 ]
 
 Pry.config.exception_handler = proc do |output, exception, _|
-  output.puts "#{exception}"
+  output.puts exception.inspect
   exception.backtrace.each do |line|
     output.puts "    #{line}"
   end
