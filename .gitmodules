@@ -37,9 +37,6 @@
 [submodule "vim/bundle/regreplop"]
 	path = vim/bundle/regreplop
 	url = https://github.com/vim-scripts/regreplop.vim.git
-[submodule "vim/bundle/ShowMarks"]
-	path = vim/bundle/ShowMarks
-	url = https://github.com/VimEz/ShowMarks.git
 [submodule "vim/bundle/snipMate"]
 	path = vim/bundle/snipMate
 	url = https://github.com/vim-scripts/snipMate.git
