@@ -77,6 +77,9 @@ if(&t_Co > 2 || has("gui_running"))
   syntax on
 endif
 
+" Don't store global state in sessions
+set sessionoptions-=options
+
 " Copy current file path to system pasteboard.
 map <silent> <C-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 
