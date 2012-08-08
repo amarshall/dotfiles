@@ -1,6 +1,9 @@
 [submodule "vim/bundle/ack.vim"]
 	path = vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/ag.vim"]
+	path = vim/bundle/ag.vim
+	url = https://github.com/epmatsw/ag.vim.git
 [submodule "vim/bundle/applescript"]
 	path = vim/bundle/applescript
 	url = https://github.com/vim-scripts/applescript.vim.git
