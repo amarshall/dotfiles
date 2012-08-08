@@ -84,7 +84,7 @@ map <silent> <C-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 map <leader>ss :setlocal spell!<cr>
 
 " Map :W to :w to make holding shift too long work
-cmap W w
+cabbrev W w
 
 " Make Y consistent with D and C.
 map Y y$
