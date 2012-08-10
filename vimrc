@@ -147,7 +147,7 @@ func! DeleteTrailingWhitespace()
 endfunc
 autocmd BufWritePre *.{c,cpp,h,hpp,m,mm} :call DeleteTrailingWhitespace()
 autocmd BufWritePre *.{erb,feature,haml,rb,yml} :call DeleteTrailingWhitespace()
-autocmd BufWritePre *.{css,html,js,json,less,sass,xml} :call DeleteTrailingWhitespace()
+autocmd BufWritePre *.{css,html,js,json,less,scss,xml} :call DeleteTrailingWhitespace()
 autocmd BufWritePre *.{java,php} :call DeleteTrailingWhitespace()
 
 " Associate some filetypes with their proper syntax
