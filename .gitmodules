@@ -97,6 +97,9 @@
 [submodule "vim/bundle/vim-indent-object"]
 	path = vim/bundle/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim/bundle/vim-indexed-search"]
+	path = vim/bundle/vim-indexed-search
+	url = https://github.com/henrik/vim-indexed-search
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown
