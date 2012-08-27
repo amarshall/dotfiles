@@ -4,7 +4,7 @@ set tab-size = 2
 
 color author cyan default
 color date green default
-color cursor white default
+color cursor white green
 color main-head red default underline
 color main-ref red default
 color main-remote red default
