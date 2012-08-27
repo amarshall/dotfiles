@@ -18,10 +18,6 @@
 	unpushed = log @{u}..HEAD
 [push]
 	default = current
-[format]
-	pretty = format:"%C(yellow)%h%Creset %Cgreen%ad%Creset %C(cyan)%an%Creset%C(red)%d%Creset %s"
 [pager]
 	unpushed = false
 	unpulled = false
-[log]
-	date = relative
