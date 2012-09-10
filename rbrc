@@ -1,14 +1,22 @@
 # Print current Ruby version, detecting RVM/rbenv
-lambda do
+def rvm?
+  system "which rvm > /dev/null 2> /dev/null"
+end
+
+def rbenv?
+  system "which rbenv > /dev/null 2> /dev/null"
+end
+
+def print_ruby_version
   real_version = "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
 
-  manager, version = if system "which rvm > /dev/null 2> /dev/null"
-    ["RVM", `rvm current`.split("\n").last]
-  elsif system "which rbenv > /dev/null 2> /dev/null"
-    ["rbenv", `rbenv version`.strip]
-  else
-    [nil, real_version]
-  end
+  manager, version = if rvm?
+                       ["RVM", `rvm current`.split("\n").last]
+                     elsif rbenv?
+                       ["rbenv", `rbenv version`.strip]
+                     else
+                       [nil, real_version]
+                     end
 
   if version =~ /system/
     system_raw_version = `$(whereis ruby) --version`
@@ -18,12 +26,14 @@ lambda do
   end
 
   if version.scan(/\d\.\d\.\d-p\d+/).first != real_version
-    manager = "(#{manager} bypassed)"
+    manager = "(#{manager || 'built-in ruby'} bypassed)"
     version = real_version
   end
 
   puts "\e[1;4;36m" << [manager, "using", version].join(" ") << "\e[0m"
-end[]
+end
+
+print_ruby_version
 
 module Unbundler
   def self.require_external_gem gem
