@@ -63,7 +63,7 @@ end
 
 class Hash
   def self.toy n = 5
-    keys = (:a..:z).to_a.take(n).shuffle
+    keys = ('a'..'z').to_a.take(n).shuffle
     values = Array.toy(n)
     Hash[keys.zip(values)]
   end
