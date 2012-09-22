@@ -15,7 +15,7 @@ if [ $len -gt $maxlen ]; then
     if [ $len -le $maxlen ]; then break; fi
     local part=$parts[$i]
     len=$((($len - ${#part})))
-    parts[$i]=${part:0:1}
+    parts[$i]=$part[0,1]
   done
 
   IFS='/' result=${parts[*]}
