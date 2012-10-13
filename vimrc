@@ -133,8 +133,8 @@ nmap <leader>s :SplitjoinSplit<CR>
 " Syntastic
 let g:syntastic_enable_signs=1
 
-" Tlist
-map <leader>l :TlistToggle<CR>
+" Tagbar
+map <leader>l :TagbarToggle<CR>
 
 " ZoomWin
 map <leader>z :ZoomWin<CR>
