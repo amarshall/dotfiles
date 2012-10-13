@@ -116,7 +116,7 @@ autocmd VimEnter,Colorscheme * :hi link IndentGuidesOdd Normal
 autocmd VimEnter,Colorscheme * :hi link IndentGuidesEven CursorLine
 
 " Gundo
-nnoremap <leader>u :GundoToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 
 " NERDCommenter
 let NERDSpaceDelims = 1
