@@ -31,13 +31,6 @@ set wildmenu
 set backupdir=~/.vim/tmp,/tmp
 set directory=~/.vim/tmp,/tmp
 
-" Write all writeable buffers when changing buffers or losing focus.
-autocmd FocusLost * silent! wall
-set autowriteall
-
-" ...but not for fugitive buffers
-autocmd BufReadPost fugitive://* set bufhidden=delete
-
 " Search settings
 set ignorecase
 set incsearch
