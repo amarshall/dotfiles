@@ -155,15 +155,12 @@ autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
 autocmd FileType eruby,html,markdown,text,xhtml setlocal wrap linebreak nolist
 
 " When editing a file, always jump to the last known cursor position.
-" Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim).
+" Don't do it when the position is invalid, when inside an event handler
+" (happens when dropping a file on gvim), or when inside a git commit
 autocmd BufReadPost *
   \ if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
-
-" Automatically load .vimrc source when saved
-autocmd BufWritePost .vimrc source $MYVIMRC
 
 if filereadable($HOME . "/.vimrc_local")
   source ~/.vimrc_local
