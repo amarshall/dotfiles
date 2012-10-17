@@ -154,20 +154,16 @@ autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
 " Enable soft-wrapping for text files
 autocmd FileType eruby,html,markdown,text,xhtml setlocal wrap linebreak nolist
 
-" Put these in an autocmd group, so that we can delete them easily.
-augroup vimrcEx
-  au!
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+  \ if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") |
+  \   exe "normal g`\"" |
+  \ endif
 
-  " Automatically load .vimrc source when saved
-  autocmd BufWritePost .vimrc source $MYVIMRC
-augroup END
+" Automatically load .vimrc source when saved
+autocmd BufWritePost .vimrc source $MYVIMRC
 
 if filereadable($HOME . "/.vimrc_local")
   source ~/.vimrc_local
