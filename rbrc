@@ -20,12 +20,12 @@ def print_ruby_version
 
   if version =~ /system/
     system_raw_version = `$(whereis ruby) --version`
-    system_major = system_raw_version[/ruby \d\.\d\.\d/].split.last
-    system_patch = system_raw_version[/patchlevel \d+/].split.last
+    system_major = system_raw_version.match(/ruby (\d\.\d\.\d)/).captures.first
+    system_patch = system_raw_version.match(/patchlevel (\d+)/).captures.first
     version = version.sub(/system/, "system (#{system_major}-p#{system_patch})")
   end
 
-  if version.scan(/\d\.\d\.\d-p\d+/).first != real_version
+  if version.match(/\d\.\d\.\d-p\d+/).to_s != real_version
     manager = "(#{manager || 'built-in ruby'} bypassed)"
     version = real_version
   end
