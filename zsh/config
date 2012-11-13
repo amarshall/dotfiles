@@ -1,4 +1,4 @@
-fpath=(~/.zsh/functions ~/.sh_common/functions $fpath)
+fpath=(~/.zsh/functions ~/.sh_common/functions /usr/local/share/zsh-completions $fpath)
 
 autoload -U ~/.sh_common/functions/*(:t)
 autoload -U ~/.zsh/functions/*(:t)
