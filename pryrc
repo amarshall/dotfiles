@@ -2,18 +2,13 @@
 Pry.config.should_load_plugins = false
 Pry.plugins["doc"].activate!
 
-Pry.config.prompt = [
-  proc do |target_self, nest_level, pry|
-    line = '%02d' % pry.input_array.size
-    nesting = ":#{nest_level}" unless nest_level.zero?
-    "[#{line}] pry(#{Pry.view_clip(target_self)})#{nesting}> "
-  end,
-  proc do |target_self, nest_level, pry|
-    line = '%02d' % pry.input_array.size
-    nesting = ":#{nest_level}" unless nest_level.zero?
-    "[#{line}] pry(#{Pry.view_clip(target_self)})#{nesting}> "
-  end
-]
+prompt = proc do |target_self, nest_level, pry|
+  line = '%02d' % pry.input_array.size
+  nesting = ":#{nest_level}" unless nest_level.zero?
+  "[#{line}] pry(#{Pry.view_clip(target_self)})#{nesting}> "
+end
+
+Pry.config.prompt = [prompt, prompt]
 
 Pry.config.exception_handler = proc do |output, exception, _|
   output.puts exception.inspect
