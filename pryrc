@@ -12,7 +12,16 @@ Pry.config.prompt = [prompt, prompt]
 
 Pry.config.exception_handler = proc do |output, exception, _|
   output.puts exception.inspect
-  exception.backtrace.each do |line|
+  exception.backtrace.map do |line|
+    if match = line.match(/.*\/\d\.\d\.\d\/(.+)/)
+      ".../#{match.captures.first}"
+    else
+      line
+    end
+  end.reject.with_index do |line, index|
+    true if index == 0
+    line =~ /gems\/(pry|zeus|rspec)/
+  end.each do |line|
     output.puts "    #{line}"
   end
 end
