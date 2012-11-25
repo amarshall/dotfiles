@@ -12,7 +12,7 @@ nam() {
       elif $command -h &> /dev/null; then
         $command -h | $PAGER
       else
-        printf "Don't know how to get help for %s\n", $command >&2
+        printf "Don't know how to get help for %s\n" $command >&2
         return 1
       fi
     else
