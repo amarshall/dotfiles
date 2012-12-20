@@ -20,8 +20,7 @@ Pry.config.exception_handler = proc do |output, exception, _|
       line
     end
   end.reject.with_index do |line, index|
-    true if index == 0
-    line =~ /gems\/(pry|zeus|rspec)/
+    index != 0 && line =~ /gems\/(pry|zeus|rspec)/
   end
 
   display.(exception.inspect)
