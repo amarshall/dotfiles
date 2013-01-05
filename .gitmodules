@@ -31,6 +31,9 @@
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/bundle/pathogen"]
+	path = vim/bundle/pathogen
+	url = https://github.com/vim-scripts/pathogen.vim
 [submodule "vim/bundle/prolog.vim"]
 	path = vim/bundle/prolog.vim
 	url = https://github.com/adimit/prolog.vim.git

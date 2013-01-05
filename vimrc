@@ -5,8 +5,7 @@ set nocompatible
 
 autocmd!
 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 let mapleader = ","
 
