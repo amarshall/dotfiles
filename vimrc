@@ -8,6 +8,7 @@ autocmd!
 call pathogen#infect()
 
 let mapleader = ","
+let maplocalleader = "<"
 
 set backspace=indent,eol,start
 set cursorline
