@@ -1,24 +1,24 @@
-local c  # colon
-local g  # git
-local h  # hostname
-local p  # path
-local u  # username
-local cdc='%{%F{cyan}%}'  # current-directory color
-local gic='%{%b%F{yellow}%}'  # git-info color
-local eac='%{%b%f%}'  # erase-all color
-local pcc='%{%F{red}%}' # prompt-character color
-local uhc='%{%F{magenta}%}'  # user-host color
-local maxpathlen=40  # max length of path (in characters)
+local colon
+local git
+local hostname
+local curpath
+local username
+local color_dir='%{%F{cyan}%}'
+local color_git='%{%b%F{yellow}%}'
+local color_none='%{%b%f%}'
+local color_prompt='%{%F{red}%}'
+local color_user_host='%{%F{magenta}%}'
+local maxpathlen=40  # max length of curpath (in characters)
 
-[[ $USERNAME != $SH_USERNAME ]] && u='%n'  # Don't display user if it's my own
-[[ -n $SSH_CONNECTION ]] && h=$h'@%m'  # If running locally, we probably know what machine it is
-                         #   always display "@" so host is not mistaken for username
-([ -n "$u" ] || [ -n "$h" ]) && c=':'  # Don't separate if nothing to separate
-[[ $HOME != $(pwd) ]] && p=$(shorten_path "$(pwd)" $maxpathlen)  # Don't display the path if we're home
-g=$(git_info_for_prompt)  # Display information about current git repo
+[[ $USERNAME != $SH_USERNAME ]] && username='%n'  # Don't display user if it's my own
+[[ -n $SSH_CONNECTION ]] && hostname=$hostname'@%m'  # If running locally, we probably know what machine it is
+                                                     #   always display "@" so host is not mistaken for username
+([ -n "$username" ] || [ -n "$hostname" ]) && colon=':'  # Don't separate if nothing to separate
+[[ $HOME != $(pwd) ]] && curpath=$(shorten_path "$(pwd)" $maxpathlen)  # Don't display the path if we're home
+git=$(git_info_for_prompt)  # Display information about current git repo
 
 if [ -z "$1" ]; then
-  printf "%s" $uhc$u$h $eac$c $cdc$p $gic$g $pcc'%#'$eac' '
+  printf "%s" $color_user_host$username$hostname $color_none$colon $color_dir$curpath $color_git$git $color_prompt'%#'$color_none' '
 else
-  print -Pn "\e]0;" $u$h$c "%~\a"
+  print -Pn "\e]0;" $username$hostname$colon "%~\a"
 fi
