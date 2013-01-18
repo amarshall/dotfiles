@@ -24,7 +24,7 @@ dpkg -S `which examplebinary`
 git -Sstringtosearchfor --since=2012.2.17 --until=2012.3.14 -- pathname
 git --pickaxe-regex "regextosearchfor" --since=2012.2.17 --until=2012.3.14 --pathname
 
-# ...configuring, compiling, and installing latest Ruby in OS Xwithout fault
+# ...configuring, compiling, and installing latest Ruby in OS X without fault
 brew install gdbm libyaml readline
 brew link readline
 $VERSION="version" ./configure --without-gcc --prefix="/Users/$(whoami)/.rbenv/versions/$VERSION" --with-opt-dir=/usr/local/ --enable-shared && make && make test && make install
