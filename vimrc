@@ -3,9 +3,9 @@
 
 set nocompatible
 
-autocmd!
-
 call pathogen#infect()
+
+autocmd!
 
 let mapleader = ","
 let maplocalleader = "<"
