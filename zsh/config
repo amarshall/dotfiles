@@ -37,6 +37,9 @@ autoload -U edit-command-line
 zle -N edit-command-line
 zle -N newtab
 
+run-last-command() { zle up-history; zle accept-line }
+zle -N run-last-command
+
 bindkey -e
 bindkey '\e[3~' delete-char
 bindkey '^b' backward-word
@@ -45,5 +48,6 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey '^r' history-incremental-search-backward
 bindkey '^v' edit-command-line
+bindkey '^p' run-last-command
 
 PROMPT='$(promptinit)'
