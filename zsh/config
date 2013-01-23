@@ -38,7 +38,9 @@ zle -N edit-command-line
 zle -N newtab
 
 run-last-command() { zle up-history; zle accept-line }
+foreground-current-job() { fg }
 zle -N run-last-command
+zle -N foreground-current-job
 
 bindkey -e
 bindkey '\e[3~' delete-char
@@ -49,5 +51,6 @@ bindkey '^e' end-of-line
 bindkey '^r' history-incremental-search-backward
 bindkey '^v' edit-command-line
 bindkey '^p' run-last-command
+bindkey '^z' foreground-current-job
 
 PROMPT='$(promptinit)'
