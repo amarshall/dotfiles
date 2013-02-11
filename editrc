@@ -1,0 +1,2 @@
+bind "^b" ed-prev-word
+bind "^f" em-next-word
