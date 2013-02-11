@@ -13,10 +13,10 @@ linkfile() {
   if [ -e "$symbolic" ]; then
     if [[ $(readlink "$symbolic") != "$original" ]]; then
       printf $COLOR_YELLOW
-      printf "\".%s\" already exists, skipping.\n" $filename
+      printf "\"%s\" already exists, skipping.\n" $symbolic
     else
       printf $COLOR_NC
-      printf "\".%s\" is already linked.\n" $filename
+      printf "\"%s\" is already linked.\n" $symbolic
     fi
   else
     printf $COLOR_GREEN
