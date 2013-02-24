@@ -33,7 +33,7 @@ if [ -n "$g" ]; then
     fi
     if ! b="$(git symbolic-ref HEAD 2>/dev/null)"
     then
-      if ! b="tag: $(git describe --exact-match HEAD 2>/dev/null)"
+      if ! b="tag: $(git describe --exact-match --tags HEAD 2>/dev/null)"
       then
         b="$(cut -c1-7 "$g/HEAD")..."
       fi
