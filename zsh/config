@@ -6,6 +6,7 @@ autoload -U ~/.zsh/functions/*(:t)
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=$HISTSIZE
+WORDCHARS=${WORDCHARS//[\/_-]}
 REPORTTIME=10 # Print elapsed time when more than 10 seconds
 
 setopt AUTO_CD
