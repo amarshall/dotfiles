@@ -15,38 +15,36 @@ alias ri='ri -f ansi'
 alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 alias vimload='vim -c "so %"'
 
-which colordiff &>/dev/null && alias diff=colordiff
-which colormake &>/dev/null && alias make=colormake
+which apt-get &> /dev/null && alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
+which colordiff &> /dev/null && alias diff=colordiff
+which colormake &> /dev/null && alias make=colormake
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+which open &> /dev/null && alias o='open'
 
-if [[ "$(uname)" == "Darwin" ]]; then
-  alias netstat='lsof -i -P'
-  alias o='open'
+if which qlmanage &> /dev/null; then
   alias ql='quicklook'
   alias quicklook='qlmanage -p &> /dev/null'
-
-  if type gittower &> /dev/null; then
-    alias tower='gittower .'
-  elif [ -e /Applications/Tower.app ]; then
-    alias tower='open /Applications/Tower.app/'
-  fi
 fi
 
-if [[ "$(uname)" == "Linux" ]]; then
-  alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
-  # Turn on colors for various commands
-  if [ -x /usr/bin/dircolors ]; then
-    eval "$(dircolors -b)"
-    if alias ls &> /dev/null; then
-      ls=$(alias ls | awk -F"'" '{print $(NF-1)}')
-      alias ls="$ls --color=auto"
-      unset ls
-    else
-      alias ls='ls --color=auto'
-    fi
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
+if type gittower &> /dev/null; then
+  alias tower='gittower .'
+elif [ -e /Applications/Tower.app ]; then
+  alias tower='open /Applications/Tower.app/'
+fi
+
+[[ "$(uname)" == "Darwin" ]] && alias netstat='lsof -i -P'
+
+if [ -x /usr/bin/dircolors ]; then
+  eval "$(dircolors -b)"
+  if alias ls &> /dev/null; then
+    ls=$(alias ls | awk -F"'" '{print $(NF-1)}')
+    alias ls="$ls --color=auto"
+    unset ls
+  else
+    alias ls='ls --color=auto'
   fi
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
 fi
