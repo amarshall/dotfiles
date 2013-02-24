@@ -5,11 +5,11 @@ set guioptions-=e  " No tab bar GUI (use text)
 set guioptions-=T  " No toolbar
 
 if(has("macunix"))
-  set guifont=Menlo:h12,Monaco:h12
+  set guifont=Menlo:h14,Monaco:h14
 elseif(has("unix"))
-  set guifont=Deja\ Vu\ Sans\ 12
+  set guifont=Deja\ Vu\ Sans\ 14
 elseif(has("win32"))
-  set guifont=Consolas:h12,Courier\ New:h12
+  set guifont=Consolas:h14,Courier\ New:h14
 endif
 
 if(has("macunix"))
