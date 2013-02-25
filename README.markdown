@@ -54,7 +54,9 @@ small features to list. Explore the code to find everything.
 - `pman` command to open a man page in Preview,
   respectively (Mac only).
 
-## Credits ##
+## License & Credits ##
+Copyright © 2011–2013 J. Andrew Marshall. License is available in the LICENSE file.
+
 Original inspiration from [Ryan Bates](https://github.com/ryanb/dotfiles).
 
 Various parts inspired by or adapted from
