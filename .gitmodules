@@ -67,9 +67,6 @@
 [submodule "vim/bundle/tslime.vim"]
 	path = vim/bundle/tslime.vim
 	url = https://github.com/jgdavey/tslime.vim
-[submodule "vim/bundle/undotree"]
-	path = vim/bundle/undotree
-	url = https://github.com/mbbill/undotree.git
 [submodule "vim/bundle/vim-abolish"]
 	path = vim/bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
@@ -154,3 +151,6 @@
 [submodule "vim/bundle/ZoomWin"]
 	path = vim/bundle/ZoomWin
 	url = https://github.com/vim-scripts/ZoomWin.git
+[submodule "vim/bundle/gundo"]
+	path = vim/bundle/gundo
+	url = https://github.com/sjl/gundo.vim.git
