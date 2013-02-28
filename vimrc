@@ -155,6 +155,8 @@ autocmd BufRead,BufNewFile *.json set filetype=javascript
 autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 autocmd BufRead,BufNewFile *.txt set filetype=text
 
+autocmd FileType gitcommit,markdown,text set spell
+
 autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
 
 " Enable soft-wrapping for text files
