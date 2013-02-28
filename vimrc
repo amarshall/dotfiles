@@ -74,7 +74,7 @@ endif
 set sessionoptions-=options
 
 " Copy current file path to system pasteboard.
-map <silent> <C-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
+map <silent> <leader>cp :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 
 " Toggle spell check
 map <leader>ss :setlocal spell!<cr>
