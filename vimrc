@@ -95,6 +95,10 @@ map Y y$
 vmap <tab> >gv
 vmap <s-tab> <gv
 
+" Abolish
+cabbrev S Subvert
+cabbrev %S %Subvert
+
 " CtrlP
 let g:ctrlp_max_height=20
 let g:ctrlp_match_window_reversed=0
