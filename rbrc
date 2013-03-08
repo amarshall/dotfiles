@@ -68,18 +68,69 @@ class Hash
   end
 end
 
-if RUBY_PLATFORM.include? "darwin"
-  # Copy to OS X clipboard
-  def copy(str)
-    IO.popen('pbcopy', 'w') { |f| f << str.to_s }
-    $?.exited?
+module Clipboard
+  module Pasteboard
+    def self.match?
+      command_exists?('pbcopy') && command_exists?('pbpaste')
+    end
+
+    def copy object
+      IO.popen('pbcopy', 'w') { |f| f << object.to_s }
+      $?.exited?
+    end
+
+    def paste
+      `pbpaste`
+    end
   end
 
-  # Paste from OS X clipboard
-  def paste
-    `pbpaste`
+  module Xclip
+    def self.match?
+      command_exists? 'xclip'
+    end
+
+    def copy object
+      IO.popen('xclip -selection clipboard', 'w') { |f| f << object.to_s }
+      $?.exited?
+    end
+
+    def paste
+      `xclip -selection clipboard -o`
+    end
+  end
+
+  module Xsel
+    def self.match?
+      command_exists? 'xsel'
+    end
+
+    def copy object
+      IO.popen('xsel --clipboard --input', 'w') { |f| f << object.to_s }
+      $?.exited?
+    end
+
+    def paste
+      `xsel --clipboard --output`
+    end
+  end
+
+  STRATEGIES = [Pasteboard, Xclip, Xsel]
+
+  def self.included klass
+    return unless capable?
+    klass.send :include, strategy
+  end
+
+  def self.capable?
+    !!strategy
+  end
+
+  def self.strategy
+    @strategy ||= STRATEGIES.detect(&:match?)
   end
 end
+
+include Clipboard if Clipboard.capable?
 
 # Load if in Rails console
 if ($0 == 'irb' && ENV['RAILS_ENV']) || ($0 == 'script/rails' && Rails.env) || (defined?(Rails) && Rails.env)
