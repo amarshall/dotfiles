@@ -1,11 +1,10 @@
 # Print current Ruby version, detecting RVM/rbenv
-def rvm?
-  system "which rvm > /dev/null 2> /dev/null"
+def command_exists? command
+  system "which #{command} > /dev/null 2> /dev/null"
 end
 
-def rbenv?
-  system "which rbenv > /dev/null 2> /dev/null"
-end
+def rbenv?; command_exists? 'rbenv'; end
+def rvm?; command_exists? 'rvm'; end
 
 def print_ruby_version
   real_version = "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
