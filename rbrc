@@ -130,7 +130,7 @@ module Clipboard
   end
 end
 
-include Clipboard if Clipboard.capable?
+singleton_class.send :include, Clipboard if Clipboard.capable?
 
 # Load if in Rails console
 if ($0 == 'irb' && ENV['RAILS_ENV']) || ($0 == 'script/rails' && Rails.env) || (defined?(Rails) && Rails.env)
