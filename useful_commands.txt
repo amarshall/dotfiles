@@ -37,5 +37,5 @@ CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline`" rbenv install RUBY
 # ...getting a key's fingerprint
 ssh-keygen -lf /path/to/keyfile
 
-# ...removing exessive trailing newlines from files
+# ...removing excessive trailing newlines from files
 find . -type f | xargs perl -pi -w -0 -e 's/(\n)+\Z/\n/'
