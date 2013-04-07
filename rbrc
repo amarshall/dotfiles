@@ -1,3 +1,5 @@
+require 'paint'
+
 def command_exists? command
   system "which #{command} > /dev/null 2> /dev/null"
 end
@@ -29,7 +31,8 @@ def print_ruby_version
     version = real_version
   end
 
-  puts "\e[1;4;36m" << [manager, "using", version].join(" ") << "\e[0m"
+  version_str = "#{manager} using #{version}"
+  puts Paint[version_str, :bold, :underline]
 end
 
 print_ruby_version
