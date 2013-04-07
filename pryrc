@@ -31,4 +31,4 @@ end
 
 Pry.config.theme = 'solarized'
 
-load "~/.rbrc"
+load '~/.rbrc'
