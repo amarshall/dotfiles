@@ -2,13 +2,13 @@
 Pry.config.should_load_plugins = false
 Pry.plugins["doc"].activate!
 
-prompt = proc do |target_self, nest_level, pry|
+prompt = proc do |indicator, target_self, nest_level, pry|
   line = '%02d' % pry.input_array.size
   nesting = ":#{nest_level}" unless nest_level.zero?
-  "[#{line}] pry(#{Pry.view_clip(target_self)})#{nesting}> "
+  "[#{line}] pry(#{Pry.view_clip(target_self)})#{nesting}#{indicator} "
 end
 
-Pry.config.prompt = [prompt, prompt]
+Pry.config.prompt = [prompt.curry['>'], prompt.curry['*']]
 
 Pry.config.print = proc do |output, value|
   indicator = Pry::Helpers::Text.green('→')
