@@ -10,6 +10,11 @@ end
 
 Pry.config.prompt = [prompt, prompt]
 
+Pry.config.print = proc do |output, value|
+  indicator = Pry::Helpers::Text.green('→')
+  output.puts "#{indicator} #{value.inspect}"
+end
+
 Pry.config.exception_handler = proc do |output, exception, _|
   display = ->(text) { output.puts Pry::Helpers::Text.yellow(text) }
 
