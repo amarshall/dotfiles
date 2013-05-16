@@ -30,9 +30,9 @@ brew link readline
 VERSION="version" ./configure --without-gcc --prefix="/Users/$(whoami)/.rbenv/versions/$VERSION" --with-opt-dir=/usr/local/ --enable-shared && make && make test && make install
 brew unlink readline
 
-# ...compiling Ruby with rbenv and proper readline support on OS X without fault
+# ...compiling Ruby with rbenv and proper readline support and optimizations on OS X without fault
 brew install rbenv ruby-build readline
-RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline`" rbenv install RUBY_VERSION
+CFLAGS='-march=native -O2 -pipe' RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline`" rbenv install RUBY_VERSION
 
 # ...getting a key's fingerprint
 ssh-keygen -lf /path/to/keyfile
