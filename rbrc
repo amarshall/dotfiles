@@ -35,7 +35,16 @@ def print_ruby_version
   puts Paint[version_str, :bold, :underline]
 end
 
-print_ruby_version
+def cli?
+  is_pry_cli = defined?(Pry) && Pry.cli
+  is_rails_console = defined?(Rails::Console)
+  is_other_console = $PROGRAM_NAME =~ /console/
+  is_irb = $PROGRAM_NAME == 'irb'
+
+  is_pry_cli || is_rails_console || is_other_console || is_irb
+end
+
+print_ruby_version if cli?
 
 module Unbundler
   def self.require_external_gem gem
