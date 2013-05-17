@@ -1,4 +1,24 @@
-require 'paint'
+module Unbundler
+  def self.require_external_gem gem
+    if defined? Bundler
+      unless Bundler.require.map(&:name).include? gem
+        gems_dir = $LOAD_PATH.grep(%r{lib/ruby/gems/}).first.gsub(%r{(lib/ruby/gems/[^/]+)/.*$}, '\\1/gems')
+        gem_path = Dir["#{gems_dir}/*"].to_a.detect do |gem_path|
+          File.basename(gem_path).gsub(/-(\d\.?)+$/, '') == gem
+        end
+
+        if gem
+          $LOAD_PATH << "#{gem_path}/lib"
+          require gem
+        else
+          raise LoadError
+        end
+      end
+    else
+      require gem
+    end
+  end
+end
 
 def command_exists? command
   system "which #{command} > /dev/null 2> /dev/null"
@@ -8,6 +28,8 @@ def rbenv?; command_exists? 'rbenv'; end
 def rvm?; command_exists? 'rvm'; end
 
 def print_ruby_version
+  Unbundler.require_external_gem 'paint'
+
   real_version = "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
 
   manager, version = if rvm?
@@ -45,26 +67,6 @@ def cli?
 end
 
 print_ruby_version if cli?
-
-module Unbundler
-  def self.require_external_gem gem
-    if defined? Bundler
-      unless Bundler.require.map(&:name).include? gem
-        gems_dir = $LOAD_PATH.grep(%r{lib/ruby/gems/}).first.gsub(%r{(lib/ruby/gems/[^/]+)/.*$}, '\\1/gems')
-        Dir["#{gems_dir}/*"].to_a.each do |gem_path|
-          if File.basename(gem_path).gsub(/-(\d\.?)+$/, '') == gem
-            $LOAD_PATH << "#{gem_path}/lib"
-            require gem
-            return
-          end
-        end
-        raise LoadError
-      end
-    else
-      require gem
-    end
-  end
-end
 
 class Array
   def self.toy n = 10
