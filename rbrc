@@ -11,7 +11,7 @@ module Unbundler
           $LOAD_PATH << "#{gem_path}/lib"
           require gem
         else
-          raise LoadError
+          raise LoadError, "cannot load such file -- #{gem}"
         end
       end
     else
