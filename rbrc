@@ -1,21 +1,17 @@
 module Unbundler
   def self.require_external_gem gem
-    if defined? Bundler
-      unless Bundler.require.map(&:name).include? gem
-        gems_dir = $LOAD_PATH.grep(%r{lib/ruby/gems/}).first.gsub(%r{(lib/ruby/gems/[^/]+)/.*$}, '\\1/gems')
-        gem_path = Dir["#{gems_dir}/*"].to_a.detect do |gem_path|
-          File.basename(gem_path).gsub(/-(\d\.?)+$/, '') == gem
-        end
+    require gem
+  rescue LoadError => ex
+    gems_dir = $LOAD_PATH.grep(%r{lib/ruby/gems/}).first.gsub(%r{(lib/ruby/gems/[^/]+)/.*$}, '\\1/gems')
+    gem_path = Dir["#{gems_dir}/*"].to_a.detect do |gem_path|
+      File.basename(gem_path).gsub(/-(\d\.?)+$/, '') == gem
+    end
 
-        if gem
-          $LOAD_PATH << "#{gem_path}/lib"
-          require gem
-        else
-          raise LoadError, "cannot load such file -- #{gem}"
-        end
-      end
-    else
+    if gem
+      $LOAD_PATH << "#{gem_path}/lib"
       require gem
+    else
+      raise ex
     end
   end
 end
