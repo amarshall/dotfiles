@@ -22,6 +22,8 @@
 [core]
 	autocrlf = input
 	excludesfile = ~/.gitignore
+[log]
+	decorate = true
 [pager]
 	unpulled = false
 	unpushed = false
