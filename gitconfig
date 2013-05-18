@@ -1,6 +1,12 @@
 [user]
 	name = Andrew Marshall
 	email = andrew@johnandrewmarshall.com
+[advice]
+	commitBeforeMerge = false
+	detachedHead = false
+	pushNonFastForward = false
+	resolveConflict = false
+	statusHints = false
 [alias]
 	amend = commit --amend -C HEAD
 	co = checkout
