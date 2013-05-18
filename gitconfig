@@ -18,7 +18,7 @@
 	unpulled = !"git fetch && git log HEAD..@{u}"
 	unpushed = log @{u}..HEAD
 [color]
-	ui = true
+	ui = auto
 [core]
 	autocrlf = input
 	excludesfile = ~/.gitignore
