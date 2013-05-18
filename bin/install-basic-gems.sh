@@ -12,6 +12,7 @@ gems_with_doc=(
 )
 
 gems_without_doc=(
+  fruity
   lunchy
   pry
   pry-debugger
