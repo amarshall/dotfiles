@@ -1,11 +1,6 @@
 [user]
 	name = Andrew Marshall
 	email = andrew@johnandrewmarshall.com
-[core]
-	autocrlf = input
-	excludesfile = ~/.gitignore
-[color]
-	ui = true
 [alias]
 	amend = commit --amend -C HEAD
 	co = checkout
@@ -16,8 +11,13 @@
 	st = status
 	unpulled = !"git fetch && git log HEAD..@{u}"
 	unpushed = log @{u}..HEAD
+[color]
+	ui = true
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore
+[pager]
+	unpulled = false
+	unpushed = false
 [push]
 	default = current
-[pager]
-	unpushed = false
-	unpulled = false
