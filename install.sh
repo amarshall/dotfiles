@@ -5,6 +5,7 @@ COLOR_GREEN='\033[0;32m'
 COLOR_YELLOW='\033[0;33m'
 
 EXCLUDE=(install.sh LICENSE README.markdown)
+NO_DOT=(bin)
 
 linkfile() {
   symbolic=$1;
@@ -37,7 +38,11 @@ fi
 for filename in $(ls "$(dirname $0)"); do
   [[ ${EXCLUDE[@]} =~ $filename ]] && continue
   original="$(cd "$(dirname $0)" && pwd)/$filename"
-  symbolic="$HOME/.$filename"
+  if [[ ${NO_DOT[@]} =~ $filename ]]; then
+    symbolic="$HOME/$filename"
+  else
+    symbolic="$HOME/.$filename"
+  fi
 
   linkfile $symbolic $original
 done
