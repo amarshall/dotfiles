@@ -4,8 +4,7 @@ mocha() {
   else
     mocha=$(type -P mocha)
   fi
-  { $mocha -c "$@" 3>&1 1>&2 2>&3 3>&- | perl -pe 's/\x1b\[90m/\x1b[92m/g' 3>&-; } 3>&1 1>&2 2>&3
-  bash_pipe_status=$PIPESTATUS
-  [[ -n "${pipestatus[@]}" ]] && return ${pipestatus[1]}
-  [[ -n "${bash_pipe_status[@]}" ]] && return ${bash_pipe_status[0]}
+  substitution='s/\x1b\[90m/\x1b[92m/g'
+
+  $mocha -c "$@" > >(perl -pe "$substitution") 2> >(perl -pe "$substitution" 1>&2)
 }
