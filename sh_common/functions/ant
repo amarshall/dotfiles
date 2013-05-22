@@ -1,8 +1,8 @@
 ant() {
   if type whence &> /dev/null; then
-    ant=`whence -p ant`
+    ant=$(whence -p ant)
   else
-    ant=`type -P ant`
+    ant=$(type -P ant)
   fi
   $ant -logger org.apache.tools.ant.listener.AnsiColorLogger "$@" | perl -pe 's/(?<=\e\[)2;//g'
 }
