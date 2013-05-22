@@ -1,0 +1,8 @@
+mocha() {
+  if type whence &> /dev/null; then
+    mocha=$(whence -p mocha)
+  else
+    mocha=$(type -P mocha)
+  fi
+  { $mocha -c "$@" 3>&1 1>&2 2>&3 3>&- | perl -pe 's/\x1b\[90m/\x1b[92m/g' 3>&-; } 3>&1 1>&2 2>&3
+}
