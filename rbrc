@@ -17,24 +17,40 @@ module Unbundler
 end
 
 def command_exists? command
-  system "which #{command} > /dev/null 2> /dev/null"
+  system "bash -l -c 'type #{command} > /dev/null 2> /dev/null'"
 end
 
-def rbenv?; command_exists? 'rbenv'; end
-def rvm?; command_exists? 'rvm'; end
+ruby_version_detector = Class.new do
+  chruby = Module.new do
+    define_singleton_method(:match?) { command_exists? 'chruby' }
+    define_singleton_method(:name) { 'chruby' }
+    define_singleton_method(:version) { "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}" }
+  end
+  rbenv = Module.new do
+    define_singleton_method(:match?) { command_exists? 'rbenv' }
+    define_singleton_method(:name) { 'rbenv' }
+    define_singleton_method(:version) { `rbenv version`.strip }
+  end
+  rvm = Module.new do
+    define_singleton_method(:match?) { command_exists? 'rvm' }
+    define_singleton_method(:name) { 'RVM' }
+    define_singleton_method(:version) { `rvm current`.split("\n").last }
+  end
 
-def print_ruby_version
+  version_managers = [chruby, rbenv, rvm]
+  define_method(:real_version) { "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}" }
+
+  define_method(:manager) { version_managers.detect(&:match?) }
+  define_method(:bypassed?) do
+    manager.version.match(/\d\.\d\.\d-p\d+/).to_s != real_version
+  end
+end
+
+def print_ruby_version version_detector
   Unbundler.require_external_gem 'paint'
 
-  real_version = "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
-
-  manager, version = if rvm?
-                       ['RVM', `rvm current`.split("\n").last]
-                     elsif rbenv?
-                       ['rbenv', `rbenv version`.strip]
-                     else
-                       [nil, real_version]
-                     end
+  manager = version_detector.manager.name
+  version = version_detector.manager.version
 
   if version =~ /system/
     system_raw_version = `$(whereis ruby) --version`
@@ -43,10 +59,10 @@ def print_ruby_version
     version = version.sub(/system/, "system (#{system_major}-p#{system_patch})")
   end
 
-  if version.match(/\d\.\d\.\d-p\d+/).to_s != real_version
+  if version_detector.bypassed?
     manager ||= 'built-in ruby'
     manager = "(#{manager} bypassed)"
-    version = real_version
+    version = version_detector.real_version
   end
 
   version_str = "#{manager} using #{version}"
@@ -62,7 +78,7 @@ def cli?
   is_pry_cli || is_rails_console || is_other_console || is_irb
 end
 
-print_ruby_version if cli?
+print_ruby_version(ruby_version_detector.new) if cli?
 
 class Array
   def self.toy n = 10
