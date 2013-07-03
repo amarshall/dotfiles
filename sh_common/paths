@@ -1,6 +1,3 @@
-# TODO: don't override the entire path
-[[ "$(uname)" == "Darwin" ]] && export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/usr/X11/bin
-
 # For Python packages
 [[ -d /usr/local/share/python ]] && export PATH=/usr/local/share/python:$PATH
 
