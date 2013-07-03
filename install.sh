@@ -60,4 +60,20 @@ for filename in $(ls "$HOME/.localrcs"); do
   fi
 done
 
+if grep Darwin <(uname) &> /dev/null; then
+  if ! which brew &> /dev/null ; then
+    printf "\r$COLOR_YELLOW"
+    printf 'Homebrew is not installed or is not in the $PATH'
+    printf "\n"
+  elif ! grep "$(brew --prefix)/bin" <(echo $PATH) &> /dev/null; then
+    printf "\r$COLOR_YELLOW"
+    printf 'Homebrew prefix is not in $PATH'
+    printf "\n"
+  elif egrep "(\A|:)(/usr/bin|/bin):(.*:)?$(brew --prefix)/bin" <(echo $PATH) &> /dev/null; then
+    printf "\r$COLOR_YELLOW"
+    printf 'Homebrew prefix is not before /usr/bin or /bin in $PATH'
+    printf "\n"
+  fi
+fi
+
 printf $COLOR_NC
