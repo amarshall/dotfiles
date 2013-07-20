@@ -1,17 +1,31 @@
 module Unbundler
-  def self.require_external_gem gem
-    require gem
+  def self.require_external_gem gem_name
+    require gem_name
   rescue LoadError => ex
-    gems_dir = $LOAD_PATH.grep(%r{lib/ruby/gems/}).first.gsub(%r{(lib/ruby/gems/[^/]+)/.*$}, '\\1/gems')
-    gem_path = Dir["#{gems_dir}/*"].to_a.detect do |gem_path|
-      File.basename(gem_path).gsub(/-(\d\.?)+$/, '') == gem
-    end
+    try_external_require(gem_name) || raise(ex)
+  end
 
-    if gem
-      $LOAD_PATH << "#{gem_path}/lib"
-      require gem
-    else
-      raise ex
+  def self.try_external_require gem_name
+    gem_path = path_for_gem(gem_name)
+    return false unless gem_path
+
+    $LOAD_PATH << "#{gem_path}/lib"
+    require gem_name
+  end
+
+  def self.gem_dir
+    regex = %r((.*?/ruby/#{RUBY_VERSION}/gems/))
+    some_gem_dir = $LOAD_PATH.grep(regex).first
+    return unless some_gem_dir
+    some_gem_dir.match(regex).captures[0]
+  end
+
+  def self.path_for_gem gem_name
+    gem_dir = self.gem_dir
+    return nil unless gem_dir
+
+    gem_path = Dir["#{gem_dir}/*"].to_a.detect do |gem_path|
+      File.basename(gem_path).gsub(/-(\d\.?)+$/, '') == gem_name
     end
   end
 end
