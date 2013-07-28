@@ -73,8 +73,9 @@ endif
 " Don't store global state in sessions
 set sessionoptions-=options
 
-" Copy current file path to system pasteboard.
+" Copy current file path (plus line number, if asked) to system pasteboard.
 map <silent> <leader>cp :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
+map <silent> <leader>cP :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
 
 " Toggle spell check
 map <leader>ss :setlocal spell!<cr>
