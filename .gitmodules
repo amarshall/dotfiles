@@ -70,6 +70,9 @@
 [submodule "vim/bundle/vim-abolish"]
 	path = vim/bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule "vim/bundle/vim-blockle"]
+	path = vim/bundle/vim-blockle
+	url = https://github.com/jgdavey/vim-blockle.git
 [submodule "vim/bundle/vim-bundler"]
 	path = vim/bundle/vim-bundler
 	url = https://github.com/tpope/vim-bundler.git

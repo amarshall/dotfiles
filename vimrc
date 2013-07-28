@@ -99,6 +99,9 @@ vmap <s-tab> <gv
 cabbrev S Subvert
 cabbrev %S %Subvert
 
+" Blockle
+let g:blockle_mapping = '<leader>rb'
+
 " CtrlP
 let g:ctrlp_max_height=20
 let g:ctrlp_match_window_reversed=0
