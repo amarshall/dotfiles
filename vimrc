@@ -111,6 +111,11 @@ map <C-P>     :CtrlPMRU<CR>
 map <leader>b :CtrlPBuffer<CR>
 map <leader>e :e#<CR>
 
+" Easytags
+set tags=./tags
+let g:easytags_auto_highlight = 0
+let g:easytags_dynamic_files = 1
+
 " Indent Guides
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi link IndentGuidesOdd Normal
