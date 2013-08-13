@@ -1,4 +1,6 @@
 *~
 *.sw[a-z]
 .DS_Store
+.Spotlight-V100
+.Trashes
 tags*
