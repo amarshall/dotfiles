@@ -171,7 +171,10 @@ autocmd BufRead,BufNewFile *.json set filetype=javascript
 autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 autocmd BufRead,BufNewFile *.txt set filetype=text
 
-autocmd FileType gitcommit,markdown,text set spell
+autocmd FileType mail set textwidth=0
+autocmd FileType mail set wrapmargin=0
+
+autocmd FileType gitcommit,mail,markdown,text set spell
 
 autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
 
