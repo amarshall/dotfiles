@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Takes advantage of:
+# <https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard>
+# when available
+
+if command -v reattach-to-user-namespace &>/dev/null; then
+  reattach-to-user-namespace -l "$SHELL"
+else
+  "$SHELL" -l
+fi
