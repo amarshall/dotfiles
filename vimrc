@@ -121,6 +121,9 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi link IndentGuidesOdd Normal
 autocmd VimEnter,Colorscheme * :hi link IndentGuidesEven CursorLine
 
+" Indexed Search
+let g:indexed_search_show_index_mappings = 0
+
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>
 
