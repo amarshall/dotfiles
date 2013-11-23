@@ -149,7 +149,7 @@ map <leader>l :TagbarToggle<CR>
 let vimclojure#DynamicHighlighting=1
 let vimclojure#FuzzyIndent=1
 let vimclojure#SplitPos = "right"
-let vimclojure#WantNailgun = 1
+let vimclojure#WantNailgun = 0
 
 " ZoomWin
 map <leader>z :ZoomWin<CR>
