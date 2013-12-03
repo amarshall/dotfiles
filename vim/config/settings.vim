@@ -54,6 +54,10 @@ if(has("persistent_undo"))
   set undolevels=1000
 endif
 
+if $TERM == 'screen-256color'
+  set t_RV=[>c
+endif
+
 if has('gui_running') || $TERM_PROGRAM != 'Apple_Terminal'
   set background=dark
   colorscheme solarized
