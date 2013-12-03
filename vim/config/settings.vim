@@ -11,6 +11,7 @@ set backspace=indent,eol,start
 set cursorline
 set hidden
 set laststatus=2
+set mouse=a
 set nojoinspaces
 set nowrap
 set number
