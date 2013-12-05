@@ -22,6 +22,8 @@
 [core]
 	autocrlf = input
 	excludesfile = ~/.gitignore
+[fetch]
+	prune = true
 [log]
 	decorate = true
 [pager]
