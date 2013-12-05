@@ -11,7 +11,6 @@
 	amend = commit --amend -C HEAD
 	co = checkout
 	dc = diff --cached
-	l = !". ~/.sh_common/functions/pretty_git_log && pretty_git_log"
 	pop = reset --soft head~1
 	root = rev-parse --show-toplevel
 	st = status
