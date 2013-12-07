@@ -29,6 +29,9 @@ let g:indexed_search_show_index_mappings = 0
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>
 
+" Markdown
+let g:vim_markdown_folding_disabled=1
+
 " NERDCommenter
 let NERDSpaceDelims = 1
 map <leader>/ <plug>NERDCommenterToggle
