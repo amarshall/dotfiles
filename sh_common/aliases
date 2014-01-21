@@ -34,6 +34,10 @@ elif [ -e /Applications/Tower.app ]; then
   alias tower='open /Applications/Tower.app/'
 fi
 
+if type /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine &> /dev/null; then
+  alias screensaver=/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine
+fi
+
 [[ "$(uname)" == "Darwin" ]] && alias netstat='lsof -i -P'
 
 if [ -x /usr/bin/dircolors ]; then
