@@ -39,6 +39,7 @@ map <leader>/ <plug>NERDCommenterToggle
 " NERDTree
 map \ :NERDTreeToggle<CR>
 map \| :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
 
 " Splitjoin
 nmap <leader>j :SplitjoinJoin<CR>
