@@ -51,11 +51,5 @@ let g:syntastic_enable_signs=1
 " Tagbar
 map <leader>l :TagbarToggle<CR>
 
-" VimClojure
-let vimclojure#DynamicHighlighting=1
-let vimclojure#FuzzyIndent=1
-let vimclojure#SplitPos = "right"
-let vimclojure#WantNailgun = 0
-
 " ZoomWin
 map <leader>z :ZoomWin<CR>
