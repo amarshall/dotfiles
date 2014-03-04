@@ -5,6 +5,9 @@ map <silent> <leader>cP :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".
 " Toggle spell check
 map <leader>ss :setlocal spell!<cr>
 
+" Mapping for writing all files in a tab
+cabbrev wt silent windo w
+
 " Gracefully handle holding shift too long after : for common commands
 cabbrev Q q
 cabbrev Qa qa
@@ -13,6 +16,7 @@ cabbrev Tabn tabn
 cabbrev W w
 cabbrev Wa wa
 cabbrev Wq wq
+cabbrev Wt wt
 
 " Make Y consistent with D and C.
 map Y y$
