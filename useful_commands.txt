@@ -45,3 +45,6 @@ find . -type f -print0 | xargs perl -pi -w -0 -e 's/(\n)+\Z/\n/'
 
 # ...removing (more than two) consecutive blank lines from files
 find . -type f -print0 | xargs perl -pi -w -0 -e 'BEGIN{$/=undef}; s/\n\n+/\n\n/'
+
+# ...finding the MTU used between two machines (test from boths ends)
+route get <machine name>
