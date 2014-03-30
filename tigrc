@@ -1,4 +1,5 @@
 set show-date = relative
+set show-id = true
 set horizontal-scroll = 33%
 set tab-size = 2
 
