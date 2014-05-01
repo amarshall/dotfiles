@@ -1,7 +1,7 @@
-set show-date = relative
-set show-id = true
 set horizontal-scroll = 33%
 set tab-size = 2
+
+set main-view = date:relative id:yes author:full commit-title:yes,graph=yes,refs=yes
 
 color author cyan default
 color date green default
