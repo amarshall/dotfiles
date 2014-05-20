@@ -34,4 +34,4 @@ recent_branches = reflog.readlines.lazy.flat_map do |line|
   branches.select { |branch| all_branches.include? branch }
 end.take_uniq num_branches_to_get
 
-puts recent_branches
+puts recent_branches.to_a
