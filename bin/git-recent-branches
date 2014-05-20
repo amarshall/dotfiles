@@ -7,12 +7,10 @@ module Enumerable
     raise ArgumentError, 'attempt to take negative size' if n < 0
     return [] if n == 0
 
-    elems = Set.new
-    each do |elem|
+    each.with_object(Set.new) do |elem, elems|
       elems << elem
       break if elems.size == n
     end
-    elems
   end
 end
 
