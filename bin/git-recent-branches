@@ -10,7 +10,7 @@ module Enumerable
     elems = Set.new
     each do |elem|
       elems << elem
-      break if seen.size == n
+      break if elems.size == n
     end
     elems
   end
