@@ -28,5 +28,7 @@
 [pager]
 	unpulled = false
 	unpushed = false
+[pull]
+	ff = only
 [push]
 	default = simple
