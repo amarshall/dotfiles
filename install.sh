@@ -3,6 +3,7 @@
 COLOR_NC='\033[0m'
 COLOR_GREEN='\033[0;32m'
 COLOR_YELLOW='\033[0;33m'
+CURRENT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 EXCLUDE=(install.sh LICENSE README.markdown)
 NO_DOT=(bin)
@@ -20,14 +21,18 @@ linkfile() {
       printf "\"%s\" is already linked.\n" $symbolic
     fi
   else
-    printf $COLOR_GREEN
-    printf "\".%s\" linked.\n" $filename
-    ln -s "$original" "$symbolic"
+    if ln -s "$original" "$symbolic"; then
+      printf $COLOR_GREEN
+      printf "\".%s\" linked.\n" $symbolic
+    else
+      printf $COLOR_RED
+      printf "\".%s\" linking failed.\n" $symbolic
+    fi
   fi
 }
 
 printf "Initializing and updating git submodules..."
-if (cd $(dirname $0) && git submodule sync &> /dev/null && git submodule update --init &> /dev/null); then
+if (cd "$CURRENT_DIR" && git submodule sync &> /dev/null && git submodule update --init &> /dev/null); then
   printf "\r$COLOR_GREEN"
   printf "Submodules successfully initialized & updated.\n"
 else
@@ -35,9 +40,9 @@ else
   printf "Submodules could not be initialized/updated.\n"
 fi
 
-for filename in $(ls "$(dirname $0)"); do
+for filename in $(ls "$CURRENT_DIR"); do
   [[ ${EXCLUDE[@]} =~ $filename ]] && continue
-  original="$(cd "$(dirname $0)" && pwd)/$filename"
+  original="$CURRENT_DIR/$filename"
   if [[ ${NO_DOT[@]} =~ $filename ]]; then
     symbolic="$HOME/$filename"
   else
