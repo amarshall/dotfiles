@@ -1,6 +1,7 @@
 .DS_Store
 .netrwhist
 .swp
+lein/repl-history
 vim/bundle/*/doc/tags*
 vim/tmp/
 vim/undo/
