@@ -2,6 +2,8 @@ set guioptions-=rL " No scrollbar GUI (use text)
 set guioptions-=e  " No tab bar GUI (use text)
 set guioptions-=T  " No toolbar
 
+set guicursor+=a:blinkon0
+
 if(has("macunix"))
   set guifont=Menlo:h14,Monaco:h14
 elseif(has("unix"))
