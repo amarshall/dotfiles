@@ -1,5 +1,3 @@
-set linespace=2
-
 set guioptions-=rL " No scrollbar GUI (use text)
 set guioptions-=e  " No tab bar GUI (use text)
 set guioptions-=T  " No toolbar
@@ -11,6 +9,8 @@ elseif(has("unix"))
 elseif(has("win32"))
   set guifont=Consolas:h14,Courier\ New:h14
 endif
+
+set linespace=2
 
 if(has("macunix"))
   " Paste yanked text in command mode
