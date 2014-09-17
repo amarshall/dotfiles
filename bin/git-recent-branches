@@ -9,7 +9,7 @@ module Enumerable
 
     each.with_object(Set.new) do |elem, elems|
       elems << elem
-      break if elems.size == n
+      break elems if elems.size == n
     end
   end
 end
