@@ -1,0 +1,99 @@
+#!/bin/sh
+
+# System misc.
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write NSGlobalDomain AppleShowScrollBars -string 'Always'
+# defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled  -bool false
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+# defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+defaults write com.apple.universalaccess reduceTransparency -bool true
+sudo tmutil disablelocal
+
+# Time
+sudo systemsetup -setnetworktimeserver 'us.pool.ntp.org'
+defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
+defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm:ss'
+
+# Keyboard
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 2 # Tab accesses all controls
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
+defaults write NSGlobalDomain KeyRepeat -int 2
+
+# Dashboard
+defaults write com.apple.dashboard enabled-state -int 1 # 1=Disabled, 2=AsSpace, 3=Overlay
+
+# Disk Utility
+defaults write com.apple.DiskUtility advanced-image-options -bool true
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+
+# Dock
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock largesize -int 80
+defaults write com.apple.dock minimize-to-application -bool true
+defaults write com.apple.dock tilesize -int 48
+
+# Finder
+defaults write com.apple.finder FXDefaultSearchScope -string 'SCcf'
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+  General -bool true \
+  OpenWith -bool true \
+  Privileges -bool true
+defaults write com.apple.finder FXPreferredViewStyle -string 'clmv'
+defaults write com.apple.finder NewWindowTarget -string 'PfHm'
+defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME/"
+defaults write com.apple.finder QLEnableTextSelection -bool true
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder SidebarTagsSctionDisclosedState -bool true
+defaults write com.apple.finder.ComputerViewSettings.WindowState SidebarWidth -int 150
+defaults write com.apple.finder.DesktopViewSettings.IconViewSettings arrangeBy -string 'grid'
+defaults write com.apple.finder.DesktopViewSettings.IconViewSettings iconSize -int 64
+chflags nohidden ~/Library
+
+# Hot Corners
+#  0: no-op
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+defaults write com.apple.dock wvous-bl-corner -int 2
+defaults write com.apple.dock wvous-bl-modifier -int 0
+defaults write com.apple.dock wvous-br-corner -int 10
+defaults write com.apple.dock wvous-br-modifier -int 0
+defaults write com.apple.dock wvous-tl-corner -int 7
+defaults write com.apple.dock wvous-tl-modifier -int 0
+defaults write com.apple.dock wvous-tr-corner -int 4
+defaults write com.apple.dock wvous-tr-modifier -int 0
+
+# Safari
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
+
+# Screen capture
+defaults write com.apple.screencapture disable-shadow -bool true
+defaults write com.apple.screencapture disable-shadow -bool true
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# TextEdit
+defaults write com.apple.TextEdit IgnoreHTML -bool true
+defaults write com.apple.TextEdit NSFixedPitchFont -string 'Menlo-Regular'
+defaults write com.apple.TextEdit NSFixedPitchFontSize -int 14
+defaults write com.apple.TextEdit NSFont -string 'HelveticaNeue'
+defaults write com.apple.TextEdit NSFontSize -int 14
+defaults write com.apple.TextEdit RichText -bool false
+
+# Restart things to take effect
+killall Dock
+killall Finder
+killall SystemUIServer
