@@ -25,6 +25,11 @@ autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
 " Enable soft-wrapping for text files
 autocmd FileType eruby,html,mkd,text,xhtml setlocal wrap linebreak nolist
 
+autocmd FileType bindzone set nolist
+autocmd FileType bindzone set noexpandtab
+autocmd FileType bindzone set shiftwidth=8
+autocmd FileType bindzone set tabstop=8
+
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid, when inside an event handler
 " (happens when dropping a file on gvim), or when inside a git commit
