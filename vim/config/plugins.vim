@@ -49,7 +49,7 @@ nmap <leader>s :SplitjoinSplit<CR>
 
 " Syntastic
 let g:syntastic_enable_signs=1
-let g:syntastic_javascript_jshint_conf=expand("~/.jshintrc")
+let g:syntastic_javascript_jshint_args = '--config '.expand('~/.jshintrc')
 
 " Tagbar
 map <leader>l :TagbarToggle<CR>
