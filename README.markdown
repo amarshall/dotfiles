@@ -1,13 +1,13 @@
-# Dot Files #
+# Dot Files
 I have a love affair with my terminal. This is my collection of
 terminal configuration files that (attempt to) make daily use of the
 terminal easier, faster, and perhaps even more enjoyable. It’s all
 about strengthening the bond `;)`.
 
-## Installation ##
+## Installation
 Clone the repository, `cd` into its directory, then run `./install.sh`.
 
-## Environment ##
+## Environment
 Currently targeting primarily Mac OS X with
 [Homebrew](http://mxcl.github.com/homebrew). Running with no known
 problems on Ubuntu 10.04 Server as well. Likes
@@ -15,7 +15,7 @@ problems on Ubuntu 10.04 Server as well. Likes
 [RVM](https://rvm.beginrescueend.com/). Designed to not load/set items
 that are irrelevant on the current platform.
 
-## Customizing ##
+## Customizing
 Bash, Zsh, & Vim all support "localrc" files in the home directory which are
 loaded after all other configuration:
 
@@ -29,16 +29,16 @@ directory, prefixed with your machine's name (as displayed by `hostname`). When
 running the install script these will automatically be linked accordingly. This
 allows machine-specific configuration.
 
-## Notable features ##
+## Notable features
 There’s a lot more than what is listed here, as there are too many
 small features to list. Explore the code to find everything.
 
-### Bash ###
+### Bash
 - Intelligent shortening of the current working directory in the prompt
   to prevent the prompt from becoming awkwardly long.
 - Prompt color changes depending on if connection is via SSH or not.
 
-### ZSH ###
+### ZSH
 - Minimalist prompt. Doesn’t display directory if home, doesn’t display
   username if it’s your own, doesn’t display machine name if local
   (since hopefully you know what machine you’re on then).
@@ -47,14 +47,14 @@ small features to list. Explore the code to find everything.
 - On OS X Lion, includes a port of Bash’s copying of the current
   directory when opening a new tab in Terminal.app.
 
-### Bash & ZSH ###
+### Bash & ZSH
 - `extract` command to uncompress most common formats.
 - `play` command as a quick shortcut for Emacs games (Tetris, Pong,
   Snake, etc.).
 - `pman` command to open a man page in Preview,
   respectively (Mac only).
 
-## License & Credits ##
+## License & Credits
 Copyright © 2011–2014 J. Andrew Marshall. License is available in the LICENSE file.
 
 Original inspiration from [Ryan Bates](https://github.com/ryanb/dotfiles).
