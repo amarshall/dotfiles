@@ -54,5 +54,10 @@ let g:syntastic_javascript_jshint_args = '--config '.expand('~/.jshintrc')
 " Tagbar
 map <leader>l :TagbarToggle<CR>
 
+" TagList
+if filereadable("/usr/local/bin/ctags")
+  let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
+endif
+
 " ZoomWin
 map <leader>z :ZoomWin<CR>
