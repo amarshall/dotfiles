@@ -1,6 +1,6 @@
 #!/bin/bash
 
-COLOR_NC='\033[0m'
+COLOR_NONE='\033[0m'
 COLOR_RED='\033[0;31m'
 COLOR_GREEN='\033[0;32m'
 COLOR_YELLOW='\033[0;33m'
@@ -18,7 +18,7 @@ linkfile() {
       printf $COLOR_YELLOW
       printf "\"%s\" already exists, skipping.\n" $symbolic
     else
-      printf $COLOR_NC
+      printf $COLOR_NONE
       printf "\"%s\" is already linked.\n" $symbolic
     fi
   else
@@ -82,4 +82,4 @@ if grep Darwin <(uname) &> /dev/null; then
   fi
 fi
 
-printf $COLOR_NC
+printf $COLOR_NONE
