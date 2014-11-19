@@ -5,5 +5,3 @@ elif [ -f /etc/bash_completion ]; then
 fi
 
 complete -C ~/.bash/completion_scripts/rake_completion.rb -o default rake
-
-[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
