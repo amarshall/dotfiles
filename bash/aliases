@@ -2,13 +2,3 @@
 
 alias colors='set | egrep '"'"'COLOR_\w*'"'"' | awk -F= '"'"'{ gsub("\047", ""); gsub(/\\033/, ""); print "\033" $2 $1 }'"'"'; echo -en $COLOR_NC'
 alias reloadbash='source ~/.bashrc'
-
-# Specific to "Darwin" aka Mac OS X
-if [[ "$(uname)" == "Darwin" ]]; then
-  # Opens a man page in Preview.app
-  # @param The name of the command to open the man page for
-  function pman {
-    # Convert to PDF first so Preview doesn't prompt to save on quit
-    man -t $@ | ps2pdf - - | open -g -f -a /Applications/Preview.app
-  }
-fi
