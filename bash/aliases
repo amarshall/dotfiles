@@ -3,9 +3,6 @@
 alias colors='set | egrep '"'"'COLOR_\w*'"'"' | awk -F= '"'"'{ gsub("\047", ""); gsub(/\\033/, ""); print "\033" $2 $1 }'"'"'; echo -en $COLOR_NC'
 alias reloadbash='source ~/.bashrc'
 
-# Alias git to hub if available
-type -P hub &> /dev/null && alias git=hub
-
 # Specific to "Darwin" aka Mac OS X
 if [[ "$(uname)" == "Darwin" ]]; then
   # Opens a man page in Preview.app
