@@ -28,12 +28,6 @@ if which qlmanage &> /dev/null; then
   alias quicklook='qlmanage -p &> /dev/null'
 fi
 
-if type gittower &> /dev/null; then
-  alias tower='gittower .'
-elif [ -e /Applications/Tower.app ]; then
-  alias tower='open /Applications/Tower.app/'
-fi
-
 if type /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine &> /dev/null; then
   alias screensaver=/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine
 fi
