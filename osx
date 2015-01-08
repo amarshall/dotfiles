@@ -3,7 +3,7 @@
 # System misc.
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write NSGlobalDomain AppleShowScrollBars -string 'Always'
-# defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled  -bool false
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
