@@ -5,17 +5,19 @@ terminal easier, faster, and perhaps even more enjoyable. It’s all
 about strengthening the bond `;)`.
 
 ## Installation
-Clone the repository, `cd` into its directory, then run `./install.sh`.
+- Run `./install.sh`
 
 ## Environment
-Currently targeting primarily Mac OS X with
-[Homebrew](http://mxcl.github.com/homebrew). Running with no known
-problems on Ubuntu 10.04 Server as well. Likes
-[rbenv](https://github.com/sstephenson/rbenv) &
-[RVM](https://rvm.beginrescueend.com/). Designed to not load/set items
-that are irrelevant on the current platform.
+Configuration exists to target
+
+- OSs: Known to run on OS X (+ Homebrew), FreeBSD, & Ubuntu Linux
+- Shell: Primarily Zsh, but with Bash configuration
+- Languages: Primarily targeting for Ruby & Clojure development
+- Editor: Vim
+- VCS: Git
 
 ## Customizing
+
 Bash, Zsh, & Vim all support "localrc" files in the home directory which are
 loaded after all other configuration:
 
@@ -27,7 +29,7 @@ loaded after all other configuration:
 The preferred method of achieving this is by placing the files in the `localrcs`
 directory, prefixed with your machine's name (as displayed by `hostname`). When
 running the install script these will automatically be linked accordingly. This
-allows machine-specific configuration.
+allows machine-specific configuration to be stored in the repository
 
 ## Notable features
 There’s a lot more than what is listed here, as there are too many
