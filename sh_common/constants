@@ -11,7 +11,7 @@ export PAGER="$(which less)"
 export VISUAL=vim
 
 # ANSI color constants
-export           COLOR_NONE='\033[0m'
+export         COLOR_NONE='\033[0m'
 export        COLOR_WHITE='\033[1;37m'
 export        COLOR_BLACK='\033[0;30m'
 export         COLOR_BLUE='\033[0;34m'
