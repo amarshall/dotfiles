@@ -44,3 +44,6 @@ find . -type f -print0 | xargs perl -pi -w -0 -e 'BEGIN{$/=undef}; s/\n\n+/\n\n/
 
 # ...finding the MTU used between two machines (test from boths ends)
 route get <machine name>
+
+# ...finding hosts on your LAN (best with sudo, change subnet accordingly)
+nmap -sn -oG - 192.168.1.0/24 | egrep '^Host:' | column -t
