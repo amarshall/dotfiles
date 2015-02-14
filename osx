@@ -36,13 +36,8 @@ defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock tilesize -int 48
 
 # Finder
-/usr/libexec/PlistBuddy -c 'Set :ComputerViewSettings:WindowState:SidebarWidth 150' ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:arrangeBy grid' ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:iconSize 64' ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c 'Set :MeetingRoomViewSetting:WindowState:SidebarWidth 150' ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c 'Set :MyDocsLibrarySearchViewSettings:WindowState:SidebarWidth 150' ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c 'Set :SearchViewSettings:WindowState:SidebarWidth 150' ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c 'Set :TrashViewSettings:WindowState:SidebarWidth 150' ~/Library/Preferences/com.apple.finder.plist
 defaults read ~/Library/Preferences/com.apple.finder.plist # Refresh cache from disk
 defaults write com.apple.finder FXDefaultSearchScope -string 'SCcf'
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
@@ -50,7 +45,6 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
   OpenWith -bool true \
   Privileges -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string 'clmv'
-defaults write com.apple.finder FK_SidebarWidth -int 150
 defaults write com.apple.finder NewWindowTarget -string 'PfHm'
 defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME/"
 defaults write com.apple.finder QLEnableTextSelection -bool true
