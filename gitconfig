@@ -12,6 +12,7 @@
 	co = checkout
 	dc = diff --cached
 	pop = reset --soft head~1
+	reword = commit --only --amend
 	root = rev-parse --show-toplevel
 	st = status
 	unpulled = !"git fetch && git log HEAD..@{u}"
