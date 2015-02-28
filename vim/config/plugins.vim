@@ -50,6 +50,7 @@ nmap <leader>s :SplitjoinSplit<CR>
 " Syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_javascript_jshint_args = '--config '.expand('~/.jshintrc')
+let g:syntastic_ruby_mri_exec = '/usr/bin/env ruby'
 
 " Tagbar
 map <leader>l :TagbarToggle<CR>
