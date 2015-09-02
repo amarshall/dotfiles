@@ -1,9 +1,3 @@
-set nocompatible
-
-call pathogen#infect()
-
-autocmd!
-
 let mapleader = ","
 let maplocalleader = "<"
 
