@@ -52,14 +52,8 @@ if $TERM == 'screen-256color'
   set t_RV=[>c
 endif
 
-if has('gui_running') || $TERM_PROGRAM != 'Apple_Terminal'
-  set background=dark
-  colorscheme solarized
-endif
-
-if $TERM_PROGRAM == 'Apple_Terminal'
-  set nocursorline
-end
+set background=dark
+colorscheme solarized
 
 " Highlight if there is color
 if(&t_Co > 2 || has("gui_running"))
