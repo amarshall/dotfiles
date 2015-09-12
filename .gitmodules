@@ -49,6 +49,9 @@
 [submodule "vim/bundle/regreplop"]
 	path = vim/bundle/regreplop
 	url = https://github.com/vim-scripts/regreplop.vim.git
+[submodule "vim/bundle/rust.vim"]
+	path = vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
 [submodule "vim/bundle/snipMate"]
 	path = vim/bundle/snipMate
 	url = https://github.com/vim-scripts/snipMate.git

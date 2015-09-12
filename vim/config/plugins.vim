@@ -43,6 +43,9 @@ map \| :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeRespectWildIgnore=1
 
+" Rust syntax
+let g:rust_recommended_style=0
+
 " Splitjoin
 nmap <leader>j :SplitjoinJoin<CR>
 nmap <leader>s :SplitjoinSplit<CR>
