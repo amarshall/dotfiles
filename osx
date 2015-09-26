@@ -31,7 +31,7 @@ defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 
 # Dock
 defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock largesize -int 80
+defaults write com.apple.dock largesize -int 72
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock tilesize -int 48
 
