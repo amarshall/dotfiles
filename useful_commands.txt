@@ -42,6 +42,11 @@ find . -type f -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/(\n)+\Z/\n/
 # ...removing (more than two) consecutive blank lines from files
 find . -type f -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/\n\n+/\n\n/'
 
+# ...removing excess padding in Ruby class/def/end blocks
+find app lib spec config -type f -iname '*.rb' -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/(\n *end\n)\n+( *end\n)/$1$2/'
+find app lib spec config -type f -iname '*.rb' -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/(\n *(class|def) [^\n]*\n)\n+/$1/'
+find app lib spec config -type f -iname '*.rb' -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/( do(\n|(\|[^|\n]+)?)\n)\n+/$1/'
+
 # ...finding the MTU used between two machines (test from boths ends)
 route get <machine name>
 
