@@ -1,9 +1,5 @@
-\set QUIET
-
 \pset null '∅'
 \set HISTCONTROL ignoredups
 \set VERBOSITY verbose
 \timing on
 \x auto
-
-\unset QUIET
