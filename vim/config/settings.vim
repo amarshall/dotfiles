@@ -5,6 +5,7 @@ set backspace=indent,eol,start
 set cursorline
 set hidden
 set laststatus=2
+set lazyredraw
 set mouse=a
 set nojoinspaces
 set nowrap
