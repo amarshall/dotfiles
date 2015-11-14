@@ -9,6 +9,7 @@ let g:blockle_mapping = '<leader>rb'
 let g:ctrlp_max_height=20
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_use_caching=0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 map <C-P>     :CtrlPMRU<CR>
 map <leader>b :CtrlPBuffer<CR>
 map <leader>e :e#<CR>
