@@ -11,6 +11,7 @@ alias ls='ls -aFh'
 alias mv='mv -i'
 alias mvimload='mvim -c "so %"'
 alias prd='pwd -P'  # "print real directory" (follows symlinks)
+alias R='R --no-save --quiet'
 alias ri='ri -f ansi'
 alias vimload='vim -c "so %"'
 
