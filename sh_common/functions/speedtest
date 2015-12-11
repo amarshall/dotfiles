@@ -1,5 +1,5 @@
 speedtest() {
   local size="$1"
   [[ -z "$size" ]] && size=10
-  wget --delete-after "http://cachefly.cachefly.net/${size}mb.test"
+  wget --output-document=/dev/null "http://cachefly.cachefly.net/${size}mb.test"
 }
