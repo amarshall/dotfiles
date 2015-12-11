@@ -12,7 +12,6 @@ alias mv='mv -i'
 alias mvimload='mvim -c "so %"'
 alias prd='pwd -P'  # "print real directory" (follows symlinks)
 alias ri='ri -f ansi'
-alias speedtest='wget --delete-after http://cachefly.cachefly.net/10mb.test'
 alias vimload='vim -c "so %"'
 
 which apt-get &> /dev/null && alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
