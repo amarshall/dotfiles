@@ -130,9 +130,6 @@
 [submodule "vim/bundle/vim-javascript"]
 	path = vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown
 [submodule "vim/bundle/vim-misc"]
 	path = vim/bundle/vim-misc
 	url = https://github.com/xolox/vim-misc.git
