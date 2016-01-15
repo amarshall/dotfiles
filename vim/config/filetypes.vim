@@ -20,12 +20,12 @@ autocmd FileType clojure set iskeyword-=.
 autocmd FileType mail set textwidth=0
 autocmd FileType mail set wrapmargin=0
 
-autocmd FileType gitcommit,mail,mkd,text set spell
+autocmd FileType gitcommit,mail,markdown,text set spell
 
 autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
 
 " Enable soft-wrapping for text files
-autocmd FileType eruby,html,mkd,text,xhtml setlocal wrap linebreak nolist
+autocmd FileType eruby,html,markdown,text,xhtml setlocal wrap linebreak nolist
 
 autocmd FileType bindzone set nolist
 autocmd FileType bindzone set noexpandtab
