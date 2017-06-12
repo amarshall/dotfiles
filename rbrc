@@ -17,7 +17,7 @@ module Unbundler
   end
 
   def self.gem_dir
-    regex = %r((.*?/ruby/#{RUBY_VERSION}/gems/))
+    regex = %r((.*?/ruby/(?:gems/)?\d+\.\d+\.\d+/gems/))
     some_gem_dir = $LOAD_PATH.grep(regex).first
     return unless some_gem_dir
     some_gem_dir.match(regex).captures[0]
