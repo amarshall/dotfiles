@@ -34,7 +34,7 @@ module Unbundler
 end
 
 def command_exists? command
-  system({ 'PATH' => ENV['PATH'] }, "bash --login --noprofile -c 'type #{command} > /dev/null 2> /dev/null'")
+  system("which #{command} > /dev/null 2> /dev/null")
 end
 
 def current_ruby_version
