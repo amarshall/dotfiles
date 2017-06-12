@@ -67,7 +67,7 @@ ruby_version_detector = Class.new do
 
   define_method(:manager) { version_managers.detect(&:match?) }
   define_method(:bypassed?) do
-    manager.version.match(/\d\.\d\.\d(-p\d+)?/).to_s != real_version
+    manager.version.match(/\d+\.\d+\.\d+(-p\d+)?/).to_s != real_version
   end
 end
 
