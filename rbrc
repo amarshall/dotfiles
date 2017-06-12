@@ -1,3 +1,6 @@
+require 'rubygems/requirement'
+require 'rubygems/version'
+
 module Unbundler
   def self.require_external_gem gem_name
     require gem_name
@@ -34,11 +37,19 @@ def command_exists? command
   system({ 'PATH' => ENV['PATH'] }, "bash --login --noprofile -c 'type #{command} > /dev/null 2> /dev/null'")
 end
 
+def current_ruby_version
+  if Gem::Requirement.new('>= 2.1.0').satisfied_by?(Gem::Version.new(RUBY_VERSION))
+    RUBY_VERSION
+  else
+    "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
+  end
+end
+
 ruby_version_detector = Class.new do
   chruby = Module.new do
     define_singleton_method(:match?) { command_exists? 'chruby' }
     define_singleton_method(:name) { 'chruby' }
-    define_singleton_method(:version) { "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}" }
+    define_singleton_method(:version) { current_ruby_version }
   end
   rbenv = Module.new do
     define_singleton_method(:match?) { command_exists? 'rbenv' }
@@ -52,11 +63,11 @@ ruby_version_detector = Class.new do
   end
 
   version_managers = [chruby, rbenv, rvm]
-  define_method(:real_version) { "#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}" }
+  define_method(:real_version) { current_ruby_version }
 
   define_method(:manager) { version_managers.detect(&:match?) }
   define_method(:bypassed?) do
-    manager.version.match(/\d\.\d\.\d-p\d+/).to_s != real_version
+    manager.version.match(/\d\.\d\.\d(-p\d+)?/).to_s != real_version
   end
 end
 
