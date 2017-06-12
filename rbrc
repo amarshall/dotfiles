@@ -47,7 +47,7 @@ end
 
 ruby_version_detector = Class.new do
   chruby = Module.new do
-    define_singleton_method(:match?) { command_exists? 'chruby' }
+    define_singleton_method(:match?) { command_exists? 'chruby-exec' }
     define_singleton_method(:name) { 'chruby' }
     define_singleton_method(:version) { current_ruby_version }
   end
