@@ -61,8 +61,13 @@ ruby_version_detector = Class.new do
     define_singleton_method(:name) { 'RVM' }
     define_singleton_method(:version) { `rvm current`.split("\n").last }
   end
+  system = Module.new do
+    define_singleton_method(:match?) { true }
+    define_singleton_method(:name) { nil }
+    define_singleton_method(:version) { current_ruby_version }
+  end
 
-  version_managers = [chruby, rbenv, rvm]
+  version_managers = [chruby, rbenv, rvm, system]
   define_method(:real_version) { current_ruby_version }
 
   define_method(:manager) { version_managers.detect(&:match?) }
@@ -90,7 +95,7 @@ def print_ruby_version version_detector
     version = version_detector.real_version
   end
 
-  version_str = "#{manager} using #{version}"
+  version_str = [manager, 'using', version].compact.join(' ')
   puts Paint[version_str, :bold, :underline]
 end
 
