@@ -31,7 +31,7 @@ module Unbundler
 end
 
 def command_exists? command
-  system "bash -l -c 'type #{command} > /dev/null 2> /dev/null'"
+  system({ 'PATH' => ENV['PATH'] }, "bash --login --noprofile -c 'type #{command} > /dev/null 2> /dev/null'")
 end
 
 ruby_version_detector = Class.new do
