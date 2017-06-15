@@ -5,7 +5,6 @@ set main-view = date:relative id:yes author:full commit-title:yes,graph=yes,refs
 
 color author cyan default
 color date green default
-color cursor white green
 color main-head red default underline
 color main-ref red default
 color main-remote red default

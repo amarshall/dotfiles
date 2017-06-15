@@ -32,3 +32,6 @@ export   COLOR_LIGHT_GRAY='\033[0;37m'
 if type brew &>/dev/null; then
   export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 fi
+
+BASE16_SHELL=$HOME/.sh_common/vendor/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

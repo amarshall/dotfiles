@@ -53,8 +53,10 @@ if $TERM == 'screen-256color'
   set t_RV=[>c
 endif
 
-set background=dark
-colorscheme solarized
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Highlight if there is color
 if(&t_Co > 2 || has("gui_running"))
