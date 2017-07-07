@@ -1,4 +1,4 @@
-. ~/.sh_common/config
+source ~/.sh_common/config.bash
 
 fpath=(~/.zsh/functions ~/.sh_common/functions /usr/local/share/zsh-completions $fpath)
 

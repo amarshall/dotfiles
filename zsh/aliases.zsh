@@ -1,4 +1,4 @@
-. ~/.sh_common/aliases
+source ~/.sh_common/aliases.bash
 
 alias importhistory="fc -RI"
 alias history="history 1"

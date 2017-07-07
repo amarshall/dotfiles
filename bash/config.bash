@@ -1,4 +1,4 @@
-. ~/.sh_common/config
+source ~/.sh_common/config.bash
 
 export HISTCONTROL=erasedups  # Removes duplicate entires
 export HISTSIZE=10000  # Increase command history

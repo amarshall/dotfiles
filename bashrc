@@ -1,13 +1,13 @@
-. ~/.sh_common/pre_config
-. ~/.bash/paths
-. ~/.bash/constants
-. ~/.bash/aliases
+source ~/.sh_common/pre_config.bash
+source ~/.bash/paths.bash
+source ~/.bash/constants.bash
+source ~/.bash/aliases.bash
 for f in ~/.sh_common/functions/*; do . $f; done
 
 if [[ $- == *i* ]] ; then
-  . ~/.bash/config
-  . ~/.bash/completions
+  source ~/.bash/config.bash
+  source ~/.bash/completions.bash
 fi
 
-[ -f ~/.sh_common_local ] && . ~/.sh_common_local
-[ -f ~/.bashrc_local ] && . ~/.bashrc_local
+[ -f ~/.sh_common_local ] && source ~/.sh_common_local
+[ -f ~/.bashrc_local ] && source ~/.bashrc_local
