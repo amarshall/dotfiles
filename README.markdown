@@ -57,7 +57,7 @@ small features to list. Explore the code to find everything.
   respectively (Mac only).
 
 ## License & Credits
-Copyright © 2011–2015 J. Andrew Marshall. License is available in the LICENSE file.
+Copyright © 2011–2017 J. Andrew Marshall. License is available in the LICENSE file.
 
 Original inspiration from [Ryan Bates](https://github.com/ryanb/dotfiles).
 
