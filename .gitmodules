@@ -175,6 +175,9 @@
 [submodule "vim/bundle/vim-unimpaired"]
 	path = vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "vim/bundle/yats.vim"]
+	path = vim/bundle/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim.git
 [submodule "vim/bundle/ZoomWin"]
 	path = vim/bundle/ZoomWin
 	url = https://github.com/vim-scripts/ZoomWin.git
