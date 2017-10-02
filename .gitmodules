@@ -19,9 +19,9 @@
 [submodule "vim/bundle/camelcasemotion"]
 	path = vim/bundle/camelcasemotion
 	url = https://github.com/vim-scripts/camelcasemotion.git
-[submodule "vim/bundle/ctrlp"]
-	path = vim/bundle/ctrlp
-	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/command-t"]
+	path = vim/bundle/command-t
+	url = https://github.com/wincent/command-t.git
 [submodule "vim/bundle/gitignore"]
 	path = vim/bundle/gitignore
 	url = https://github.com/vim-scripts/gitignore.git
