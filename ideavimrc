@@ -1,0 +1,5 @@
+set surround
+
+nmap [<space> O<esc>
+nmap ]<space> o<esc>
+map Y y$
