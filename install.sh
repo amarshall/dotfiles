@@ -83,7 +83,7 @@ if grep Darwin <(uname) &> /dev/null; then
 fi
 
 if ! [[ -e "$CURRENT_DIR/vim/bundle/command-t/ruby/command-t/ext/command-t/ext.bundle" ]]; then
-  (cd "$CURRENT_DIR/vim/bundle/command-t/ruby/command-t/ext" && ruby extconf.rb && make)
+  (cd "$CURRENT_DIR/vim/bundle/command-t/ruby/command-t/ext/command-t" && ruby extconf.rb && make)
 fi
 
 printf $COLOR_NONE
