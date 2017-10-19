@@ -39,7 +39,7 @@ set shiftwidth=2
 set smartindent
 set smarttab
 set tabstop=2
-set list listchars=extends:…,tab:»·,trail:·
+set list listchars=extends:…,tab:»\ ,trail:·
 filetype plugin indent on
 
 " Persistent undo
