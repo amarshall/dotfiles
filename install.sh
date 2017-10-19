@@ -54,6 +54,8 @@ for filename in $(ls "$CURRENT_DIR"); do
 done
 
 mkdir -p ~/.vim/tmp ~/.vim/undo
+mkdir -p ~/.config/nvim
+(cd ~/.config/nvim && ln -s ~/.vimrc init.vim)
 
 for filename in $(ls "$HOME/.localrcs"); do
   original="$HOME/.localrcs/$filename"
