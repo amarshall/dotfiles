@@ -2,7 +2,7 @@ let mapleader = ","
 let maplocalleader = "<"
 
 set backspace=indent,eol,start
-set cursorline
+set nocursorline
 set hidden
 set laststatus=2
 set lazyredraw
