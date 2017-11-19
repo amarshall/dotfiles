@@ -35,7 +35,6 @@ fi
 [[ "$(uname)" == "Darwin" ]] && alias netstat='lsof -i -P'
 
 if [ -x /usr/bin/dircolors ]; then
-  eval "$(dircolors -b)"
   if alias ls &> /dev/null; then
     ls=$(alias ls | awk -F"'" '{print $(NF-1)}')
     alias ls="$ls --color=auto"

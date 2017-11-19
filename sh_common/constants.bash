@@ -1,5 +1,6 @@
 export CLICOLOR=1
 export LSCOLORS=ExfxcxdxbxagadbHbHEHEH
+export LS_COLORS='di=01;34;49:ln=35;49:so=32;49:pi=33;49:ex=31;49:bd=30;46:cd=30;43:su=31;01;47:sg=31;01;47:tw=01;34;01;47:ow=01;34;01;47'
 export EDITOR=vim
 if [ -z $JAVA_HOME ] && /usr/libexec/java_home &> /dev/null; then
   export JAVA_HOME=$(/usr/libexec/java_home)
