@@ -36,6 +36,6 @@ autocmd FileType bindzone set tabstop=8
 " Don't do it when the position is invalid, when inside an event handler
 " (happens when dropping a file on gvim), or when inside a git commit
 autocmd BufReadPost *
-  \ if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") |
+  \ if &filetype != "gitcommit" && &filetype != "gitrebase" && line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal g`\"" |
   \ endif
