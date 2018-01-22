@@ -82,6 +82,9 @@
 [submodule "vim/bundle/tslime.vim"]
 	path = vim/bundle/tslime.vim
 	url = https://github.com/jgdavey/tslime.vim
+[submodule "vim/bundle/typescript-vim"]
+	path = vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "vim/bundle/vim-abolish"]
 	path = vim/bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
