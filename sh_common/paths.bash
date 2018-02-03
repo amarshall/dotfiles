@@ -2,6 +2,9 @@
 [[ -d /usr/local/lib/node ]] && export NODE_PATH=/usr/local/lib/node
 [[ -d /usr/local/share/npm/bin ]] && export PATH=/usr/local/share/npm/bin:$PATH
 
+# For MacTeX
+[[ -d /Library/TeX/texbin ]] && export PATH=$PATH:/Library/TeX/texbin
+
 # For "home" bin
 [[ -d ~/bin ]] && export PATH=$HOME/bin:$PATH
 
