@@ -12,7 +12,7 @@ if &term =~ "xterm" || &term =~ "screen"
   " Make ESC work in CommandT while in terminal Vim
   let g:CommandTCancelMap=['<ESC>']
 end
-map <C-P> :CommandT<CR>
+" map <C-P> :CommandT<CR>
 
 " Easytags
 set tags=./tags
@@ -27,6 +27,10 @@ autocmd VimEnter,Colorscheme * :hi link IndentGuidesEven CursorLine
 
 " Indexed Search
 let g:indexed_search_show_index_mappings = 0
+
+" fzf
+set runtimepath+=/usr/local/opt/fzf
+map <C-P> :Files<CR>
 
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>

@@ -22,6 +22,9 @@
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
 	url = https://github.com/wincent/command-t.git
+[submodule "vim/bundle/fzf.vim"]
+	path = vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
 [submodule "vim/bundle/gitignore"]
 	path = vim/bundle/gitignore
 	url = https://github.com/vim-scripts/gitignore.git
