@@ -25,7 +25,7 @@ autocmd FileType gitcommit,mail,markdown,text set spell
 autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
 
 " Enable soft-wrapping for text files
-autocmd FileType eruby,html,markdown,text,xhtml setlocal wrap linebreak nolist
+autocmd FileType eruby,html,markdown,tex,text,xhtml setlocal wrap linebreak nolist
 
 autocmd FileType bindzone set nolist
 autocmd FileType bindzone set noexpandtab
