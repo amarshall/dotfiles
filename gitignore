@@ -3,5 +3,6 @@
 .DS_Store
 .Spotlight-V100
 .Trashes
+spacemacs.d/custom.el
 tags
 tags-*
