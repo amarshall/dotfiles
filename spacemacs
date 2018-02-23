@@ -343,6 +343,8 @@ you should place your code here."
                             `([,(cdr char-regexp) 0 font-shape-gstring])))
     )
   (setq clojure-enable-fancify-symbols t)
+  (setq mouse-wheel-scroll-amount '(3 ((shift) . 3)))
+  (setq mouse-wheel-progressive-speed nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
