@@ -340,6 +340,9 @@ you should place your code here."
       (set-char-table-range composition-function-table (car char-regexp)
                             `([,(cdr char-regexp) 0 font-shape-gstring])))
     )
+  (add-hook 'helm-major-mode-hook
+            (lambda ()
+              (setq auto-composition-mode nil)))
   (setq clojure-enable-fancify-symbols t)
   (setq mouse-wheel-scroll-amount '(3 ((shift) . 3)))
   (setq mouse-wheel-progressive-speed nil)
