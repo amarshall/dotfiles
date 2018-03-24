@@ -31,22 +31,34 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     ;; auto-completion
-     ;; better-defaults
-     ;; syntax-checking
-     ;; version-control
+     auto-completion
+     c-c++
      clojure
+     docker
      emacs-lisp
      git
+     go
+     haskell
      helm
+     javascript
+     latex
+     lua
      markdown
      nginx
      org
+     python
+     racket
+     react
      ruby
+     ruby-on-rails
+     rust
+     scala
      spell-checking
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     sql
+     syntax-checking
+     typescript
+     version-control
+     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
