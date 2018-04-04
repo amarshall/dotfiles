@@ -10,6 +10,9 @@
 [submodule "vim/bundle/ag.vim"]
 	path = vim/bundle/ag.vim
 	url = https://github.com/epmatsw/ag.vim.git
+[submodule "vim/bundle/alchemist.vim"]
+	path = vim/bundle/alchemist.vim
+	url = https://github.com/slashmili/alchemist.vim.git
 [submodule "vim/bundle/applescript"]
 	path = vim/bundle/applescript
 	url = https://github.com/vim-scripts/applescript.vim.git
@@ -124,6 +127,9 @@
 [submodule "vim/bundle/vim-easytags"]
 	path = vim/bundle/vim-easytags
 	url = https://github.com/xolox/vim-easytags.git
+[submodule "vim/bundle/vim-elixir"]
+	path = vim/bundle/vim-elixir
+	url = https://github.com/elixir-editors/vim-elixir.git
 [submodule "vim/bundle/vim-endwise"]
 	path = vim/bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise
