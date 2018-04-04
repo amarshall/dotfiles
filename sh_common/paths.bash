@@ -17,3 +17,8 @@ elif type rbenv &> /dev/null; then
 elif [ -s "$HOME/.rvm/scripts/rvm" ]; then
   . "$HOME/.rvm/scripts/rvm"
 fi
+
+# Load nodenv
+if type nodenv &> /dev/null; then
+  eval "$(nodenv init -)"
+fi
