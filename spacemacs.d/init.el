@@ -35,6 +35,7 @@ values."
      c-c++
      clojure
      docker
+     elixir
      emacs-lisp
      git
      go
