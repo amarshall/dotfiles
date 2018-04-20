@@ -359,4 +359,5 @@ you should place your code here."
   (setq clojure-enable-fancify-symbols t)
   (setq mouse-wheel-scroll-amount '(3 ((shift) . 3)))
   (setq mouse-wheel-progressive-speed nil)
+  (setq standard-indent 2)
   )
