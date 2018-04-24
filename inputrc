@@ -1,3 +1,5 @@
+set enable-bracketed-paste on
+
 C-b: backward-word
 C-f: forward-word
 
