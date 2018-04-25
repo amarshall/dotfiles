@@ -11,6 +11,7 @@
 	amend = commit --amend -C HEAD
 	co = checkout
 	dc = diff --cached
+	fixup = commit --fixup
 	pop = reset --soft head~1
 	reword = commit --only --amend
 	root = rev-parse --show-toplevel
