@@ -20,14 +20,22 @@
 	unpushed = log @{u}..HEAD
 [color]
 	ui = auto
+[color "diff-highlight"]
+	oldHighlight = "reverse"
+	newHighlight = "reverse"
 [core]
 	autocrlf = input
 	excludesfile = ~/.gitignore
 [fetch]
 	prune = true
+[interactive]
+	diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
 [log]
 	decorate = true
 [pager]
+	diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | $PAGER
+	log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | $PAGER
+	show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | $PAGER
 	unpulled = false
 	unpushed = false
 [pull]

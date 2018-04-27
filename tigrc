@@ -2,6 +2,7 @@ set horizontal-scroll = 33%
 set tab-size = 2
 
 set main-view = date:relative id:yes author:full,width=20 commit-title:yes,graph=yes,refs=yes
+set diff-highlight = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
 
 color author cyan default
 color date green default
