@@ -36,6 +36,7 @@ values."
      clojure
      docker
      elixir
+     elm
      emacs-lisp
      git
      go
