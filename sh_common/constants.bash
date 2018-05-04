@@ -2,8 +2,8 @@ export CLICOLOR=1
 export LSCOLORS=ExfxcxdxbxagadbHbHEHEH
 export LS_COLORS='di=01;34;49:ln=35;49:so=32;49:pi=33;49:ex=31;49:bd=30;46:cd=30;43:su=31;01;47:sg=31;01;47:tw=01;34;01;47:ow=01;34;01;47'
 export EDITOR=vim
-if [ -z $JAVA_HOME ] && /usr/libexec/java_home &> /dev/null; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
+if [ -z "$JAVA_HOME" ] && /usr/libexec/java_home &> /dev/null; then
+  export JAVA_HOME="$(/usr/libexec/java_home)"
 fi
 which lesspipe.sh &> /dev/null && export LESSOPEN="| lesspipe.sh %s"
 [[ -z "$LANG" ]] && export LANG=en_US.UTF-8
@@ -34,5 +34,5 @@ if type brew &>/dev/null; then
   export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 fi
 
-BASE16_SHELL=$HOME/.sh_common/vendor/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+BASE16_SHELL="$HOME/.sh_common/vendor/base16-shell/"
+[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
