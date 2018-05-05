@@ -12,14 +12,14 @@
 if [ -s "/usr/local/opt/chruby/share/chruby/chruby.sh" ]; then
   . /usr/local/opt/chruby/share/chruby/chruby.sh
   . /usr/local/opt/chruby/share/chruby/auto.sh
-elif type rbenv &> /dev/null; then
+elif command -v rbenv &> /dev/null; then
   eval "$(rbenv init -)"
 elif [ -s "$HOME/.rvm/scripts/rvm" ]; then
   . "$HOME/.rvm/scripts/rvm"
 fi
 
 # Load nodenv
-if type nodenv &> /dev/null; then
+if command -v nodenv &> /dev/null; then
   eval "$(nodenv init -)"
 fi
 

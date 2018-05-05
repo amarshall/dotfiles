@@ -69,7 +69,7 @@ for filename in $(ls "$HOME/.localrcs"); do
 done
 
 if grep Darwin <(uname) &> /dev/null; then
-  if ! which brew &> /dev/null ; then
+  if ! command -v brew &> /dev/null ; then
     printf "\r$COLOR_YELLOW"
     printf 'Homebrew is not installed or is not in the $PATH'
     printf "\n"

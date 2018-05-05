@@ -6,7 +6,7 @@ nam() {
   if [ $# -eq 1 ]; then
     if man -w $command &> /dev/null; then
       man $command
-    elif type $command &> /dev/null; then
+    elif command -v $command &> /dev/null; then
       if $command --help &> /dev/null; then
         $command --help | $PAGER
       elif $command -h &> /dev/null; then

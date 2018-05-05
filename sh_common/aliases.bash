@@ -15,15 +15,15 @@ alias R='R --no-save --quiet'
 alias ri='ri -f ansi'
 alias vimload='vim -c "so %"'
 
-which apt-get &> /dev/null && alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
-which colordiff &> /dev/null && alias diff=colordiff
-which colormake &> /dev/null && alias make=colormake
+command -v apt-get &> /dev/null && alias aptupgrade='sudo apt-get update && sudo apt-get upgrade'
+command -v colordiff &> /dev/null && alias diff=colordiff
+command -v colormake &> /dev/null && alias make=colormake
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-which open &> /dev/null && alias o='open'
+command -v open &> /dev/null && alias o='open'
 
-if which qlmanage &> /dev/null; then
+if command -v qlmanage &> /dev/null; then
   alias ql='quicklook'
   alias quicklook='qlmanage -p &> /dev/null'
 fi
