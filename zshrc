@@ -1,6 +1,3 @@
-source ~/.sh_common/pre_config.bash
-source ~/.zsh/paths.zsh
-source ~/.zsh/constants.zsh
 source ~/.zsh/config.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/completions.zsh
