@@ -6,7 +6,7 @@ COLOR_GREEN='\033[0;32m'
 COLOR_YELLOW='\033[0;33m'
 CURRENT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-EXCLUDE=(install.sh LICENSE README.markdown)
+EXCLUDE=(install.sh LICENSE README.md)
 NO_DOT=(bin)
 
 linkfile() {
