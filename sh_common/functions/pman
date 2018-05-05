@@ -1,6 +1,0 @@
-# Opens man page in Preview
-# @param The man page to open
-pman() {
-  # Convert to PDF first so Preview doesn't prompt to save on quit
-  man -t $@ | ps2pdf - - | open -g -f -a /Applications/Preview.app
-}

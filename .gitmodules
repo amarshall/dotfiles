@@ -1,9 +1,6 @@
 [submodule "emacs.d"]
 	path = emacs.d
 	url = https://github.com/syl20bnr/spacemacs
-[submodule "sh_common/vendor/base16-shell"]
-	path = sh_common/vendor/base16-shell
-	url = https://github.com/chriskempson/base16-shell.git
 [submodule "vim/bundle/ack.vim"]
 	path = vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
@@ -205,3 +202,6 @@
 [submodule "vim/bundle/ZoomWin"]
 	path = vim/bundle/ZoomWin
 	url = https://github.com/vim-scripts/ZoomWin.git
+[submodule "shell/vendor/base16-shell"]
+	path = shell/vendor/base16-shell
+	url = https://github.com/chriskempson/base16-shell.git

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+command=$1
+
+if [ $# -eq 1 ]; then
+  if man -w "$command" >/dev/null 2>/dev/null; then
+    man "$command"
+  elif command -v "$command" >/dev/null 2> /dev/null; then
+    if "$command" --help >/dev/null 2> /dev/null; then
+      "$command" --help | "$PAGER"
+    elif "$command" -h >/dev/null 2> /dev/null; then
+      "$command" -h | "$PAGER"
+    else
+      printf "Don't know how to get help for %s\\n" "$command" >&2
+      return 1
+    fi
+  else
+    printf "Command \"%s\" not found\\n" "$command" >&2
+    return 1
+  fi
+else
+  if [ $# -eq 0 ]; then
+    printf "What command do you want help for?\\n" >&2
+  else
+    printf "One command at a time, please.\\n" >&2
+  fi
+  return 1
+fi

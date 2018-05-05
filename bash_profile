@@ -1,4 +1,3 @@
 #!/bin/bash
 
-source ~/.sh_common/paths.bash
-source ~/.sh_common/constants.bash
+source ~/.shell/env.zsh
