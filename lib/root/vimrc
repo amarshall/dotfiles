@@ -1,0 +1,9 @@
+source ~/.config/dotfiles/lib/vim/config/init.vim
+source ~/.config/dotfiles/lib/vim/config/settings.vim
+source ~/.config/dotfiles/lib/vim/config/mappings.vim
+source ~/.config/dotfiles/lib/vim/config/filetypes.vim
+source ~/.config/dotfiles/lib/vim/config/plugins.vim
+
+if filereadable($HOME . "/.vimrc_local")
+  source ~/.config/dotfiles/local/.vimrc
+endif

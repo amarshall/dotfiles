@@ -1,0 +1,115 @@
+#!/usr/bin/env ruby
+
+require 'bundler'
+Bundler.setup
+
+require 'optparse'
+require 'pathname'
+require 'rainbow'
+
+HOME = Pathname.new(ENV.fetch('HOME')).freeze
+LNK_ROOT = HOME.join('.config/dotfiles').freeze
+SRC_ROOT = Pathname.new(File.expand_path('..', __dir__)).freeze
+
+class Options < Struct.new(:dry_run, :force)
+end
+
+def link_status(original, link)
+  if link.exist?
+    if link.readlink == original
+      :ok
+    else
+      :other
+    end
+  else
+    :unlinked
+  end
+end
+
+def link(original, link, force: $options.force)
+  case [link_status(original, link), force]
+  when [:ok, true], [:ok, false]
+    $stdout.puts Rainbow('Already linked: %s' % original)
+  when [:other, false]
+    $stdout.puts Rainbow('Exists (skipping): %s' % link).yellow
+  when [:unlinked, true], [:unlinked, false], [:other, true]
+    run { link.parent.mkpath }
+    if force
+      run { link.delete }
+    end
+    run { File.symlink(original, link) }
+    lnk_msg = '~/%s => ~/%s' % [link.relative_path_from(HOME), original.relative_path_from(HOME)]
+    if force
+      $stdout.puts Rainbow("Forced: #{lnk_msg}").green
+    else
+      $stdout.puts Rainbow("Linked: #{lnk_msg}").green
+    end
+  else raise
+  end
+end
+
+def abort(msg)
+  $stderr.puts Rainbow('FATAL: %s' % msg).red
+end
+
+def step(msg)
+  $stderr.puts "#{Rainbow('==>').blue} #{Rainbow(msg).bold}"
+  yield
+end
+
+def run(dry_run: $options.dry_run)
+  yield unless dry_run
+end
+
+def parse_options
+  options = Options.new(false, false)
+  OptionParser.new do |opts|
+    opts.banner = 'Usage: install [options]'
+    opts.on('-d', '--dry-run', 'Output what would be done without doing anything') do |val|
+      options.dry_run = val
+    end
+    opts.on('-f', '--force', 'Overwrite existing files') do |val|
+      options.force = val
+    end
+    opts.on('-h', '--help', 'Show help') do
+      puts opts
+      exit
+    end
+  end.parse!
+  options.freeze
+end
+
+def install!
+  FileUtils.cd(SRC_ROOT)
+
+  step 'Syncing submodules' do
+    run { system(*%w[git submodule sync]) }
+  end
+  step 'Installing submodules' do
+    run { system(*%w[git submodule update --init]) }
+  end
+  step 'Linking base' do
+    link(SRC_ROOT, LNK_ROOT)
+  end
+  step 'Linking root files' do
+    LNK_ROOT.join('lib/root').children.each do |path|
+      link(path, HOME.join(".#{path.basename}"))
+    end
+  end
+  step 'Linking bin files' do
+    LNK_ROOT.join('lib/bin').children.each do |path|
+      link(path, HOME.join("bin/#{path.basename}"))
+    end
+  end
+  step 'Linking .config files' do
+    config_src_root = LNK_ROOT.join('lib/config')
+    Pathname.glob(config_src_root.join('**/*')).select do |path|
+      path.file?
+    end.each do |path|
+      link(path, HOME.join('.config', path.relative_path_from(config_src_root)))
+    end
+  end
+end
+
+$options = parse_options
+install!

@@ -1,8 +1,5 @@
-.#
-.DS_Store
-.netrwhist
-.swp
-lein/repl-history
-vim/bundle/*/doc/tags*
-vim/tmp/
-vim/undo/
+/lib/lein/repl-history
+/lib/vim/bundle/*/doc/tags*
+/lib/vim/tmp/
+/lib/vim/undo/
+/vendor/ruby
