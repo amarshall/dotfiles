@@ -1,4 +1,0 @@
-colors() {
-  env | egrep 'COLOR_\w*' | awk -F'=' '{ gsub("\047", ""); gsub(/\\033/, ""); print "\033" $2 $1 }'
-  echo -en $COLOR_NONE
-}
