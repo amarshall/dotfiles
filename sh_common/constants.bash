@@ -11,8 +11,4 @@ export LESS="-i -M -S -R"
 export PAGER="$(command -vp less)"
 export VISUAL=vim
 
-if command -v brew &>/dev/null; then
-  export HOMEBREW_CASK_OPTS='--appdir=/Applications'
-fi
-
 type fd &> /dev/null && export FZF_DEFAULT_COMMAND='fd --type f'
