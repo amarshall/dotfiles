@@ -52,7 +52,10 @@ if $TERM == 'screen-256color'
   set t_RV=[>c
 endif
 
-if filereadable(expand("~/.vimrc_background"))
+if exists('$BASE16_THEME') && (!exists('g:colors_name') || g:colors_name != 'base16-' . $BASE16_THEME)
+  let base16colorspace=256
+  execute 'colorscheme base16-' . $BASE16_THEME
+elseif filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
