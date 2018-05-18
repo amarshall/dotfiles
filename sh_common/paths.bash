@@ -22,3 +22,8 @@ fi
 if type nodenv &> /dev/null; then
   eval "$(nodenv init -)"
 fi
+
+# Load rustup
+if [[ -d "$HOME/.cargo/bin" ]]; then
+  export PATH="$PATH:$HOME/.cargo/bin"
+fi
