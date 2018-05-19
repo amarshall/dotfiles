@@ -313,8 +313,6 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
-  (setq-default dotspacemacs-themes '(base16-solarized-dark))
-  (setq base16-theme-256-color-source "base16-shell")
   )
 
 (defun dotspacemacs/user-config ()
