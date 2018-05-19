@@ -360,4 +360,5 @@ you should place your code here."
   (setq mouse-wheel-progressive-speed nil)
   (setq powerline-default-separator 'bar)
   (setq standard-indent 2)
+  (setq helm-split-window-inside-p t)
   )
