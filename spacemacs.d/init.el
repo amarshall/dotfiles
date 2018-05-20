@@ -31,7 +31,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     auto-completion
+     '(auto-completion
+        (haskell :variables haskell-completion-backend 'intero))
      c-c++
      clojure
      docker
@@ -361,4 +362,5 @@ you should place your code here."
   (setq powerline-default-separator 'bar)
   (setq standard-indent 2)
   (setq helm-split-window-inside-p t)
+  (intero-global-mode 1)
   )
