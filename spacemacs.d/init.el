@@ -363,4 +363,5 @@ you should place your code here."
   (setq standard-indent 2)
   (setq helm-split-window-inside-p t)
   (intero-global-mode 1)
+  (setq rust-indent-offset standard-indent)
   )
