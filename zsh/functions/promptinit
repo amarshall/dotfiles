@@ -6,7 +6,7 @@ local username
 local color_dir='%{%F{cyan}%}'
 local color_git='%{%b%F{yellow}%}'
 local color_none='%{%b%f%}'
-local color_prompt='%{%F{red}%}'
+local color_prompt='%{%B%F{red}%}'
 local color_user_host='%{%F{magenta}%}'
 local maxpathlen=40  # max length of curpath (in characters)
 
@@ -18,7 +18,7 @@ local maxpathlen=40  # max length of curpath (in characters)
 git=$(git_info_for_prompt)  # Display information about current git repo
 
 if [ -z "$1" ]; then
-  printf "%s" $color_user_host$username$hostname $color_none$colon $color_dir$curpath $color_git$git $color_prompt'%(!.#.☽)'$color_none' '
+  printf "%s" $color_user_host$username$hostname $color_none$colon $color_dir$curpath $color_git$git $color_prompt'%(!.#.｠)'$color_none' '
 else
   print -Pn "\e]0;" $username$hostname$colon "%~\a"
 fi
