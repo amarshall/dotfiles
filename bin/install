@@ -92,21 +92,22 @@ def install!
   step 'Installing submodules' do
     run { system!(*%w[git submodule update --init]) }
   end
-  step 'Linking base' do
-    link(SRC_ROOT, LNK_ROOT)
+  step 'Cloning into config' do
+    run { LNK_ROOT.mkpath }
+    run { system!(*%w[rsync --quiet --archive --delete --exclude=.git], SRC_ROOT.join('lib').realpath.to_s.concat('/'), LNK_ROOT.realpath.to_s) }
   end
   step 'Linking root files' do
-    LNK_ROOT.join('lib/root').children.each do |path|
+    LNK_ROOT.join('root').children.each do |path|
       link(path, HOME.join(".#{path.basename}"))
     end
   end
   step 'Linking bin files' do
-    LNK_ROOT.join('lib/bin').children.each do |path|
+    LNK_ROOT.join('bin').children.each do |path|
       link(path, HOME.join("bin/#{path.basename}"))
     end
   end
   step 'Linking .config files' do
-    config_src_root = LNK_ROOT.join('lib/config')
+    config_src_root = LNK_ROOT.join('config')
     Pathname.glob(config_src_root.join('**/*')).select do |path|
       path.file?
     end.each do |path|

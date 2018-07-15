@@ -1,6 +1,6 @@
-source ~/.config/dotfiles/lib/shell/lib/aliases.zsh
+source ~/.config/dotfiles/shell/lib/aliases.zsh
 
-for dir in ~/.config/dotfiles/lib/shell/plugins/*; do
+for dir in ~/.config/dotfiles/shell/plugins/*; do
   if [[ -f "$dir/interactive.zsh" ]]; then
     source "$dir/interactive.zsh"
   fi

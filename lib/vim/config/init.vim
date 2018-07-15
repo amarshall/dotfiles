@@ -1,4 +1,4 @@
 set nocompatible
-set runtimepath+=~/.config/dotfiles/lib/vim
-call pathogen#infect('~/.config/dotfiles/lib/vim/bundle/{}')
+set runtimepath+=~/.config/dotfiles/vim
+call pathogen#infect('~/.config/dotfiles/vim/bundle/{}')
 autocmd!

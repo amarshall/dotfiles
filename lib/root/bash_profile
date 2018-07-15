@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source ~/.config/dotfiles/lib/shell/env.zsh
+source ~/.config/dotfiles/shell/env.zsh

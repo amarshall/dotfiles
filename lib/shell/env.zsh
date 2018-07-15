@@ -1,4 +1,4 @@
-for dir in ~/.config/dotfiles/lib/shell/plugins/*; do
+for dir in ~/.config/dotfiles/shell/plugins/*; do
   if [[ -f "$dir/env.zsh" ]]; then
     source "$dir/env.zsh"
   fi

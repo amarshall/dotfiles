@@ -4,7 +4,7 @@ I have a love affair with my terminal. This is my collection of terminal configu
 
 ## Installation
 
-- Run `./bin/install`
+Run `./bin/install`. Rerun whenever updating, as configuration files are locked at the last run time.
 
 ## License & Credits
 
