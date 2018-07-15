@@ -20,8 +20,8 @@ set title
 set wildmenu
 
 " Store backup & swap files elsewhere to avoid directory pollution
-set backupdir=~/.vim/tmp,/tmp
-set directory=~/.vim/tmp,/tmp
+set backupdir=~/.vim/undo,$TMPDIR,/tmp
+set directory=~/.vim/undo,$TMPDIR,/tmp
 
 " Search settings
 set ignorecase

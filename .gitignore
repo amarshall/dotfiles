@@ -1,5 +1,4 @@
 /lib/lein/repl-history
 /lib/vim/bundle/*/doc/tags*
-/lib/vim/tmp/
 /lib/vim/undo/
 /vendor/ruby
