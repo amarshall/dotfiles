@@ -20,7 +20,7 @@ end
 
 def link_status(original, link)
   if link.exist?
-    if link.readlink == original
+    if link.symlink? && link.readlink == original
       :ok
     else
       :other
