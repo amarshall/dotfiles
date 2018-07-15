@@ -11,10 +11,13 @@ HOME = Pathname.new(ENV.fetch('HOME')).freeze
 LNK_ROOT = HOME.join('.config/dotfiles').freeze
 SRC_ROOT = Pathname.new(File.expand_path('..', __dir__)).freeze
 
-class Options < Struct.new(:dry_run, :force)
+class Options < Struct.new(:dry_run, :force, :verbose)
 end
 
 def system!(*args, &block)
+  if $options.verbose
+    args.delete('--quiet')
+  end
   system(*args, &block) or raise 'command failed'
 end
 
@@ -36,7 +39,9 @@ def link(original, link, force: $options.force)
 
   case [link_status(original, link), force]
   when [:ok, true], [:ok, false]
-    $stdout.puts Rainbow('Already linked: ~/%s' % original_rel)
+    if $options.verbose
+      $stdout.puts Rainbow('Already linked: ~/%s' % original_rel)
+    end
   when [:other, false]
     $stdout.puts Rainbow('Exists (skipping): ~/%s' % link_rel).yellow
   when [:unlinked, true], [:unlinked, false], [:other, true]
@@ -69,7 +74,7 @@ def run(dry_run: $options.dry_run)
 end
 
 def parse_options
-  options = Options.new(false, false)
+  options = Options.new(false, false, false)
   OptionParser.new do |opts|
     opts.banner = 'Usage: install [options]'
     opts.on('-d', '--dry-run', 'Output what would be done without doing anything') do |val|
@@ -77,6 +82,9 @@ def parse_options
     end
     opts.on('-f', '--force', 'Overwrite existing files') do |val|
       options.force = val
+    end
+    opts.on('--verbose', 'Log verbose messaging') do |val|
+      options.verbose = val
     end
     opts.on('-h', '--help', 'Show help') do
       puts opts
@@ -90,10 +98,10 @@ def install!
   FileUtils.cd(SRC_ROOT)
 
   step 'Syncing submodules' do
-    run { system!(*%w[git submodule sync]) }
+    run { system!(*%w[git submodule sync --quiet --recursive]) }
   end
   step 'Installing submodules' do
-    run { system!(*%w[git submodule update --init]) }
+    run { system!(*%w[git submodule update --quiet --init --recursive]) }
   end
   step 'Cloning into config' do
     run { LNK_ROOT.mkpath }
