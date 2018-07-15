@@ -31,18 +31,21 @@ def link_status(original, link)
 end
 
 def link(original, link, force: $options.force)
+  link_rel = link.relative_path_from(HOME)
+  original_rel = link.relative_path_from(HOME)
+
   case [link_status(original, link), force]
   when [:ok, true], [:ok, false]
-    $stdout.puts Rainbow('Already linked: %s' % original)
+    $stdout.puts Rainbow('Already linked: ~/%s' % original_rel)
   when [:other, false]
-    $stdout.puts Rainbow('Exists (skipping): %s' % link).yellow
+    $stdout.puts Rainbow('Exists (skipping): ~/%s' % link_rel).yellow
   when [:unlinked, true], [:unlinked, false], [:other, true]
     run { link.parent.mkpath }
     if force
       run { link.delete }
     end
     run { File.symlink(original, link) }
-    lnk_msg = '~/%s => ~/%s' % [link.relative_path_from(HOME), original.relative_path_from(HOME)]
+    lnk_msg = '~/%s => ~/%s' % [link_rel, original_rel]
     if force
       $stdout.puts Rainbow("Forced: #{lnk_msg}").green
     else
