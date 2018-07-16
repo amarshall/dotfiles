@@ -46,7 +46,7 @@ def link(original, link, force: $options.force)
     $stdout.puts Rainbow('Exists (skipping): ~/%s' % link_rel).yellow
   when [:unlinked, true], [:unlinked, false], [:other, true]
     run { link.parent.mkpath }
-    if force
+    if force && (link.exist? || link.symlink?)
       run { link.delete }
     end
     run { File.symlink(original, link) }
