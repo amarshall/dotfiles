@@ -40,7 +40,6 @@
 	unpushed = false
 [pull]
 	ff = only
-	rebase = preserve
 [push]
 	default = simple
 [filter "lfs"]
