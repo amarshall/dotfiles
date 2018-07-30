@@ -55,6 +55,9 @@
 [submodule "lib/vim/bundle/nginx.vim"]
 	path = lib/vim/bundle/nginx.vim
 	url = https://github.com/chr4/nginx.vim.git
+[submodule "lib/vim/bundle/parinfer-rust"]
+	path = lib/vim/bundle/parinfer-rust
+	url = https://github.com/eraserhd/parinfer-rust.git
 [submodule "lib/vim/bundle/pathogen"]
 	path = lib/vim/bundle/pathogen
 	url = https://github.com/vim-scripts/pathogen.vim
