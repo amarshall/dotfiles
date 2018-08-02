@@ -13,6 +13,9 @@
 [submodule "lib/vim/bundle/alchemist.vim"]
 	path = lib/vim/bundle/alchemist.vim
 	url = https://github.com/slashmili/alchemist.vim.git
+[submodule "lib/vim/bundle/ale"]
+	path = lib/vim/bundle/ale
+	url = https://github.com/w0rp/ale.git
 [submodule "lib/vim/bundle/applescript"]
 	path = lib/vim/bundle/applescript
 	url = https://github.com/vim-scripts/applescript.vim.git
@@ -82,9 +85,6 @@
 [submodule "lib/vim/bundle/supertab"]
 	path = lib/vim/bundle/supertab
 	url = https://github.com/vim-scripts/SuperTab.git
-[submodule "lib/vim/bundle/syntastic"]
-	path = lib/vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "lib/vim/bundle/tabular"]
 	path = lib/vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
