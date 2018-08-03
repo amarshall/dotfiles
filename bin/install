@@ -7,9 +7,9 @@ require 'optparse'
 require 'pathname'
 require 'rainbow'
 
-HOME = Pathname.new(ENV.fetch('HOME')).freeze
+HOME = Pathname.new(Dir.home).freeze
 LNK_ROOT = HOME.join('.config/dotfiles').freeze
-SRC_ROOT = Pathname.new(File.expand_path('..', __dir__)).freeze
+SRC_ROOT = Pathname.new(__dir__).parent.freeze
 
 class Options < Struct.new(:dry_run, :force, :verbose)
 end
