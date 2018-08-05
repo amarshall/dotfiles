@@ -40,6 +40,9 @@
 [submodule "lib/vim/bundle/gundo"]
 	path = lib/vim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
+[submodule "lib/vim/bundle/intero-neovim"]
+	path = lib/vim/bundle/intero-neovim
+	url = https://github.com/parsonsmatt/intero-neovim.git
 [submodule "lib/vim/bundle/l9"]
 	path = lib/vim/bundle/l9
 	url = https://github.com/vim-scripts/L9.git

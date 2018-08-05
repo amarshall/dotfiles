@@ -28,6 +28,9 @@ autocmd VimEnter,Colorscheme * :hi link IndentGuidesEven CursorLine
 " Indexed Search
 let g:indexed_search_show_index_mappings = 0
 
+" Intero
+autocmd FileType haskell map <buffer> <silent> <leader>t <Plug>InteroGenericType
+
 " fzf
 set runtimepath+=/usr/local/opt/fzf
 map <C-P> :Files<CR>
