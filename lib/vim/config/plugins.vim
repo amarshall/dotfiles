@@ -5,15 +5,6 @@ cabbrev %S %Subvert
 " Blockle
 let g:blockle_mapping = '<leader>rb'
 
-" Command-T
-let g:CommandTMatchWindowReverse=0
-let g:CommandTMaxHeight=20
-if &term =~ "xterm" || &term =~ "screen"
-  " Make ESC work in CommandT while in terminal Vim
-  let g:CommandTCancelMap=['<ESC>']
-end
-" map <C-P> :CommandT<CR>
-
 " Easytags
 set tags=./tags
 let g:easytags_auto_highlight = 0

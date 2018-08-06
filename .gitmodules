@@ -28,9 +28,6 @@
 [submodule "lib/vim/bundle/camelcasemotion"]
 	path = lib/vim/bundle/camelcasemotion
 	url = https://github.com/vim-scripts/camelcasemotion.git
-[submodule "lib/vim/bundle/command-t"]
-	path = lib/vim/bundle/command-t
-	url = https://github.com/wincent/command-t.git
 [submodule "lib/vim/bundle/elm-vim"]
 	path = lib/vim/bundle/elm-vim
 	url = https://github.com/ElmCast/elm-vim.git
