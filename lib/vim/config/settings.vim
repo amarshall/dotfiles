@@ -15,6 +15,7 @@ set ruler
 set scrolloff=3
 set sidescrolloff=3
 set showcmd
+set showtabline=2
 set splitbelow splitright
 set title
 set wildmenu
