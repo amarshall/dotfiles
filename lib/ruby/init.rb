@@ -77,7 +77,10 @@ ruby_version_detector = Class.new do
 end
 
 def print_ruby_version version_detector
-  Unbundler.require_external_gem 'paint'
+  begin
+    Unbundler.require_external_gem 'paint'
+  rescue LoadError
+  end
 
   manager = version_detector.manager.name
   version = version_detector.manager.version
@@ -96,7 +99,11 @@ def print_ruby_version version_detector
   end
 
   version_str = [manager, 'using', version].compact.join(' ')
-  puts Paint[version_str, :bold, :underline]
+  if defined?(Paint)
+    puts Paint[version_str, :bold, :underline]
+  else
+    puts version_str
+  end
 end
 
 def cli?
