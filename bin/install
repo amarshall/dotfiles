@@ -11,7 +11,7 @@ HOME = Pathname.new(Dir.home).freeze
 LNK_ROOT = HOME.join('.config/dotfiles').freeze
 SRC_ROOT = Pathname.new(__dir__).parent.freeze
 
-class Options < Struct.new(:dry_run, :force, :verbose)
+class Options < Struct.new(:dry_run, :fast, :force, :verbose)
 end
 
 def system!(*args, &block)
@@ -83,6 +83,9 @@ def parse_options
     opts.on('-f', '--force', 'Overwrite existing files') do |val|
       options.force = val
     end
+    opts.on('-F', '--fast', 'Skips submodule initialization') do
+      options.fast = true
+    end
     opts.on('--verbose', 'Log verbose messaging') do |val|
       options.verbose = val
     end
@@ -97,11 +100,13 @@ end
 def install!
   FileUtils.cd(SRC_ROOT)
 
-  step 'Syncing submodules' do
-    run { system!(*%w[git submodule sync --quiet --recursive]) }
-  end
-  step 'Installing submodules' do
-    run { system!(*%w[git submodule update --quiet --init --recursive]) }
+  unless $options.fast
+    step 'Syncing submodules' do
+      run { system!(*%w[git submodule sync --quiet --recursive]) }
+    end
+    step 'Installing submodules' do
+      run { system!(*%w[git submodule update --quiet --init --recursive]) }
+    end
   end
   step 'Cloning into config' do
     run { LNK_ROOT.mkpath }
