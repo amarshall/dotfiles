@@ -80,7 +80,7 @@ def parse_options
     opts.on('-d', '--dry-run', 'Output what would be done without doing anything') do |val|
       options.dry_run = val
     end
-    opts.on('-f', '--force', 'Overwrite existing files') do |val|
+    opts.on('--force', 'Overwrite existing files') do |val|
       options.force = val
     end
     opts.on('-F', '--fast', 'Skips submodule initialization') do
