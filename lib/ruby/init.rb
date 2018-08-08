@@ -107,7 +107,7 @@ def print_ruby_version version_detector
 end
 
 def cli?
-  is_pry_cli = defined?(Pry) && Pry.cli
+  is_pry_cli = $PROGRAM_NAME == 'pry'
   is_rails_console = defined?(Rails::Console)
   is_other_console = $PROGRAM_NAME =~ /console/
   is_irb = $PROGRAM_NAME == 'irb'
