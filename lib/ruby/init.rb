@@ -196,7 +196,7 @@ end
 singleton_class.send :include, Clipboard if Clipboard.capable?
 
 # Load if in Rails console
-if ($0 == 'irb' && ENV['RAILS_ENV']) || ($0 == 'script/rails' && Rails.env) || (defined?(Rails) && Rails.env)
+if defined?(Rails) && Rails.env
   def change_log(stream)
     if defined? ActiveRecord::Base
       ActiveRecord::Base.logger = Logger.new stream
