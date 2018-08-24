@@ -211,3 +211,6 @@
 [submodule "lib/vim/bundle/ZoomWin"]
 	path = lib/vim/bundle/ZoomWin
 	url = https://github.com/vim-scripts/ZoomWin.git
+[submodule "lib/vim/bundle/vim-racer"]
+	path = lib/vim/bundle/vim-racer
+	url = https://github.com/racer-rust/vim-racer.git
