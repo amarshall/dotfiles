@@ -1,56 +1,85 @@
 #!/bin/sh
 
-# System misc.
+# System Preferences
+
+## General
 defaults write NSGlobalDomain AppleAquaColorVariant -int 6
 defaults write NSGlobalDomain AppleHighlightColor -string '0.847059 0.847059 0.862745'
 defaults write NSGlobalDomain AppleInterfaceStyle -string 'Dark'
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write NSGlobalDomain AppleShowScrollBars -string 'Always'
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
-defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
-defaults write NSGlobalDomain NSWindowResizeTime -float 0.1
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-# defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
-defaults write com.apple.universalaccess reduceTransparency -bool true
-sudo tmutil disablelocal
 
-# Security
-defaults write com.apple.screensaver askForPassword -bool true
-defaults write com.apple.screensaver askForPasswordDelay -int 5
-
-# Time
-sudo systemsetup -setnetworktimeserver 'us.pool.ntp.org'
-defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
-defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm:ss'
-
-# Keyboard
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 2 # Tab accesses all controls
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-defaults write NSGlobalDomain InitialKeyRepeat -int 25
-defaults write NSGlobalDomain KeyRepeat -int 2
-
-# Dashboard
-defaults write com.apple.dashboard enabled-state -int 1 # 1=Disabled, 2=AsSpace, 3=Overlay
-
-# Disk Utility
-defaults write com.apple.DiskUtility advanced-image-options -bool true
-defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
-
-# Dock
+## Dock
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock expose-animation-duration -float 0.1
 defaults write com.apple.dock largesize -int 72
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock minimize-to-application -bool true
+defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock tilesize -int 48
 
-# Finder
+## Mission Control
+### Hot Corners
+###  0: no-op
+###  2: Mission Control
+###  3: Show application windows
+###  4: Desktop
+###  5: Start screen saver
+###  6: Disable screen saver
+###  7: Dashboard
+### 10: Put display to sleep
+### 11: Launchpad
+### 12: Notification Center
+defaults write com.apple.dashboard enabled-state -int 1 # 1=Disabled, 2=AsSpace, 3=Overlay
+defaults write com.apple.dock wvous-bl-corner -int 2
+defaults write com.apple.dock wvous-bl-modifier -int 0
+defaults write com.apple.dock wvous-br-corner -int 10
+defaults write com.apple.dock wvous-br-modifier -int 0
+defaults write com.apple.dock wvous-tl-corner -int 7
+defaults write com.apple.dock wvous-tl-modifier -int 0
+defaults write com.apple.dock wvous-tr-corner -int 4
+defaults write com.apple.dock wvous-tr-modifier -int 0
+
+## Language & Region
+defaults write NSGlobalDomain AppleICUForce24HourTime -bool true
+
+## Security & Privacy
+defaults write com.apple.screensaver askForPassword -bool true
+defaults write com.apple.screensaver askForPasswordDelay -int 5
+
+## Keyboard
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 2 # Tab accesses all controls
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
+
+## Date & Time
+sudo systemsetup -setnetworktimeserver 'us.pool.ntp.org'
+defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm:ss'
+
+## Accessibility
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
+# System misc.
+defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.1
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+sudo tmutil disablelocal
+
+# Applications
+
+## Disk Utility
+defaults write com.apple.DiskUtility advanced-image-options -bool true
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+
+## Finder
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 /usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:arrangeBy grid' ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:iconSize 64' ~/Library/Preferences/com.apple.finder.plist
 defaults read ~/Library/Preferences/com.apple.finder.plist # Refresh cache from disk
@@ -71,36 +100,14 @@ defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder SidebarTagsSctionDisclosedState -bool true
 chflags nohidden ~/Library
 
-# Hot Corners
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-defaults write com.apple.dock wvous-bl-corner -int 2
-defaults write com.apple.dock wvous-bl-modifier -int 0
-defaults write com.apple.dock wvous-br-corner -int 10
-defaults write com.apple.dock wvous-br-modifier -int 0
-defaults write com.apple.dock wvous-tl-corner -int 7
-defaults write com.apple.dock wvous-tl-modifier -int 0
-defaults write com.apple.dock wvous-tr-corner -int 4
-defaults write com.apple.dock wvous-tr-modifier -int 0
-
-# Safari
+## Safari
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 
-# Screen capture
-defaults write com.apple.screencapture disable-shadow -bool true
-defaults write com.apple.screencapture disable-shadow -bool true
+## Screen capture
 defaults write com.apple.screencapture disable-shadow -bool true
 
-# TextEdit
+## TextEdit
 defaults write com.apple.TextEdit HeightInChars -int 40
 defaults write com.apple.TextEdit IgnoreHTML -bool true
 defaults write com.apple.TextEdit NSFixedPitchFont -string 'Menlo-Regular'
