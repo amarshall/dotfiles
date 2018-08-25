@@ -1,16 +1,28 @@
 #!/bin/sh
 
 # System misc.
+defaults write NSGlobalDomain AppleAquaColorVariant -int 6
+defaults write NSGlobalDomain AppleHighlightColor -string '0.847059 0.847059 0.862745'
+defaults write NSGlobalDomain AppleInterfaceStyle -string 'Dark'
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write NSGlobalDomain AppleShowScrollBars -string 'Always'
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.1
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 defaults write com.apple.universalaccess reduceTransparency -bool true
 sudo tmutil disablelocal
+
+# Security
+defaults write com.apple.screensaver askForPassword -bool true
+defaults write com.apple.screensaver askForPasswordDelay -int 5
 
 # Time
 sudo systemsetup -setnetworktimeserver 'us.pool.ntp.org'
@@ -19,6 +31,7 @@ defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm:ss'
 
 # Keyboard
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 2 # Tab accesses all controls
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain InitialKeyRepeat -int 25
 defaults write NSGlobalDomain KeyRepeat -int 2
 
@@ -31,6 +44,7 @@ defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 
 # Dock
 defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock expose-animation-duration -float 0.1
 defaults write com.apple.dock largesize -int 72
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock minimize-to-application -bool true
@@ -87,12 +101,14 @@ defaults write com.apple.screencapture disable-shadow -bool true
 defaults write com.apple.screencapture disable-shadow -bool true
 
 # TextEdit
+defaults write com.apple.TextEdit HeightInChars -int 40
 defaults write com.apple.TextEdit IgnoreHTML -bool true
 defaults write com.apple.TextEdit NSFixedPitchFont -string 'Menlo-Regular'
 defaults write com.apple.TextEdit NSFixedPitchFontSize -int 14
 defaults write com.apple.TextEdit NSFont -string 'HelveticaNeue'
 defaults write com.apple.TextEdit NSFontSize -int 14
 defaults write com.apple.TextEdit RichText -bool false
+defaults write com.apple.TextEdit WidthInChars -int 72
 
 # Restart things to take effect
 killall Dock
