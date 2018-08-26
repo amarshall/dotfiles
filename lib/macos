@@ -100,6 +100,9 @@ defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder SidebarTagsSctionDisclosedState -bool true
 chflags nohidden ~/Library
 
+## Google Chrome
+defaults write com.google.Chrome DisablePrintPreview -bool true
+
 ## Safari
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
