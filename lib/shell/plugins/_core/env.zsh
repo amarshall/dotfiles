@@ -11,6 +11,6 @@ export LESS="-i -M -S -R"
 export PAGER="$(command -vp less)"
 export VISUAL="$EDITOR"
 
-type fd &> /dev/null && export FZF_DEFAULT_COMMAND='fd --type f'
+type fd &> /dev/null && export FZF_DEFAULT_COMMAND='fd --hidden --type f'
 
 export PATH="$PATH:$HOME/bin"
