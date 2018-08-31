@@ -187,6 +187,9 @@
 [submodule "lib/vim/bundle/vim-ruby-refactoring"]
 	path = lib/vim/bundle/vim-ruby-refactoring
 	url = https://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "lib/vim/bundle/vim-speeddating"]
+	path = lib/vim/bundle/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git
 [submodule "lib/vim/bundle/vim-surround"]
 	path = lib/vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
