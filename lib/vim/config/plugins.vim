@@ -2,6 +2,13 @@
 cabbrev S Subvert
 cabbrev %S %Subvert
 
+" Ack
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+elseif executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 " Blockle
 let g:blockle_mapping = '<leader>rb'
 
