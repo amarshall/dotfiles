@@ -24,3 +24,8 @@ map Y y$
 " Indent/unindent visual mode selection with tab/shift+tab
 vmap <tab> >gv
 vmap <s-tab> <gv
+
+" Readline-like navigation for command mode
+cnoremap <C-A> <Home>
+cnoremap <C-B> <C-Left>
+cnoremap <C-F> <C-Right>
