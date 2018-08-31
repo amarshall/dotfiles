@@ -7,9 +7,6 @@
 [submodule "lib/vim/bundle/ack.vim"]
 	path = lib/vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "lib/vim/bundle/ag.vim"]
-	path = lib/vim/bundle/ag.vim
-	url = https://github.com/epmatsw/ag.vim.git
 [submodule "lib/vim/bundle/alchemist.vim"]
 	path = lib/vim/bundle/alchemist.vim
 	url = https://github.com/slashmili/alchemist.vim.git
