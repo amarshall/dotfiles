@@ -1,3 +1,4 @@
+.git
 /lib/lein/repl-history
 /lib/vim/bundle/*/doc/tags*
 /vendor/ruby
