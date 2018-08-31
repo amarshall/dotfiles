@@ -31,7 +31,8 @@ autocmd FileType haskell map <buffer> <silent> <leader>t <Plug>InteroGenericType
 
 " fzf
 set runtimepath+=/usr/local/opt/fzf
-map <C-P> :Files<CR>
+let g:fzf_command_prefix = 'Fzf'
+map <C-P> :FzfFiles<CR>
 
 " Gundo
 nnoremap <leader>u :GundoToggle<CR>
