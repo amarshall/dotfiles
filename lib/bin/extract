@@ -1,7 +1,10 @@
 #!/bin/sh
 
-if [ -f "$1" ]; then
-  case "$1" in
+path="$1"
+path_lower="$(echo "$path" | tr '[:upper:]' '[:lower:]')"
+
+if [ -f "$path" ]; then
+  case "$path_lower" in
     *.tar.bz2)   exec tar xjf "$1"   ;;
     *.tar.gz)    exec tar xzf "$1"   ;;
     *.7z)        exec 7z x "$1"      ;;
