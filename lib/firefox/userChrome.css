@@ -1,0 +1,35 @@
+#main-window {
+  /* Remove animation when changing window from active <-> inactive */
+  transition: none !important;
+}
+
+.titlebar-placeholder[type="pre-tabs"] {
+  /**
+   * Reduce left padding between traffic-light and tabs, so that left and right
+   * traffic light padding is equal, and there is more space for tabs.
+   */
+  width: 12px;
+}
+
+#TabsToolbar {
+  /* Restore native macOS styling for titlebar */
+  -moz-appearance: -moz-window-titlebar !important;
+  background-color: inherit !important;
+  color: rgb(47, 47, 47) !important;
+}
+
+#TabsToolbar:-moz-window-inactive,
+#TabsToolbar:-moz-window-inactive .tabbrowser-tab[visuallyselected="true"] {
+  /* Restore native macOS styling for titlebar */
+  color: rgb(176, 176, 176) !important;
+}
+
+#tabbrowser-tabs {
+  /* Use native macOS highlight color for active tab highlight line */
+  --tab-line-color: Highlight !important;
+}
+
+.tab-label {
+  /* Increase tab title font size */
+  font-size: 1.25em !important;
+}

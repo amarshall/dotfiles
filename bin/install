@@ -97,6 +97,14 @@ def parse_options
   options.freeze
 end
 
+def firefox_profile
+  profile_root = HOME.join('Library/Application Support/Firefox/Profiles')
+  default_profile_name = Dir.glob('*.default', base: profile_root).first
+  return unless default_profile_name
+  default_profile = profile_root.join(default_profile_name)
+  default_profile.exist? && default_profile
+end
+
 def install!
   FileUtils.cd(SRC_ROOT)
 
@@ -126,6 +134,12 @@ def install!
     config_src_root = LNK_ROOT.join('config')
     Pathname.glob(config_src_root.join('**/*')).select(&:file?).each do |path|
       link(path, HOME.join('.config', path.relative_path_from(config_src_root)))
+    end
+  end
+  if `uname`.strip.match?(/darwin/i) && (firefox_profile = firefox_profile())
+    step 'Linking Firefox custom profile' do
+      run { firefox_profile.join('chrome').mkpath }
+      link(LNK_ROOT.join('firefox/userChrome.css'), firefox_profile.join('chrome/userChrome.css'))
     end
   end
 end
