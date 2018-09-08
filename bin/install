@@ -115,6 +115,9 @@ def install!
     step 'Installing submodules' do
       run { system!(*%w[git submodule update --quiet --init --recursive]) }
     end
+    step 'Pruning (some) submodules' do
+      run { system!(*%w[git clean -d -f -f lib/vim/bundle]) }
+    end
   end
   step 'Cloning into config' do
     run { LNK_ROOT.mkpath }
