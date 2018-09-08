@@ -31,8 +31,7 @@
 }
 
 #tabbrowser-tabs {
-  /* Use native macOS highlight color for active tab highlight line */
-  --tab-line-color: Highlight !important;
+  --tab-line-color: transparent !important;
 }
 
 .tab-label {
