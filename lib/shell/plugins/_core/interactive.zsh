@@ -23,6 +23,10 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 command -v open &> /dev/null && alias o='open'
 
+if command -v nvim &> /dev/null; then
+  alias view='nvim -R'
+fi
+
 if command -v qlmanage &> /dev/null; then
   alias ql='quicklook'
   alias quicklook='qlmanage -p &> /dev/null'
