@@ -23,6 +23,11 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 command -v open &> /dev/null && alias o='open'
 
+if command -v exa &> /dev/null; then
+  alias lx='exa --all --classify --git --group-directories-first --time-style=long-iso'
+  alias lxl='exa --all --classify --git --group-directories-first --time-style=long-iso --long'
+fi
+
 if command -v nvim &> /dev/null; then
   alias view='nvim -R'
 fi
