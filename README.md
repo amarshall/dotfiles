@@ -6,6 +6,25 @@ I have a love affair with my terminal. This is my collection of terminal configu
 
 Run `./bin/install`. Rerun whenever updating, as configuration files are locked at the last run time.
 
+## Recommended CLI software
+
+### Battle-tested
+
+- [csvkit](https://csvkit.readthedocs.io) (utilities for working with CSV files)
+- [fd](https://github.com/sharkdp/fd) (replacement for `find`)
+- [fzf](https://github.com/junegunn/fzf) (fuzzy finder)
+- [neovim](https://neovim.io/) (replacement for vim)
+- [ripgrep](https://github.com/BurntSushi/ripgrep) (replacement for `ag`, `ack`, `grep`)
+- [tig](https://jonas.github.io/tig/) (GUI front-end for Git)
+
+### Incubating
+
+- [entr](http://www.entrproject.org/) (file watcher)
+- [exa](https://the.exa.website/) (replacement for `ls`)
+- [fzz](https://github.com/mrnugget/fzz) (interactively rerun commands)
+- [noti](https://github.com/variadico/noti) (cross-platform notifications)
+- [rat](https://github.com/ericfreese/rat) (build GUIs from command pipelines)
+
 ## License & Credits
 
 Copyright © 2011–2018 J. Andrew Marshall. License is available in the LICENSE file.
