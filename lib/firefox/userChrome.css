@@ -8,7 +8,7 @@
    * Reduce left padding between traffic-light and tabs, so that left and right
    * traffic light padding is equal, and there is more space for tabs.
    */
-  width: 12px;
+  width: 12px !important;
 }
 
 #TabsToolbar {
