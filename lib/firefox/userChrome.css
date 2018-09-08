@@ -11,6 +11,12 @@
   width: 12px !important;
 }
 
+.tabbrowser-tab:-moz-any([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected="true"]),
+.tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected="true"]) {
+  /* Disable tab indicator */
+  background-image: none !important;
+}
+
 #TabsToolbar {
   /* Restore native macOS styling for titlebar */
   -moz-appearance: -moz-window-titlebar !important;
