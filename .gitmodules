@@ -31,9 +31,6 @@
 [submodule "lib/vim/bundle/fzf.vim"]
 	path = lib/vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule "lib/vim/bundle/gundo"]
-	path = lib/vim/bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
 [submodule "lib/vim/bundle/intero-neovim"]
 	path = lib/vim/bundle/intero-neovim
 	url = https://github.com/parsonsmatt/intero-neovim.git
@@ -160,6 +157,9 @@
 [submodule "lib/vim/bundle/vim-misc"]
 	path = lib/vim/bundle/vim-misc
 	url = https://github.com/xolox/vim-misc.git
+[submodule "lib/vim/bundle/vim-mundo"]
+	path = lib/vim/bundle/vim-mundo
+	url = https://github.com/simnalamburt/vim-mundo.git
 [submodule "lib/vim/bundle/vim-projectionist"]
 	path = lib/vim/bundle/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
