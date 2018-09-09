@@ -31,6 +31,9 @@
 [submodule "lib/vim/bundle/fzf.vim"]
 	path = lib/vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "lib/vim/bundle/haskell-vim"]
+	path = lib/vim/bundle/haskell-vim
+	url = https://github.com/neovimhaskell/haskell-vim.git
 [submodule "lib/vim/bundle/intero-neovim"]
 	path = lib/vim/bundle/intero-neovim
 	url = https://github.com/parsonsmatt/intero-neovim.git
