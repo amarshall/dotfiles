@@ -9,6 +9,9 @@ elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+" ALE
+autocmd FileType haskell let b:ale_linters = ['stack_ghc_mod', 'stack_build', 'stack_ghc']
+
 " Blockle
 let g:blockle_mapping = '<leader>rb'
 
