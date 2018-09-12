@@ -1,3 +1,8 @@
+:root {
+  /* Change most browser chrome monospace (e.g. dev tools) to user setting */
+  --monospace-font-family: monospace !important;
+}
+
 #main-window {
   /* Remove animation when changing window from active <-> inactive */
   transition: none !important;
