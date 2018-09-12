@@ -4,5 +4,6 @@
 .DS_Store
 .Spotlight-V100
 .Trashes
+.git
 tags
 tags-*
