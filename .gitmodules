@@ -133,6 +133,9 @@
 [submodule "lib/vim/bundle/vim-endwise"]
 	path = lib/vim/bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise
+[submodule "lib/vim/bundle/vim-exchange"]
+	path = lib/vim/bundle/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange.git
 [submodule "lib/vim/bundle/vim-fireplace"]
 	path = lib/vim/bundle/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace.git
