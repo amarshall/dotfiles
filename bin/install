@@ -35,7 +35,7 @@ end
 
 def link(original, link, force: $options.force)
   link_rel = link.relative_path_from(HOME)
-  original_rel = link.relative_path_from(HOME)
+  original_rel = original.relative_path_from(HOME)
 
   case [link_status(original, link), force]
   when [:ok, true], [:ok, false]
