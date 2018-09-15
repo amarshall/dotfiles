@@ -1,0 +1,112 @@
+AllCops:
+  DisplayCopNames: true
+Layout/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: false
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+Layout/IndentArray:
+  EnforcedStyle: consistent
+Layout/IndentHash:
+  EnforcedStyle: consistent
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: same_line
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+Lint/Loop:
+  Enabled: false
+Lint/UnneededSplatExpansion:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+Naming/AccessorMethodName:
+  Enabled: false
+Style/AndOr:
+  EnforcedStyle: conditionals
+Style/AsciiComments:
+  Enabled: false
+Style/AutoResourceCleanup:
+  Enabled: true
+Style/BracesAroundHashParameters:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    find: 'detect'
+    find_all: 'select'
+    inject: 'reduce'
+Style/Documentation:
+  Enabled: false
+Style/DocumentationMethod:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+Style/FormatStringToken:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/Lambda:
+  EnforcedStyle: literal
+Style/MultilineBlockChain:
+  Enabled: false
+Style/NumericLiterals:
+  Strict: true
+Style/OptionHash:
+  Enabled: true
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': '[]'
+    '%I': '[]'
+    '%r': '()'
+    '%w': '[]'
+    '%W': '[]'
+    '%x': '()'
+Style/Send:
+  Enabled: true
+Style/StringMethods:
+  Enabled: true
+Style/TernaryParentheses:
+  EnforcedStyle: require_parentheses_when_complex
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+Style/VariableInterpolation:
+  Enabled: false
