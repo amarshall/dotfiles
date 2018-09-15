@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# rubocop:disable Lint/MissingCopEnableDirective,Style/FormatString,Style/GlobalVars
 
 require 'bundler'
 Bundler.setup
@@ -11,8 +14,7 @@ HOME = Pathname.new(Dir.home).freeze
 LNK_ROOT = HOME.join('.config/dotfiles').freeze
 SRC_ROOT = Pathname.new(__dir__).parent.freeze
 
-class Options < Struct.new(:dry_run, :fast, :force, :verbose)
-end
+Options = Struct.new(:dry_run, :fast, :force, :verbose)
 
 def system!(*args, &block)
   if $options.verbose
@@ -61,11 +63,11 @@ def link(original, link, force: $options.force)
 end
 
 def abort(msg)
-  $stderr.puts Rainbow('FATAL: %s' % msg).red
+  warn Rainbow('FATAL: %s' % msg).red
 end
 
 def step(msg)
-  $stderr.puts "#{Rainbow('==>').blue} #{Rainbow(msg).bold}"
+  warn "#{Rainbow('==>').blue} #{Rainbow(msg).bold}"
   yield
 end
 
