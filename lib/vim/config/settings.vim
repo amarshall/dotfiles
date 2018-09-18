@@ -50,6 +50,12 @@ if(has("persistent_undo"))
   set undolevels=1000
 endif
 
+augroup CursorLine
+  autocmd!
+  autocmd BufWinEnter,VimEnter,WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
+
 if $TERM == 'screen-256color'
   set t_RV=[>c
 endif
