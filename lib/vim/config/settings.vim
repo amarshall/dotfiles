@@ -52,8 +52,8 @@ endif
 
 augroup CursorLine
   autocmd!
-  autocmd BufWinEnter,VimEnter,WinEnter * setlocal cursorline
-  autocmd WinLeave * setlocal nocursorline
+  autocmd BufWinEnter,FocusGained,VimEnter,WinEnter * setlocal cursorline
+  autocmd FocusLost,WinLeave * setlocal nocursorline
 augroup END
 
 if $TERM == 'screen-256color'
