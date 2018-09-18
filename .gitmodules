@@ -211,6 +211,9 @@
 [submodule "lib/vim/bundle/vim-textobj-user"]
 	path = lib/vim/bundle/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
+[submodule "lib/vim/bundle/vim-tmux-focus-events"]
+	path = lib/vim/bundle/vim-tmux-focus-events
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events.git
 [submodule "lib/vim/bundle/vim-toml"]
 	path = lib/vim/bundle/vim-toml
 	url = https://github.com/cespare/vim-toml.git
