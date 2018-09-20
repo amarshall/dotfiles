@@ -7,12 +7,14 @@ code, kbd, pre, samp {
   .blob-num,
   .commit-ref,
   .commit-tease-sha,
-  .file-info {
+  .file-info,
+  .sha,
+  .sha-block {
     font-family: monospace !important;
   }
 
   .blob-code-inner,
-  .blob-num ,
+  .blob-num,
   .file-info {
     font-size: 14px !important;
   }
