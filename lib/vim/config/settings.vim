@@ -56,10 +56,6 @@ augroup CursorLine
   autocmd FocusLost,WinLeave * setlocal nocursorline
 augroup END
 
-if $TERM == 'screen-256color'
-  set t_RV=[>c
-endif
-
 if exists('$BASE16_THEME') && (!exists('g:colors_name') || g:colors_name != 'base16-' . $BASE16_THEME)
   let base16colorspace=256
   execute 'colorscheme base16-' . $BASE16_THEME
