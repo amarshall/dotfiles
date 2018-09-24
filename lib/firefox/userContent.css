@@ -2,6 +2,10 @@ code, kbd, pre, samp {
   font-family: monospace !important;
 }
 
+.ace_cursor {
+  animation: none !important;
+}
+
 @-moz-document domain(github.com) {
   .blob-code-inner,
   .blob-num,
