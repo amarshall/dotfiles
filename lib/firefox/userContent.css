@@ -22,4 +22,11 @@ code, kbd, pre, samp {
   .file-info {
     font-size: 14px !important;
   }
+
+  .comment-body code,
+  .comment-body kbd,
+  .comment-body pre,
+  .comment-body samp {
+    font-size: inherit !important;
+  }
 }
