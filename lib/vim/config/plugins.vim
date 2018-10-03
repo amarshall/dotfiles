@@ -10,6 +10,7 @@ elseif executable('ag')
 endif
 
 " ALE
+let g:ale_python_auto_pipenv = 1
 autocmd FileType haskell let b:ale_linters = ['stack_ghc']
 
 " Blockle
