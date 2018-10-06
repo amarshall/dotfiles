@@ -6,6 +6,10 @@ code, kbd, pre, samp {
   animation: none !important;
 }
 
+head[prefix~="medium-com:"] + body .metabar {
+  position: relative !important;
+}
+
 @-moz-document domain(github.com) {
   .blob-code-inner,
   .blob-num,
