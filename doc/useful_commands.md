@@ -1,54 +1,85 @@
-# Here lies some useful commands that are awesome but are usually too
-# rarely used to remember. They are useful for...
+# Useful commands
 
-# ...validating a binary's code signature
-codesign -v /Applications/Example.app
+Here lie some useful commands that are awesome but are usually too rarely used to remember. They are useful for...
 
-# ...determining DNS info
-dig @8.8.8.8 example.com any
+- Validating a macOS binary's code signature
+  ```
+  codesign -v /Applications/Example.app
+  ```
 
-# ...determining the architectures within a universal binary
-file
+- Determining DNS info
+  ```
+  dig @8.8.8.8 example.com any
+  ```
 
-# ...finding C/C++ standard libraries
-`clang -print-prog-name=cc1` -v
-`clang -print-prog-name=cc1plus` -v
+- Determining the architectures within a universal binary
+  ```
+  file
+  ```
 
-# ...updating all git submodules
-git submodule foreach git pull origin master
+- Finding C/C++ standard libraries
+  ```
+  `clang -print-prog-name=cc1` -v
+  `clang -print-prog-name=cc1plus` -v
+  ```
 
-# ...finding what package installed a binary (Ubuntu/Debian)
-dpkg -S `which examplebinary`
+- Updating all git submodules
+  ```
+  git submodule foreach git pull origin master
+  ```
 
-# ...searching for a string/regex in git diff history
-git -Sstringtosearchfor --since=2012.2.17 --until=2012.3.14 -- pathname
-git --pickaxe-regex "regextosearchfor" --since=2012.2.17 --until=2012.3.14 --pathname
+- Finding what package installed a binary (Ubuntu/Debian)
+  ```
+  dpkg -S `which examplebinary`
+  ```
 
-# ...configuring, compiling, and installing latest Ruby in OS X without fault
-brew install gdbm libyaml readline
-brew link readline
-VERSION="version" ./configure --without-gcc --prefix="/Users/$(whoami)/.rbenv/versions/$VERSION" --with-opt-dir=/usr/local/ --enable-shared && make && make test && make install
-brew unlink readline
+- Searching for a string/regex in git diff history
+  ```
+  git -Sstringtosearchfor --since=2012.2.17 --until=2012.3.14 -- pathname
+  git --pickaxe-regex "regextosearchfor" --since=2012.2.17 --until=2012.3.14 --pathname
+  ```
 
-# ...compiling Ruby with ruby-install and optimizations
-CC=clang CFLAGS='-march=native -O2 -pipe' ruby-install RUBY_PLATFORM RUBY_VERSION
+- Configuring, compiling, and installing latest Ruby in OS X without fault
+  ```
+  brew install gdbm libyaml readline
+  brew link readline
+  VERSION="version" ./configure --without-gcc --prefix="/Users/$(whoami)/.rbenv/versions/$VERSION" --with-opt-dir=/usr/local/ --enable-shared && make && make test && make install
+  brew unlink readline
+  ```
 
-# ...getting a key's fingerprint
-ssh-keygen -lf /path/to/keyfile
+- Compiling Ruby with ruby-install and optimizations
+  ```
+  CC=clang CFLAGS='-march=native -O2 -pipe' ruby-install RUBY_PLATFORM RUBY_VERSION
+  ```
 
-# ...removing excessive trailing newlines from files
-find . -type f -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/(\n)+\Z/\n/'
+- Getting an SSH key's fingerprint
+  ```
+  ssh-keygen -lf /path/to/keyfile
+  ```
 
-# ...removing (more than two) consecutive blank lines from files
-find . -type f -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/\n\n+/\n\n/'
+- Removing excessive trailing newlines from files
+  ```
+  find . -type f -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/(\n)+\Z/\n/'
+  ```
 
-# ...removing excess padding in Ruby class/def/end blocks
-find app lib spec config -type f -iname '*.rb' -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/(\n *end\n)\n+( *end\n)/$1$2/'
-find app lib spec config -type f -iname '*.rb' -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/(\n *(class|def) [^\n]*\n)\n+/$1/'
-find app lib spec config -type f -iname '*.rb' -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/( do(\n|(\|[^|\n]+)?)\n)\n+/$1/'
+- Removing (more than two) consecutive blank lines from files
+  ```
+  find . -type f -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/\n\n+/\n\n/'
+  ```
 
-# ...finding the MTU used between two machines (test from boths ends)
-route get <machine name>
+- Removing excess padding in Ruby class/def/end blocks
+  ```
+  find app lib spec config -type f -iname '*.rb' -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/(\n *end\n)\n+( *end\n)/$1$2/'
+  find app lib spec config -type f -iname '*.rb' -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/(\n *(class|def) [^\n]*\n)\n+/$1/'
+  find app lib spec config -type f -iname '*.rb' -print0 | xargs -0 perl -pi -w -e 'BEGIN{$/=undef}; s/( do(\n|(\|[^|\n]+)?)\n)\n+/$1/'
+  ```
 
-# ...finding hosts on your LAN (best with sudo, change subnet accordingly)
-nmap -sn -oG - 192.168.1.0/24 | egrep '^Host:' | column -t
+- Finding the MTU used between two machines (test from boths ends)
+  ```
+  route get <machine name>
+  ```
+
+- Finding hosts on your LAN (best with sudo, change subnet accordingly)
+  ```
+  nmap -sn -oG - 192.168.1.0/24 | egrep '^Host:' | column -t
+  ```
