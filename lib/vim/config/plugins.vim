@@ -50,6 +50,9 @@ let g:haskell_enable_recursivedo = 1      " enable highlighting of `mdo` and `re
 let g:haskell_enable_static_pointers = 1  " enable highlighting of `static`
 let g:haskell_enable_typeroles = 1        " enable highlighting of type roles
 
+" jedi
+let g:jedi#popup_on_dot = 0
+
 " Markdown
 let g:vim_markdown_folding_disabled=1
 
