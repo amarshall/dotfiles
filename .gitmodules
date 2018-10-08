@@ -175,6 +175,9 @@
 [submodule "lib/vim/bundle/vim-puppet"]
 	path = lib/vim/bundle/vim-puppet
 	url = https://github.com/rodjek/vim-puppet.git
+[submodule "lib/vim/bundle/vim-python-pep8-indent"]
+	path = lib/vim/bundle/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent
 [submodule "lib/vim/bundle/vim-racket"]
 	path = lib/vim/bundle/vim-racket
 	url = https://github.com/wlangstroth/vim-racket.git

@@ -66,6 +66,9 @@ map \| :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeRespectWildIgnore=1
 
+" Python PEP8 Indent
+let g:python_pep8_indent_hang_closing = 1
+
 " Rust syntax
 let g:rust_recommended_style=0
 
