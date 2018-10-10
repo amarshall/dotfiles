@@ -51,7 +51,7 @@ let g:haskell_enable_static_pointers = 1  " enable highlighting of `static`
 let g:haskell_enable_typeroles = 1        " enable highlighting of type roles
 
 " indentLine
-let g:indentLine_char = '│'
+let g:indentLine_char = '┃'
 let g:indentLine_color_term = 18
 
 " jedi
