@@ -76,6 +76,9 @@ let g:python_pep8_indent_hang_closing = 1
 " Rust syntax
 let g:rust_recommended_style=0
 
+" Signify
+let g:signify_update_on_focusgained = 1
+
 " Splitjoin
 nmap <leader>j :SplitjoinJoin<CR>
 nmap <leader>s :SplitjoinSplit<CR>
