@@ -34,6 +34,9 @@
 [submodule "lib/vim/bundle/haskell-vim"]
 	path = lib/vim/bundle/haskell-vim
 	url = https://github.com/neovimhaskell/haskell-vim.git
+[submodule "lib/vim/bundle/idris-vim"]
+	path = lib/vim/bundle/idris-vim
+	url = https://github.com/idris-hackers/idris-vim.git
 [submodule "lib/vim/bundle/indentLine"]
 	path = lib/vim/bundle/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
