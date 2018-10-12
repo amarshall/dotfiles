@@ -28,6 +28,9 @@
 [submodule "lib/vim/bundle/elm-vim"]
 	path = lib/vim/bundle/elm-vim
 	url = https://github.com/ElmCast/elm-vim.git
+[submodule "lib/vim/bundle/ensime-vim"]
+	path = lib/vim/bundle/ensime-vim
+	url = https://github.com/ensime/ensime-vim.git
 [submodule "lib/vim/bundle/fzf.vim"]
 	path = lib/vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
@@ -205,6 +208,9 @@
 [submodule "lib/vim/bundle/vim-ruby-refactoring"]
 	path = lib/vim/bundle/vim-ruby-refactoring
 	url = https://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "lib/vim/bundle/vim-scala"]
+	path = lib/vim/bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala.git
 [submodule "lib/vim/bundle/vim-signify"]
 	path = lib/vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
