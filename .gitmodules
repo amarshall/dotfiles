@@ -169,6 +169,9 @@
 [submodule "lib/vim/bundle/vim-javascript"]
 	path = lib/vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript
+[submodule "lib/vim/bundle/vim-json"]
+	path = lib/vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json.git
 [submodule "lib/vim/bundle/vim-jsx"]
 	path = lib/vim/bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git

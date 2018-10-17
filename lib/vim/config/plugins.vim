@@ -60,6 +60,9 @@ let g:indentLine_color_term = 18
 " jedi
 let g:jedi#popup_on_dot = 0
 
+" JSON
+let g:vim_json_syntax_conceal = 0
+
 " Markdown
 let g:vim_markdown_folding_disabled=1
 
