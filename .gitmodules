@@ -163,6 +163,9 @@
 [submodule "lib/vim/bundle/vim-indent-object"]
 	path = lib/vim/bundle/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "lib/vim/bundle/vim-indentwise"]
+	path = lib/vim/bundle/vim-indentwise
+	url = https://github.com/jeetsukumaran/vim-indentwise.git
 [submodule "lib/vim/bundle/vim-indexed-search"]
 	path = lib/vim/bundle/vim-indexed-search
 	url = https://github.com/henrik/vim-indexed-search
