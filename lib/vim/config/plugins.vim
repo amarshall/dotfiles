@@ -56,6 +56,8 @@ let g:haskell_enable_typeroles = 1        " enable highlighting of type roles
 " indentLine
 let g:indentLine_char = '┃'
 let g:indentLine_color_term = 18
+autocmd FileType markdown IndentLinesDisable
+autocmd FileType markdown set conceallevel=0
 
 " jedi
 let g:jedi#popup_on_dot = 0
