@@ -78,6 +78,13 @@ map \| :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeRespectWildIgnore=1
 
+" Python mode syntax
+let g:pymode_syntax_all = 0
+let g:pymode_syntax_print_as_function = 1
+let g:pymode_syntax_string_format = 1
+let g:pymode_syntax_string_formatting = 1
+let g:pymode_syntax_string_templates = 1
+
 " Python PEP8 Indent
 let g:python_pep8_indent_hang_closing = 1
 
