@@ -8,7 +8,7 @@
 	resolveConflict = false
 	statusHints = false
 [alias]
-	amend = commit --amend -C HEAD
+	amend = commit --amend --no-edit
 	co = checkout
 	dc = diff --cached
 	fixup = commit --fixup
