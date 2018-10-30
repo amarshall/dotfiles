@@ -6,6 +6,14 @@ code, kbd, pre, samp {
   animation: none !important;
 }
 
+.jsonPanelBox .panelContent .treeTable {
+  font-family: monospace !important;
+  font-size: 14px !important;
+}
+.jsonPanelBox .panelContent .treeTable .treeIcon {
+  font-size: 14px !important;
+}
+
 head[prefix~="medium-com:"] + body .metabar {
   position: relative !important;
 }
