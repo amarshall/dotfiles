@@ -42,3 +42,26 @@ head[prefix~="medium-com:"] + body .metabar {
     font-size: inherit !important;
   }
 }
+
+@-moz-document domain(gitlab.com) {
+  .monospace,
+  .commit-sha,
+  .gfm-commit,
+  .gfm-commit_range,
+  .ref-name,
+  .git-revision-dropdown .dropdown-content ul li a,
+  .mr-state-widget .label-branch,
+  .pipeline-number,
+  .git-revision-dropdown-toggle,
+  .commit-sha-group .label-monospace,
+  .file-editor .file-title,
+  .file-editor .editor-file-name,
+  .ci-table .api,
+  .project-repo-buttons .mobile-git-clone .dropdown-menu-inner-content,
+  .group-buttons .mobile-git-clone .dropdown-menu-inner-content,
+  .git-clone-holder .form-control,
+  .git-clone-holder .search form,
+  .search .git-clone-holder form {
+    font-family: monospace !important;
+  }
+}
