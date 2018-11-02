@@ -65,6 +65,12 @@ let g:jedi#popup_on_dot = 0
 " JSON
 let g:vim_json_syntax_conceal = 0
 
+" LanguageClient
+let g:LanguageClient_serverCommands = {
+      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+      \}
+autocmd FileType rust nnoremap <buffer> <silent> <leader>t :call LanguageClient#textDocument_hover()<CR>
+
 " Markdown
 let g:vim_markdown_folding_disabled=1
 
