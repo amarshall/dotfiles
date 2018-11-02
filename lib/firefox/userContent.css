@@ -1,5 +1,6 @@
 code, kbd, pre, samp {
   font-family: monospace !important;
+  font-variant-ligatures: normal !important;
 }
 
 .ace_cursor {
@@ -9,6 +10,7 @@ code, kbd, pre, samp {
 .jsonPanelBox .panelContent .treeTable {
   font-family: monospace !important;
   font-size: 14px !important;
+  font-variant-ligatures: normal !important;
 }
 .jsonPanelBox .panelContent .treeTable .treeIcon {
   font-size: 14px !important;
@@ -27,6 +29,7 @@ head[prefix~="medium-com:"] + body .metabar {
   .sha,
   .sha-block {
     font-family: monospace !important;
+    font-variant-ligatures: normal !important;
   }
 
   .blob-code-inner,
@@ -63,5 +66,6 @@ head[prefix~="medium-com:"] + body .metabar {
   .git-clone-holder .search form,
   .search .git-clone-holder form {
     font-family: monospace !important;
+    font-variant-ligatures: normal !important;
   }
 }
