@@ -74,6 +74,9 @@ sudo tmutil disablelocal
 
 # Applications
 
+## Archive Utility
+default write com.apple.archiveutility dearchive-move-after -string '~/.Trash'
+
 ## Disk Utility
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
