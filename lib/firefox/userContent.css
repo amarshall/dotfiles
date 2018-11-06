@@ -7,6 +7,11 @@ code, kbd, pre, samp {
   animation: none !important;
 }
 
+.ace_editor, .ace_static_highlight {
+  font-family: monospace !important;
+  font-variant-ligatures: normal !important;
+}
+
 .jsonPanelBox .panelContent .treeTable {
   font-family: monospace !important;
   font-size: 14px !important;
