@@ -25,6 +25,14 @@ head[prefix~="medium-com:"] + body .metabar {
   position: relative !important;
 }
 
+@-moz-document domain(docs.looker.com) {
+  .syntax td, .syntax.new {
+    font-family: monospace !important;
+    font-size: inherit !important;
+    font-variant-ligatures: normal !important;
+  }
+}
+
 @-moz-document domain(github.com) {
   .blob-code-inner,
   .blob-num,
