@@ -24,6 +24,7 @@ set wildmenu
 " Store backup & swap files elsewhere to avoid directory pollution
 set backupdir=$HOME/.config/nvim/backup,$TMPDIR/vim-backup
 set directory=$HOME/.config/nvim/swap,$TMPDIR/vim-swap
+set undodir=$HOME/.config/nvim/undo,$TMPDIR/vim-undo
 
 " Search settings
 set ignorecase
