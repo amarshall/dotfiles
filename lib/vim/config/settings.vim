@@ -22,8 +22,8 @@ set virtualedit=block
 set wildmenu
 
 " Store backup & swap files elsewhere to avoid directory pollution
-set backupdir=~/.vim/undo,$TMPDIR,/tmp
-set directory=~/.vim/undo,$TMPDIR,/tmp
+set backupdir=$HOME/.config/nvim/backup,$TMPDIR/vim-backup
+set directory=$HOME/.config/nvim/swap,$TMPDIR/vim-swap
 
 " Search settings
 set ignorecase
