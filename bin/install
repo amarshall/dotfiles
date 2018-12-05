@@ -137,7 +137,7 @@ def install!
   end
   step 'Linking .config files' do
     config_src_root = LNK_ROOT.join('config')
-    Pathname.glob(config_src_root.join('**/*')).select(&:file?).each do |path|
+    Pathname.glob(config_src_root.join('**/*'), File::FNM_DOTMATCH).select(&:file?).each do |path|
       link(path, HOME.join('.config', path.relative_path_from(config_src_root)))
     end
   end
