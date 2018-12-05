@@ -1,3 +1,4 @@
 #!/bin/bash
 
 source ~/.config/dotfiles/shell/env.zsh
+source ~/.config/dotfiles/shell/interactive.zsh
