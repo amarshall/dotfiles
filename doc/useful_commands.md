@@ -39,17 +39,9 @@ Here lie some useful commands that are awesome but are usually too rarely used t
   git --pickaxe-regex "regextosearchfor" --since=2012.2.17 --until=2012.3.14 --pathname
   ```
 
-- Configuring, compiling, and installing latest Ruby in OS X without fault
-  ```
-  brew install gdbm libyaml readline
-  brew link readline
-  VERSION="version" ./configure --without-gcc --prefix="/Users/$(whoami)/.rbenv/versions/$VERSION" --with-opt-dir=/usr/local/ --enable-shared && make && make test && make install
-  brew unlink readline
-  ```
-
 - Compiling Ruby with ruby-install and optimizations
   ```
-  CC=clang CFLAGS='-march=native -O2 -pipe' ruby-install RUBY_PLATFORM RUBY_VERSION
+  CC=clang CFLAGS='-march=native -O2 -pipe' ruby-install --cleanup --src-dir "$TMPDIR" RUBY_PLATFORM RUBY_VERSION
   ```
 
 - Getting an SSH key's fingerprint
