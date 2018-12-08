@@ -1,4 +1,4 @@
-# Dot Files
+# Dotfiles
 
 I have a love affair with my terminal. This is my collection of terminal configuration files that (attempt to) make daily use of the terminal easier, faster, and perhaps even more enjoyable. It’s all about strengthening the bond `;)`.
 
