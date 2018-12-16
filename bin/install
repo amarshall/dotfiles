@@ -24,7 +24,7 @@ def system!(*args, &block)
 end
 
 def link_status(original, link)
-  if link.exist?
+  if link.exist? || link.symlink?
     if link.symlink? && link.readlink == original
       :ok
     else
