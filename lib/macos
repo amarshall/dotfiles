@@ -87,6 +87,7 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 /usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:arrangeBy grid' ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c 'Set :DesktopViewSettings:IconViewSettings:iconSize 64' ~/Library/Preferences/com.apple.finder.plist
 defaults read ~/Library/Preferences/com.apple.finder.plist # Refresh cache from disk
+defaults write com.apple.finder AnimateInfoPanes -bool true
 defaults write com.apple.finder FXDefaultSearchScope -string 'SCcf' # Current folder
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
   General -bool true \
