@@ -4,6 +4,7 @@ set -x
 
 for path in /Library/LaunchAgents /Library/LaunchDaemons ~/Library/LaunchAgents; do
   launchctl unload -w "$path"/com.adobe.*
+  rm "$path"/com.adobe.*
 done
 
 killall 'Adobe Desktop Service'
