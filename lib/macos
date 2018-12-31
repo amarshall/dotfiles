@@ -16,6 +16,7 @@ defaults write com.apple.dock largesize -int 72
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock show-process-indicators -bool true
+defaults write com.apple.dock size-immutable -bool true
 defaults write com.apple.dock tilesize -int 48
 
 ## Mission Control
