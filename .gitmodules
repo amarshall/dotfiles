@@ -12,7 +12,7 @@
 	url = https://github.com/slashmili/alchemist.vim.git
 [submodule "lib/vim/bundle/ale"]
 	path = lib/vim/bundle/ale
-	url = https://github.com/w0rp/ale.git
+	url = https://github.com/amarshall/ale.git
 [submodule "lib/vim/bundle/applescript"]
 	path = lib/vim/bundle/applescript
 	url = https://github.com/vim-scripts/applescript.vim.git
