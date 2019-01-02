@@ -1,4 +1,3 @@
-export SH_USERNAME=amarshall
 source ~/.config/dotfiles/shell/env.zsh
 
 fpath=(~/.config/dotfiles/zsh/functions /usr/local/share/zsh-completions $fpath)
