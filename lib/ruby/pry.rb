@@ -3,7 +3,12 @@ Pry.config.should_load_plugins = false
 Pry.plugins["doc"].activate!
 
 prompt = proc do |indicator, target_self, nest_level, pry|
-  line = '%02d' % pry.input_array.size
+  input_ring = if pry.respond_to?(:input_ring)
+    pry.input_ring
+  else
+    pry.input_array
+  end
+  line = '%02d' % input_ring.size
   nesting = ":#{nest_level}" unless nest_level.zero?
   "[#{line}] pry(#{Pry.view_clip(target_self)})#{nesting}#{indicator} "
 end
