@@ -52,6 +52,7 @@
 [submodule "lib/vim/bundle/LanguageClient"]
 	path = lib/vim/bundle/LanguageClient
 	url = https://github.com/autozimu/LanguageClient-neovim.git
+	branch = next
 [submodule "lib/vim/bundle/l9"]
 	path = lib/vim/bundle/l9
 	url = https://github.com/vim-scripts/L9.git
