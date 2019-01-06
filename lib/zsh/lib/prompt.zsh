@@ -90,7 +90,7 @@ function __prompt() {
   local color_prompt='%{%B%F{red}%}'
   local color_user_host='%{%F{magenta}%}'
   local maxpathlen=40  # max length of curpath (in characters)
-  local usernames="${DOTFILES_USERNAMES}:-amarshall,andrew.marshall"
+  local usernames="${DOTFILES_USERNAMES:-amarshall,andrew.marshall}"
 
   echo "$usernames" | grep --extended-regexp --quiet "(^|,)$USERNAME(,|$)" || username='%n'  # Don't display user if it's my own
   [[ -n $SSH_CONNECTION ]] && hostname=$hostname'@%m'  # If running locally, we probably know what machine it is
