@@ -58,7 +58,6 @@ let g:haskell_enable_typeroles = 1        " enable highlighting of type roles
 let g:indentLine_char = '┃'
 let g:indentLine_color_term = 18
 autocmd FileType markdown,nerdtree IndentLinesDisable
-autocmd FileType markdown,nerdtree set conceallevel=0
 
 " jedi
 let g:jedi#popup_on_dot = 0
@@ -74,6 +73,7 @@ autocmd FileType rust nnoremap <buffer> <silent> <leader>t :call LanguageClient#
 
 " Markdown
 let g:vim_markdown_folding_disabled=1
+autocmd FileType markdown set conceallevel=0
 
 " NERDCommenter
 let NERDSpaceDelims = 1
@@ -84,6 +84,7 @@ map \ :NERDTreeToggle<CR>
 map \| :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeRespectWildIgnore=1
+autocmd FileType nerdtree set conceallevel=0
 
 " Python mode syntax
 let g:pymode_syntax_all = 0
