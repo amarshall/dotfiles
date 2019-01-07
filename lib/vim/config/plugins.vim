@@ -84,7 +84,6 @@ map \ :NERDTreeToggle<CR>
 map \| :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeRespectWildIgnore=1
-autocmd FileType nerdtree set conceallevel=0
 
 " Python mode syntax
 let g:pymode_syntax_all = 0
