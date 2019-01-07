@@ -42,7 +42,7 @@ def link(original, link, force: $options.force)
   case [link_status(original, link), force]
   when [:ok, true], [:ok, false]
     if $options.verbose
-      $stdout.puts Rainbow('Already linked: ~/%s' % original_rel)
+      $stdout.puts Rainbow('Already linked: ~/%s' % link_rel)
     end
   when [:other, false]
     $stdout.puts Rainbow('Exists (skipping): ~/%s' % link_rel).yellow
