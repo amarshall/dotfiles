@@ -2,7 +2,7 @@ let mapleader = ","
 let maplocalleader = "<"
 
 set backspace=indent,eol,start
-set nocursorline
+set cursorline
 set breakindent
 set hidden
 set laststatus=2
@@ -53,7 +53,7 @@ endif
 
 augroup CursorLine
   autocmd!
-  autocmd BufWinEnter,FocusGained,VimEnter,WinEnter * setlocal cursorline
+  autocmd BufWinEnter,FocusGained,WinEnter * setlocal cursorline
   autocmd FocusLost,WinLeave * setlocal nocursorline
 augroup END
 
