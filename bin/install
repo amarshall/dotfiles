@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# rubocop:disable Lint/MissingCopEnableDirective,Style/FormatString,Style/GlobalVars
+# rubocop:disable Lint/MissingCopEnableDirective,Style/FormatString,Style/GlobalVars,Style/StderrPuts
 
 require 'bundler'
 Bundler.setup
@@ -9,6 +9,7 @@ Bundler.setup
 require 'optparse'
 require 'pathname'
 require 'rainbow'
+require 'set'
 
 HOME = Pathname.new(Dir.home).freeze
 LNK_ROOT = HOME.join('.config/dotfiles').freeze
@@ -62,12 +63,19 @@ def link(original, link, force: $options.force)
   end
 end
 
-def abort(msg)
-  warn Rainbow('FATAL: %s' % msg).red
+def abort(*lines)
+  msg = lines.join("\n")
+  $stderr.puts Rainbow('FATAL: %s' % msg).red
+  exit(false)
+end
+
+def warn(*lines)
+  msg = lines.join("\n")
+  $stderr.puts Rainbow('WARNING: %s' % msg).yellow
 end
 
 def step(msg)
-  warn "#{Rainbow('==>').blue} #{Rainbow(msg).bold}"
+  $stderr.puts "#{Rainbow('==>').blue} #{Rainbow(msg).bold}"
   yield
 end
 
@@ -119,6 +127,40 @@ def install!
     end
     step 'Pruning (some) submodules' do
       run { system!(*%w[git clean -d -f -f lib/vim/bundle]) }
+    end
+  end
+  step 'Auditing Vim packages' do
+    bundle_plugins = SRC_ROOT.join('lib/vim/bundle').children.to_set
+    start_packages = SRC_ROOT.join('lib/vim/pack/user/start').children
+    opt_packages = SRC_ROOT.join('lib/vim/pack/user/opt').children
+    packages = start_packages + opt_packages
+    packaged_plugins = packages.map(&:realdirpath).to_set
+
+    dead_packages = packages.reject(&:exist?)
+    missing_packages = bundle_plugins - packaged_plugins
+    duplicated_packages = packages
+      .group_by(&:realdirpath)
+      .select { |_real_path, package_paths| package_paths.size > 1 }
+
+    if dead_packages.any?
+      warn(
+        'The following Vim package links are dead:',
+        *dead_packages.map { |path| format('  - %s', path.to_s) },
+      )
+    end
+    if missing_packages.any?
+      warn(
+        'The following Vim plugins are not linked into packages:',
+        *missing_packages.map { |path| format('  - %s', path.to_s) },
+      )
+    end
+    if duplicated_packages.any?
+      abort(
+        'The following Vim plugins are linked to multiple packages:',
+        *duplicated_packages.map do |plugin_path, package_paths|
+          format('  - %s: %s', plugin_path, package_paths.join(', '))
+        end,
+      )
     end
   end
   step 'Cloning into config' do
