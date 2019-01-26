@@ -2,6 +2,7 @@ source ~/.config/dotfiles/vim/config/init.vim
 source ~/.config/dotfiles/vim/config/settings.vim
 source ~/.config/dotfiles/vim/config/mappings.vim
 source ~/.config/dotfiles/vim/config/filetypes.vim
+source ~/.config/dotfiles/vim/config/packages.vim
 source ~/.config/dotfiles/vim/config/plugins.vim
 
 if filereadable($HOME . "/.vimrc_local")
