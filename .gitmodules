@@ -74,9 +74,6 @@
 [submodule "lib/vim/bundle/parinfer-rust"]
 	path = lib/vim/bundle/parinfer-rust
 	url = https://github.com/eraserhd/parinfer-rust.git
-[submodule "lib/vim/bundle/pathogen"]
-	path = lib/vim/bundle/pathogen
-	url = https://github.com/vim-scripts/pathogen.vim
 [submodule "lib/vim/bundle/prolog.vim"]
 	path = lib/vim/bundle/prolog
 	url = https://github.com/adimit/prolog.vim.git
