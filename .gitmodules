@@ -92,6 +92,9 @@
 [submodule "lib/vim/bundle/splitjoin.vim"]
 	path = lib/vim/bundle/splitjoin
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
+[submodule "lib/vim/bundle/startuptime"]
+	path = lib/vim/bundle/startuptime
+	url = https://github.com/tweekmonster/startuptime.vim.git
 [submodule "lib/vim/bundle/supertab"]
 	path = lib/vim/bundle/supertab
 	url = https://github.com/vim-scripts/SuperTab.git
