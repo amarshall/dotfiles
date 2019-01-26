@@ -58,7 +58,7 @@ function __shorten_path() {
   local parts
   local result
 
-  fullpath=$(echo $fullpath | sed "s@^$HOME@~@")
+  fullpath=$(echo $fullpath | sed "s@^$HOME@~@" | sed "s@^$(realpath "$HOME")@~@")
 
   if [ $len -gt $maxlen ]; then
     parts=("${(s@/@)fullpath}")
