@@ -6,6 +6,7 @@ if [ -z "$JAVA_HOME" ] && command -v /usr/libexec/java_home &> /dev/null; then
 fi
 command -v lesspipe.sh &> /dev/null && export LESSOPEN="| lesspipe.sh %s"
 [[ -z "$LANG" ]] && export LANG=en_US.UTF-8
+[[ -z "$LC_ALL" ]] && export LC_ALL=en_US.UTF-8
 export LESS="-i -M -S -R"
 export PAGER="$(command -vp less)"
 
