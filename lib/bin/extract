@@ -7,6 +7,7 @@ if [ -f "$path" ]; then
   case "$path_lower" in
     *.tar.bz2)   exec tar xjf "$path"   ;;
     *.tar.gz)    exec tar xzf "$path"   ;;
+    *.tar.xz)    exec tar xJf "$path"   ;;
     *.7z)        exec 7z x "$path"      ;;
     *.Z)         exec uncompress "$path";;
     *.bz2)       exec bunzip2 "$path"   ;;
@@ -15,6 +16,8 @@ if [ -f "$path" ]; then
     *.tar)       exec tar xf "$path"    ;;
     *.tbz2)      exec tar xjf "$path"   ;;
     *.tgz)       exec tar xzf "$path"   ;;
+    *.txz)       exec tar xJf "$path"   ;;
+    *.xz)        exec unxz "$path"      ;;
     *.zip)       exec unzip "$path"     ;;
     *)           echo "Don't know how to extract '$path'.";;
   esac
