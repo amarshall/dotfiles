@@ -27,7 +27,7 @@ Run `./bin/install`. Rerun whenever updating, as configuration files are locked 
 
 ## License & Credits
 
-Copyright © 2011–2018 J. Andrew Marshall. License is available in the LICENSE file.
+Copyright © 2011–Present J. Andrew Marshall. License is available in the LICENSE file.
 
 Original inspiration from [Ryan Bates](https://github.com/ryanb/dotfiles).
 
