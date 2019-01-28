@@ -128,9 +128,6 @@
 [submodule "lib/vim/bundle/vim-colors-solarized"]
 	path = lib/vim/bundle/colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "lib/vim/bundle/vim-css-color"]
-	path = lib/vim/bundle/css-color
-	url = https://github.com/ap/vim-css-color
 [submodule "lib/vim/bundle/vim-cucumber"]
 	path = lib/vim/bundle/cucumber
 	url = https://github.com/tpope/vim-cucumber
