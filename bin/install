@@ -4,7 +4,12 @@
 # rubocop:disable Lint/MissingCopEnableDirective,Style/FormatString,Style/GlobalVars,Style/StderrPuts
 
 require 'bundler'
-Bundler.setup
+begin
+  Bundler.setup
+rescue Bundler::RubyVersionMismatch => ex
+  $stderr.puts ex.message
+  exit 1
+end
 
 require 'optparse'
 require 'pathname'
