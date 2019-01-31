@@ -12,6 +12,7 @@
 	co = checkout
 	dc = diff --cached
 	fixup = commit --fixup
+	fork-point = git merge-base --fork-point
 	pop = reset --soft head~1
 	reword = commit --only --amend
 	root = rev-parse --show-toplevel
