@@ -202,5 +202,9 @@ def install!
   end
 end
 
-$options = parse_options
+begin
+  $options = parse_options
+rescue OptionParser::InvalidOption => ex
+  abort(ex.message)
+end
 install!
