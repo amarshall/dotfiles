@@ -41,9 +41,6 @@ autocmd FileType haskell map <buffer> <silent> <leader>t <Plug>InteroGenericType
 let g:fzf_command_prefix = 'Fzf'
 map <C-P> :FzfFiles<CR>
 
-" Gundo
-nnoremap <leader>u :GundoToggle<CR>
-
 " Haskell
 let g:haskell_backpack = 1                " enable highlighting of backpack keywords
 let g:haskell_enable_arrowsyntax = 1      " enable highlighting of `proc`
@@ -73,6 +70,9 @@ autocmd FileType rust nnoremap <buffer> <silent> <leader>t :call LanguageClient#
 " Markdown
 let g:vim_markdown_folding_disabled=1
 autocmd FileType markdown set conceallevel=0
+
+" Mundo
+nnoremap <leader>u :MundoToggle<CR>
 
 " NERDCommenter
 let NERDSpaceDelims = 1
