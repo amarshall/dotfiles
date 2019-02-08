@@ -11,9 +11,12 @@ autocmd BufWritePre *.{clj,java,php} :call DeleteTrailingWhitespace()
 
 " Associate some filetypes with their proper syntax
 autocmd BufRead,BufNewFile *.applescript set filetype=applescript
+autocmd BufRead,BufNewFile *.dockerignore set filetype=conf
 autocmd BufRead,BufNewFile *.prawn set filetype=ruby
 autocmd BufRead,BufNewFile *.pyi set filetype=python
 autocmd BufRead,BufNewFile *.txt set filetype=text
+autocmd BufRead,BufNewFile gitconfig set filetype=gitconfig
+autocmd BufRead,BufNewFile gitignore set filetype=conf
 
 autocmd FileType clojure set iskeyword-=.
 
