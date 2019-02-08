@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# rubocop:disable Lint/MissingCopEnableDirective, Style/StderrPuts
+
+def abort(msg)
+  $stderr.puts format('git-unite: %s', msg)
+  exit(false)
+end
+
+def run(*args)
+  $stderr.puts format('==> %s', args.join(' '))
+  return if ENV.key?('DRY_RUN')
+
+  system(*args) or exit(false)
+end
+
+def read(*args)
+  IO.popen(args, &:read).strip
+end
+
+def extract_branch_arg(args)
+  candidates = args.reject do |arg|
+    arg.start_with?('-')
+  end
+  case candidates.size
+  when 1
+    return candidates.first
+  when 0
+    abort 'found no argument that looked like a branch'
+  else
+    abort 'found multiple arguments that looked like a branch'
+  end
+end
+
+def find_upstream_tracking(local_branch_name)
+  output = read 'git', 'rev-parse', '--abbrev-ref', '--symbolic-full-name', format('%s@{u}', local_branch_name)
+  output.split('/', 2)
+end
+
+branch = extract_branch_arg(ARGV)
+upstream_tracking_remote, upstream_tracking_branch = find_upstream_tracking(branch)
+
+run 'git', 'merge', *ARGV
+run 'git', 'branch', '--delete', branch
+run 'git', 'push'
+run 'git', 'push', '--delete', '--force-with-lease', upstream_tracking_remote, upstream_tracking_branch
