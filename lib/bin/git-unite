@@ -42,6 +42,6 @@ branch = extract_branch_arg(ARGV)
 upstream_tracking_remote, upstream_tracking_branch = find_upstream_tracking(branch)
 
 run 'git', 'merge', *ARGV
-run 'git', 'branch', '--delete', branch
 run 'git', 'push'
+run 'git', 'branch', '--delete', branch
 run 'git', 'push', '--delete', '--force-with-lease', upstream_tracking_remote, upstream_tracking_branch
