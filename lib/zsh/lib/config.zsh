@@ -25,7 +25,6 @@ setopt PRINT_EXIT_VALUE
 setopt PROMPT_SUBST
 setopt PUSHD_IGNORE_DUPS
 setopt PUSHD_SILENT
-setopt RM_STAR_WAIT
 
 autoload -U edit-command-line
 zle -N edit-command-line
