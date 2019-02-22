@@ -1,5 +1,5 @@
 [submodule "lib/root/emacs.d"]
-	path = lib/root/emacs.d
+	path = lib/spacemacs
 	url = https://github.com/syl20bnr/spacemacs
 [submodule "lib/shell/vendor/base16-shell"]
 	path = lib/shell/vendor/base16-shell

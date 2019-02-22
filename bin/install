@@ -188,6 +188,13 @@ def install!
       link(path, HOME.join('.config', path.relative_path_from(config_src_root)))
     end
   end
+  step 'Linking spacemacs' do
+    emacs_root = HOME.join('.emacs.d')
+    emacs_root.mkdir unless emacs_root.exist?
+    %w[core layers init.el].each do |fname|
+      link(LNK_ROOT.join('spacemacs', fname), emacs_root.join(fname))
+    end
+  end
   if `uname`.strip.match?(/\bdarwin\b/i) && (firefox_profile = firefox_profile())
     step 'Linking Firefox custom profile' do
       run { firefox_profile.join('chrome').mkpath }
