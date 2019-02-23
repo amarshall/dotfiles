@@ -356,6 +356,7 @@ you should place your code here."
   (add-hook 'helm-major-mode-hook
             (lambda ()
               (setq auto-composition-mode nil)))
+  (remove-hook 'prog-mode-hook #'smartparens-mode)
   (setq clojure-enable-fancify-symbols t)
   (setq mouse-wheel-scroll-amount '(3 ((shift) . 3)))
   (setq mouse-wheel-progressive-speed nil)
