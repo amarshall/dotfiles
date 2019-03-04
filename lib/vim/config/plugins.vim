@@ -13,6 +13,7 @@ endif
 let g:ale_python_auto_pipenv = 1
 autocmd FileType haskell let b:ale_linters = ['stack_ghc']
 autocmd FileType javascript let b:ale_linters = ['eslint', 'tsserver']
+autocmd FileType ruby let b:ale_linters = ['ruby', 'rubocop']
 
 " Blockle
 let g:blockle_mapping = '<leader>rb'
