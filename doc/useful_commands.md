@@ -41,7 +41,7 @@ Here lie some useful commands that are awesome but are usually too rarely used t
 
 - Compiling Ruby with ruby-install and optimizations
   ```
-  CC=clang CFLAGS='-march=native -O2 -pipe' ruby-install --cleanup --src-dir "$TMPDIR" RUBY_PLATFORM RUBY_VERSION
+  ruby-install --cleanup --jobs --src-dir "$TMPDIR" RUBY_PLATFORM RUBY_VERSION
   ```
 
 - Getting an SSH key's fingerprint
