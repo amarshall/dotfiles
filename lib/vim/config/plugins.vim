@@ -62,6 +62,9 @@ let g:jedi#popup_on_dot = 0
 " JSON
 let g:vim_json_syntax_conceal = 0
 
+" Julia
+let g:latex_to_unicode_tab = 0
+
 " LanguageClient
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],

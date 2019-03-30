@@ -55,6 +55,9 @@
 [submodule "lib/vim/bundle/jinja2"]
 	path = lib/vim/bundle/jinja2
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule "lib/vim/bundle/julia"]
+	path = lib/vim/bundle/julia
+	url = https://github.com/JuliaEditorSupport/julia-vim.git
 [submodule "lib/vim/bundle/LanguageClient"]
 	path = lib/vim/bundle/LanguageClient
 	url = https://github.com/autozimu/LanguageClient-neovim.git
