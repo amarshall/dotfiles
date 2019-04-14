@@ -14,11 +14,11 @@ code, kbd, pre, samp {
 
 .jsonPanelBox .panelContent .treeTable {
   font-family: monospace !important;
-  font-size: 14px !important;
+  font-size: 15px !important;
   font-variant-ligatures: normal !important;
 }
 .jsonPanelBox .panelContent .treeTable .treeIcon {
-  font-size: 14px !important;
+  font-size: 15px !important;
 }
 
 head[prefix~="medium-com:"] + body .metabar {
@@ -48,7 +48,7 @@ head[prefix~="medium-com:"] + body .metabar {
   .blob-code-inner,
   .blob-num,
   .file-info {
-    font-size: 14px !important;
+    font-size: 15px !important;
   }
 
   .comment-body code,
