@@ -15,6 +15,7 @@ require 'optparse'
 require 'pathname'
 require 'rainbow'
 require 'set'
+require 'shellwords'
 
 HOME = Pathname.new(Dir.home).freeze
 LNK_ROOT = HOME.join('.config/dotfiles').freeze
@@ -212,6 +213,14 @@ def install!
       key_bindings_path = HOME.join('Library/KeyBindings')
       run { key_bindings_path.mkpath }
       link(LNK_ROOT.join('macos/DefaultKeyBinding.dict'), key_bindings_path.join('DefaultKeyBinding.dict'))
+    end
+  end
+  step 'Installing terminfo entries' do
+    SRC_ROOT.join('lib', 'terminfo').children.each do |entry|
+      name = entry.basename.to_s.split('.', 2).first
+      if ! system "toe -a | grep --quiet #{Shellwords.escape(name)}"
+        run { system!('tic', '-o', HOME.join('.terminfo').to_s, entry.realpath.to_s) }
+      end
     end
   end
 end
