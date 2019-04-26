@@ -25,7 +25,7 @@ Here lie some useful commands that are awesome but are usually too rarely used t
 
 - Updating all git submodules
   ```
-  git submodule foreach git pull origin master
+  git submodule update --remote
   ```
 
 - Finding what package installed a binary (Ubuntu/Debian)
