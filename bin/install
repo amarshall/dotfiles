@@ -30,6 +30,16 @@ def system!(*args, &block)
   system(*args, &block) or raise 'command failed'
 end
 
+def copy(src, dest)
+  run do
+    if src.exist? && dest.exist?
+      FileUtils.rm(dest, force: true)
+    end
+    FileUtils.cp(src, dest, preserve: false)
+    FileUtils.chmod('u+w', dest)
+  end
+end
+
 def link_status(original, link)
   if link.exist? || link.symlink?
     if link.symlink? && link.readlink == original
@@ -200,12 +210,7 @@ def install!
     step 'Linking Firefox custom profile' do
       run { firefox_profile.join('chrome').mkpath }
       link(LNK_ROOT.join('firefox/userChrome.css'), firefox_profile.join('chrome/userChrome.css'))
-      run do
-        dest = firefox_profile.join('chrome/userContent.css')
-        dest.exist? and FileUtils.rm(dest, force: true)
-        FileUtils.cp(LNK_ROOT.join('firefox/userContent.css'), dest, preserve: false)
-        FileUtils.chmod('u+w', dest)
-      end
+      copy(LNK_ROOT.join('firefox/userContent.css'), firefox_profile.join('chrome/userContent.css'))
     end
   end
   if `uname`.strip.match?(/\bdarwin\b/i)
