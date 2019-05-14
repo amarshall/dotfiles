@@ -210,6 +210,7 @@ def install!
     step 'Linking Firefox custom profile' do
       run { firefox_profile.join('chrome').mkpath }
       link(LNK_ROOT.join('firefox/userChrome.css'), firefox_profile.join('chrome/userChrome.css'))
+      link(LNK_ROOT.join('firefox/user.js'), firefox_profile.join('user.js'))
       copy(LNK_ROOT.join('firefox/userContent.css'), firefox_profile.join('chrome/userContent.css'))
     end
   end
