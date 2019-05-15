@@ -126,6 +126,9 @@ defaults write com.apple.TextEdit NSFontSize -int 14
 defaults write com.apple.TextEdit RichText -bool false
 defaults write com.apple.TextEdit WidthInChars -int 72
 
+## Time Machine
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
 # Restart things to take effect
 killall Dock
 killall Finder
