@@ -123,7 +123,12 @@ def parse_options
   options.freeze
 end
 
-def firefox_profile
+def firefox_profiles
+  profile_root = HOME.join('Library/Application Support/Firefox/Profiles')
+  profile_root.children.select(&:directory?)
+end
+
+def default_firefox_profile
   profile_root = HOME.join('Library/Application Support/Firefox/Profiles')
   default_profile_name = Dir.glob('*.default', base: profile_root).first
   return unless default_profile_name
@@ -206,12 +211,14 @@ def install!
       link(LNK_ROOT.join('spacemacs', fname), emacs_root.join(fname))
     end
   end
-  if `uname`.strip.match?(/\bdarwin\b/i) && (firefox_profile = firefox_profile())
+  if `uname`.strip.match?(/\bdarwin\b/i) && (default_firefox_profile = default_firefox_profile())
     step 'Linking Firefox custom profile' do
-      run { firefox_profile.join('chrome').mkpath }
-      link(LNK_ROOT.join('firefox/userChrome.css'), firefox_profile.join('chrome/userChrome.css'))
-      link(LNK_ROOT.join('firefox/user.js'), firefox_profile.join('user.js'))
-      copy(LNK_ROOT.join('firefox/userContent.css'), firefox_profile.join('chrome/userContent.css'))
+      run { default_firefox_profile.join('chrome').mkpath }
+      link(LNK_ROOT.join('firefox/userChrome.css'), default_firefox_profile.join('chrome/userChrome.css'))
+      copy(LNK_ROOT.join('firefox/userContent.css'), default_firefox_profile.join('chrome/userContent.css'))
+      firefox_profiles.each do |firefox_profile|
+        link(LNK_ROOT.join('firefox/user.js'), firefox_profile.join('user.js'))
+      end
     end
   end
   if `uname`.strip.match?(/\bdarwin\b/i)
