@@ -1,4 +1,7 @@
 set horizontal-scroll = 33%
+set line-graphics = utf-8
+set mouse = true
+set truncation-delimiter = …
 set tab-size = 2
 
 set main-view = date:relative id:yes author:full,width=20 commit-title:yes,graph=yes,refs=yes
