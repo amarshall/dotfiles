@@ -32,8 +32,10 @@ zle -N newtab
 
 run-last-command() { zle up-history; zle accept-line }
 foreground-current-job() { fg }
+kill-current-job() { kill %% }
 zle -N run-last-command
 zle -N foreground-current-job
+zle -N kill-current-job
 
 bindkey -e
 bindkey '\e[3~' delete-char
@@ -42,6 +44,7 @@ bindkey '^f' forward-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey '^r' history-incremental-search-backward
+bindkey '^x^c' kill-current-job
 bindkey '^x^e' edit-command-line
 bindkey '^p' run-last-command
 bindkey '^z' foreground-current-job
