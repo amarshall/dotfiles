@@ -15,6 +15,7 @@
 	fork-point = git merge-base --fork-point
 	pop = reset --soft head~1
 	reword = commit --only --amend
+	rc = rebase --continue
 	root = rev-parse --show-toplevel
 	st = status
 	unpulled = !"git fetch && git log HEAD..@{u}"
