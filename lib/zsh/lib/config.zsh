@@ -44,7 +44,7 @@ bindkey '^f' forward-word
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey '^r' history-incremental-search-backward
-bindkey '^x^c' kill-current-job
+bindkey '^x^x' kill-current-job
 bindkey '^x^e' edit-command-line
 bindkey '^p' run-last-command
 bindkey '^z' foreground-current-job
