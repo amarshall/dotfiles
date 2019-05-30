@@ -22,6 +22,9 @@
 [submodule "lib/vim/bundle/base16-vim"]
 	path = lib/vim/bundle/base16
 	url = https://github.com/amarshall/base16-vim.git
+[submodule "lib/vim/bundle/beancount"]
+	path = lib/vim/bundle/beancount
+	url = https://github.com/nathangrigg/vim-beancount.git
 [submodule "lib/vim/bundle/camelcasemotion"]
 	path = lib/vim/bundle/camelcasemotion
 	url = https://github.com/vim-scripts/camelcasemotion.git
