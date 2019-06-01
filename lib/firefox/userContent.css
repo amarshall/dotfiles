@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Arial;
+  src: local('not a font'); /* Force fallback in stack */
+}
+
 code, kbd, pre, samp {
   font-family: monospace !important;
   font-variant-ligatures: normal !important;
