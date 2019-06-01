@@ -83,6 +83,7 @@ def print_ruby_version version_detector
   end
 
   manager = version_detector.manager.name
+  engine = RUBY_ENGINE
   version = version_detector.manager.version
 
   if version =~ /system/
@@ -98,7 +99,7 @@ def print_ruby_version version_detector
     version = version_detector.real_version
   end
 
-  version_str = [manager, 'using', version].compact.join(' ')
+  version_str = [manager, 'using', engine, version].compact.join(' ')
   if defined?(Paint)
     puts Paint[version_str, :bold, :underline]
   else
