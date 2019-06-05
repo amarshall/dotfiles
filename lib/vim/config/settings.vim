@@ -20,6 +20,7 @@ set showtabline=2
 set splitbelow splitright
 set title
 set virtualedit=block
+set wildignorecase
 set wildmenu
 
 " Store backup & swap files elsewhere to avoid directory pollution
