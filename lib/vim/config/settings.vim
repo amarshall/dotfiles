@@ -9,6 +9,7 @@ set laststatus=2
 set lazyredraw
 set mouse=a
 set nojoinspaces
+set nomodeline
 set nowrap
 set number
 set ruler
