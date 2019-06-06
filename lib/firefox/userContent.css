@@ -87,3 +87,9 @@ head[prefix~="medium-com:"] + body .metabar {
     font-variant-ligatures: normal !important;
   }
 }
+
+@-moz-document domain(youtube.com) {
+  .ytp-suggestion-set {
+    display: none;
+  }
+}
