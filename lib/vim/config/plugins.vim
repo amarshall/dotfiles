@@ -45,6 +45,7 @@ autocmd FileType haskell map <buffer> <silent> <leader>t <Plug>InteroGenericType
 " fzf
 let g:fzf_command_prefix = 'Fzf'
 map <C-P> :FzfFiles<CR>
+map <C-;> :call fzf#vim#tags('')<CR>
 
 " Haskell
 let g:haskell_backpack = 1                " enable highlighting of backpack keywords
