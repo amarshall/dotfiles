@@ -18,6 +18,7 @@ set sidescrolloff=3
 set showcmd
 set showtabline=2
 set splitbelow splitright
+set timeoutlen=500
 set title
 set virtualedit=block
 set wildignorecase
