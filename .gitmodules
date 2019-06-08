@@ -224,9 +224,6 @@
 [submodule "lib/vim/bundle/vim-ruby"]
 	path = lib/vim/bundle/ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule "lib/vim/bundle/vim-ruby-refactoring"]
-	path = lib/vim/bundle/ruby-refactoring
-	url = https://github.com/ecomba/vim-ruby-refactoring.git
 [submodule "lib/vim/bundle/vim-scala"]
 	path = lib/vim/bundle/scala
 	url = https://github.com/derekwyatt/vim-scala.git
