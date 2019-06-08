@@ -22,30 +22,27 @@ autocmd FileType ruby let b:ale_linters = ['ruby', 'rubocop']
 " Blockle
 let g:blockle_mapping = '<leader>rb'
 
+" EasyMotion
+let g:EasyMotion_do_mapping = 0
+
 " Easytags
 set tags=./tags,tags
 let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
 let g:easytags_dynamic_files = 1
 
-" Ensime
-autocmd FileType scala nnoremap <buffer> <silent> <leader>t :EnType<CR>
-
 " Indent Guides
 let g:indent_guides_auto_colors = 0
+let g:indent_guides_default_mapping = 0
 autocmd VimEnter,Colorscheme * :hi link IndentGuidesOdd Normal
 autocmd VimEnter,Colorscheme * :hi link IndentGuidesEven CursorLine
 
 " Indexed Search
 let g:indexed_search_show_index_mappings = 0
 
-" Intero
-autocmd FileType haskell map <buffer> <silent> <leader>t <Plug>InteroGenericType
-
 " fzf
 let g:fzf_command_prefix = 'Fzf'
 map <C-P> :FzfFiles<CR>
-map <C-;> :call fzf#vim#tags('')<CR>
 
 " Haskell
 let g:haskell_backpack = 1                " enable highlighting of backpack keywords
@@ -74,18 +71,14 @@ let g:latex_to_unicode_tab = 0
 let g:LanguageClient_serverCommands = {
       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
       \}
-autocmd FileType rust nnoremap <buffer> <silent> <leader>t :call LanguageClient#textDocument_hover()<CR>
 
 " Markdown
 let g:vim_markdown_folding_disabled=1
 autocmd FileType markdown set conceallevel=0
 
-" Mundo
-nnoremap <leader>u :MundoToggle<CR>
-
 " NERDCommenter
 let NERDSpaceDelims = 1
-map <leader>/ <plug>NERDCommenterToggle
+let NERDCreateDefaultMappings = 0
 
 " NERDTree
 map \ :NERDTreeToggle<CR>
@@ -109,21 +102,14 @@ let g:rust_recommended_style=0
 " Signify
 let g:signify_update_on_focusgained = 1
 
-" Splitjoin
-nmap <leader>j :SplitjoinJoin<CR>
-nmap <leader>s :SplitjoinSplit<CR>
-
 " Syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_javascript_jshint_args = '--config '.expand('~/.jshintrc')
-
-" Tagbar
-map <leader>l :TagbarToggle<CR>
 
 " TagList
 if filereadable("/usr/local/bin/ctags")
   let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 endif
 
-" ZoomWin
-map <leader>z :ZoomWin<CR>
+" Which Key
+autocmd VimEnter * call which_key#register('<Space>', "g:which_key_map")

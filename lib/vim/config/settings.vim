@@ -1,5 +1,5 @@
-let mapleader = ","
-let maplocalleader = "<"
+let mapleader = "\<Space>"
+let maplocalleader = ","
 
 set backspace=indent,eol,start
 set cursorline
