@@ -35,7 +35,7 @@ nnoremap <silent> <localleader> :WhichKey ','<CR>
 let g:which_key_map[':'] = 'command-line mode'
 nnoremap <leader><leader> :
 let g:which_key_map['/'] = 'toggle comment'
-nnoremap <leader>/ <plug>NERDCommenterToggle
+nnoremap <leader>/ :call NERDComment("n", "Toggle")<CR>
 
 let g:which_key_map.b = {'name': '+buffer'}
 let g:which_key_map.b.c = 'copy current path'
