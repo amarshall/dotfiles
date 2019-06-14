@@ -28,13 +28,12 @@ cnoremap <C-F> <C-Right>
 
 let g:which_key_map = {}
 
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
 nnoremap <silent> <localleader> :WhichKey ','<CR>
 
-let g:which_key_map[':'] = 'command-line mode'
 nnoremap <leader><leader> :
 let g:which_key_map['/'] = 'toggle comment'
-nnoremap <leader>/ :call NERDComment("n", "Toggle")<CR>
+noremap <leader>/ :call NERDComment("n", "Toggle")<CR>
 
 let g:which_key_map.b = {'name': '+buffer'}
 let g:which_key_map.b.c = 'copy current path'
@@ -52,6 +51,8 @@ nnoremap <leader>fl :NERDTreeToggle<CR>
 let g:which_key_map.f.L = 'open file list tree at current file'
 nnoremap <leader>fL :NERDTreeFind<CR>
 
+nnoremap <leader>h :nohlsearch<CR>
+
 let g:which_key_map.t = {'name': '+tags'}
 let g:which_key_map.t.L = 'toggle tag list'
 nnoremap <leader>tl :TagbarToggle<CR>
@@ -61,6 +62,8 @@ nnoremap <leader>ts :call fzf#vim#tags('')<CR>
 let g:which_key_map.u = 'toggle undo tree'
 nnoremap <leader>u :MundoToggle<CR>
 
-autocmd FileType haskell nnoremap <buffer> <silent> <leader>t <Plug>InteroGenericType
-autocmd FileType rust nnoremap <buffer> <silent> <leader>t :call LanguageClient#textDocument_hover()<CR>
-autocmd FileType scala nnoremap <buffer> <silent> <leader>t :EnType<CR>
+let g:which_key_map.m = {'name': '+meta'}
+let g:which_key_map.m.t = 'reveal type'
+autocmd FileType haskell nnoremap <buffer> <silent> <leader>mt <Plug>InteroGenericType
+autocmd FileType rust nnoremap <buffer> <silent> <leader>mt :call LanguageClient#textDocument_hover()<CR>
+autocmd FileType scala nnoremap <buffer> <silent> <leader>mt :EnType<CR>
