@@ -77,8 +77,8 @@ let g:vim_markdown_folding_disabled=1
 autocmd FileType markdown set conceallevel=0
 
 " NERDCommenter
-let NERDSpaceDelims = 1
 let NERDCreateDefaultMappings = 0
+let NERDSpaceDelims = 1
 
 " NERDTree
 map \ :NERDTreeToggle<CR>

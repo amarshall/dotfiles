@@ -1,5 +1,3 @@
-" Toggle spell check
-
 " Mapping for writing all files in a tab
 cabbrev wt silent windo w
 
@@ -27,6 +25,7 @@ cnoremap <C-F> <C-Right>
 
 
 " SpaceVim
+
 let g:which_key_map = {}
 
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
