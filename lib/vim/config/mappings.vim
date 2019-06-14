@@ -23,6 +23,10 @@ cnoremap <C-A> <Home>
 cnoremap <C-B> <C-Left>
 cnoremap <C-F> <C-Right>
 
+" Map backspace as alternative leader
+nmap <backspace> <leader>
+vmap <backspace> <leader>
+
 
 " SpaceVim
 
