@@ -137,9 +137,6 @@
 [submodule "lib/vim/bundle/vim-coffee-script"]
 	path = lib/vim/bundle/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "lib/vim/bundle/vim-colors-solarized"]
-	path = lib/vim/bundle/colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "lib/vim/bundle/vim-cucumber"]
 	path = lib/vim/bundle/cucumber
 	url = https://github.com/tpope/vim-cucumber
