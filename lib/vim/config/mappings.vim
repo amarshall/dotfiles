@@ -27,6 +27,9 @@ cnoremap <C-F> <C-Right>
 nmap <backspace> <leader>
 vmap <backspace> <leader>
 
+" Easier omnifunc mapping
+imap <C-Space> <C-X><C-O>
+
 
 " SpaceVim
 
