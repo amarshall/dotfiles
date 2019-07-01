@@ -52,9 +52,6 @@
 [submodule "lib/vim/bundle/intero-neovim"]
 	path = lib/vim/bundle/intero-neovim
 	url = https://github.com/parsonsmatt/intero-neovim.git
-[submodule "lib/vim/bundle/jedi-vim"]
-	path = lib/vim/bundle/jedi
-	url = https://github.com/davidhalter/jedi-vim.git
 [submodule "lib/vim/bundle/jinja2"]
 	path = lib/vim/bundle/jinja2
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git

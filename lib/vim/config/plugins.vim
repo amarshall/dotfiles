@@ -69,6 +69,7 @@ let g:latex_to_unicode_tab = 0
 
 " LanguageClient
 let g:LanguageClient_serverCommands = {
+      \ 'python': ['pyls'],
       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
       \}
 
