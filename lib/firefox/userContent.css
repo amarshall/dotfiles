@@ -89,6 +89,12 @@ head[prefix~="medium-com:"] + body .metabar {
   }
 }
 
+@-moz-document domain(logentries.com) {
+  .Entry--entry {
+    font-family: monospace !important;
+  }
+}
+
 @-moz-document domain(youtube.com) {
   .ytp-suggestion-set {
     display: none;
