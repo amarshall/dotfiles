@@ -69,8 +69,27 @@ nnoremap <leader>ts :call fzf#vim#tags('')<CR>
 let g:which_key_map.u = 'toggle undo tree'
 nnoremap <leader>u :MundoToggle<CR>
 
-let g:which_key_map.m = {'name': '+meta'}
-let g:which_key_map.m.t = 'reveal type'
-autocmd FileType haskell nnoremap <buffer> <silent> <leader>mt <Plug>InteroGenericType
-autocmd FileType rust nnoremap <buffer> <silent> <leader>mt :call LanguageClient#textDocument_hover()<CR>
-autocmd FileType scala nnoremap <buffer> <silent> <leader>mt :EnType<CR>
+let g:which_key_map.l = {'name': '+lang'}
+let g:which_key_map.l.e = 'error details'
+let g:which_key_map.l.g = {'name': '+goto'}
+let g:which_key_map.l.g.d = 'goto definition'
+let g:which_key_map.l.g.i = 'goto implementation'
+let g:which_key_map.l.g.r = 'goto reference'
+let g:which_key_map.l.g.t = 'goto type definition'
+let g:which_key_map.l.h = 'highlight usage'
+let g:which_key_map.l.h = 'clear highlight'
+let g:which_key_map.l.r = 'rename'
+let g:which_key_map.l.s = 'start language server'
+let g:which_key_map.l.t = 'reveal type'
+nnoremap <leader>le :call LanguageClient#explainErrorAtPoint()<CR>
+nnoremap <leader>lgd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>lgi :call LanguageClient#textDocument_implementation()<CR>
+nnoremap <leader>lgr :call LanguageClient#textDocument_references()<CR>
+nnoremap <leader>lgt :call LanguageClient#textDocument_typeDefinition()<CR>
+nnoremap <leader>lh :call LanguageClient#textDocument_documentHighlight()<CR>
+nnoremap <leader>lH :call LanguageClient#textDocument_clearDocumentHighlight()<CR>
+nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+nnoremap <leader>ls :LanguageClientStart<CR>
+autocmd FileType haskell nnoremap <buffer> <silent> <leader>lt <Plug>InteroGenericType
+autocmd FileType rust nnoremap <buffer> <silent> <leader>lt :call LanguageClient#textDocument_hover()<CR>
+autocmd FileType scala nnoremap <buffer> <silent> <leader>lt :EnType<CR>
