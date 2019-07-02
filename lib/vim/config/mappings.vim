@@ -90,6 +90,6 @@ nnoremap <leader>lh :call LanguageClient#textDocument_documentHighlight()<CR>
 nnoremap <leader>lH :call LanguageClient#textDocument_clearDocumentHighlight()<CR>
 nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
 nnoremap <leader>ls :LanguageClientStart<CR>
+nnoremap <leader>lt :call LanguageClient#textDocument_hover()<CR>
 autocmd FileType haskell nnoremap <buffer> <silent> <leader>lt <Plug>InteroGenericType
-autocmd FileType rust nnoremap <buffer> <silent> <leader>lt :call LanguageClient#textDocument_hover()<CR>
 autocmd FileType scala nnoremap <buffer> <silent> <leader>lt :EnType<CR>
