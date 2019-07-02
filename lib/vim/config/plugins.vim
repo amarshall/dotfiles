@@ -73,6 +73,7 @@ let g:LanguageClient_serverCommands = {
       \ 'ruby': ['solargraph'],
       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
       \}
+let g:LanguageClient_settingsPath = '.config/languageclient.json'
 
 " Markdown
 let g:vim_markdown_folding_disabled=1

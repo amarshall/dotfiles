@@ -4,6 +4,7 @@
 .DS_Store
 .Spotlight-V100
 .Trashes
+.config/languageclient.json
 .git
 tags
 tags-*
