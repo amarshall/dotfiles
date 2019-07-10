@@ -144,7 +144,7 @@ def install!
       run { system!(*%w[git submodule sync --quiet --recursive]) }
     end
     step 'Installing submodules' do
-      run { system!(*%w[git submodule update --quiet --init --recursive]) }
+      run { system!(*%w[git submodule update --quiet --init --jobs 2 --recursive]) }
     end
     step 'Pruning (some) submodules' do
       run { system!(*%w[git clean -d -f -f lib/vim/bundle]) }
