@@ -245,7 +245,7 @@ def install!
   end
 
   if `uname`.strip.match?(/\bdarwin\b/i)
-    step 'Linking macOS-specific files' do
+    step 'Linking macOS-specific configuration' do
       key_bindings_path = HOME.join('Library/KeyBindings')
       run { key_bindings_path.mkpath }
       link(LNK_ROOT.join('macos/DefaultKeyBinding.dict'), key_bindings_path.join('DefaultKeyBinding.dict'))
