@@ -134,7 +134,12 @@ def firefox_profiles
 end
 
 def default_firefox_profile
-  profile_root = HOME.join('Library/Application Support/Firefox/Profiles')
+  prospective_profile_paths = [
+    HOME.join('Library/Application Support/Firefox/Profiles'),
+    HOME.join('.mozilla/profiles'),
+  ]
+  profile_root = prospective_profile_paths.detect(&:exist?)
+  return unless profile_root
   default_profile_name = Dir.glob('*.default', base: profile_root).first
   return unless default_profile_name
   default_profile = profile_root.join(default_profile_name)
@@ -225,14 +230,17 @@ def install!
     end
   end
 
-  if `uname`.strip.match?(/\bdarwin\b/i) && (default_firefox_profile = default_firefox_profile())
-    step 'Linking Firefox custom profile' do
+  step 'Linking Firefox custom profile' do
+    default_firefox_profile = default_firefox_profile()
+    if default_firefox_profile
       run { default_firefox_profile.join('chrome').mkpath }
       link(LNK_ROOT.join('firefox/userChrome.css'), default_firefox_profile.join('chrome/userChrome.css'))
       copy(LNK_ROOT.join('firefox/userContent.css'), default_firefox_profile.join('chrome/userContent.css'))
       firefox_profiles.each do |firefox_profile|
         link(LNK_ROOT.join('firefox/user.js'), firefox_profile.join('user.js'))
       end
+    else
+      warn 'Skipping because Firefox profile cannot be found'
     end
   end
 
