@@ -11,6 +11,7 @@ rescue Bundler::RubyVersionMismatch => ex
   exit 1
 end
 
+require 'mkmf'
 require 'optparse'
 require 'pathname'
 require 'rainbow'
@@ -22,6 +23,10 @@ LNK_ROOT = HOME.join('.config/dotfiles').freeze
 SRC_ROOT = Pathname.new(__dir__).parent.freeze
 
 Options = Struct.new(:dry_run, :fast, :force, :verbose)
+
+def exe_exists?(exe)
+  MakeMakefile.find_executable0(exe)
+end
 
 def system!(*args, &block)
   if $options.verbose
@@ -240,11 +245,15 @@ def install!
   end
 
   step 'Installing terminfo entries' do
-    SRC_ROOT.join('lib', 'terminfo').children.each do |entry|
-      name = entry.basename.to_s.split('.', 2).first
-      if ! system "toe -a | grep --quiet #{Shellwords.escape(name)}"
-        run { system!('tic', '-o', HOME.join('.terminfo').to_s, entry.realpath.to_s) }
+    if exe_exists?('toe')
+      SRC_ROOT.join('lib', 'terminfo').children.each do |entry|
+        name = entry.basename.to_s.split('.', 2).first
+        if ! system "toe -a | grep --quiet #{Shellwords.escape(name)}"
+          run { system!('tic', '-o', HOME.join('.terminfo').to_s, entry.realpath.to_s) }
+        end
       end
+    else
+      warn 'Skipping because “toe” cannot be found'
     end
   end
 end
