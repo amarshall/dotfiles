@@ -70,7 +70,7 @@ let g:latex_to_unicode_tab = 0
 " LanguageClient
 let g:LanguageClient_serverCommands = {
       \ 'python': ['pyls'],
-      \ 'ruby': ['solargraph'],
+      \ 'ruby': ['solargraph', 'stdio'],
       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
       \}
 let g:LanguageClient_settingsPath = '.config/languageclient.json'
