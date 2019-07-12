@@ -3,6 +3,10 @@
   src: local('not a font'); /* Force fallback in stack */
 }
 
+body {
+  font-variant-numeric: tabular-nums;
+}
+
 code, kbd, pre, samp {
   font-family: monospace !important;
   font-variant-ligatures: normal !important;
