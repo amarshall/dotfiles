@@ -35,6 +35,47 @@ head[prefix~="medium-com:"] + body .metabar {
   position: relative !important;
 }
 
+@-moz-document url-prefix("about:reader") {
+  .moz-reader-content a:link {
+    text-decoration: none !important;
+  }
+
+  .moz-reader-content code,
+  .moz-reader-content pre {
+    background-color: #eee;
+    border-radius: 0px !important;
+    font-size: 0.9em;
+  }
+
+  .moz-reader-content pre pre {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .moz-reader-content :not(pre) code {
+    margin: 0 !important;
+    padding: 0.1em 0.3em !important;
+  }
+
+  .moz-reader-content p {
+    hyphens: auto;
+    text-align: justify;
+  }
+
+  .moz-reader-content table, th, td {
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  .sans-serif {
+    font-family: "Source Sans Pro", sans-serif !important;
+  }
+
+  .serif {
+    font-family: "Source Serif Pro", serif !important;
+  }
+}
+
 @-moz-document domain(docs.looker.com) {
   .syntax td, .syntax.new {
     font-family: monospace !important;
