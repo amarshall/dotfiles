@@ -11,14 +11,13 @@ xwayland disable
 
 # Launcher
 set $launcher $term --dimensions 50 10 --class launcher
-set $menu $launcher sh -c \"dmenu_path | fzf | xargs -r swaymsg exec\"
+set $menu $launcher --command sh -c \"dmenu_path | fzf | xargs -r swaymsg exec\"
 for_window [app_id="launcher"] focus, floating enabled, border pixel 1
 
 # Input/output
 input * dwt enabled
 input * accel_profile flat
 input * pointer_accel 1
-output Virtual-1 res 2560x1600 scale 2
 include ~/.config/sway/io
 
 # Idle
@@ -29,52 +28,29 @@ exec swayidle -w \
   before-sleep 'swaylock --daemonize --color 000000'
 
 # Bindings
+floating_modifier $mod normal
+
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+Alt+Shift+l exec swaylock --daemonize --color 000000
-
-# Drag floating windows by holding down $mod and left mouse button.
-# Resize them with right mouse button + $mod.
-# Despite the name, also works for non-floating windows.
-# Change normal to inverse to use left mouse button for resizing and right
-# mouse button for dragging.
-floating_modifier $mod normal
-
-# reload the configuration file
 bindsym $mod+Shift+c reload
+bindsym $mod+Shift+Escape exit
+bindsym $mod+Shift+e exec $launcher --command sway-exit
 
-# exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exit
-# bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
-# Move your focus around
+## Moving focus
+
+### Within workspace
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-# or use $mod+[up|down|left|right]
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# _move_ the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-# ditto, with arrow keys
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-#
-# Workspaces:
-#
-# switch to workspace
+### Between workspaces
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -85,7 +61,20 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-# move focused container to workspace
+
+## Moving container
+
+### Within workspace
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+### Between workspaces
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
@@ -96,18 +85,10 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-# Note: workspaces can have any name you want, not just numbers.
-# We just use 1-10 as the default.
-#
-# Layout stuff:
-#
-# You can "split" the current object of your focus with
-# $mod+b or $mod+v, for horizontal and vertical splits
-# respectively.
+
+# Modifying container
 bindsym $mod+b splith
 bindsym $mod+v splitv
-
-# Switch the current container between different layout styles
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
