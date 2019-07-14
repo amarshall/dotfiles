@@ -3,9 +3,11 @@
 
 # rubocop:disable Lint/MissingCopEnableDirective,Style/FormatString,Style/GlobalVars,Style/StderrPuts
 
-require 'bundler'
 begin
+  require 'bundler'
   Bundler.setup
+rescue LoadError
+  # continue
 rescue Bundler::RubyVersionMismatch => ex
   $stderr.puts ex.message
   exit 1
@@ -14,9 +16,19 @@ end
 require 'mkmf'
 require 'optparse'
 require 'pathname'
-require 'rainbow'
 require 'set'
 require 'shellwords'
+
+begin
+  require 'rainbow'
+rescue LoadError
+  class RainbowStr < String
+    def method_missing(*args); self; end
+  end
+  def Rainbow(str)
+    RainbowStr.new(str)
+  end
+end
 
 HOME = Pathname.new(Dir.home).freeze
 LNK_ROOT = HOME.join('.config/dotfiles').freeze
