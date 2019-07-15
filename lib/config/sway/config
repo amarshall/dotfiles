@@ -36,7 +36,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+Alt+Shift+l exec swaylock --daemonize --color 000000
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+Escape exit
-bindsym $mod+Shift+e exec $launcher --command sway-exit
+bindsym $mod+Shift+e exec $launcher --command ~/bin/sway-exit
 
 ## Moving focus
 
@@ -147,7 +147,7 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
   position top
-  status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+  status_command while ~/bin/sway-status; do sleep 1; done
 
   colors {
     statusline #ffffff
