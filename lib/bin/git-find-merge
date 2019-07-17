@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Finds the commit which merged `rev` into `head`.
+
+set -e
+
+rev=$1
+head=${2:-HEAD}
+
+comm -12 \
+  <(git rev-list "$rev".."$head" --ancestry-path --merges) \
+  <(git rev-list "$rev".."$head" --first-parent) \
+  | tail -1
