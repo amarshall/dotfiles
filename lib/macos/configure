@@ -10,7 +10,7 @@ defaults write NSGlobalDomain AppleShowScrollBars -string 'Always'
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 
 ### Force pre-Mojave Dark Mode
-defaults write -g NSRequiresAquaSystemAppearance -bool false
+defaults write -g NSRequiresAquaSystemAppearance -bool true
 defaults write com.apple.notificationcenterui NSRequiresAquaSystemAppearance -bool false
 
 ## Dock
