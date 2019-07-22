@@ -1,7 +1,7 @@
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=$HISTSIZE
-WORDCHARS=${WORDCHARS//[=\/]}
+WORDCHARS="${WORDCHARS//[=\/]}|"
 REPORTTIME=10 # Print elapsed time when more than 10 seconds
 
 setopt AUTO_CD
