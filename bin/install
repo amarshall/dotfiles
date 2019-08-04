@@ -140,7 +140,7 @@ def default_firefox_profile
   ]
   profile_root = prospective_profile_paths.detect(&:exist?)
   return unless profile_root
-  default_profile_name = Dir.glob('*.default', base: profile_root).first
+  default_profile_name = Dir.glob(profile_root.join('*.default')).first
   return unless default_profile_name
   default_profile = profile_root.join(default_profile_name)
   default_profile.exist? && default_profile
@@ -244,7 +244,7 @@ def install!
     end
   end
 
-  if `uname`.strip.match?(/\bdarwin\b/i)
+  if `uname`.strip =~ /\bdarwin\b/i
     step 'Linking macOS-specific configuration' do
       key_bindings_path = HOME.join('Library/KeyBindings')
       run { key_bindings_path.mkpath }
