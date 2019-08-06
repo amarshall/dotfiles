@@ -10,11 +10,11 @@ Layout/FirstMethodArgumentLineBreak:
   Enabled: false
 Layout/FirstMethodParameterLineBreak:
   Enabled: true
-Layout/FirstParameterIndentation:
+Layout/IndentFirstArgument:
   EnforcedStyle: consistent
-Layout/IndentArray:
+Layout/IndentFirstArrayElement:
   EnforcedStyle: consistent
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   EnforcedStyle: consistent
 Layout/MultilineAssignmentLayout:
   Enabled: true
