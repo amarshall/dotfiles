@@ -73,6 +73,12 @@ head[prefix~="medium-com:"] + body .metabar {
     border-right: none !important;
   }
 
+  .moz-reader-content ol,
+  .moz-reader-content ul {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
   .sans-serif {
     font-family: "Source Sans Pro", sans-serif !important;
   }
