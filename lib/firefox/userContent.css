@@ -62,7 +62,9 @@ head[prefix~="medium-com:"] + body .metabar {
     text-align: justify;
   }
 
-  .moz-reader-content table, th, td {
+  .moz-reader-content table,
+  .moz-reader-content th,
+  .moz-reader-content td {
     border-left: none !important;
     border-right: none !important;
   }
