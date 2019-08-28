@@ -30,6 +30,9 @@ vmap <backspace> <leader>
 " Easier omnifunc mapping
 imap <C-Space> <C-X><C-O>
 
+" Map regular , to ,, so it may be used for other mappings
+nnoremap ,, ,
+
 
 " SpaceVim
 
