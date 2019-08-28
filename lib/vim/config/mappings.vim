@@ -42,6 +42,7 @@ nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
 nnoremap <silent> <localleader> :WhichKey ','<CR>
 
 nnoremap <leader><leader> :
+nnoremap <leader><backspace> :
 let g:which_key_map['/'] = 'toggle comment'
 noremap <leader>/ :call NERDComment("n", "Toggle")<CR>
 
