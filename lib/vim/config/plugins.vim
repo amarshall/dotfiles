@@ -84,8 +84,6 @@ let NERDCreateDefaultMappings = 0
 let NERDSpaceDelims = 1
 
 " NERDTree
-map \ :NERDTreeToggle<CR>
-map \| :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeRespectWildIgnore=1
 
