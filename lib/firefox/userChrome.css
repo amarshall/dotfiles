@@ -1,4 +1,6 @@
 :root {
+  --toolbar-bgcolor: rgb(246, 246, 246) !important;
+
   /* Change most browser chrome monospace (e.g. dev tools) to user setting */
   --monospace-font-family: monospace !important;
   --theme-code-font-size: 14px !important;
