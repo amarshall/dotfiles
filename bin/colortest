@@ -22,7 +22,7 @@ truecolor_test() {
 }
 
 base16_theme_test() {
-  "$ROOT"/lib/shell/vendor/base16-shell/colortest
+  "$ROOT"/lib/shell/vendor/base16-shell/colortest ' '
 }
 
 printable_colours=256
