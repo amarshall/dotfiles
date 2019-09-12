@@ -97,6 +97,12 @@ let g:pymode_syntax_string_templates = 0
 " Python PEP8 Indent
 let g:python_pep8_indent_hang_closing = 1
 
+" Ruby
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_block_style = 'do'
+let g:ruby_operators = 1
+let g:ruby_spellcheck_strings = 1
+
 " Rust syntax
 let g:rust_recommended_style=0
 
