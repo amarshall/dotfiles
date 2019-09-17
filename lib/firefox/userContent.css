@@ -36,6 +36,14 @@ head[prefix~="medium-com:"] + body .metabar {
   position: relative !important;
 }
 
+@-moz-document url-prefix("chrome://") {
+  :root {
+    /* Change most browser chrome monospace (e.g. dev tools) to user setting */
+    --monospace-font-family: monospace !important;
+    --theme-code-font-size: 14px !important;
+  }
+}
+
 @-moz-document url-prefix("about:reader") {
   .moz-reader-content a:link {
     text-decoration: none !important;
