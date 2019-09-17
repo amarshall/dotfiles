@@ -4,7 +4,7 @@ set mouse = true
 set truncation-delimiter = …
 set tab-size = 2
 
-set main-view = date:relative id:yes author:full,width=20 commit-title:yes,graph=yes,refs=yes
+set main-view = date:relative id:yes author:full,width=16 commit-title:yes,graph=yes,refs=yes
 set diff-highlight = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
 
 bind main <Ctrl-o> :set main-view-date-display = default
