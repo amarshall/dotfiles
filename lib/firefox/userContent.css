@@ -44,6 +44,14 @@ head[prefix~="medium-com:"] + body .metabar {
   }
 }
 
+@-moz-document url-prefix("about:blank") {
+  @media (prefers-color-scheme: dark) {
+    html {
+      background-color: rgb(45, 45, 45);
+    }
+  }
+}
+
 @-moz-document url-prefix("about:reader") {
   .moz-reader-content a:link {
     text-decoration: none !important;
