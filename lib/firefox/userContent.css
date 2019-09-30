@@ -164,6 +164,14 @@ head[prefix~="medium-com:"] + body .metabar {
   }
 }
 
+@-moz-document domain(wikipedia.org) {
+  .mw-body h1,
+  .mw-body-content h1,
+  .mw-body-content h2 {
+    font-family: serif !important;
+  }
+}
+
 @-moz-document domain(youtube.com) {
   .ytp-suggestion-set {
     display: none;
