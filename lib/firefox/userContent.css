@@ -66,11 +66,6 @@ head[prefix~="medium-com:"] + body .metabar {
     padding: 0.1em 0.3em !important;
   }
 
-  .moz-reader-content p {
-    hyphens: auto;
-    text-align: justify;
-  }
-
   .moz-reader-content p:empty {
     display: none;
   }
