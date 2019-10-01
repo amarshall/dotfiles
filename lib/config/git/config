@@ -16,6 +16,7 @@
 	pop = reset --soft HEAD~1
 	reword = commit --only --amend
 	rc = rebase --continue
+	ri = rebase --interactive
 	root = rev-parse --show-toplevel
 	st = status
 	unpulled = !"git fetch && git log HEAD..@{u}"
