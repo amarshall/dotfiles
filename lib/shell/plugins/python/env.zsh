@@ -1,6 +1,7 @@
-if [ -d "$HOME"/Library/Python ]; then
-  find "$HOME"/Library/Python -mindepth 2 -maxdepth 2 -type d -name bin -print0 |
-    while IFS= read -r -d '' dir; do
+if [[ -d "$HOME"/Library/Python ]]; then
+  for dir in "$HOME"/Library/Python/*/bin; do
+    if [[ -d "$dir" ]]; then
       export PATH="$PATH:$dir"
-    done
+    fi
+  done 2>/dev/null
 fi
