@@ -18,6 +18,7 @@ autocmd BufRead,BufNewFile *.pyi set filetype=python
 autocmd BufRead,BufNewFile *.txt set filetype=text
 autocmd BufRead,BufNewFile gitconfig set filetype=gitconfig
 autocmd BufRead,BufNewFile gitignore set filetype=conf
+autocmd BufRead * if getline(1) =~# '\v^#!.+[/ ]R(script)?$' | setfiletype r | endif
 
 autocmd FileType clojure set iskeyword-=.
 
