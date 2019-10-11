@@ -7,7 +7,7 @@ endfunc
 autocmd BufWritePre *.{c,cpp,h,hpp,m,mm} :call DeleteTrailingWhitespace()
 autocmd BufWritePre *.{erb,feature,haml,rb,yml} :call DeleteTrailingWhitespace()
 autocmd BufWritePre *.{css,html,js,json,less,scss,xml} :call DeleteTrailingWhitespace()
-autocmd BufWritePre *.{clj,java,php} :call DeleteTrailingWhitespace()
+autocmd BufWritePre *.{clj,java,php,rs} :call DeleteTrailingWhitespace()
 
 " Associate some filetypes with their proper syntax
 autocmd BufRead,BufNewFile *.applescript set filetype=applescript
