@@ -55,7 +55,9 @@ let g:which_key_map.b.s = 'toggle spell-check in buffer'
 nnoremap <leader>bs :setlocal spell!<CR>
 
 let g:which_key_map.f = {'name': '+files'}
-let g:which_key_map.f.s = 'search files'
+let g:which_key_map.f.g = 'search files by content (grep)'
+nnoremap <leader>fg :Ack<space>
+let g:which_key_map.f.s = 'search files by name'
 nnoremap <leader>fs :FzfFiles<CR>
 let g:which_key_map.f.l = 'toggle file list tree'
 nnoremap <leader>fl :NERDTreeToggle<CR>
