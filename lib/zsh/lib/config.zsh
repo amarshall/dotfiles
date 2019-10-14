@@ -1,5 +1,5 @@
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
+HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 WORDCHARS="${WORDCHARS//[=\/]}|"
 REPORTTIME=10 # Print elapsed time when more than 10 seconds
