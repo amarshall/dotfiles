@@ -51,6 +51,8 @@ let g:which_key_map.b.c = 'copy current path'
 nnoremap <silent> <leader>bc :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 let g:which_key_map.b.C = 'copy current path & line num.'
 nnoremap <silent> <leader>bC :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
+let g:which_key_map.b.r = 'reload buffer from disk'
+nnoremap <silent> <leader>br :e!<CR>
 let g:which_key_map.b.s = 'toggle spell-check in buffer'
 nnoremap <leader>bs :setlocal spell!<CR>
 
