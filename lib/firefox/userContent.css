@@ -165,6 +165,10 @@ head[prefix~="medium-com:"] + body .metabar {
 }
 
 @-moz-document domain(wikipedia.org) {
+  body {
+    font-family: sans-serif !important;
+  }
+
   .mw-body h1,
   .mw-body-content h1,
   .mw-body-content h2 {
