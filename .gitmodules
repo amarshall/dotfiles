@@ -80,6 +80,9 @@
 [submodule "lib/vim/bundle/nerdtree"]
 	path = lib/vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "lib/vim/bundle/nftables"]
+	path = lib/vim/bundle/nftables
+	url = https://github.com/nfnty/vim-nftables.git
 [submodule "lib/vim/bundle/nginx.vim"]
 	path = lib/vim/bundle/nginx
 	url = https://github.com/chr4/nginx.vim.git
