@@ -1,4 +1,10 @@
 :root {
+  /* Make slightly off-gray colors grayscale */
+  --arrowpanel-color: rgba(12, 12, 12, 1) !important;
+  --autocomplete-popup-color: rgb(12, 12, 12) !important;
+  --lwt-accent-color: rgb(228, 228, 228) !important;
+  --lwt-text-color: rgba(25, 25, 25) !important;
+  --lwt-toolbarbutton-icon-fill: rgba(25, 25, 25, 0.7) !important;
   --toolbar-bgcolor: rgb(246, 246, 246) !important;
 }
 
