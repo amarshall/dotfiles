@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git branch --merged "$@" \
+  | grep --invert-match --extended-regexp '^\* ' \
+  | xargs git branch --delete
