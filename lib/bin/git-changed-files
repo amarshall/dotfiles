@@ -1,0 +1,4 @@
+#!/bin/bash
+
+compare=${1:-master}
+git --no-pager diff --diff-filter=d --name-only "$(git fork-point "$compare" HEAD)"
