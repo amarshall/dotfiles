@@ -113,6 +113,9 @@
 [submodule "lib/vim/bundle/supertab"]
 	path = lib/vim/bundle/supertab
 	url = https://github.com/vim-scripts/SuperTab.git
+[submodule "lib/vim/bundle/swift"]
+	path = lib/vim/bundle/swift
+	url = https://github.com/keith/swift.vim.git
 [submodule "lib/vim/bundle/tabular"]
 	path = lib/vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
