@@ -19,6 +19,7 @@ if [ -f "$path" ]; then
     *.txz)       exec tar xJf "$path"   ;;
     *.xz)        exec unxz "$path"      ;;
     *.zip)       exec unzip "$path"     ;;
+    *.zst)       exec unztd "$path"     ;;
     *)           echo "Don't know how to extract '$path'.";;
   esac
 else
