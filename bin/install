@@ -141,18 +141,23 @@ def parse_options
 end
 
 def firefox_profiles
-  profile_root = HOME.join('Library/Application Support/Firefox/Profiles')
+  profile_root = [
+    HOME.join('Library/Application Support/Firefox/Profiles'),
+    HOME.join('.mozilla/firefox'),
+  ].detect(&:exist?)
+  return [] unless profile_root
   profile_root.children.select(&:directory?)
 end
 
 def default_firefox_profile
   prospective_profile_paths = [
     HOME.join('Library/Application Support/Firefox/Profiles'),
-    HOME.join('.mozilla/profiles'),
+    HOME.join('.mozilla/firefox'),
   ]
   profile_root = prospective_profile_paths.detect(&:exist?)
   return unless profile_root
-  default_profile_name = Dir.glob(profile_root.join('*.default')).first
+  default_profile_name = Dir.glob(profile_root.join('*.default-release')).first
+  default_profile_name ||= Dir.glob(profile_root.join('*.default')).first
   return unless default_profile_name
   default_profile = profile_root.join(default_profile_name)
   default_profile.exist? && default_profile
