@@ -1,6 +1,12 @@
 @font-face {
   font-family: Arial;
-  src: local('not a font'); /* Force fallback in stack */
+  src: local('Helvetica Neue'),
+       local('Helvetica'),
+       local('FreeSans'),
+       local('Liberation Sans'),
+       local('Nimbus Sans'),
+       local('Nimbus Sans L'),
+       local('Arial');
 }
 
 body {
