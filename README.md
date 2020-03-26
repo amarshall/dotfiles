@@ -6,6 +6,22 @@ I have a love affair with my terminal. This is my collection of terminal configu
 
 Run `./bin/install`. Rerun whenever updating, as configuration files are locked at the last run time.
 
+### Git identities
+
+In order to facilitate using multiple identities for Git, identity-specific configuration is omitted from the default global Git config. Instead, create a file alongside the config file (in `$XDG_CONFIG_HOME/git/`) akin to:
+
+```gitconfig
+[identity "personal"]
+  name = John Doe
+  email = john@home.example
+[identity "work"]
+  name = John Doe
+  email = john@work.example
+  sshIdentity = ~/.ssh/work/id_rsa
+```
+
+Then use `git identity` passing the identity name to set in the local, per-repository configuration.
+
 ## Recommended CLI software
 
 ### Battle-tested

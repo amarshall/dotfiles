@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+identity="$1"
+
+if [[ -z "$identity" ]]; then
+  echo "usage: $0 <identity-name>"
+  exit 1
+fi
+
+git config --local user.name "$(git config "identity.$identity.name")"
+git config --local user.email "$(git config "identity.$identity.email")"
+if git config "identity.$identity.sshIdentity" >/dev/null; then
+  git config --local core.sshCommand "ssh -i '$(git config "identity.$identity.sshIdentity")'"
+fi

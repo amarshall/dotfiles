@@ -1,6 +1,3 @@
-[user]
-	name = Andrew Marshall
-	email = andrew@johnandrewmarshall.com
 [advice]
 	commitBeforeMerge = false
 	detachedHead = false
@@ -53,4 +50,4 @@
 [rebase]
 	autosquash = true
 [include]
-	path = ~/.gitconfig.local
+	path = identities
