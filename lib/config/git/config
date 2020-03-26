@@ -28,14 +28,14 @@
 [fetch]
 	prune = true
 [interactive]
-	diffFilter = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
+	diffFilter = diff-highlight
 [log]
 	decorate = true
 [pager]
 	branch = $PAGER --quit-if-one-screen --no-init
-	diff = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | $PAGER
-	log = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | $PAGER
-	show = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | $PAGER
+	diff = diff-highlight | $PAGER
+	log = diff-highlight | $PAGER
+	show = diff-highlight | $PAGER
 	unpulled = false
 	unpushed = false
 [pull]
