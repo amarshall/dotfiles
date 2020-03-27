@@ -1,0 +1,70 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": [],
+  "modules-right": [
+    "custom/spotify",
+    "idle_inhibitor",
+    "network",
+    "cpu",
+    "temperature#cpu",
+    "memory",
+    "clock#utc",
+    "clock#local",
+    "tray"
+  ],
+  "clock#utc": {
+    "timezone": "Etc/UTC",
+    "tooltip-format": "{:%Y-%m-%d %H:%M:%S %Z}",
+    "format": "{:%H:%M %Z}",
+    "interval": 1
+  },
+  "clock#local": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%Y-%m-%d %H:%M:%S %Z}",
+    "interval": 1
+  },
+  "cpu": {
+    "format": "CPU {usage:>3}%",
+    "interval": 2
+  },
+  "custom/spotify": {
+    "format": " {}",
+    "return-type": "json",
+    "max-length": 40,
+    "exec": "$HOME/.config/waybar/mediaplayer 2> /dev/null",
+    "exec-if": "pgrep spotify"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "memory": {
+    "format": "MEM {:>3}%",
+    "interval": 2
+  },
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ifname} ↓{bandwidthDownBits:>10} ↑{bandwidthUpBits:>10}",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "interval": 2
+  },
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "temperature#cpu": {
+    "interval": 5,
+    "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C"
+  },
+  "tray": {
+    "spacing": 10
+  }
+}

@@ -1,0 +1,67 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: 'Pragmata Pro Mono';
+  font-size: 16px;
+  min-height: 0;
+  transition: none;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+window#waybar {
+  background-color: rgb(50,50,50);
+  color: #ffffff;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+box:nth-child(3) > widget > label {
+  margin-right: 10px;
+}
+box:nth-child(3) > widget + widget > label {
+  border-left: 2px solid rgb(0,0,0);
+  padding-left: 10px;
+}
+box:nth-child(3) > widget + widget > #temperature.cpu {
+  border-left: none;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: #ffffff;
+  border-bottom: 3px solid transparent;
+}
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover {
+  background: rgba(0,0,0,0);
+  box-shadow: inherit;
+  border-bottom: 3px solid rgb(200,200,200);
+}
+#workspaces button.focused {
+  background-color: rgb(100,100,100);
+  border-bottom: 3px solid #ffffff;
+}
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+#mode {
+  background-color: #727272;
+  border-bottom: 3px solid #ffffff;
+}
+#idle_inhibitor.deactivated,
+#pulseaudio.muted {
+  color: rgb(100,100,100);
+}
+#temperature.critical {
+  color: rgb(255,180,20);
+}
