@@ -1,0 +1,5 @@
+#!/bin/bash
+gsettings set org.gnome.desktop.interface cursor-blink-timeout 10000000
+gsettings set org.gnome.desktop.interface font-name 'Source Sans Pro 13'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Pragmata Pro Mono 16'
+gsettings set org.gnome.desktop.interface overlay-scrolling false

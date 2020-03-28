@@ -1,0 +1,16 @@
+tooltip .background {
+  background-color: black;
+}
+
+tooltip {
+  border-radius: 0px;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+tooltip * {
+  background-color: transparent;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+}
