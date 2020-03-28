@@ -37,18 +37,19 @@ box:nth-child(3) > widget + widget > #temperature.cpu {
 #workspaces button {
   padding: 0 5px;
   background-color: transparent;
-  color: #ffffff;
+  color: rgb(229,229,229);
   border-bottom: 3px solid transparent;
 }
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-  background: rgba(0,0,0,0);
+  background: rgb(50,50,50);
   box-shadow: inherit;
-  border-bottom: 3px solid rgb(200,200,200);
+  border-bottom: 3px solid rgb(115,115,115);
+  text-shadow: none;
 }
 #workspaces button.focused {
-  background-color: rgb(100,100,100);
-  border-bottom: 3px solid #ffffff;
+  background-color: rgb(80,80,80);
+  border-bottom: 3px solid rgb(229,229,229);
 }
 #workspaces button.urgent {
   background-color: #eb4d4b;
