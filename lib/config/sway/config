@@ -25,6 +25,11 @@ for_window [app_id="firefox" title="^Picture-in-Picture$"] \
 for_window [app_id="xfce-polkit"] \
   floating enable, sticky enable
 
+# Style
+client.focused #000000 #414141 #e5e5e5 #414141 #000000
+client.focused_inactive #000000 #222222 #696969 #000000 #000000
+client.unfocused #000000 #222222 #696969 #000000 #000000
+
 # Input/output
 input * dwt enabled
 input * accel_profile flat
