@@ -20,8 +20,12 @@ for_window [app_id="launcher"] \
   focus, floating enabled, border pixel 1
 
 # Custom window config
+for_window [app_id="firefox" title="^Firefox - Choose User Profile$"] \
+  floating enable
 for_window [app_id="firefox" title="^Picture-in-Picture$"] \
   floating enable, sticky enable
+for_window [app_id="pavucontrol"] \
+  floating enable
 for_window [app_id="xfce-polkit"] \
   floating enable, sticky enable
 
