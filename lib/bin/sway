@@ -6,4 +6,4 @@ export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland-egl
 export SDL_VIDEODRIVER=wayland
 
-exec sway
+exec sway "$@"
