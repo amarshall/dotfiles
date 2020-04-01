@@ -13,12 +13,6 @@ exec swayidle -w \
   resume 'swaymsg "output * dpms on"' \
   before-sleep 'swaylock --daemonize --color 000000'
 
-# Launcher
-set $launcher $term --class launcher --override initial_window_width=640 --override initial_window_height=320
-set $menu $launcher zsh -i -c \"dmenu_path | fzf | xargs -r swaymsg exec\"
-for_window [app_id="launcher"] \
-  focus, floating enabled, border pixel 1
-
 # Custom window config
 for_window [app_id="firefox" title="^Firefox - Choose User Profile$"] \
   floating enable
@@ -56,11 +50,10 @@ floating_modifier $mod normal
 
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
-bindsym $mod+Space exec $menu
+bindsym $mod+Space exec wofi --show=drun
 bindsym $mod+Alt+Shift+l exec swaylock --daemonize --color 000000
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+Escape exit
-bindsym $mod+Shift+e exec $launcher --command ~/bin/sway-exit
 
 ## Moving focus
 
