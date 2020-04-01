@@ -1,0 +1,17 @@
+window, #input {
+  background-color: rgb(34,34,34);
+  color: rgb(229,229,229);
+  font-size: 18px;
+}
+
+#entry:selected {
+  background-color: rgb(65,65,65);
+}
+
+#entry image {
+  margin-right: 10px;
+}
+
+#input, #entry {
+  padding: 5px 10px;
+}
