@@ -29,11 +29,6 @@ for_window [app_id="pavucontrol"] \
 for_window [app_id="xfce-polkit"] \
   floating enable, sticky enable
 
-# Style
-client.focused #000000 #414141 #e5e5e5 #414141 #000000
-client.focused_inactive #000000 #222222 #696969 #000000 #000000
-client.unfocused #000000 #222222 #696969 #000000 #000000
-
 # Input/output
 input * dwt enabled
 input * accel_profile flat
@@ -45,9 +40,9 @@ output DP-1 scale 1.5 scale_filter linear
 # UI
 font pango:Source Sans Pro
 # border, background, text, indicator, child_border
-# client.focued_inactive #f6f6f6
-# client.focused #e7e7e7
-# client.unfocused #f6f6f6
+client.focused #000000 #414141 #e5e5e5 #414141 #000000
+client.focused_inactive #000000 #222222 #696969 #000000 #000000
+client.unfocused #000000 #222222 #696969 #000000 #000000
 
 # Bar
 bar {
