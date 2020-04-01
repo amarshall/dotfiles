@@ -4,6 +4,7 @@
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": [],
   "modules-right": [
+    "tray",
     "custom/spotify",
     "idle_inhibitor",
     "network",
@@ -11,8 +12,7 @@
     "temperature#cpu",
     "memory",
     "clock#utc",
-    "clock#local",
-    "tray"
+    "clock#local"
   ],
   "clock#utc": {
     "timezone": "Etc/UTC",
