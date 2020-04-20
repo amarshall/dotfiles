@@ -22,6 +22,8 @@ for_window [app_id="firefox" title="^Launch Application$"] \
   floating enable, sticky enable
 for_window [app_id="pavucontrol"] \
   floating enable
+for_window [app_id="qalculate-gtk"] \
+  floating enable
 for_window [app_id="xfce-polkit"] \
   floating enable, sticky enable
 
