@@ -9,10 +9,6 @@
        local('Arial');
 }
 
-body {
-  font-variant-numeric: tabular-nums;
-}
-
 code, kbd, pre, samp,
 code *, kbd *, pre *, samp * {
   font-family: monospace !important;
