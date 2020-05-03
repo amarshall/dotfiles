@@ -33,7 +33,8 @@ input * accel_profile flat
 input * pointer_accel 1
 input * repeat_delay 250
 input * xkb_options ctrl:nocaps,compose:rwin
-output DP-1 scale 1.5 scale_filter linear
+output * disable
+output DP-1 enable scale 1.5 scale_filter linear
 
 # UI
 font pango:Source Sans Pro
