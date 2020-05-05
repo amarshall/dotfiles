@@ -58,6 +58,9 @@
 [submodule "lib/vim/bundle/julia"]
 	path = lib/vim/bundle/julia
 	url = https://github.com/JuliaEditorSupport/julia-vim.git
+[submodule "lib/vim/bundle/jsonnet"]
+	path = lib/vim/bundle/jsonnet
+	url = https://github.com/google/vim-jsonnet.git
 [submodule "lib/vim/bundle/LanguageClient"]
 	path = lib/vim/bundle/LanguageClient
 	url = https://github.com/autozimu/LanguageClient-neovim.git
