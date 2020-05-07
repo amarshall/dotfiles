@@ -7,4 +7,4 @@ export QT_QPA_PLATFORM=wayland-egl
 export SDL_VIDEODRIVER=wayland
 export XDG_CURRENT_DESKTOP=Unity
 
-exec dbus-run-session -- sway "$@"
+exec dbus-run-session -- systemd-cat -t sway sway "$@"
