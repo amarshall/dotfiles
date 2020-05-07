@@ -7,6 +7,7 @@ set $term kitty
 
 # External daemons
 exec /usr/libexec/xfce-polkit
+exec mako
 exec swayidle -w \
   timeout 305 'swaylock --daemonize --color 000000' \
   timeout 300 'swaymsg "output * dpms off"' \
