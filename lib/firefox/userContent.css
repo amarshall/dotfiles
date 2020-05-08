@@ -66,6 +66,11 @@ head[prefix~="medium-com:"] + body .metabar {
     font-size: 0.9em;
   }
 
+  .dark .moz-reader-content code,
+  .dark .moz-reader-content pre {
+    background-color: #555;
+  }
+
   .moz-reader-content pre pre {
     margin: 0 !important;
     padding: 0 !important;
