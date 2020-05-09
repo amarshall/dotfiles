@@ -1,6 +1,5 @@
 require 'irb/completion'
-require 'irb/ext/save-history' unless IRB.version.include? "DietRB"
-                               # Don't load if using MacRuby
+require 'irb/ext/save-history'
 
 IRB.conf[:AUTO_INDENT] = true
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
