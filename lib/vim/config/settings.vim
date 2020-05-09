@@ -1,3 +1,24 @@
+func s:fallback(value, fallback)
+  if empty(a:value)
+    return a:fallback
+  else
+    return a:value
+  endif
+endfunc
+
+func s:xdg_path(name, child)
+  if a:name ==# "cache"
+    let l:path = s:fallback($XDG_CACHE_HOME, $HOME . "/.cache/vim")
+  elseif a:name ==# "data"
+    let l:path = s:fallback($XDG_DATA_HOME, $HOME . "/.local/share/vim")
+  else
+    throw "unknown XDG type"
+  endif
+  let l:path = l:path . a:child
+  call mkdir(l:path, "p", 0700)
+  return l:path
+endfunc
+
 let mapleader = "\<Space>"
 let maplocalleader = ","
 
@@ -25,9 +46,9 @@ set wildignorecase
 set wildmenu
 
 " Store backup & swap files elsewhere to avoid directory pollution
-set backupdir=$HOME/.config/nvim/backup,$TMPDIR/vim-backup
-set directory=$HOME/.config/nvim/swap,$TMPDIR/vim-swap
-set undodir=$HOME/.config/nvim/undo,$TMPDIR/vim-undo
+execute "set backupdir=" . fnameescape(s:xdg_path("cache", "/backup"))
+execute "set directory=" . fnameescape(s:xdg_path("cache", "/swap"))
+execute "set undodir=" . fnameescape(s:xdg_path("data", "/undo"))
 
 " Search settings
 set ignorecase
