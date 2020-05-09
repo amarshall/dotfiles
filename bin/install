@@ -18,8 +18,17 @@ require 'rainbow'
 require 'set'
 require 'shellwords'
 
+def xdg_home(name)
+  Pathname.new(ENV.fetch("XDG_#{name}_HOME", XDG_DEFAULT_HOMES.fetch(name)))
+end
+
 HOME = Pathname.new(Dir.home).freeze
-LNK_ROOT = HOME.join('.config/dotfiles').freeze
+XDG_DEFAULT_HOMES = {
+  'DATA' => HOME.join('.local', 'share'),
+  'CACHE' => HOME.join('.cache'),
+  'CONFIG' => HOME.join('.config'),
+}.freeze
+LNK_ROOT = xdg_home('CONFIG').join('dotfiles').freeze
 SRC_ROOT = Pathname.new(__dir__).parent.freeze
 
 Options = Struct.new(:dry_run, :fast, :force, :verbose)
@@ -219,10 +228,10 @@ def install!
     end
   end
 
-  step 'Linking .config files' do
+  step 'Linking XDG config files' do
     config_src_root = LNK_ROOT.join('config')
     Pathname.glob(config_src_root.join('**/*'), File::FNM_DOTMATCH).select(&:file?).each do |path|
-      link(path, HOME.join('.config', path.relative_path_from(config_src_root)))
+      link(path, xdg_home('CONFIG').join(path.relative_path_from(config_src_root)))
     end
   end
 
