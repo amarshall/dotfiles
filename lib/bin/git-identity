@@ -9,8 +9,10 @@ if [[ -z "$identity" ]]; then
   exit 1
 fi
 
-git config --local user.name "$(git config "identity.$identity.name")"
-git config --local user.email "$(git config "identity.$identity.email")"
+name=$(git config "identity.$identity.name")
+email=$(git config "identity.$identity.email")
+git config --local user.name "$name"
+git config --local user.email "$email"
 if git config "identity.$identity.sshIdentity" >/dev/null; then
   git config --local core.sshCommand "ssh -i '$(git config "identity.$identity.sshIdentity")'"
 fi
