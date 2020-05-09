@@ -98,6 +98,21 @@ def link(original, link, force: $options.force)
   end
 end
 
+def move_or_delete(src, dst)
+  if src.exist?
+    if dst.exist?
+      run { src.unlink }
+      $stdout.puts Rainbow("Deleted: #{src.relative_path_from(HOME)}").green
+    else
+      run do
+        dst.parent.mkpath
+        src.rename(dst)
+      end
+      $stdout.puts Rainbow("Moved: #{src.relative_path_from(HOME)} -> #{dst.relative_path_from(HOME)}").green
+    end
+  end
+end
+
 def abort(*lines)
   msg = lines.join("\n")
   $stderr.puts Rainbow('FATAL: %s' % msg).red
@@ -281,6 +296,12 @@ def install!
     else
       warn 'Skipping because “toe” cannot be found'
     end
+  end
+
+  # [TODO] Entries here should be removed every so often
+  step 'Manually migrating some files' do
+    move_or_delete(HOME.join('.irb_history'), HOME.join(xdg_home('DATA').join('irb', 'history')))
+    move_or_delete(HOME.join('.pry_history'), HOME.join(xdg_home('DATA').join('pry', 'history')))
   end
 
   step 'Pruning dead links' do
