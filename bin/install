@@ -37,6 +37,11 @@ def exe_exists?(exe)
   MakeMakefile.find_executable0(exe)
 end
 
+def is_child?(child, of:)
+  parent = of
+  child.ascend.include?(parent)
+end
+
 def system!(*args, &block)
   if $options.verbose
     args.delete('--quiet')
@@ -276,6 +281,21 @@ def install!
     else
       warn 'Skipping because “toe” cannot be found'
     end
+  end
+
+  step 'Pruning dead links' do
+    def prune_dead(src_dir:, dst_dir:)
+      src_dir.children.select(&:symlink?).each do |file|
+        dst = file.readlink
+        if is_child?(dst, of: dst_dir) && !dst.exist?
+          $stdout.puts Rainbow('Pruned: %s' % file).green
+          run { file.unlink }
+        end
+      end
+    end
+
+    prune_dead(src_dir: HOME, dst_dir: LNK_ROOT)
+    prune_dead(src_dir: xdg_home('CONFIG'), dst_dir: LNK_ROOT)
   end
 end
 
