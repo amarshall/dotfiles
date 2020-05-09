@@ -1,1 +1,7 @@
-require File.join(Dir.home, '.config/dotfiles/ruby/pry.rb')
+require 'pathname'
+
+xdg_config_home = Pathname.new(ENV.fetch(
+  'XDG_CONFIG_HOME',
+  Pathname.new(Dir.home).join('.config'),
+))
+require xdg_config_home.join('dotfiles', 'ruby', 'pry.rb')
