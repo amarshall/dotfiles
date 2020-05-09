@@ -1,8 +1,16 @@
 require 'irb/completion'
 require 'irb/ext/save-history'
+require 'pathname'
+
+xdg_data_home = Pathname.new(ENV.fetch(
+  'XDG_DATA_HOME',
+  File.join(Dir.home, '.local', 'share')
+))
+irb_data_home = xdg_data_home.join('irb')
+irb_data_home.mkpath unless irb_data_home.exist?
 
 IRB.conf[:AUTO_INDENT] = true
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+IRB.conf[:HISTORY_FILE] = irb_data_home.join('history').to_s
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:PROMPT][:CUSTOM] = {
   :PROMPT_I => "%02n >> ",
