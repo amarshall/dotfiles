@@ -27,7 +27,7 @@ module Unbundler
     gem_dir = self.gem_dir
     return nil unless gem_dir
 
-    gem_path = Dir["#{gem_dir}/*"].to_a.detect do |gem_path|
+    Dir["#{gem_dir}/*"].to_a.detect do |gem_path|
       File.basename(gem_path).gsub(/-(\d\.?)+$/, '') == gem_name
     end
   end
