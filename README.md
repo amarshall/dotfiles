@@ -8,7 +8,7 @@ Run `./bin/install`. Rerun whenever updating, as configuration files are locked 
 
 ### Git identities
 
-In order to facilitate using multiple identities for Git, identity-specific configuration is omitted from the default global Git config. Instead, create a file alongside the config file (in `$XDG_CONFIG_HOME/git/`) akin to:
+In order to facilitate using multiple identities for Git, identity-specific configuration is omitted from the default global Git config. Instead, create a file alongside the config file (in `$XDG_CONFIG_HOME/git/`) named `identities` akin to:
 
 ```gitconfig
 [identity "personal"]
