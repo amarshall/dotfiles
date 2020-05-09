@@ -101,3 +101,12 @@ nnoremap <leader>ls :LanguageClientStart<CR>
 nnoremap <leader>lt :call LanguageClient#textDocument_hover()<CR>
 autocmd FileType haskell nnoremap <buffer> <silent> <leader>lt <Plug>InteroGenericType
 autocmd FileType scala nnoremap <buffer> <silent> <leader>lt :EnType<CR>
+
+if $TERM ==# "xterm-kitty"
+  map <ScrollWheelUp> 3<c-y>
+  map <ScrollWheelDown> 3<c-e>
+  for n in [2, 3, 4]
+    execute "map <".n."-ScrollWheelUp> 3<c-y>"
+    execute "map <".n."-ScrollWheelDown> 3<c-e>"
+  endfor
+endif
