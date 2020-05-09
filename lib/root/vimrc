@@ -1,6 +1,12 @@
-source ~/.config/dotfiles/vim/config/init.vim
-source ~/.config/dotfiles/vim/config/settings.vim
-source ~/.config/dotfiles/vim/config/mappings.vim
-source ~/.config/dotfiles/vim/config/filetypes.vim
-source ~/.config/dotfiles/vim/config/packages.vim
-source ~/.config/dotfiles/vim/config/plugins.vim
+if empty($XDG_CONFIG_HOME)
+  let s:config_home = "~/.config"
+else
+  let s:config_home = $XDG_CONFIG_HOME
+endif
+
+execute 'source' . fnameescape(s:config_home . "/dotfiles/vim/config/init.vim")
+execute 'source' . fnameescape(s:config_home . "/dotfiles/vim/config/settings.vim")
+execute 'source' . fnameescape(s:config_home . "/dotfiles/vim/config/mappings.vim")
+execute 'source' . fnameescape(s:config_home . "/dotfiles/vim/config/filetypes.vim")
+execute 'source' . fnameescape(s:config_home . "/dotfiles/vim/config/packages.vim")
+execute 'source' . fnameescape(s:config_home . "/dotfiles/vim/config/plugins.vim")
