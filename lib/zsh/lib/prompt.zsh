@@ -101,7 +101,7 @@ function __prompt() {
 
   case "$1" in
     prompt)
-      printf "%s" $color_user_host$username$hostname $color_none$colon $color_dir$curpath $color_git$git $color_prompt'%(!.#.｠)'$color_none' '
+      printf "%s" $color_user_host$username$hostname $color_none$colon $color_dir$curpath $color_git$git $color_prompt'%(!.#.⦆)'$color_none' '
       ;;
     title)
       print -Pn "\e]0;" $username$hostname$colon "%~\a"
