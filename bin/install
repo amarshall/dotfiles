@@ -11,7 +11,7 @@ rescue Bundler::RubyVersionMismatch => ex
   exit 1
 end
 
-require 'mkmf'
+require 'open3'
 require 'optparse'
 require 'pathname'
 require 'rainbow'
@@ -34,7 +34,8 @@ SRC_ROOT = Pathname.new(__dir__).parent.freeze
 Options = Struct.new(:dry_run, :fast, :force, :verbose)
 
 def exe_exists?(exe)
-  MakeMakefile.find_executable0(exe)
+  _, _, wait_thr = Open3.popen2('command', '-v', exe, out: '/dev/null', err: '/dev/null')
+  wait_thr.value.success?
 end
 
 def is_child?(child, of:)
