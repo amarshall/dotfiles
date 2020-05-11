@@ -83,6 +83,8 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+bindsym --border --whole-window $mod+button4 workspace prev
+bindsym --border --whole-window $mod+button5 workspace next
 
 ## Moving container
 
