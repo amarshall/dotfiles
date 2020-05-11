@@ -40,10 +40,10 @@ output DP-1 enable scale 1.5 scale_filter linear
 
 # UI
 font pango:Source Sans Pro
-# border, background, text, indicator, child_border
-client.focused #000000 #414141 #e5e5e5 #414141 #000000
+#                       border  bg      text    indctr  child_border
+client.focused          #000000 #414141 #e5e5e5 #414141 #000000
 client.focused_inactive #000000 #222222 #696969 #000000 #000000
-client.unfocused #000000 #222222 #696969 #000000 #000000
+client.unfocused        #000000 #222222 #696969 #000000 #000000
 
 # Bar
 bar {
