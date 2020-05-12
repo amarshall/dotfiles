@@ -303,6 +303,7 @@ def install!
   step 'Manually migrating some files' do
     move_or_delete(HOME.join('.irb_history'), HOME.join(xdg_home('DATA').join('irb', 'history')))
     move_or_delete(HOME.join('.pry_history'), HOME.join(xdg_home('DATA').join('pry', 'history')))
+    move_or_delete(HOME.join('.zsh_history'), HOME.join(xdg_home('DATA').join('zsh', 'history')))
     vim_undo = HOME.join(xdg_home('DATA').join('vim', 'undo'))
   end
 

@@ -1,8 +1,10 @@
-HISTFILE=~/.zsh_history
+HISTFILE=${XDG_DATA_HOME:-~/.local/share}/zsh/history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 WORDCHARS="${WORDCHARS//[=\/]}|"
 REPORTTIME=10 # Print elapsed time when more than 10 seconds
+
+mkdir -p "$(dirname "$HISTFILE")"
 
 setopt AUTO_CD
 setopt AUTO_PUSHD
