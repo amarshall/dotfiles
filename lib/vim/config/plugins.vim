@@ -103,9 +103,6 @@ let g:ruby_indent_block_style = 'do'
 let g:ruby_operators = 1
 let g:ruby_spellcheck_strings = 1
 
-" Rust syntax
-let g:rust_recommended_style=0
-
 " Signify
 let g:signify_update_on_focusgained = 1
 

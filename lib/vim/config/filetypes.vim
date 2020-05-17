@@ -38,9 +38,6 @@ autocmd FileType bindzone setlocal noexpandtab
 autocmd FileType bindzone setlocal shiftwidth=8
 autocmd FileType bindzone setlocal tabstop=8
 
-autocmd FileType rust setlocal shiftwidth=4
-autocmd FileType rust setlocal tabstop=4
-
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid, when inside an event handler
 " (happens when dropping a file on gvim), or when inside a git commit
