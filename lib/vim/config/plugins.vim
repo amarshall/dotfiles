@@ -42,6 +42,7 @@ let g:indexed_search_show_index_mappings = 0
 
 " fzf
 let g:fzf_command_prefix = 'Fzf'
+let g:fzf_preview_window = ''
 map <C-P> :FzfFiles<CR>
 
 " Haskell
