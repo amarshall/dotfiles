@@ -80,6 +80,9 @@ let g:LanguageClient_settingsPath = '.config/languageclient.json'
 let g:vim_markdown_folding_disabled=1
 autocmd FileType markdown set conceallevel=0
 
+" Mundo
+let g:mundo_prefer_python3 = 1
+
 " NERDCommenter
 let NERDCreateDefaultMappings = 0
 let NERDSpaceDelims = 1
