@@ -68,7 +68,6 @@ filetype plugin indent on
 
 " Persistent undo
 if(has("persistent_undo"))
-  set undodir=~/.vim/undo
   set undofile
   set undolevels=1000
 endif
