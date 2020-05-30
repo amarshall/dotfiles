@@ -60,6 +60,9 @@ bindsym $mod+Alt+Shift+l exec swaylock --daemonize --color 000000
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+Escape exit
 
+bindsym $mod+Alt+Escape mode minimal
+mode minimal bindsym $mod+Alt+Escape mode default
+
 ## Moving focus
 
 ### Within workspace
