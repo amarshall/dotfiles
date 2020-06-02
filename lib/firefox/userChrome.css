@@ -49,3 +49,42 @@
   /* Increase tab title font size */
   font-size: 1.25em !important;
 }
+
+/*** URL bar enlargement or lack thereof ***/
+:root {
+  --mbarstyler-popout-pixels: 0px;
+}
+/* Compute new position, width, and padding */
+#urlbar[breakout][breakout-extend] {
+  top: calc(5px - var(--mbarstyler-popout-pixels)) !important;
+  left: calc(0px - var(--mbarstyler-popout-pixels)) !important;
+  width: calc(100% + (2 * var(--mbarstyler-popout-pixels))) !important;
+  padding: var(--mbarstyler-popout-pixels) !important;
+}
+[uidensity="compact"] #urlbar[breakout][breakout-extend] {
+  top: calc(3px - var(--mbarstyler-popout-pixels)) !important;
+}
+[uidensity="touch"] #urlbar[breakout][breakout-extend] {
+  top: calc(4px - var(--mbarstyler-popout-pixels)) !important;
+}
+/* Prevent shift of URL bar contents */
+#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+  height: var(--urlbar-height) !important;
+  padding: 0 !important;
+}
+/* Do not animate */
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+  animation: none !important;;
+}
+/* Remove shadows */
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+  box-shadow: none !important;
+}
+#urlbar-results {
+  overflow-y: auto !important;
+}
+/* Clean up extra spacing at the top and bottom */
+#urlbar-results {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
