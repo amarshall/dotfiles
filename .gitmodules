@@ -37,6 +37,9 @@
 [submodule "lib/vim/bundle/ensime-vim"]
 	path = lib/vim/bundle/ensime
 	url = https://github.com/ensime/ensime-vim.git
+[submodule "lib/vim/bundle/fennel"]
+	path = lib/vim/bundle/fennel
+	url = https://github.com/bakpakin/fennel.vim
 [submodule "lib/vim/bundle/fzf.vim"]
 	path = lib/vim/bundle/fzf
 	url = https://github.com/junegunn/fzf.vim.git
