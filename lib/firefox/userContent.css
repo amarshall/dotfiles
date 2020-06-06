@@ -55,6 +55,10 @@ head[prefix~="medium-com:"] + body .metabar {
 }
 
 @-moz-document url-prefix("about:reader") {
+  sub, sup {
+    line-height: 0;
+  }
+
   .moz-reader-content a:link {
     text-decoration: none !important;
   }
