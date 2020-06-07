@@ -98,6 +98,12 @@
 [submodule "lib/vim/bundle/nginx.vim"]
 	path = lib/vim/bundle/nginx
 	url = https://github.com/chr4/nginx.vim.git
+[submodule "lib/vim/bundle/pandoc"]
+	path = lib/vim/bundle/pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc.git
+[submodule "lib/vim/bundle/pandoc-syntax"]
+	path = lib/vim/bundle/pandoc-syntax
+	url = https://github.com/vim-pandoc/vim-pandoc-syntax.git
 [submodule "lib/vim/bundle/parinfer-rust"]
 	path = lib/vim/bundle/parinfer-rust
 	url = https://github.com/eraserhd/parinfer-rust.git
