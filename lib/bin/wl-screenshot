@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+dt=$(date '+%Y-%m-%dT%H:%M:%S')
+out=$(xdg-user-dir PICTURES)/screenshots
+
+ss() {
+  grim "$@" "$out/$dt.png"
+}
+
+mkdir -p "$out"
+case "$1" in
+  full)
+    ss
+    ;;
+  select) 
+    geometry=$(slurp)
+    ss -g "$geometry"
+    ;;
+  *) exit 1 ;;
+esac

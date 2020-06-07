@@ -63,6 +63,9 @@ bindsym $mod+Shift+Escape exit
 bindsym $mod+Alt+Escape mode minimal
 mode minimal bindsym $mod+Alt+Escape mode default
 
+## Screenshots
+bindsym $mod+Alt+4 exec wl-screenshot select
+
 ## Moving focus
 
 ### Within workspace
