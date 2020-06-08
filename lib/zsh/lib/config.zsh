@@ -6,7 +6,6 @@ REPORTTIME=10 # Print elapsed time when more than 10 seconds
 
 mkdir -p "$(dirname "$HISTFILE")"
 
-setopt AUTO_CD
 setopt AUTO_PUSHD
 setopt COMPLETE_IN_WORD
 setopt CORRECT
