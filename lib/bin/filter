@@ -5,12 +5,19 @@ import subprocess
 import sys
 
 parser = argparse.ArgumentParser()
+parser.add_argument(
+    '--invert',
+    action='store_true',
+    help='include when the command fails, rather than succeeds',
+    )
 parser.add_argument('command', nargs='+')
 args = parser.parse_args()
 
 command = args.command
+invert = args.invert
 
 for line in map(str.rstrip, sys.stdin):
     proc = subprocess.run(command, input=line, text=True)
-    if proc.returncode == 0:
+    is_success = proc.returncode == 0
+    if invert ^ is_success:
         print(line)
