@@ -17,7 +17,7 @@ command = args.command
 invert = args.invert
 
 for line in map(str.rstrip, sys.stdin):
-    proc = subprocess.run(command, input=line, text=True)
+    proc = subprocess.run(command, input=line, stdout=subprocess.DEVNULL, text=True)
     is_success = proc.returncode == 0
     if invert ^ is_success:
         print(line)
