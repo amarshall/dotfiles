@@ -9,8 +9,8 @@
        local('Arial');
 }
 
-code, kbd, pre, samp,
-code *, kbd *, pre *, samp * {
+code, kbd, pre, samp, tt,
+code *, kbd *, pre *, samp *, tt * {
   font-family: monospace !important;
   font-variant-ligatures: normal !important;
 }
