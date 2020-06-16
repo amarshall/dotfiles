@@ -1,4 +1,10 @@
 #!/bin/bash
 
-compare=${1:-master}
+default_branch() {
+  git rev-parse --abbrev-ref refs/remotes/origin/HEAD 2>/dev/null \
+      | perl -pe 's@^origin/@@' \
+    || echo master
+}
+
+compare=${1:-$(default_branch)}
 git --no-pager diff --diff-filter=d --name-only "$(git fork-point "$compare" HEAD)"
