@@ -143,6 +143,41 @@ head[prefix~="medium-com:"] + body .metabar {
   .comment-body samp {
     font-size: inherit !important;
   }
+
+  @media (min-width: 1312px) {
+    .pagehead.repohead > div {
+      width: 1280px;
+      margin: 0 auto;
+    }
+    .pagehead.repohead > nav > ul {
+      width: 1216px;
+      margin: 0 auto;
+    }
+    .notifications-v2.notification-shelf > div {
+      width: 1280px;
+      margin: 0 auto;
+      padding-left: 32px;
+    }
+    header.Header {
+      width: 1248px;
+      margin: 0 auto;
+    }
+    div.Header {
+      width: 1012px;
+      margin: 0 auto;
+    }
+    header.Header:before, div.Header:before {
+      content: "";
+      background: #24292e;
+      border-bottom: 1px solid #343434 !important;
+      left: 0;
+      right: 0;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+  }
 }
 
 @-moz-document domain(gitlab.com) {
