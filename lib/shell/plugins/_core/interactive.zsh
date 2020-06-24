@@ -10,6 +10,7 @@ alias ll='ls -l'
 alias ls='ls -aFh'
 alias mv='mv -i'
 alias mvimload='mvim -c "so %"'
+alias parallel='parallel --will-cite'
 alias prd='pwd -P'  # "print real directory" (follows symlinks)
 alias R='R --no-save --quiet'
 alias ri='ri -f ansi'
