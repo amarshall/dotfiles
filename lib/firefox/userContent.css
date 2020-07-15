@@ -210,6 +210,13 @@ head[prefix~="medium-com:"] + body .metabar {
   }
 }
 
+@-moz-document domain("app.slack.com") {
+  .ql-code-block {
+    font-family: monospace !important;
+    font-variant-ligatures: normal !important;
+  }
+}
+
 @-moz-document domain("wikipedia.org") {
   body {
     font-family: sans-serif !important;
