@@ -46,6 +46,9 @@
 [submodule "lib/vim/bundle/gdb-neovim"]
 	path = lib/vim/bundle/gdb-neovim
 	url = https://github.com/sakhnik/nvim-gdb.git
+[submodule "lib/vim/bundle/glsl"]
+	path = lib/vim/bundle/glsl
+	url = https://github.com/tikhomirov/vim-glsl.git
 [submodule "lib/vim/bundle/haskell-vim"]
 	path = lib/vim/bundle/haskell
 	url = https://github.com/neovimhaskell/haskell-vim.git
