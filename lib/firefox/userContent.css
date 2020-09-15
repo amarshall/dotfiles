@@ -68,6 +68,16 @@ head[prefix~="medium-com:"] + body .metabar {
     text-decoration: underline !important;
   }
 
+  .dark .moz-reader-content a:link,
+  .dark .moz-reader-content a:link:hover,
+  .dark .moz-reader-content a:link:active {
+    color: #58b1dd !important;
+  }
+
+  .dark .moz-reader-content a:visited {
+    color: #db77ef !important;
+  }
+
   .moz-reader-content code,
   .moz-reader-content pre {
     background-color: #eee;
