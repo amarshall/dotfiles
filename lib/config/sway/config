@@ -60,6 +60,7 @@ bar {
 
 # Bindings
 floating_modifier $mod normal
+focus_follows_mouse yes
 
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
