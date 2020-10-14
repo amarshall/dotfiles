@@ -7,7 +7,15 @@ set -e
 rev=$1
 head=${2:-HEAD}
 
-comm -12 \
+comm_compat() {
+  if comm --version | grep --quiet --fixed-strings GNU; then
+    comm --nocheck-order "$@"
+  else
+    comm "$@"
+  fi
+}
+
+comm_compat -12 \
   <(git rev-list "$rev".."$head" --ancestry-path --merges) \
   <(git rev-list "$rev".."$head" --first-parent) \
   | tail -1
