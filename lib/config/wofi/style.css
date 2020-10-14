@@ -1,7 +1,7 @@
 window, #input {
   background-color: rgb(34,34,34);
   color: rgb(229,229,229);
-  font-size: 18px;
+  font-size: 24px;
 }
 
 #entry:selected {
@@ -9,9 +9,9 @@ window, #input {
 }
 
 #entry image {
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 #input, #entry {
-  padding: 5px 10px;
+  padding: 7px 15px;
 }

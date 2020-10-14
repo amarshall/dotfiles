@@ -1,6 +1,8 @@
 background-color=#414141
 border-color=#000000
 default-timeout=4000
-font=sans-serif 10
-padding=5,10
+font=sans-serif 18
+height=150
+width=450
+padding=7,14
 text-color=#e5e5e5

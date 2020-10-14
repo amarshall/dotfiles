@@ -1,4 +1,5 @@
 allow_images=true
 insensitive=true
 no_actions=false
-width=500
+height=600
+width=750

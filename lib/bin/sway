@@ -1,8 +1,10 @@
 #!/bin/sh
 
 export CLUTTER_BACKEND=wayland
+export GDK_DPI_SCALE=1.5
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland-egl
+export QT_SCALE_FACTOR=1.5
 export SDL_VIDEODRIVER=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland

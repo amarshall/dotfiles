@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0;
   font-family: 'Source Sans Pro';
-  font-size: 16px;
+  font-size: 24px;
   min-height: 0;
   transition: none;
 }
@@ -24,34 +24,34 @@ window#waybar.hidden {
 }
 
 box:nth-child(3) > widget > label {
-  margin-right: 10px;
-  padding-top: 1px;
-  padding-bottom: 3px;
+  margin-right: 15px;
+  padding-top: 2px;
+  padding-bottom: 5px;
 }
 box:nth-child(3) > widget + widget > label {
-  border-left: 2px solid rgb(0,0,0);
-  padding-left: 10px;
+  border-left: 3px solid rgb(0,0,0);
+  padding-left: 15px;
 }
 box:nth-child(3) > widget + widget > #temperature.cpu {
   border-left: none;
 }
 
 #workspaces button {
-  padding: 0 5px;
+  padding: 0 10px;
   background-color: transparent;
   color: rgb(229,229,229);
-  border-bottom: 3px solid transparent;
+  border-bottom: 5px solid transparent;
 }
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
   background: rgb(50,50,50);
   box-shadow: inherit;
-  border-bottom: 3px solid rgb(115,115,115);
+  border-bottom: 5px solid rgb(115,115,115);
   text-shadow: none;
 }
 #workspaces button.focused {
   background-color: rgb(80,80,80);
-  border-bottom: 3px solid rgb(229,229,229);
+  border-bottom: 5px solid rgb(229,229,229);
 }
 #workspaces button.urgent {
   background-color: #eb4d4b;
@@ -59,7 +59,7 @@ box:nth-child(3) > widget + widget > #temperature.cpu {
 
 #mode {
   background-color: #727272;
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 5px solid #ffffff;
 }
 #idle_inhibitor.deactivated,
 #pulseaudio.muted {
