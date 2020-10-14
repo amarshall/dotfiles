@@ -42,6 +42,7 @@ input * repeat_delay 250
 input * scroll_method on_button_down
 input * xkb_options ctrl:nocaps,compose:rwin
 output * disable
+output * max_render_time 4
 output DP-1 enable scale 1.5 scale_filter linear
 
 # UI
