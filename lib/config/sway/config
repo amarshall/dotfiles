@@ -5,6 +5,10 @@ set $up k
 set $right l
 set $term kitty
 
+# systemd
+exec systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY
+exec dbus-update-activation-environment --systemd DISPLAY SWAYSOCK WAYLAND_DISPLAY
+
 # External daemons
 exec /usr/libexec/xfce-polkit
 exec mako
