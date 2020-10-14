@@ -103,10 +103,10 @@ autocmd FileType haskell nnoremap <buffer> <silent> <leader>lt <Plug>InteroGener
 autocmd FileType scala nnoremap <buffer> <silent> <leader>lt :EnType<CR>
 
 if $TERM ==# "xterm-kitty"
-  map <ScrollWheelUp> 3<c-y>
-  map <ScrollWheelDown> 3<c-e>
+  map <ScrollWheelUp> <c-y>
+  map <ScrollWheelDown> <c-e>
   for n in [2, 3, 4]
-    execute "map <".n."-ScrollWheelUp> 3<c-y>"
-    execute "map <".n."-ScrollWheelDown> 3<c-e>"
+    execute "map <".n."-ScrollWheelUp> <c-y>"
+    execute "map <".n."-ScrollWheelDown> <c-e>"
   endfor
 endif
