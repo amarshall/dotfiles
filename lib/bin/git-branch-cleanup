@@ -1,5 +1,10 @@
 #!/bin/bash
 
-git branch --merged "$@" \
-  | grep --invert-match --extended-regexp '^\* ' \
-  | xargs git branch --delete
+branches_to_delete() {
+  git branch --merged "$@" \
+    | grep --invert-match --extended-regexp '^\* '
+}
+
+for branch in $(branches_to_delete "$@"); do
+  git branch --delete "$branch"
+done
