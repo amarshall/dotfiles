@@ -1,0 +1,2 @@
+#compdef
+_git-merge "$@"
