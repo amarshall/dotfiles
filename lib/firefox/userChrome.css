@@ -50,6 +50,10 @@
   font-size: 1.25em !important;
 }
 
+#webrtcIndicator {
+  display: none;
+}
+
 /*** URL bar enlargement or lack thereof ***/
 :root {
   --mbarstyler-popout-pixels: 0px;
