@@ -11,3 +11,12 @@ export LESS="-i -M -S -R"
 export PAGER="$(command -vp less)"
 
 export PATH="$PATH:$HOME/bin"
+
+if [[ "$(uname)" = 'Linux' && "$XDG_SESSION_TYPE" = 'wayland' ]]; then
+  # See also lib/bin/sway
+  export CLUTTER_BACKEND=wayland
+  export MOZ_ENABLE_WAYLAND=1
+  export QT_QPA_PLATFORM=wayland-egl
+  export SDL_VIDEODRIVER=wayland
+  export XDG_CURRENT_DESKTOP=sway
+fi

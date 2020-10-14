@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# See also lib/shell/plugins/_core/env.zsh
 export CLUTTER_BACKEND=wayland
 export GDK_DPI_SCALE=1.5
 export MOZ_ENABLE_WAYLAND=1
