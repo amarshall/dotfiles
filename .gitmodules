@@ -149,6 +149,7 @@
 [submodule "lib/vim/bundle/tslime.vim"]
 	path = lib/vim/bundle/tslime
 	url = https://github.com/jgdavey/tslime.vim
+	branch = main
 [submodule "lib/vim/bundle/typescript-vim"]
 	path = lib/vim/bundle/typescript
 	url = https://github.com/leafgarland/typescript-vim.git
