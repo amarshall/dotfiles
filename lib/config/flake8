@@ -1,0 +1,4 @@
+[flake8]
+ignore = W503,W504,C814
+hang-closing = True
+max-line-length = 90
