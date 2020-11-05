@@ -6,6 +6,17 @@
   --lwt-text-color: rgba(25, 25, 25) !important;
   --lwt-toolbarbutton-icon-fill: rgba(25, 25, 25, 0.7) !important;
   --toolbar-bgcolor: rgb(246, 246, 246) !important;
+
+  --grey-20: #ededed !important;
+  --grey-30: #d7d7d7 !important;
+  --grey-40: #b1b1b1 !important;
+  --grey-60: #4a4a4a !important;
+  --grey-90: #0c0c0c !important;
+  --grey-90-a10: rgba(12, 12, 12, 0.1) !important;
+  --grey-90-a20: rgba(12, 12, 12, 0.2) !important;
+  --grey-90-a30: rgba(12, 12, 12, 0.3) !important;
+  --grey-90-a50: rgba(12, 12, 12, 0.5) !important;
+  --grey-90-a60: rgba(12, 12, 12, 0.6) !important;
 }
 
 #main-window {
