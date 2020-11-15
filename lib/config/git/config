@@ -27,6 +27,13 @@
 	autocrlf = input
 [fetch]
 	prune = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[include]
+	path = identities
 [interactive]
 	diffFilter = diff-highlight
 [log]
@@ -42,12 +49,5 @@
 	ff = only
 [push]
 	default = simple
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [rebase]
 	autosquash = true
-[include]
-	path = identities
