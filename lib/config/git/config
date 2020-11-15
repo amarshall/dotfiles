@@ -38,6 +38,7 @@
 	diffFilter = diff-highlight
 [log]
 	decorate = true
+	showSignature = true
 [pager]
 	branch = $PAGER --quit-if-one-screen --no-init
 	diff = diff-highlight | $PAGER
