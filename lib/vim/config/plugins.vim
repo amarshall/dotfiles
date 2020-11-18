@@ -15,6 +15,7 @@ let g:ale_echo_msg_error_str='[ERROR]'
 let g:ale_echo_msg_info_str='[INFO]'
 let g:ale_echo_msg_warning_str='[WARN]'
 let g:ale_python_auto_pipenv = 1
+let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 autocmd FileType haskell let b:ale_linters = ['stack_ghc']
 autocmd FileType javascript let b:ale_linters = ['eslint', 'tsserver']
 autocmd FileType ruby let b:ale_linters = ['ruby', 'rubocop']
