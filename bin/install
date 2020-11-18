@@ -264,6 +264,12 @@ def install!
     end
   end
 
+  step 'Linking misc. configs' do
+    LNK_ROOT.join('gnupg').children.each do |path|
+      link(path, HOME.join('.gnupg', path.basename))
+    end
+  end
+
   step 'Linking Firefox custom profile' do
     default_firefox_profile = default_firefox_profile()
     if default_firefox_profile
