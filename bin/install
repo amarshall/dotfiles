@@ -245,7 +245,7 @@ def install!
 
   step 'Linking bin files' do
     LNK_ROOT.join('bin').children.each do |path|
-      link(path, HOME.join("bin/#{path.basename}"))
+      link(path, HOME.join('bin', path.basename))
     end
   end
 
