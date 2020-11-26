@@ -52,6 +52,9 @@
 [submodule "lib/vim/bundle/haskell-vim"]
 	path = lib/vim/bundle/haskell
 	url = https://github.com/neovimhaskell/haskell-vim.git
+[submodule "lib/vim/bundle/hcl"]
+	path = lib/vim/bundle/hcl
+	url = https://github.com/b4b4r07/vim-hcl.git
 [submodule "lib/vim/bundle/hy"]
 	path = lib/vim/bundle/hy
 	url = https://github.com/hylang/vim-hy.git
