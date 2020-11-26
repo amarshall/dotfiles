@@ -1,3 +1,7 @@
+if [[ "$(uname)" == Darwin ]] && [[ -x /usr/libexec/path_helper ]]; then
+  eval "$(/usr/libexec/path_helper)"
+fi
+
 source ~/.config/dotfiles/shell/env.zsh
 
 fpath=(~/.config/dotfiles/zsh/functions /usr/local/share/zsh-completions $fpath)
