@@ -279,6 +279,9 @@
 [submodule "lib/vim/bundle/vim-unimpaired"]
 	path = lib/vim/bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "lib/vim/bundle/vis"]
+	path = lib/vim/bundle/vis
+	url = https://github.com/vim-scripts/vis.git
 [submodule "lib/vim/bundle/which-key"]
 	path = lib/vim/bundle/which-key
 	url = https://github.com/liuchengxu/vim-which-key.git
