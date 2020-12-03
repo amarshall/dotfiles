@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+
+from argparse import ArgumentParser
+import datetime as dt
+import subprocess
+import sys
+import typing as T
+
+from dateutil.relativedelta import relativedelta
+import pytz as tz
+
+
+def fzf(header: str, opts: T.List[str]):
+    try:
+        output = subprocess.check_output(
+            [
+                'fzf',
+                '--height', '10',
+                '--layout', 'reverse',
+                '--header', header,
+                ],
+            input='\n'.join(opts),
+            text=True,
+            )
+    except subprocess.CalledProcessError:
+        fatal('fzf aborted')
+    return output.strip()
+
+
+def fatal(msg: str) -> T.NoReturn:
+    print(msg, file=sys.stderr)
+    exit(1)
+
+
+argparser = ArgumentParser(description='TimeZoneConverter')
+argparser.add_argument('--stz', nargs='?', help='source time zone')
+argparser.add_argument('--ttz', nargs='?', help='target time zone')
+argparser.add_argument('time', nargs='?', default=None, help='source time')
+
+args = argparser.parse_args()
+if not args.time:
+    args.time = input('Source time: ')
+if not args.stz:
+    args.stz = fzf('Select source timezone', tz.all_timezones)
+    print(f'Source timezone: {args.stz}')
+if not args.ttz:
+    args.ttz = fzf('Select target timezone', tz.all_timezones)
+    print(f'Target timezone: {args.ttz}')
+
+try:
+    time = dt.time.fromisoformat(args.time)
+except ValueError:
+    fatal('invalid time')
+stz = tz.timezone(args.stz)
+ttz = tz.timezone(args.ttz)
+
+
+utc = tz.timezone('UTC')
+# Assume source time is today
+st = stz.localize(dt.datetime.combine(dt.datetime.now(), time, tzinfo=None))
+tt = st.astimezone(ttz)
+print(st.replace(tzinfo=None), tt.replace(tzinfo=None))
+delta = relativedelta(tt.replace(tzinfo=None), st.replace(tzinfo=None))
+print(
+    'Target time:',
+    tt.time().isoformat('minutes'),
+    delta,
+    )
