@@ -234,7 +234,13 @@ def install!
 
   step 'Cloning into config' do
     run { LNK_ROOT.mkpath }
-    run { system!(*%w[rsync --quiet --archive --delete --chmod=F-w --exclude=.git --safe-links], SRC_ROOT.join('lib').realpath.to_s.concat('/'), LNK_ROOT.realpath.to_s) }
+    run do
+      system!(
+        *%w[rsync --quiet --archive --delete --chmod=F-w --exclude=.git --safe-links],
+        SRC_ROOT.join('lib').realpath.to_s.concat('/'),
+        LNK_ROOT.realpath.to_s,
+      )
+    end
   end
 
   step 'Linking root files' do
