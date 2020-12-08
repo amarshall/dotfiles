@@ -3,5 +3,12 @@
 set -e
 
 type "$1" >/dev/null
-systemd-cat --identifier "$1" -- "$@" </dev/null &>/dev/null &
+
+args=()
+if command -v systemd-cat; then
+  args+=('systemd-cat' '--identifier' "$1" '--')
+fi
+args+=("$@")
+
+"${args[@]}" </dev/null &>/dev/null &
 disown %%
