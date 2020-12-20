@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
 
 import argparse
+import io
 import subprocess
 import sys
+import typing as T
 
 parser = argparse.ArgumentParser()
+parser.add_argument(
+    '-d',
+    '--delimiter',
+    default="\n",
+    help='delimiter to separate items in input',
+    )
 parser.add_argument(
     '--invert',
     action='store_true',
@@ -14,9 +22,26 @@ parser.add_argument('command', nargs='+')
 args = parser.parse_args()
 
 command = args.command
+delimiter = args.delimiter
 invert = args.invert
 
-for line in map(str.rstrip, sys.stdin):
+
+def read_split(f: T.IO[str], delimiter: str = "\n") -> T.Iterator[str]:
+    buf = ''
+    while chunk := f.read(io.DEFAULT_BUFFER_SIZE):
+        head, *tail = chunk.split(delimiter)
+        if tail:
+            yield buf + head
+            buf = tail.pop()
+            for part in tail:
+                yield part
+        else:
+            buf += chunk
+    if buf:
+        yield buf
+
+
+for line in map(str.rstrip, read_split(sys.stdin, delimiter=delimiter)):
     proc = subprocess.run(command, input=line, stdout=subprocess.DEVNULL, text=True)
     is_success = proc.returncode == 0
     if invert ^ is_success:
