@@ -7,7 +7,11 @@ alias gzdirs='find . -mindepth 1 -maxdepth 1 -type d -exec tar czf {}.tar.gz {} 
 alias httpheaders='curl -I'
 alias less='less -R -i'
 alias ll='ls -l'
-alias ls='ls -aFh'
+if [[ "$(uname)" = Linux ]]; then
+  alias ls='ls -aFh --group-directories-first'
+else
+  alias ls='ls -aFh'
+fi
 alias mv='mv -i'
 alias mvimload='mvim -c "so %"'
 alias parallel='parallel --will-cite'
