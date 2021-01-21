@@ -46,8 +46,6 @@ if type /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEn
   alias screensaver=/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine
 fi
 
-[[ "$(uname)" == "Darwin" ]] && alias netstat='lsof -i -P'
-
 if [ -x /usr/bin/dircolors ]; then
   if alias ls &> /dev/null; then
     ls=$(alias ls | awk -F"'" '{print $(NF-1)}')
