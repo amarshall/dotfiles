@@ -2,6 +2,7 @@
 
 import argparse
 import io
+import re
 import subprocess
 import sys
 import typing as T
@@ -14,6 +15,12 @@ parser.add_argument(
     help='delimiter to separate items in input',
     )
 parser.add_argument(
+    '-r',
+    '--regex',
+    action='store_true',
+    help='interpret delimiter as a regular expression',
+    )
+parser.add_argument(
     '-v',
     '--invert',
     action='store_true',
@@ -23,14 +30,30 @@ parser.add_argument('command', nargs='+')
 args = parser.parse_args()
 
 command = args.command
-delimiter = args.delimiter
+delimiter_is_regex = args.regex
+if delimiter_is_regex:
+    delimiter = re.compile(args.delimiter)
+else:
+    delimiter = args.delimiter
 invert = args.invert
 
 
-def read_split(f: T.IO[str], delimiter: str = "\n") -> T.Iterator[str]:
+def read_split(f: T.IO[str], delimiter: T.Union[str, T.Pattern]) -> T.Iterator[str]:
+    delimiter_re: T.Optional[T.Pattern]
+    if isinstance(delimiter, T.Pattern):
+        delimiter_re = delimiter
+        delimiter_str = None
+    else:
+        delimiter_re = None
+        delimiter_str = delimiter
+
     buf = ''
     while chunk := f.read(io.DEFAULT_BUFFER_SIZE):
-        head, *tail = chunk.split(delimiter)
+        if delimiter_re:
+            head, *tail = re.split(delimiter_re, chunk)
+        else:
+            head, *tail = chunk.split(delimiter_str)
+
         if tail:
             yield buf + head
             buf = tail.pop()
