@@ -5,7 +5,7 @@ set -e
 type "$1" >/dev/null
 
 args=()
-if command -v systemd-cat; then
+if command -v systemd-cat &>/dev/null; then
   args+=('systemd-cat' '--identifier' "$1" '--')
 fi
 args+=("$@")
