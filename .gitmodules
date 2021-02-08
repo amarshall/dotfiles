@@ -116,6 +116,9 @@
 [submodule "lib/vim/bundle/prolog.vim"]
 	path = lib/vim/bundle/prolog
 	url = https://github.com/adimit/prolog.vim.git
+[submodule "lib/vim/bundle/ps1"]
+	path = lib/vim/bundle/ps1
+	url = https://github.com/PProvost/vim-ps1.git
 [submodule "lib/vim/bundle/rainbow_parentheses"]
 	path = lib/vim/bundle/rainbow_parentheses
 	url = https://github.com/kien/rainbow_parentheses.vim.git
