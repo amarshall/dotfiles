@@ -3,7 +3,6 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term kitty
 
 # systemd
 exec systemctl --user import-environment DISPLAY SWAYSOCK WAYLAND_DISPLAY
@@ -65,7 +64,7 @@ bar {
 floating_modifier $mod normal
 focus_follows_mouse yes
 
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 bindsym $mod+Space exec wofi --show=drun
 bindsym $mod+Alt+Shift+l exec swaylock --daemonize --color 000000
