@@ -25,6 +25,9 @@
 [submodule "lib/vim/bundle/beancount"]
 	path = lib/vim/bundle/beancount
 	url = https://github.com/nathangrigg/vim-beancount.git
+[submodule "lib/vim/bundle/bitbake"]
+	path = lib/vim/bundle/bitbake
+	url = https://github.com/kergoth/vim-bitbake.git
 [submodule "lib/vim/bundle/camelcasemotion"]
 	path = lib/vim/bundle/camelcasemotion
 	url = https://github.com/vim-scripts/camelcasemotion.git
