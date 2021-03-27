@@ -1,0 +1,8 @@
+[options]
+overlay_font = sans-serif:24
+
+[binds]
+<Escape> = quit
+<Ctrl+c> = exec wl-copy "$imv_current_file"
+<Up> = prev
+<Down> = next
