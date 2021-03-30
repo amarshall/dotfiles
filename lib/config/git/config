@@ -34,6 +34,8 @@
 	required = true
 [include]
 	path = identities
+[init]
+	defaultBranch = main
 [interactive]
 	diffFilter = diff-highlight
 [log]
