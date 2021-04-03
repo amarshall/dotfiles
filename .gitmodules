@@ -116,6 +116,9 @@
 [submodule "lib/vim/bundle/parinfer-rust"]
 	path = lib/vim/bundle/parinfer-rust
 	url = https://github.com/eraserhd/parinfer-rust.git
+[submodule "lib/vim/bundle/pest"]
+	path = lib/vim/bundle/pest
+	url = https://github.com/pest-parser/pest.vim
 [submodule "lib/vim/bundle/prolog.vim"]
 	path = lib/vim/bundle/prolog
 	url = https://github.com/adimit/prolog.vim.git
