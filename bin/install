@@ -11,6 +11,7 @@ rescue Bundler::RubyVersionMismatch => ex
   exit 1
 end
 
+require 'fileutils'
 require 'open3'
 require 'optparse'
 require 'pathname'
