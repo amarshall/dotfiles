@@ -130,5 +130,15 @@ if filereadable("/usr/local/bin/ctags")
   let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 endif
 
+" Treesitter
+if has('nvim')
+  lua <<LUA
+  require'nvim-treesitter.configs'.setup {
+    highlight = { enable = true },
+    indent = { enable = true },
+  }
+LUA
+endif
+
 " Which Key
 autocmd VimEnter * call which_key#register('<Space>', "g:which_key_map")

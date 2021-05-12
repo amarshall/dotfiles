@@ -109,6 +109,9 @@
 [submodule "lib/vim/bundle/nvim-lspconfig"]
 	path = lib/vim/bundle/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "lib/vim/bundle/nvim-treesitter"]
+	path = lib/vim/bundle/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
 [submodule "lib/vim/bundle/pandoc"]
 	path = lib/vim/bundle/pandoc
 	url = https://github.com/vim-pandoc/vim-pandoc.git
