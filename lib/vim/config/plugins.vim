@@ -70,13 +70,22 @@ let g:vim_json_syntax_conceal = 0
 " Julia
 let g:latex_to_unicode_tab = 0
 
-" LanguageClient
-let g:LanguageClient_serverCommands = {
-      \ 'python': ['pyls'],
-      \ 'ruby': ['solargraph', 'stdio'],
-      \ 'rust': ['rust-analyzer'],
-      \}
-let g:LanguageClient_settingsPath = '.config/languageclient.json'
+" LSP
+if has('nvim')
+  lua << LUA
+  require'lspconfig'.pyls.setup{
+    settings = {
+      pyls = {
+        plugins = {
+          pyls_mypy = { enabled = true }
+        }
+      }
+    }
+  }
+  require'lspconfig'.solargraph.setup{}
+  require'lspconfig'.rust_analyzer.setup{}
+LUA
+endif
 
 " Markdown
 let g:vim_markdown_folding_disabled=1

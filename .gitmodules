@@ -82,10 +82,6 @@
 [submodule "lib/vim/bundle/jsonnet"]
 	path = lib/vim/bundle/jsonnet
 	url = https://github.com/google/vim-jsonnet.git
-[submodule "lib/vim/bundle/LanguageClient"]
-	path = lib/vim/bundle/LanguageClient
-	url = https://github.com/autozimu/LanguageClient-neovim.git
-	branch = next
 [submodule "lib/vim/bundle/l9"]
 	path = lib/vim/bundle/l9
 	url = https://github.com/vim-scripts/L9.git
@@ -110,6 +106,9 @@
 [submodule "lib/vim/bundle/nginx.vim"]
 	path = lib/vim/bundle/nginx
 	url = https://github.com/chr4/nginx.vim.git
+[submodule "lib/vim/bundle/nvim-lspconfig"]
+	path = lib/vim/bundle/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
 [submodule "lib/vim/bundle/pandoc"]
 	path = lib/vim/bundle/pandoc
 	url = https://github.com/vim-pandoc/vim-pandoc.git

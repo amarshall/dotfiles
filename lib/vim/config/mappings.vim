@@ -89,16 +89,16 @@ let g:which_key_map.l.h = 'clear highlight'
 let g:which_key_map.l.r = 'rename'
 let g:which_key_map.l.s = 'start language server'
 let g:which_key_map.l.t = 'reveal type'
-nnoremap <leader>le :call LanguageClient#explainErrorAtPoint()<CR>
-nnoremap <leader>lgd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <leader>lgi :call LanguageClient#textDocument_implementation()<CR>
-nnoremap <leader>lgr :call LanguageClient#textDocument_references()<CR>
-nnoremap <leader>lgt :call LanguageClient#textDocument_typeDefinition()<CR>
-nnoremap <leader>lh :call LanguageClient#textDocument_documentHighlight()<CR>
-nnoremap <leader>lH :call LanguageClient#textDocument_clearDocumentHighlight()<CR>
-nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-nnoremap <leader>ls :LanguageClientStart<CR>
-nnoremap <leader>lt :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <leader>le :call LanguageClient#explainErrorAtPoint()<CR>
+nnoremap <leader>lgd <Cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>lgi <Cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>lgr <Cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <leader>lgt <Cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <leader>lh <Cmd>lua vim.lsp.buf.buf_highlight_references()<CR>
+nnoremap <leader>lH <Cmd>lua vim.lsp.buf.buf_clear_references()<CR>
+nnoremap <leader>lr <Cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>ls <Cmd>LspStart<CR>
+nnoremap <leader>lt <Cmd>lua vim.lsp.buf.hover()<CR>
 autocmd FileType haskell nnoremap <buffer> <silent> <leader>lt <Plug>InteroGenericType
 autocmd FileType scala nnoremap <buffer> <silent> <leader>lt :EnType<CR>
 
