@@ -75,6 +75,9 @@ head[prefix~="medium-com:"] + body .metabar {
   }
 }
 
+/*
+ * See also userChrome.css #tabbrowser-tabs.
+ */
 @-moz-document url-prefix("about:blank") {
   @media (prefers-color-scheme: dark) {
     html {

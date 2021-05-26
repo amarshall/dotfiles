@@ -52,8 +52,18 @@
   color: rgb(176, 176, 176) !important;
 }
 
+/*
+ * Default background for unloaded content.
+ * See also userContent.css about:blank.
+ */
 #tabbrowser-tabs {
   --tab-line-color: transparent !important;
+}
+
+#tabbrowser-tabpanels {
+  @media (prefers-color-scheme: dark) {
+    background-color: rgb(45, 45, 45);
+  }
 }
 
 .tab-label {
