@@ -42,7 +42,7 @@ input * scroll_method on_button_down
 input * xkb_options ctrl:nocaps,compose:rwin
 seat * xcursor_theme default 36
 output * disable
-output * max_render_time 4
+output * max_render_time 8
 output * background #656565 solid_color
 output * enable scale 1 scale_filter linear
 
