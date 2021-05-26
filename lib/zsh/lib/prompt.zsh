@@ -84,14 +84,17 @@ function __prompt() {
   local hostname
   local curpath
   local username
+  local jailname
   local color_dir='%{%F{cyan}%}'
   local color_git='%{%b%F{yellow}%}'
+  local color_jail='%{%F{8}%}'
   local color_none='%{%b%f%}'
   local color_prompt='%{%B%F{red}%}'
   local color_user_host='%{%F{magenta}%}'
   local maxpathlen=40  # max length of curpath (in characters)
   local usernames="${DOTFILES_USERNAMES:-amarshall,andrew.marshall}"
 
+  [[ -n $JAIL_NAME ]] && jailname=$(printf '⟦JAIL: %s⟧ ' $JAIL_NAME)
   echo "$usernames" | grep --extended-regexp --quiet "(^|,)$USERNAME(,|$)" || username='%n'  # Don't display user if it's my own
   [[ -n $SSH_CONNECTION ]] && hostname=$hostname'@%m'  # If running locally, we probably know what machine it is
                                                        #   always display "@" so host is not mistaken for username
@@ -101,7 +104,7 @@ function __prompt() {
 
   case "$1" in
     prompt)
-      printf "%s" $color_user_host$username$hostname $color_none$colon $color_dir$curpath $color_git$git $color_prompt'%(!.#.⦆)'$color_none' '
+      printf "%s" $color_jail$jailname$color_user_host$username$hostname $color_none$colon $color_dir$curpath $color_git$git $color_prompt'%(!.#.⦆)'$color_none' '
       ;;
     title)
       print -Pn "\e]0;" $username$hostname$colon "%~\a"
