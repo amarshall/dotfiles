@@ -1,14 +1,3 @@
-@font-face {
-  font-family: Arial;
-  src: local('Helvetica Neue'),
-       local('Helvetica'),
-       local('FreeSans'),
-       local('Liberation Sans'),
-       local('Nimbus Sans'),
-       local('Nimbus Sans L'),
-       local('Arial');
-}
-
 code, kbd, pre, samp, tt,
 code *, kbd *, pre *, samp *, tt * {
   font-family: monospace !important;
