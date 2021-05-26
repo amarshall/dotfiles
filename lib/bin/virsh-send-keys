@@ -1,0 +1,40 @@
+#!/bin/python3
+
+import re
+import subprocess
+import sys
+import typing as T
+
+
+def keychord(char: str, mode: str = None) -> T.List[str]:
+    if re.fullmatch(r'[A-Z]', char):
+        return ['KEY_LEFTSHIFT', f'KEY_{char}']
+    elif re.fullmatch(r'[0-9]', char) and mode == 'func':
+        if char == '0':
+            char = '10'
+        return [f'KEY_F{char}']
+    elif re.fullmatch(r'[a-z0-9]', char):
+        return [f'KEY_{char.upper()}']
+    elif char == '\n':
+        return ['KEY_ENTER']
+    elif char == ' ':
+        return ['KEY_SPACE']
+    else:
+        raise RuntimeError('unknown key: {char}')
+
+
+def virsh_send_key(vm: str, keycodes: T.List[str]) -> None:
+    print(f'sending {keycodes}')
+    subprocess.check_call(['sudo', 'virsh', 'send-key', vm, *keycodes])
+
+
+vm = sys.argv[1]
+mode = None
+if len(sys.argv) > 2:
+    mode = sys.argv[2]
+assert vm
+
+string = sys.stdin.read()
+for char in string:
+    chord = keychord(char, mode)
+    virsh_send_key(vm=vm, keycodes=chord)
