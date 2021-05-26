@@ -1,5 +1,6 @@
 allow_images=true
 insensitive=true
+key_expand=Tab
 no_actions=false
 height=600
 width=750
