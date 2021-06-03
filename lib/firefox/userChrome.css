@@ -1,11 +1,18 @@
 :root {
-  /* Make slightly off-gray colors grayscale */
-  --arrowpanel-color: rgba(12, 12, 12, 1) !important;
-  --autocomplete-popup-color: rgb(12, 12, 12) !important;
-  --lwt-accent-color: rgb(228, 228, 228) !important;
-  --lwt-text-color: rgba(25, 25, 25) !important;
-  --lwt-toolbarbutton-icon-fill: rgba(25, 25, 25, 0.7) !important;
-  --toolbar-bgcolor: rgb(246, 246, 246) !important;
+  --jam-macos-textbox-bg-active: rgb(255, 255, 255);
+  --jam-macos-textbox-bg-inactive: rgb(255, 255, 255);
+  --jam-macos-textbox-fg-active: rgb(76, 76, 76);
+  --jam-macos-textbox-fg-inactive: rgb(76, 76, 76);
+  --jam-macos-textbox-fg-placeholder-active: rgb(193, 193, 193);
+  --jam-macos-textbox-fg-placeholder-inactive: rgb(193, 193, 193);
+  --jam-macos-textbox-border-inactive: rgb(214, 214, 214);
+  --jam-macos-titlebar-bg-active-bottom: rgb(208, 208, 208);
+  --jam-macos-titlebar-bg-active-top: rgb(228, 228, 228);
+  --jam-macos-titlebar-bg-inactive: rgb(246, 246, 246);
+  --jam-macos-titlebar-button-active: rgb(147, 147, 147);
+  --jam-macos-titlebar-button-inactive: rgb(221, 221, 221);
+  --jam-macos-titlebar-fg-active: rgb(76, 76, 76);
+  --jam-macos-titlebar-fg-inactive: rgb(175, 175, 175);
 
   --grey-20: #ededed !important;
   --grey-30: #d7d7d7 !important;
@@ -17,6 +24,68 @@
   --grey-90-a30: rgba(12, 12, 12, 0.3) !important;
   --grey-90-a50: rgba(12, 12, 12, 0.5) !important;
   --grey-90-a60: rgba(12, 12, 12, 0.6) !important;
+}
+
+:root {
+  --arrowpanel-border-color: rgb(240, 240, 240) !important;
+  --arrowpanel-color: rgba(21, 21, 21, 1) !important;
+  --arrowpanel-field-background: rgba(249, 249, 249, 0.3) !important;
+  --autocomplete-popup-color: var(--jam-macos-textbox-fg-active) !important;
+  --autocomplete-popup-highlight-background: rgb(224, 224, 224) !important;
+  --autocomplete-popup-highlight-color: rgb(21, 21, 21) !important;
+  --autocomplete-popup-hover-background: rgb(240, 240, 240) !important;
+  --autocomplete-popup-separator-color: rgb(240, 240, 240) !important;
+  --button-active-bgcolor: rgb(207, 207, 207) !important;
+  --button-bgcolor: rgb(240, 240, 240) !important;
+  --button-hover-bgcolor: rgb(224, 224, 224) !important;
+  --buttons-primary-button-color: rgb(251, 251, 251) !important;
+  --checkbox-border-color: rgb(143, 143, 143) !important;
+  --checkbox-checked-color: rgb(251, 251, 251) !important;
+  --checkbox-unchecked-active-bgcolor: rgb(207, 207, 207 !important);
+  --checkbox-unchecked-bgcolor: rgb(240, 240, 240) !important;
+  --checkbox-unchecked-hover-bgcolor: rgb(224, 224, 224) !important;
+  --default-arrowpanel-border-color: hsla(210, 0%, 10%, 0.05) !important;
+  --input-color: rgb(21, 21, 21) !important;
+  --lwt-accent-color: rgb(228, 228, 228) !important;
+  --tab-selected-bgcolor: rgb(245, 245, 245) !important;
+  --lwt-tab-text: rgb(21, 21, 21) !important;
+  --lwt-text-color: rgba(25, 25, 25) !important;
+  --toolbar-field-non-lwt-color: var(--jam-macos-textbox-fg-active) !important;
+  --toolbar-field-non-lwt-bgcolor: var(--jam-macos-textbox-bg-active) !important;
+  --lwt-toolbar-field-background-color: var(--jam-macos-textbox-bg-active) !important;
+  --lwt-toolbar-field-color: var(--jam-macos-textbox-fg-active) !important;
+  --lwt-toolbar-field-focus-color: var(--jam-macos-textbox-fg-active) !important;
+  --lwt-toolbarbutton-icon-fill: rgba(25, 25, 25, 0.7) !important;
+  --panel-description-color: rgba(21, 21, 21, 0.7) !important;
+  --panel-disabled-color: rgba(21, 21, 21, 0.5) !important;
+  --panel-separator-color: hsla(210, 0%, 10%, 0.14) !important;
+  --tab-icon-overlay-fill: rgb(91, 91, 91) !important;
+  --tabpanel-background-color: #f9f9f9 !important;
+  --toolbar-bgcolor: rgb(246, 246, 246) !important;
+  --toolbar-color: rgb(21, 21, 21) !important;
+  --toolbar-field-border-color: hsla(240, 0%, 5%, 0.25) !important;
+  --toolbar-non-lwt-bgcolor: #f9f9f9 !important;
+  --toolbar-non-lwt-textcolor: #0c0c0c !important;
+  --toolbarbutton-icon-fill: rgb(91, 91, 91) !important;
+  --urlbar-popup-action-color: rgb(91, 91, 91) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --jam-macos-textbox-bg-active: rgb(108, 108, 108);
+    --jam-macos-textbox-bg-inactive: rgb(60, 60, 60);
+    --jam-macos-textbox-fg-active: rgb(255, 255, 255);
+    --jam-macos-textbox-fg-inactive: rgb(255, 255, 255);
+    --jam-macos-textbox-fg-placeholder-active: rgb(145, 145, 145);
+    --jam-macos-textbox-fg-placeholder-inactive: rgb(85, 85, 85);
+    --jam-macos-titlebar-bg-active-bottom: rgb(54, 54, 54);
+    --jam-macos-titlebar-bg-active-top: rgb(65, 65, 65);
+    --jam-macos-titlebar-bg-inactive: rgb(45, 45, 45);
+    --jam-macos-titlebar-button-active: rgb(162, 162, 162);
+    --jam-macos-titlebar-button-inactive: rgb(147, 147, 147);
+    --jam-macos-titlebar-fg-active: rgb(182, 182, 182);
+    --jam-macos-titlebar-fg-inactive: rgb(110, 110, 110);
+  }
 }
 
 #main-window {
@@ -60,6 +129,71 @@
 
 #webrtcIndicator {
   display: none;
+}
+
+@media (-moz-proton) {
+  #TabsToolbar {
+    color: var(--jam-macos-titlebar-fg-active) !important;
+    background-color: var(--jam-macos-titlebar-bg-inactive) !important;
+    background-image: linear-gradient(
+      var(--jam-macos-titlebar-bg-active-top),
+      var(--jam-macos-titlebar-bg-active-bottom)
+      ) !important;
+  }
+
+  #TabsToolbar:-moz-window-inactive,
+  #TabsToolbar:-moz-window-inactive .tabbrowser-tab[visuallyselected="true"] {
+    color: var(--jam-macos-titlebar-fg-inactive) !important;
+    background-image: none !important;
+  }
+
+  /**
+   * Proton tab style tweaks
+   * Based off https://www.userchrome.org/firefox-89-styling-proton-ui.html
+   */
+  #tabbrowser-tabs {
+    --user-tab-rounding: 0px;
+  }
+  .tab-background {
+    border-radius: var(--user-tab-rounding) var(--user-tab-rounding) 0px 0px !important;
+    margin-block: 1px 0 !important;
+  }
+  #scrollbutton-up,
+  #scrollbutton-down {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .tab-background:not([selected=true]):not([multiselected=true]):not([beforeselected-visible="true"]) {
+    border-right: 1px solid rgba(0, 0, 0, .20) !important;
+  }
+  [brighttext="true"] .tab-background:not([selected=true]):not([multiselected=true]):not([beforeselected-visible="true"]) {
+    border-right: 1px solid var(--lwt-selected-tab-background-color, rgba(255, 255, 255, .20)) !important;
+  }
+  #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+    margin-inline-start: 1px !important;
+  }
+  .tab-background:not([selected=true]):not([multiselected=true]) {
+    border-radius: 0 !important;
+  }
+  .tabbrowser-tab {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /**
+   * Hamburger menu density
+   * https://www.userchrome.org/firefox-89-styling-proton-ui.html
+   */
+  menupopup > menuitem, menupopup > menu {
+    padding-block: 4px !important;
+  }
+  :root {
+    --arrowpanel-menuitem-padding: 4px 8px !important;
+  }
+
+  #urlbar-background, #searchbar {
+    border-color: var(--toolbar-field-border-color) !important;
+  }
 }
 
 @media (not -moz-proton) {
