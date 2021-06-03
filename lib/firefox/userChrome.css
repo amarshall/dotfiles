@@ -39,19 +39,6 @@
   background-image: none !important;
 }
 
-#TabsToolbar {
-  /* Restore native macOS styling for titlebar */
-  -moz-appearance: -moz-window-titlebar !important;
-  background-color: inherit !important;
-  color: rgb(47, 47, 47) !important;
-}
-
-#TabsToolbar:-moz-window-inactive,
-#TabsToolbar:-moz-window-inactive .tabbrowser-tab[visuallyselected="true"] {
-  /* Restore native macOS styling for titlebar */
-  color: rgb(176, 176, 176) !important;
-}
-
 /*
  * Default background for unloaded content.
  * See also userContent.css about:blank.
@@ -75,41 +62,56 @@
   display: none;
 }
 
-/*** URL bar enlargement or lack thereof ***/
-:root {
-  --mbarstyler-popout-pixels: 0px;
-}
-/* Compute new position, width, and padding */
-#urlbar[breakout][breakout-extend] {
-  top: calc(5px - var(--mbarstyler-popout-pixels)) !important;
-  left: calc(0px - var(--mbarstyler-popout-pixels)) !important;
-  width: calc(100% + (2 * var(--mbarstyler-popout-pixels))) !important;
-  padding: var(--mbarstyler-popout-pixels) !important;
-}
-[uidensity="compact"] #urlbar[breakout][breakout-extend] {
-  top: calc(3px - var(--mbarstyler-popout-pixels)) !important;
-}
-[uidensity="touch"] #urlbar[breakout][breakout-extend] {
-  top: calc(4px - var(--mbarstyler-popout-pixels)) !important;
-}
-/* Prevent shift of URL bar contents */
-#urlbar[breakout][breakout-extend] > #urlbar-input-container {
-  height: var(--urlbar-height) !important;
-  padding: 0 !important;
-}
-/* Do not animate */
-#urlbar[breakout][breakout-extend] > #urlbar-background {
-  animation: none !important;;
-}
-/* Remove shadows */
-#urlbar[breakout][breakout-extend] > #urlbar-background {
-  box-shadow: none !important;
-}
-#urlbar-results {
-  overflow-y: auto !important;
-}
-/* Clean up extra spacing at the top and bottom */
-#urlbar-results {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+@media (not -moz-proton) {
+  #TabsToolbar {
+    /* Restore native macOS styling for titlebar */
+    -moz-appearance: -moz-window-titlebar !important;
+    background-color: inherit !important;
+    color: rgb(47, 47, 47) !important;
+  }
+
+  #TabsToolbar:-moz-window-inactive,
+  #TabsToolbar:-moz-window-inactive .tabbrowser-tab[visuallyselected="true"] {
+    /* Restore native macOS styling for titlebar */
+    color: rgb(176, 176, 176) !important;
+  }
+
+  /*** URL bar enlargement or lack thereof ***/
+  :root {
+    --mbarstyler-popout-pixels: 0px;
+  }
+  /* Compute new position, width, and padding */
+  #urlbar[breakout][breakout-extend] {
+    top: calc(5px - var(--mbarstyler-popout-pixels)) !important;
+    left: calc(0px - var(--mbarstyler-popout-pixels)) !important;
+    width: calc(100% + (2 * var(--mbarstyler-popout-pixels))) !important;
+    padding: var(--mbarstyler-popout-pixels) !important;
+  }
+  [uidensity="compact"] #urlbar[breakout][breakout-extend] {
+    top: calc(3px - var(--mbarstyler-popout-pixels)) !important;
+  }
+  [uidensity="touch"] #urlbar[breakout][breakout-extend] {
+    top: calc(4px - var(--mbarstyler-popout-pixels)) !important;
+  }
+  /* Prevent shift of URL bar contents */
+  #urlbar[breakout][breakout-extend] > #urlbar-input-container {
+    height: var(--urlbar-height) !important;
+    padding: 0 !important;
+  }
+  /* Do not animate */
+  #urlbar[breakout][breakout-extend] > #urlbar-background {
+    animation: none !important;;
+  }
+  /* Remove shadows */
+  #urlbar[breakout][breakout-extend] > #urlbar-background {
+    box-shadow: none !important;
+  }
+  #urlbar-results {
+    overflow-y: auto !important;
+  }
+  /* Clean up extra spacing at the top and bottom */
+  #urlbar-results {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
 }
