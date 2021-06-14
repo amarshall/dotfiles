@@ -133,6 +133,7 @@
 
 @media (-moz-proton) {
   #TabsToolbar {
+    appearance: none !important;
     color: var(--jam-macos-titlebar-fg-active) !important;
     background-color: var(--jam-macos-titlebar-bg-inactive) !important;
     background-image: linear-gradient(
