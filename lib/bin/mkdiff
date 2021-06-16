@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ -z $DIFF ]] && command -v colordiff &>/dev/null; then
+  DIFF=colordiff
+fi
+
+a=$(mktemp)
+b=$(mktemp)
+cat > "$a"
+cp "$a" "$b"
+"$VISUAL" "$b"
+"${DIFF:-diff}" -u "$@" -- "$a" "$b"
+rm "$a" "$b"
