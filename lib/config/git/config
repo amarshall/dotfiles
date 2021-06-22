@@ -14,8 +14,10 @@
 	reword = commit --only --amend
 	rc = rebase --continue
 	ri = rebase --interactive
+	rs = restore
 	root = rev-parse --show-toplevel
 	st = status
+	sw = switch
 	unpulled = !"git fetch && git log HEAD..@{u}"
 	unpushed = log @{u}..HEAD
 [color]
