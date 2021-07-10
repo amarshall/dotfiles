@@ -1,0 +1,15 @@
+#!/bin/bash
+
+curl_format() {
+  cat <<'EOF'
+   namelookup: %{time_namelookup}s
+      connect: %{time_connect}s
+   appconnect: %{time_appconnect}s
+  pretransfer: %{time_pretransfer}s
+     redirect: %{time_redirect}s
+starttransfer: %{time_starttransfer}s
+        total: %{time_total}s\n
+EOF
+}
+
+exec curl --write-out "$(curl_format)" --output /dev/null --silent "$@"
