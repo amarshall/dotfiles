@@ -73,15 +73,18 @@ let g:latex_to_unicode_tab = 0
 " LSP
 if has('nvim')
   lua << LUA
-  require'lspconfig'.pyls.setup{
+  require'lspconfig'.pylsp.setup{
     settings = {
-      pyls = {
+      pylsp = {
         configurationSources = {"flake8"},
         plugins = {
-          pyls_mypy = { enabled = true }
-        }
-      }
-    }
+          pylsp_mypy = {
+            enabled = true,
+            live_mode = false,
+          }
+        },
+      },
+    },
   }
   require'lspconfig'.solargraph.setup{}
   require'lspconfig'.rust_analyzer.setup{}
