@@ -76,6 +76,7 @@ if has('nvim')
   require'lspconfig'.pyls.setup{
     settings = {
       pyls = {
+        configurationSources = {"flake8"},
         plugins = {
           pyls_mypy = { enabled = true }
         }
