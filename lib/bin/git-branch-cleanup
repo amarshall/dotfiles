@@ -4,6 +4,18 @@ git_branches() {
   git for-each-ref --format='%(refname)' refs/heads/ "$@" | perl -pe 's@^refs/heads/@@'
 }
 
+orphaned_branches() {
+  for branch in $(git_branches); do
+    remote=$(git config --local "branch.$branch.remote" || echo '')
+    remote_branch=$(git config --local "branch.$branch.merge" | perl -pe 's@^refs/heads/@@' || echo '')
+    if [[ -n $remote ]] && [[ -n $remote_branch ]]; then
+      if ! git rev-parse "refs/remotes/$remote/$remote_branch" &> /dev/null; then
+        echo "$branch"
+      fi
+    fi
+  done
+}
+
 default_branches() {
   for remote in $(git remote); do
     git remote set-head --auto "$remote" &> /dev/null
@@ -13,6 +25,7 @@ default_branches() {
 
 deletable_branches() {
   git_branches --merged "$@"
+  orphaned_branches
 }
 
 ignorable_branches() {
@@ -25,5 +38,5 @@ branches_to_delete() {
 }
 
 for branch in $(branches_to_delete "$@"); do
-  git branch --delete "$branch"
+  git branch --delete --force "$branch"
 done
