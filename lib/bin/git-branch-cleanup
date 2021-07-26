@@ -4,12 +4,20 @@ git_branches() {
   git for-each-ref --format='%(refname)' refs/heads/ "$@" | perl -pe 's@^refs/heads/@@'
 }
 
+default_branches() {
+  for remote in $(git remote); do
+    git remote set-head --auto "$remote" &> /dev/null
+    git rev-parse --abbrev-ref "$remote/HEAD" | perl -e 'while(<STDIN>) { s@\Q$ARGV[0]/@@; print }' "$remote"
+  done
+}
+
 deletable_branches() {
   git_branches --merged "$@"
 }
 
 ignorable_branches() {
   git rev-parse --abbrev-ref HEAD
+  default_branches
 }
 
 branches_to_delete() {
