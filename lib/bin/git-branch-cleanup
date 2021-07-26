@@ -1,8 +1,19 @@
 #!/bin/bash
 
+git_branches() {
+  git for-each-ref --format='%(refname)' refs/heads/ "$@" | perl -pe 's@^refs/heads/@@'
+}
+
+deletable_branches() {
+  git_branches --merged "$@"
+}
+
+ignorable_branches() {
+  git rev-parse --abbrev-ref HEAD
+}
+
 branches_to_delete() {
-  git branch --merged "$@" \
-    | grep --invert-match --extended-regexp '^\* '
+  comm -23 <(deletable_branches "$@" | sort) <(ignorable_branches | sort)
 }
 
 for branch in $(branches_to_delete "$@"); do
