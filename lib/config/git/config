@@ -6,7 +6,6 @@
 	statusHints = false
 [alias]
 	amend = commit --amend --no-edit
-	co = checkout
 	dc = diff --cached
 	fixup = commit --fixup
 	fork-point = merge-base --fork-point
