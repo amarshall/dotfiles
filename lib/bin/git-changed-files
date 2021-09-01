@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 default_branch() {
   git rev-parse --abbrev-ref refs/remotes/origin/HEAD 2>/dev/null \
       | perl -pe 's@^origin/@@' \
