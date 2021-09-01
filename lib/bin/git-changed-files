@@ -9,4 +9,4 @@ default_branch() {
 }
 
 compare=${1:-$(default_branch)}
-git --no-pager diff --diff-filter=d --name-only "$(git fork-point "$compare" HEAD)"
+git --no-pager diff --diff-filter=d --name-only "$(git fork-point "$compare" HEAD || git merge-base "$compare" HEAD)"
