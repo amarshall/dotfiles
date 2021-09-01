@@ -182,6 +182,7 @@ head[prefix~="medium-com:"] + body .metabar {
     font-variant-ligatures: normal !important;
   }
 
+  code, pre, tt,
   .blob-code-inner,
   .blob-num,
   .file-info {
