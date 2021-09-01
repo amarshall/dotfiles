@@ -11,8 +11,9 @@
 	fork-point = merge-base --fork-point
 	pop = reset --soft HEAD~1
 	reword = commit --only --amend
-	rc = rebase --continue
-	ri = rebase --interactive
+	rb = rebase
+	rbc = rebase --continue
+	rbi = rebase --interactive
 	rs = restore
 	root = rev-parse --show-toplevel
 	st = status
