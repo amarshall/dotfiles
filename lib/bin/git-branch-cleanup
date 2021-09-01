@@ -43,7 +43,7 @@ ignorable_branches() {
 }
 
 branches_to_delete() {
-  comm -23 <(deletable_branches "$@" | sort) <(ignorable_branches | sort)
+  comm -23 <(deletable_branches "$@" | sort) <(ignorable_branches | sort) | uniq
 }
 
 for branch in $(branches_to_delete "$@"); do
