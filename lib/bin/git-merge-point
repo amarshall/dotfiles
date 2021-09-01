@@ -7,8 +7,10 @@ set -e
 rev=$1
 head=${2:-HEAD}
 
+has_gnu_comm=$(comm --version 2>/dev/null | grep --quiet --fixed-strings GNU; echo $?)
+
 comm_compat() {
-  if comm --version | grep --quiet --fixed-strings GNU; then
+  if [[ $has_gnu_comm = 0 ]]; then
     comm --nocheck-order "$@"
   else
     comm "$@"
