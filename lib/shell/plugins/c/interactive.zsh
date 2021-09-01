@@ -4,4 +4,10 @@ c() {
     return 1
   fi
   cd ~/Code/*/$1
+  if [[ -n $TMUX ]] && ( \
+      [[ $(tmux display-message -p '#W') == $(basename "$SHELL") ]] \
+        || (($(tmux list-panes | wc -l) == 1)) \
+      ); then
+    tmux rename-window "$1"
+  fi
 }
