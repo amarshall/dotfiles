@@ -71,7 +71,7 @@ let g:vim_json_syntax_conceal = 0
 let g:latex_to_unicode_tab = 0
 
 " LSP
-if has('nvim')
+if has('nvim-0.5.0')
   lua << LUA
   require'lspconfig'.pylsp.setup{
     settings = {
