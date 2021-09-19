@@ -66,6 +66,8 @@ nnoremap <leader>fl :NERDTreeToggle<CR>
 let g:which_key_map.f.L = 'open file list tree at current file'
 nnoremap <leader>fL :NERDTreeFind<CR>
 
+autocmd FileType gitcommit nnoremap <leader>gf ggd/message #2:<CR>dj
+
 nnoremap <leader>h :nohlsearch<CR>
 
 let g:which_key_map.t = {'name': '+tags'}
