@@ -89,6 +89,8 @@ if has('nvim-0.5.0')
   require'lspconfig'.solargraph.setup{}
   require'lspconfig'.rust_analyzer.setup{}
 LUA
+else
+  let g:lspconfig = 1 " Prevent plugin loading
 endif
 
 " Markdown
