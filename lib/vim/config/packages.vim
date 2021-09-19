@@ -2,7 +2,6 @@ function s:lazyload(plugin, file_types)
   execute "autocmd FileType " . a:file_types . " packadd " . a:plugin
 endfunction
 
-call s:lazyload("LanguageClient", "python,ruby,rust")
 call s:lazyload("bundler", "ruby")
 call s:lazyload("ensime", "java,scala")
 call s:lazyload("fireplace", "clojure")
