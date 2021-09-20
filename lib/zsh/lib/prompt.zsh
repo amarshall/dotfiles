@@ -118,3 +118,4 @@ function __precmd_title() {
 
 precmd_functions=(__precmd_title $precmd_functions)
 PROMPT='$(__prompt prompt)'
+RPROMPT=''
