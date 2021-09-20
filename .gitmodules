@@ -106,6 +106,9 @@
 [submodule "lib/vim/bundle/nginx.vim"]
 	path = lib/vim/bundle/nginx
 	url = https://github.com/chr4/nginx.vim.git
+[submodule "lib/vim/bundle/nix"]
+	path = lib/vim/bundle/nix
+	url = https://github.com/LnL7/vim-nix.git
 [submodule "lib/vim/bundle/nvim-lspconfig"]
 	path = lib/vim/bundle/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
