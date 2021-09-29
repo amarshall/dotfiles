@@ -73,7 +73,13 @@ let g:latex_to_unicode_tab = 0
 " LSP
 if has('nvim-0.5.0')
   lua << LUA
+  local on_attach = function(client, bufnr)
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end
+
   require'lspconfig'.pylsp.setup{
+    on_attach = on_attach,
     settings = {
       pylsp = {
         configurationSources = {"flake8"},
@@ -86,8 +92,12 @@ if has('nvim-0.5.0')
       },
     },
   }
-  require'lspconfig'.solargraph.setup{}
-  require'lspconfig'.rust_analyzer.setup{}
+  require'lspconfig'.solargraph.setup{
+    on_attach = on_attach,
+  }
+  require'lspconfig'.rust_analyzer.setup{
+    on_attach = on_attach,
+  }
 LUA
 else
   let g:lspconfig = 1 " Prevent plugin loading
