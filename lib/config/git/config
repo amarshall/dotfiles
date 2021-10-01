@@ -39,15 +39,15 @@
 [init]
 	defaultBranch = main
 [interactive]
-	diffFilter = diff-highlight
+	diffFilter = diffr --colors refine-removed:none:foreground:black:background:red --colors refine-added:none:foreground:black:background:green
 [log]
 	decorate = true
 	showSignature = true
 [pager]
 	branch = $PAGER --quit-if-one-screen --no-init
-	diff = diff-highlight | $PAGER
-	log = diff-highlight | $PAGER
-	show = diff-highlight | $PAGER
+	diff = diffr --colors refine-removed:none:foreground:black:background:red --colors refine-added:none:foreground:black:background:green | $PAGER
+	log = diffr --colors refine-removed:none:foreground:black:background:red --colors refine-added:none:foreground:black:background:green | $PAGER
+	show = diffr --colors refine-removed:none:foreground:black:background:red --colors refine-added:none:foreground:black:background:green | $PAGER
 	unpulled = false
 	unpushed = false
 [pull]
