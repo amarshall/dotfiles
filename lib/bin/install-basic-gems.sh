@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 base_gems_with_doc=(
   bundler

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Finds the commit which merged `rev` into `head`.
 
