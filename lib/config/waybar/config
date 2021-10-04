@@ -14,6 +14,10 @@
     "clock#utc",
     "clock#local"
   ],
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
   "clock#utc": {
     "timezone": "Etc/UTC",
     "tooltip-format": "{:%Y-%m-%d %H:%M:%S %Z}",
@@ -54,6 +58,22 @@
     "format-disconnected": "⚠ Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "interval": 2
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
