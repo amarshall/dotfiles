@@ -48,10 +48,10 @@
     "interval": 2
   },
   "network": {
-    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-wifi": " {essid} ({signalStrength}%)",
     "format-ethernet": "{ifname} ↓{bandwidthDownBits:>10} ↑{bandwidthUpBits:>10}",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
+    "format-linked": " {ifname} (No IP)",
+    "format-disconnected": "⚠ Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "interval": 2
   },
