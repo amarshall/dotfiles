@@ -29,6 +29,7 @@
 	autocrlf = input
 [fetch]
 	prune = true
+	recurseSubmodules = on-demand
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -54,5 +55,8 @@
 	ff = only
 [push]
 	default = simple
+	recurseSubmodules = off
+[submodule]
+	recurse = true
 [rebase]
 	autosquash = true
