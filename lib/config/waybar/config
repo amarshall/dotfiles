@@ -5,7 +5,7 @@
   "modules-center": [],
   "modules-right": [
     "tray",
-    "custom/spotify",
+    "custom/mediaplayer",
     "idle_inhibitor",
     "network",
     "cpu",
@@ -33,12 +33,11 @@
     "format": "CPU {usage:>3}%",
     "interval": 2
   },
-  "custom/spotify": {
-    "format": " {}",
+  "custom/mediaplayer": {
+    "format": "{}",
     "return-type": "json",
     "max-length": 40,
-    "exec": "$HOME/.config/waybar/mediaplayer 2> /dev/null",
-    "exec-if": "pgrep spotify"
+    "exec": "$HOME/.config/waybar/mediaplayer 2> /dev/null"
   },
   "idle_inhibitor": {
     "format": "{icon}",
