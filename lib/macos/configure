@@ -57,6 +57,10 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 25
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 
+## Trackpad
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
 ## Date & Time
 sudo systemsetup -setnetworktimeserver 'us.pool.ntp.org'
 defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm:ss'
