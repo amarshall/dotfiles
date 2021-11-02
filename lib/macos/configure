@@ -3,6 +3,7 @@
 # System Preferences
 
 ## General
+defaults write NSGlobalDomain AppleActionOnDoubleClick -string None
 defaults write NSGlobalDomain AppleAquaColorVariant -int 6
 defaults write NSGlobalDomain AppleHighlightColor -string '0.847059 0.847059 0.862745'
 defaults write NSGlobalDomain AppleInterfaceStyle -string 'Dark'
