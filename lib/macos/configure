@@ -61,6 +61,19 @@ defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 
+## Touch Bar
+defaults write com.apple.touchbar.agent PresentationModeGlobal -string fullControlStrip
+#     "com.apple.controlstrip" =     {
+#        FullCustomized =         (
+#            "com.apple.system.group.volume",
+#            "com.apple.system.group.media",
+#            "com.apple.system.group.brightness",
+#            "com.apple.system.mission-control",
+#            "com.apple.system.launchpad",
+#            "com.apple.system.group.keyboard-brightness",
+#            "com.apple.system.siri"
+#        );
+
 ## Date & Time
 sudo systemsetup -setnetworktimeserver 'us.pool.ntp.org'
 defaults write com.apple.menuextra.clock DateFormat -string 'EEE MMM d  H:mm:ss'
