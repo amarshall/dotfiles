@@ -94,6 +94,9 @@ sudo tmutil disablelocal
 
 # Applications
 
+## Activity Monitor
+defaults write com.apple.ActivityMonitor UpdatePeriod -int 2
+
 ## Archive Utility
 # shellcheck disable=SC2088
 default write com.apple.archiveutility dearchive-move-after -string '~/.Trash'
