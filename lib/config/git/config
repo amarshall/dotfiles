@@ -1,3 +1,6 @@
+[submodule]
+	recurse = true
+
 [advice]
 	commitBeforeMerge = false
 	detachedHead = false
@@ -56,7 +59,5 @@
 [push]
 	default = simple
 	recurseSubmodules = off
-[submodule]
-	recurse = true
 [rebase]
 	autosquash = true
