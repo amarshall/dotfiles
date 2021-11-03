@@ -4,7 +4,7 @@ cabbrev %S %Subvert
 
 " Ack
 if executable('rg')
-  let g:ackprg = 'rg --vimgrep --sort path'
+  let g:ackprg = 'sh -c ''rg --vimgrep "$@" \| sort --field-separator=: --key=1,1 --stable'' --'
 elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
