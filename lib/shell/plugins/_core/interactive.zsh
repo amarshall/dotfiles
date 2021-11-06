@@ -46,7 +46,7 @@ if type /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEn
   alias screensaver=/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine
 fi
 
-if [ -x /usr/bin/dircolors ]; then
+if command -v dircolors &> /dev/null; then
   if alias ls &> /dev/null; then
     ls=$(alias ls | awk -F"'" '{print $(NF-1)}')
     alias ls="$ls --color=auto"
