@@ -74,6 +74,7 @@ endif
 
 augroup CursorLine
   autocmd!
+  autocmd ColorScheme * hi CursorLineNr cterm=NONE
   autocmd BufWinEnter,FocusGained,WinEnter * setlocal cursorline
   autocmd FocusLost,WinLeave * setlocal nocursorline
 augroup END
