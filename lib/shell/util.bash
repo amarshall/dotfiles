@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Takes as args either:
 #
 #   none
