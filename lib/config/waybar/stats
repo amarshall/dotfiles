@@ -1,0 +1,46 @@
+#!/bin/python3
+
+from pathlib import Path
+import re
+import typing as T
+
+PRESSURE_PAT = re.compile(
+    r'''
+    ^
+    (?P<variant>some|full)
+    \s+
+    avg10=(?P<avg10>[0-9.]+)
+    \s+
+    avg60=(?P<avg60>[0-9.]+)
+    \s+
+    avg300=(?P<avg300>[0-9.]+)
+    \s+
+    total=(?P<total>[0-9.]+)
+    $
+    ''',
+    re.X,
+    )
+
+PRESSURE_TYPES: T.Final = {
+    'cpu': Path('/proc/pressure/cpu'),
+    'io': Path('/proc/pressure/io'),
+    'memory': Path('/proc/pressure/memory'),
+    }
+
+for path in PRESSURE_TYPES.values():
+    with open(path) as f:
+        lines = f.readlines()
+
+
+'''
+==> /proc/pressure/cpu <==
+some avg10=0.00 avg60=0.00 avg300=0.00 total=52227973
+
+==> /proc/pressure/io <==
+some avg10=0.00 avg60=0.00 avg300=0.00 total=70707455
+full avg10=0.00 avg60=0.00 avg300=0.00 total=69866343
+
+==> /proc/pressure/memory <==
+some avg10=0.00 avg60=0.00 avg300=0.00 total=3430219
+full avg10=0.00 avg60=0.00 avg300=0.00 total=1985628
+'''

@@ -29,10 +29,10 @@ XDG_DEFAULT_HOMES = {
   'CACHE' => HOME.join('.cache'),
   'CONFIG' => HOME.join('.config'),
 }.freeze
-LNK_ROOT = xdg_home('CONFIG').join('dotfiles').freeze
+LNK_ROOT = Pathname.new(ENV.fetch('LNK_ROOT', xdg_home('CONFIG').join('dotfiles'))).freeze
 SRC_ROOT = Pathname.new(__dir__).parent.freeze
 
-Options = Struct.new(:dry_run, :fast, :force, :verbose)
+Options = Struct.new(:dry_run, :fast, :force, :link_only, :verbose)
 
 def exe_exists?(exe)
   _, _, wait_thr = Open3.popen2('command', '-v', exe, out: '/dev/null', err: '/dev/null')
@@ -136,7 +136,7 @@ def run(dry_run: $options.dry_run)
 end
 
 def parse_options
-  options = Options.new(false, false, false)
+  options = Options.new(false, false, false, false)
   OptionParser.new do |opts|
     opts.banner = 'Usage: install [options]'
     opts.on('-d', '--dry-run', 'Output what would be done without doing anything') do |val|
@@ -147,6 +147,9 @@ def parse_options
     end
     opts.on('-F', '--fast', 'Skips submodule initialization') do
       options.fast = true
+    end
+    opts.on('--link-only', 'Only perform linking steps') do |val|
+      options.force = val
     end
     opts.on('--verbose', 'Log verbose messaging') do |val|
       options.verbose = val
@@ -199,6 +202,7 @@ def install!
   end
 
   step 'Auditing Vim packages' do
+    return if $options.link_only
     bundle_plugins = SRC_ROOT.join('lib/vim/bundle').children.to_set
     start_packages = SRC_ROOT.join('lib/vim/pack/user/start').children
     opt_packages = SRC_ROOT.join('lib/vim/pack/user/opt').children
@@ -234,6 +238,7 @@ def install!
   end
 
   step 'Cloning into config' do
+    return if $options.link_only
     run { LNK_ROOT.mkpath }
     run do
       system!(
@@ -293,6 +298,7 @@ def install!
 
   if `uname`.strip =~ /\bdarwin\b/i
     step 'Linking macOS-specific configuration' do
+      return if $options.link_only
       key_bindings_path = HOME.join('Library/KeyBindings')
       run { key_bindings_path.mkpath }
       link(LNK_ROOT.join('macos/DefaultKeyBinding.dict'), key_bindings_path.join('DefaultKeyBinding.dict'))
@@ -300,6 +306,7 @@ def install!
   end
 
   step 'Installing terminfo entries' do
+    return if $options.link_only
     if exe_exists?('toe')
       SRC_ROOT.join('lib', 'terminfo').children.each do |entry|
         name = entry.basename.to_s.split('.', 2).first
@@ -314,12 +321,14 @@ def install!
 
   # [TODO] Entries here should be removed every so often
   step 'Manually migrating some files' do
+    return if $options.link_only
     move_or_delete(HOME.join('.irb_history'), HOME.join(xdg_home('DATA').join('irb', 'history')))
     move_or_delete(HOME.join('.pry_history'), HOME.join(xdg_home('DATA').join('pry', 'history')))
     move_or_delete(HOME.join('.zsh_history'), HOME.join(xdg_home('DATA').join('zsh', 'history')))
   end
 
   step 'Pruning dead links' do
+    return if $options.link_only
     def prune_dead(src_dir:, dst_dir:)
       src_dir.children.select(&:symlink?).each do |file|
         dst = file.readlink

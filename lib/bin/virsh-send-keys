@@ -24,8 +24,10 @@ def keychord(char: str, mode: str = None) -> T.List[str]:
 
 
 def virsh_send_key(vm: str, keycodes: T.List[str]) -> None:
-    print(f'sending {keycodes}')
-    subprocess.check_call(['sudo', 'virsh', 'send-key', vm, *keycodes])
+    subprocess.check_call(
+        ['sudo', 'virsh', 'send-key', vm, *keycodes],
+        stdout=subprocess.DEVNULL,
+        )
 
 
 vm = sys.argv[1]
@@ -35,6 +37,10 @@ if len(sys.argv) > 2:
 assert vm
 
 string = sys.stdin.read()
-for char in string:
-    chord = keychord(char, mode)
-    virsh_send_key(vm=vm, keycodes=chord)
+chords = list(map(lambda char: keychord(char, mode), string))
+for chord in chords:
+    try:
+        virsh_send_key(vm=vm, keycodes=chord)
+    except subprocess.CalledProcessError:
+        sys.exit(1)
+print(f'Sent {len(chords)} keychords')

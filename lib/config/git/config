@@ -61,3 +61,5 @@
 	recurseSubmodules = off
 [rebase]
 	autosquash = true
+[url "ssh://git@github.com/viewthespace/"]
+	insteadOf = "https://github.com/viewthespace/"

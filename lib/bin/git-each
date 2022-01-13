@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+
+import argparse
+import re
+import subprocess
+import typing as T
+
+parser = argparse.ArgumentParser()
+# parser.add_argument(
+#     '--invert',
+#     action='store_true',
+#     help='include when the command fails, rather than succeeds',
+#     )
+parser.add_argument('commitish')
+parser.add_argument('command', nargs='+')
+args = parser.parse_args()
+
+commitish = args.commitish
+command = args.command
+
+
+def rev_list() -> T.List[str]:
+    return subprocess\
+        .check_output(['git', 'rev-list', '--reverse', commitish], text=True)\
+        .splitlines()
+
+
+def current_ref() -> str:
+    ref = subprocess.check_output(['git', 'symbolic-ref', 'HEAD'], text=True)
+    return re.sub(r'^refs/heads/', '', ref)
+
+
+def run(rev: str, command: T.List[str]) -> bool:
+    subprocess.check_call(['git', 'checkout', rev], stdout=subprocess.DEVNULL)
+    proc = subprocess.run(command)
+    is_success = proc.returncode == 0
+    return is_success
+
+
+original_ref = current_ref()
+results = []
+for rev in rev_list():
+    is_success = run(rev=rev, command=command)
+    results.append((rev, is_success))
+subprocess.check_call(['git', 'checkout', original_ref])
+
+for (ref, is_success) in results:
+    if is_success:
+        state = 'pass'
+    else:
+        state = 'FAIL'
+    print(f'{ref}: {state}')

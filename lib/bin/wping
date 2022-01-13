@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -eo pipefail
+
+trap 'exit 1' INT
+
+did_print=0
+while ! ping -c1 "$@" &>/dev/null; do
+  did_print=1
+  printf .
+  sleep 1
+done
+if [[ $did_print = 1 ]]; then
+  echo
+fi

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+this_branch=$(git branch --show-current)
+other_branch="$1"
+
+fatal() {
+  echo "$1" >&2
+  exit 1
+}
+
+if [[ -z $this_branch ]]; then
+  fatal 'error: must be on a branch'
+fi
+
+if ! git diff --quiet; then
+  fatal 'error: working tree is dirty'
+fi
+
+git merge --strategy ours -m "Merge branch $other_branch into '$this_branch'" "$other_branch"
+git switch --detach "$other_branch"
+git reset --soft "$this_branch"
+git switch "$this_branch"
+git commit --amend --reuse-message HEAD

@@ -10,4 +10,8 @@ export SDL_VIDEODRIVER=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
 
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+
 exec systemd-cat --identifier sway dbus-run-session -- sway "$@"

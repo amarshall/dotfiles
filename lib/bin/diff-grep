@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -eo pipefail
+
+if command -v ggrep &>/dev/null; then
+  alias grep=ggrep
+fi
+
+perl -pe 's/^@@.*$/\0/g' | grep --null-data "$@"

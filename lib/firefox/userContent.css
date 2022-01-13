@@ -234,6 +234,14 @@ head[prefix~="medium-com:"] + body .metabar {
   }
 }
 
+@-moz-document domain("stackoverflow.com") {
+  body {
+    --ff-sans: sans-serif !important;
+    --ff-serif: serif !important;
+    --ff-mono: monospace !important;
+  }
+}
+
 @-moz-document domain("wikipedia.org") {
   body {
     font-family: sans-serif !important;
@@ -245,6 +253,7 @@ head[prefix~="medium-com:"] + body .metabar {
     font-family: serif !important;
   }
 }
+@-moz-document domain("youtube.com") {
 
 @-moz-document domain("youtube.com") {
   .ytp-suggestion-set {
